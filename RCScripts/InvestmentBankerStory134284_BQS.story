@@ -32,9 +32,23 @@ When I click on the investment banker location
 Then I verify banker project name is displayed
 When I clear location text field
 When I click on 'Core Activity'
-And I select option in core activity
+And I select option in core activity of investment banker
+Then I verify service of 'Capital Raising' is displayed
+And I verify service of 'Equity' is not displayed
+And I verify service of 'Debt' is not displayed
+When I click on 'Core Activity'
+And I select two option in core activity
+Then I verify service of 'Capital Raising' is displayed
+And I verify service of 'Equity' is not displayed
+And I verify service of 'Debt' is not displayed
+When I click on 'Core Activity'
+And I clear core activity field of banker
+When I click on 'Core Activity'
+And I select option in core activity of investment banker
 Then I verify banker company name of all search option is displayed
 And I verify banker service name of all search option is displayed
+When I click on 'Core Activity'
+And I select option in core activity of investment banker
 When I click on 'Core Activity'
 And I click equity in core activity
 Then I verify banker company name of all search option is displayed
@@ -60,11 +74,25 @@ And I click recapitalizations in core activity
 Then I verify banker company name of all search option is displayed
 And I verify banker service name of all search option is displayed
 When I click on 'Core Activity'
-And I clear core activity field
+And I clear core field of banker
+And I click on 'Asset Experience'
+And I select option in asset experience of banker
+Then I verify service of 'Health Care' is displayed
+And I verify service of 'Storage' is not displayed
+And I verify service of 'Commercial' is not displayed
+When I click on 'Asset Experience'
+And I click on two options of banker in asset field
+Then I verify service of 'Health Care' is displayed
+And I verify service of 'Storage' is not displayed
+And I verify service of 'Commercial' is not displayed
+When I click on 'Asset Experience'
+And I clear asset field of banker
 And I click on 'Asset Experience'
 And I select option in 'Asset Experience'
 Then I verify banker company name of all search option is displayed
 And I verify banker service name of all search option is displayed
+When I click on 'Asset Experience'
+And I select option in 'Asset Experience'
 When I click on 'Asset Experience'
 And I click on multi option in asset
 Then I verify banker company name of all search option is displayed
@@ -122,6 +150,8 @@ And I click on residential multi option in asset
 Then I verify banker company name of all search option is displayed
 And I verify banker service name of all search option is displayed
 When I click on 'Asset Experience'
+And I clear residential field in asset option
+When I click on 'Asset Experience'
 And I click on mixed option in asset
 Then I verify banker company name of all search option is displayed
 And I verify banker service name of all search option is displayed
@@ -136,10 +166,24 @@ And I verify banker service name of all search option is displayed
 When I click on 'Asset Experience'
 And I clear asset options in asset drop down field
 And I click on 'Deal Stage'
+And I select option in deal stage
+Then I verify service of 'Ready for Purchase' is displayed
+And I verify service of 'Pursuit' is not displayed
+And I verify service of 'LOI' is not displayed
+When I click on 'Deal Stage'
+And I select two options in deal stage of banker
+Then I verify service of 'Ready for Purchase' is displayed
+And I verify service of 'Pursuit' is not displayed
+And I verify service of 'LOI' is not displayed
+When I click on 'Deal Stage'
+And I clear deal stage of banker
+And I click on 'Deal Stage'
 And I select a option in 'DealStage'
 Then I verify banker company name of all search option is displayed
 And I verify banker service name of all search option is displayed
 When I click on 'Deal Stage'
+And I select a option in 'DealStage'
+And I click on 'Deal Stage'
 And I click on concept option in deal stage
 Then I verify banker company name of all search option is displayed
 And I verify banker service name of all search option is displayed
