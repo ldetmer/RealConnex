@@ -151,7 +151,7 @@ public class InvestmentBankerPage extends FluentWebDriverPage {
             int linksCount = links.size();
             linksCount = linksCount/2;
             for(int i=1;i<=linksCount;i++){
-                String strAdvisor = ReadData.readDataExcel("ValidationDetails", RowIndex, "BrokerOfAllOption");
+                String strAdvisor = ReadData.readDataExcel("ValidationDetails", RowIndex, "InvestmentBankerOfAllOption");
                 String strCompanyName = findElement(By.xpath("//tbody[@id='searchResults']/tr["+i+"]/td/a/strong/span")).getText();
                 if(strAdvisor.contains(strCompanyName))
                 {
@@ -174,7 +174,7 @@ public class InvestmentBankerPage extends FluentWebDriverPage {
             int linksCount = links.size();
             linksCount = linksCount/2;
             for(int i=1;i<=linksCount;i++){
-                String strServiceName = ReadData.readDataExcel("ValidationDetails", RowIndex, "BrokerOfAllOption");
+                String strServiceName = ReadData.readDataExcel("ValidationDetails", RowIndex, "InvestmentBankerOfAllOption");
                 String strService = findElement(By.xpath("//tbody[@id='searchResults']/tr["+i+"]/td/a/strong/span")).getText();
                 if(strServiceName.contains(strService))
                 {
@@ -189,7 +189,7 @@ public class InvestmentBankerPage extends FluentWebDriverPage {
 
     public void selectActivity(){
         //wait until core activity field appears
-        WaitUtil.simpleSleep(500);
+        WaitUtil.simpleSleep(100);
         findElement(By.id("AssetstrategyId_checkbox_90")).click();
         findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/div/label[contains(text(),'Core Activities:')]/following-sibling::div/div/div[@class='field']/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
@@ -285,47 +285,81 @@ public class InvestmentBankerPage extends FluentWebDriverPage {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void selectAsset(){
-        findElement(By.id("AssettypeId_checkbox_5")).click();
-        findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/div/div/div/span")).click();
         //wait until asset field appears
-        WaitUtil.simpleSleep(100);
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("AssettypeId_checkbox_13")).click();
+        findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/div/label[contains(text(),'Asset Experience:')]/following-sibling::div/div/div[@class='field']/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectTwoOption(){
+        //wait until asset field appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("AssettypeId_checkbox_15")).click();
+        findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/div/label[contains(text(),'Asset Experience:')]/following-sibling::div/div/div[@class='field']/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clearAssetField(){
+        //wait until asset field appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("AssettypeId_checkbox_13")).click();
+        findElement(By.id("AssettypeId_checkbox_15")).click();
+        findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/div/label[contains(text(),'Asset Experience:')]/following-sibling::div/div/div[@class='field']/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void selectDeal(){
-        findElement(By.id("DealstageId_checkbox_8")).click();
-        findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[5]/div/div/div/span")).click();
-        //wait until asset field appears
-        WaitUtil.simpleSleep(100);
+        //wait until deal stage field appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("DealstageId_checkbox_7")).click();
+        findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/div/label[contains(text(),'Deal Stage:')]/following-sibling::div/div/div[@class='field']/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
+
+    public void selectOptionOfDeal(){
+        //wait until deal stage field appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("DealstageId_checkbox_8")).click();
+        findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/div/label[contains(text(),'Deal Stage:')]/following-sibling::div/div/div[@class='field']/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clearDeal(){
+        //wait until deal stage field appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("DealstageId_checkbox_7")).click();
+        findElement(By.id("DealstageId_checkbox_8")).click();
+        findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/div/label[contains(text(),'Deal Stage:')]/following-sibling::div/div/div[@class='field']/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

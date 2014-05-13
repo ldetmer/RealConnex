@@ -32,31 +32,4 @@ public class DeveloperDealAndFundSponsorPage extends FluentWebDriverPage{
         }
     }
 
-    public void verifyDeveloperName(int RowIndex){
-        try{
-            String strDeveloperName = ReadData.readDataExcel("DealSponsorDeveloperFund", RowIndex, "DeveloperName");
-            String strText =  findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text()'"+strDeveloperName+"')]")).getText();
-            Assert.assertTrue(strDeveloperName,strText.contains(strDeveloperName));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public void clickVerifyDeveloperName(int RowIndex){
-        try{
-            String strVerifyDeveloperName = ReadData.readDataExcel("DealSponsorDeveloperFund", RowIndex, "DeveloperName");
-            findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strVerifyDeveloperName+"')]")).click();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public void selectStrategyForUser(){
-        findElement(By.id("AssetstrategyId_checkbox_33")).click();
-        //wait until checkbox appear
-        WaitUtil.simpleSleep(100);
-        findElement(By.id("AssetstrategyId_checkbox_63")).click();
-        findElement(By.id("AssetstrategyId_checkbox_58")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[2]/div/div/div[1]/span[1]")).click();
-    }
 }
