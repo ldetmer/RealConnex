@@ -1,0 +1,135 @@
+package test.pages;
+
+
+import org.jbehave.web.selenium.FluentWebDriverPage;
+import org.jbehave.web.selenium.WebDriverProvider;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import test.Support.ReadData;
+
+import java.util.List;
+
+public class CompaniesOfDeveloperValidationPage extends FluentWebDriverPage {
+    ReadData ReadData = new ReadData();
+
+    public CompaniesOfDeveloperValidationPage(WebDriverProvider driverProvider){
+        super(driverProvider);
+    }
+
+    public void companyOfDeveloperIsDisplayed(int RowIndex,String strColumnName){
+        try {
+            String strOtherUser = ReadData.readDataExcel("ValidationDetails", RowIndex, strColumnName);
+            //findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strOtherUser+"')]")).isDisplayed();
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strOtherUser+"')]"), getDriverProvider().get()));
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        //wait until page gets loaded
+        WaitUtil.simpleSleep(500);
+    }
+
+    public boolean companyDeveloperNotDisplayed(int RowIndex, String strColumnName){
+        boolean status = false;
+        try{
+            List<WebElement> links;
+            //wait until page gets loaded
+            WaitUtil.simpleSleep(5000);
+            links =  findElements(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span"));
+            int linksCount = links.size();
+            linksCount = linksCount/2;
+            for(int i=1;i<=linksCount;i++){
+                String strOtherUser = ReadData.readDataExcel("ValidationDetails", RowIndex, strColumnName);
+                //wait until page gets loaded
+                WaitUtil.simpleSleep(1000);
+                String strName = findElement(By.xpath("//tbody[@id='searchResults']/tr["+i+"]/td/a/strong/span")).getText();
+                if(strName.equals(strOtherUser))
+                {
+                    status = true;
+                    break;
+                } else {
+                    status = true;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return status;
+    }
+
+    public void selectOptionInRouteToSponsor(){
+        //wait until drop down field appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("RouteId_checkbox_2")).click();
+        findElement(By.xpath("//div[@class='field clearfix']/label[contains(text(),'Route to Sponsor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clearRouteSponsor(){
+        //wait until drop down field appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("RouteId_checkbox_2")).click();
+        findElement(By.id("RouteId_checkbox_4")).click();
+        findElement(By.xpath("//div[@class='field clearfix']/label[contains(text(),'Route to Sponsor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void developerOfAllSearch(int RowIndex){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        try {
+            String strAllCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", RowIndex, "DeveloperAllSearch");
+            //wait until page loads
+            WaitUtil.simpleSleep(5000);
+            //findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strAllCompanyName+"')]")).isDisplayed();
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strAllCompanyName+"')]"), getDriverProvider().get()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void selectSolarAndHotelOption(){
+        //wait until project drop down appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("AssettypeId_checkbox_5")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clearAssetOptions(){
+        //wait until project drop down appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("AssettypeId_checkbox_16")).click();
+        findElement(By.id("AssettypeId_checkbox_5")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectOpportunisticAndCorePlus(){
+        //wait until project drop down appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("RiskprofileId_checkbox_2")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clearRiskProfileOptions(){
+        //wait until project drop down appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("RiskprofileId_checkbox_5")).click();
+        findElement(By.id("RiskprofileId_checkbox_2")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clickSalesAndOperating(){
+        //wait until strategy field appears
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("AssetstrategyId_checkbox_57")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clearAssetStrategy(){
+        //wait until strategy drop down field appears
+        WaitUtil.simpleSleep(100);
+        executeScript("scrollTo(0,650)");
+        findElement(By.id("AssetstrategyId_checkbox_63")).click();
+        findElement(By.id("AssetstrategyId_checkbox_57")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+}
