@@ -21,10 +21,6 @@ public class PageFactory {
         return new BrowserPage(webDriverProvider);
     }*/
 
-    public UserAsDealSponsorPage newUserAsDealSponsorPage() {
-        return new UserAsDealSponsorPage(webDriverProvider);
-    }
-
     public LoginRealConnexPage newLoginRealConnexPage () {
         return new LoginRealConnexPage(webDriverProvider);
     }
@@ -100,40 +96,81 @@ public class PageFactory {
         return new CompaniesOfDeveloperPage(webDriverProvider);
     }
 
-    public CompaniesOfFundSponsor newCompaniesOfFundSponsor(){
-        return new CompaniesOfFundSponsor(webDriverProvider);
+
+    public CompaniesOfFundSponsorPage newCompaniesOfFundSponsorPage(){
+        return new CompaniesOfFundSponsorPage(webDriverProvider);
+    }
+
+    public CompaniesOfFundSponsorValidationPage newCompaniesOfFundSponsorValidationPage(){
+        return new CompaniesOfFundSponsorValidationPage(webDriverProvider);
     }
 
     public  CompaniesOfDealDeveloperFundPage newCompaniesOfDealDeveloperFundPage(){
         return new  CompaniesOfDealDeveloperFundPage(webDriverProvider);
     }
 
-    public  AdvisorSearchPage newAdvisorSearchPage(){
-        return new  AdvisorSearchPage(webDriverProvider);
+    public ProjectOfAdvisorSearchPage newProjectOfAdvisorSearchPage(){
+        return new ProjectOfAdvisorSearchPage(webDriverProvider);
     }
 
-    public  BrokerPage newBrokerPage(){
-        return new BrokerPage(webDriverProvider);
+    public ProjectOfAdvisorSearchValidationPage newProjectOfAdvisorSearchValidationPage(){
+        return new ProjectOfAdvisorSearchValidationPage(webDriverProvider);
     }
 
-    public  InvestmentBankerPage newInvestmentBankerPage(){
-        return new InvestmentBankerPage(webDriverProvider);
+    public ProjectOfBrokerSearchPage newProjectOfBrokerSearchPage(){
+        return new ProjectOfBrokerSearchPage(webDriverProvider);
+    }
+
+    public ProjectOfBrokerSearchValidationPage newProjectOfBrokerSearchValidationPage(){
+        return new ProjectOfBrokerSearchValidationPage(webDriverProvider);
+    }
+
+    public ProjectOfInvestmentBankerSearchPage newProjectOfInvestmentBankerSearchPage(){
+        return new ProjectOfInvestmentBankerSearchPage(webDriverProvider);
+    }
+
+    public ProjectOfInvestmentBankerSearchValidationPage newProjectOfInvestmentBankerSearchValidationPage(){
+        return new ProjectOfInvestmentBankerSearchValidationPage(webDriverProvider);
+    }
+
+    public  CompanyOfAdvisorSearchPage newCompanyOfAdvisorSearchPage(){
+        return new  CompanyOfAdvisorSearchPage(webDriverProvider);
+    }
+
+    public CompanyOfAdvisorValidationPage newCompanyOfAdvisorValidationPage(){
+        return  new CompanyOfAdvisorValidationPage(webDriverProvider);
+    }
+
+    public  CompanyOfBrokerPage newCompanyOfBrokerPage(){
+        return new CompanyOfBrokerPage(webDriverProvider);
+    }
+
+    public CompanyOfBrokerValidationPage newCompanyOfBrokerValidationPage(){
+        return new CompanyOfBrokerValidationPage(webDriverProvider);
+    }
+
+    public  CompanyOfInvestmentBankerPage newCompanyOfInvestmentBankerPage(){
+        return new CompanyOfInvestmentBankerPage(webDriverProvider);
+    }
+
+    public CompanyOfInvestmentBankerValidationPage newCompanyOfInvestmentBankerValidationPage(){
+        return new CompanyOfInvestmentBankerValidationPage(webDriverProvider);
     }
 
     public  CompanyProfilePage newCompanyProfilePage(){
         return new CompanyProfilePage(webDriverProvider);
     }
 
-    public  SearchOnProjectSizePage newSearchOnProjectSizePage(){
-        return new SearchOnProjectSizePage(webDriverProvider);
-    }
-
     public LogoutPage newLogoutPage() {
         return new LogoutPage(webDriverProvider);
     }
 
-    public InvestmentBankerDirectIntoPage newInvestmentBankerDirectIntoPage() {
-        return new InvestmentBankerDirectIntoPage(webDriverProvider);
+    public ProjectOfInvestmentDirectIntoPage newProjectOfInvestmentDirectIntoPage() {
+        return new ProjectOfInvestmentDirectIntoPage(webDriverProvider);
+    }
+
+    public ProjectOfInvestmentDirectIntoValidationPage newProjectOfInvestmentDirectIntoValidationPage(){
+        return new ProjectOfInvestmentDirectIntoValidationPage(webDriverProvider);
     }
 
     public InvestmentDirectIntoValidationPage newInvestmentDirectIntoValidationPage(){
@@ -142,5 +179,81 @@ public class PageFactory {
 
     public InvestmentDirectIntoCompanyPage newInvestmentDirectIntoCompanyPage(){
         return new InvestmentDirectIntoCompanyPage(webDriverProvider);
+    }
+
+    public InvestmentDirectIntoCompanyValidationPage newInvestmentDirectIntoCompanyValidationPage(){
+        return new InvestmentDirectIntoCompanyValidationPage(webDriverProvider);
+    }
+
+    public InvestmentFundCompanyPage newInvestmentFundCompanyPage(){
+        return new InvestmentFundCompanyPage(webDriverProvider);
+    }
+
+    public InvestmentFundCompanyValidationPage newInvestmentFundCompanyValidationPage(){
+        return new InvestmentFundCompanyValidationPage(webDriverProvider);
+    }
+
+    public InvestmentFundProjectPage newInvestmentFundProjectPage(){
+        return new InvestmentFundProjectPage(webDriverProvider);
+    }
+
+    public InvestmentFundProjectValidationPage newInvestmentFundProjectValidationPage(){
+        return new InvestmentFundProjectValidationPage(webDriverProvider);
+    }
+
+    public CompaniesOfDeveloperValidationPage newCompaniesOfDeveloperValidationPage() {
+        return new CompaniesOfDeveloperValidationPage(webDriverProvider);
+    }
+
+    public MoneyDebtMezzProjectSearchPage newMoneyDebtMezzProjectSearchPage (){
+        return new MoneyDebtMezzProjectSearchPage(webDriverProvider);
+    }
+
+    public MoneyDebtLoanCompanyPage newMoneyDebtLoanCompanyPage(){
+        return new MoneyDebtLoanCompanyPage(webDriverProvider);
+    }
+
+    public MoneyDebtLoanCompanyValidationPage newMoneyDebtLoanCompanyValidationPage(){
+        return new MoneyDebtLoanCompanyValidationPage(webDriverProvider);
+    }
+
+    public MoneyDebtLoanProjectPage newMoneyDebtLoanProjectPage(){
+        return new MoneyDebtLoanProjectPage(webDriverProvider);
+    }
+
+    public MoneyDebtLoanProjectValidationPage newMoneyDebtLoanProjectValidationPage() {
+        return new MoneyDebtLoanProjectValidationPage(webDriverProvider);
+    }
+
+    public MoneyDebtMezzProjectValidationPage newMoneyDebtMezzProjectValidationPage(){
+        return new MoneyDebtMezzProjectValidationPage(webDriverProvider);
+    }
+
+    public MoneyEquityFundCompanySearchPage newMoneyEquityFundCompanySearchPage(){
+        return new MoneyEquityFundCompanySearchPage(webDriverProvider);
+    }
+
+    public MoneyEquityFundProjectSearchPage newMoneyEquityFundProjectSearchPage(){
+        return new MoneyEquityFundProjectSearchPage(webDriverProvider);
+    }
+
+    public MoneyEquityFundCompanyValidationSearchPage newMoneyEquityFundCompanyValidationSearchPage(){
+        return new MoneyEquityFundCompanyValidationSearchPage(webDriverProvider);
+    }
+
+    public MoneyEquityFundProjectValidationSearchPage newMoneyEquityFundProjectValidationSearchPage(){
+        return new MoneyEquityFundProjectValidationSearchPage(webDriverProvider);
+    }
+
+    public MoneyDebtMezzCompanySearchPage newMoneyDebtMezzCompanySearchPage(){
+        return new MoneyDebtMezzCompanySearchPage(webDriverProvider);
+    }
+
+    public PrivacySetToPublicPage newPrivacySetToPublicPage() {
+        return new PrivacySetToPublicPage(webDriverProvider);
+    }
+
+    public SearchResultsPage newSearchResultsPage() {
+        return new SearchResultsPage(webDriverProvider);
     }
 }

@@ -1,11 +1,14 @@
 package test.pages;
 
+import org.jbehave.core.model.ExamplesTable;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.By;
 import test.Support.ReadData;
+import test.steps.VerificationStatements;
 
 import java.io.IOException;
+import java.util.Map;
 
 
 public class LoginRealConnexPage extends FluentWebDriverPage {
@@ -13,8 +16,10 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
     public LoginRealConnexPage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
+
     public void launchRealConnexPage() throws IOException {
         // Runtime.getRuntime().exec("D:\\SampleScenarios\\src\\AutoIt\\authenticationPopUp.exe");
+        getDriverProvider().get().manage().deleteAllCookies();
         get("http://realconnex.project-release.info/");
         manage().window().maximize();
     }
@@ -24,6 +29,7 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
             String strEmailId = ReadData.readDataExcel("LoginRealConnex", RowIndex, "EmailId");
             findElement(By.id("UserLoginPopupEmail")).click();
             findElement(By.id("UserLoginPopupEmail")).sendKeys(strEmailId);
+            VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("UserLoginPopupEmail"), strEmailId);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -34,6 +40,7 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
             String strPassword = ReadData.readDataExcel("LoginRealConnex", RowIndex, "Password");
             findElement(By.id("UserLoginPopupPassword")).click();
             findElement(By.id("UserLoginPopupPassword")).sendKeys(strPassword);
+            VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("UserLoginPopupPassword"), strPassword);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -43,4 +50,32 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
     public void clickLogIn(){
         findElement(By.cssSelector("input.login")).click();
     }
+
+    public void enterEmailId_Privacy(int RowIndex) throws Exception {
+        String lStrEmailId = ReadData.readDataExcel("LoginRealConnex", RowIndex, "EmailId");
+        findElement(By.id("UserLoginPopupEmail")).click();
+        findElement(By.id("UserLoginPopupEmail")).sendKeys(lStrEmailId);
+        VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserLoginPopupEmail"),lStrEmailId);
+    }
+
+    public void enterLoginDetails(ExamplesTable LoginDetailsTable){
+        String strEmailId = "", strPassword = "";
+        String strArr[] =new String[LoginDetailsTable.getRowCount()];
+        int i= 0;
+        for (Map<String,String> row : LoginDetailsTable.getRows()) {
+            strArr[i] = row.get("Value");
+            i++;
+        }
+        strEmailId = strArr[0];
+        strPassword = strArr[1];
+
+        findElement(By.id("UserLoginPopupEmail")).clear();
+        findElement(By.id("UserLoginPopupEmail")).sendKeys(strEmailId);
+        VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserLoginPopupEmail"),strEmailId);
+        findElement(By.id("UserLoginPopupPassword")).clear();
+        findElement(By.id("UserLoginPopupPassword")).sendKeys(strPassword);
+        VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserLoginPopupPassword"),strPassword);
+    }
+
+
 }

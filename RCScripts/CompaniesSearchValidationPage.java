@@ -1,8 +1,8 @@
 package test.pages;
 
-
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import test.Support.ReadData;
@@ -15,105 +15,66 @@ public class CompaniesSearchValidationPage extends FluentWebDriverPage{
         super(driverProvider);
     }
 
-    public void verifyInvestorCompanyName(int RowIndex){
-        try{
-            List<WebElement> links;
-            //wait until page gets loaded
-            WaitUtil.simpleSleep(5000);
-            links =  findElements(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span"));
-            int linksCount = links.size();
-            linksCount = linksCount/2;
-            for(int i=1;i<=linksCount;i++){
-                String strInvestorCompanyName = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "InvestorCompanyName");
-                String strCompanyName = findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong")).getText();
-                if(strInvestorCompanyName.contains(strCompanyName))
-                {
-                    System.out.println("Investor company name is not displayed");
-                }
-                else{
-                    System.out.println("Investor company name is displayed");
-                }
-            }
+    public void verifyDealSponsorCompanyNameNotDisplayed(String strDealSponsorCompany){
 
+        //wait until page loads
+        WaitUtil.simpleSleep(3000);
+        Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorCompany+"')]"), getDriverProvider().get()));
+    }
+
+    public void verifyDeveloperCompanyNameIsDisplayed(String strDeveloperCompany){
+
+        //wait until page loads
+        WaitUtil.simpleSleep(3000);
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDeveloperCompany+"')]"), getDriverProvider().get()));
+    }
+
+    public void verifyDeveloperCompanyNameNotDisplayed(String strDeveloperCompany){
+
+        //wait until page loads
+        WaitUtil.simpleSleep(3000);
+        Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDeveloperCompany+"')]"), getDriverProvider().get()));
+    }
+
+    public void enterDeveloperCompanyTitle(int RowIndex){
+        try{
+
+            //wait until company name appear
+            WaitUtil.simpleSleep(500);
+            String strCompanyName = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "CompanyNameOfDeveloper");
+            findElement(By.id("CompanyTitle")).click();
+            findElement(By.id("CompanyTitle")).sendKeys(strCompanyName);
         } catch (Exception e) {
             System.out.println(e);
         }
+
+        //wait until company name appear
+        WaitUtil.simpleSleep(15000);
     }
 
-    public void verifyLenderCompanyName(int RowIndex){
-        try{
-            List<WebElement> links;
-            //wait until page gets loaded
-            WaitUtil.simpleSleep(5000);
-            links =  findElements(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span"));
-            int linksCount = links.size();
-            linksCount = linksCount/2;
-            for(int i=1;i<=linksCount;i++){
-                String strInvestorCompanyName = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "LenderCompanyName");
-                String strCompanyName = findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong")).getText();
-                if(strInvestorCompanyName.contains(strCompanyName))
-                {
-                    System.out.println("Lender company name is not displayed");
-                }
-            }
+    public void clearInvestorCompanyTitle(){
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        //wait until company name appear
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("CompanyTitle")).clear();
+        findElement(By.id("CompanyTitle")).clear();
     }
 
-    public void verifyRealEstateCompanyName(int RowIndex){
+    public void enterDeveloperType(int RowIndex){
         try{
-            List<WebElement> links;
-            //wait until page gets loaded
-            WaitUtil.simpleSleep(5000);
-            links =  findElements(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span"));
-            int linksCount = links.size();
-            linksCount = linksCount/2;
-            for(int i=1;i<=linksCount;i++){
-                String strInvestorCompanyName = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "LenderCompanyName");
-                String strCompanyName = findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong")).getText();
-                if(strInvestorCompanyName.contains(strCompanyName))
-                {
-                    System.out.println("Real estate advisor company name is not displayed");
-                }
-            }
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public void verifyDealSponsorCompanyName(int RowIndex){
-        try{
-            List<WebElement> links;
-            //wait until page gets loaded
-            WaitUtil.simpleSleep(5000);
-            links =  findElements(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span"));
-            int linksCount = links.size();
-            linksCount = linksCount/2;
-            for(int i=1;i<=linksCount;i++){
-                String strInvestorCompanyName = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "DealSponsorCompanyName");
-                String strCompanyName = findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong")).getText();
-                if(strInvestorCompanyName.contains(strCompanyName))
-                {
-                    System.out.println("Deal Sponsor company name is not displayed");
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public void enterInvestorType(int RowIndex){
-        try{
-            String strSubRoleType = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "InvestorType");
+            //wait until company name appear
+            WaitUtil.simpleSleep(500);
+            String strSubRoleType = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "SubRole");
             findElement(By.id("CompanySubrole")).click();
             findElement(By.id("CompanySubrole")).sendKeys(strSubRoleType);
+
+            //wait until company name appear
+            WaitUtil.simpleSleep(5000);
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
 }
+

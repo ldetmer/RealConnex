@@ -25,12 +25,17 @@ public class CompaniesOfDealDeveloperFundSteps {
     }
 
     @Then("I verify 'Fund Sponsor' company name is displayed")
-    public void verifyFundSponserCompanyName(){
-        companiesOfDealDeveloperFundPage.verifyFundSponserCompanyName(1);
+    public void verifyFundSponsorCompanyName(){
+        companiesOfDealDeveloperFundPage.verifyFundSponsorCompanyName(1);
     }
 
     @When("I click on verified fund sponsor company name")
-    public void clickFundSponserCompanyName(){
-        companiesOfDealDeveloperFundPage.clickFundSponserCompanyName(1);
+    public void clickFundSponsorCompanyName(){
+        companiesOfDealDeveloperFundPage.clickFundSponsorCompanyName(1);
+    }
+
+    @Then("I verify company name of deal sponsor")
+    public void verifyDealSponsorCompany(){
+        companiesOfDealDeveloperFundPage.verifyDealSponsorCompanyName(1);
     }
 }

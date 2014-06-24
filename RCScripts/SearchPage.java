@@ -10,7 +10,7 @@ public class SearchPage extends FluentWebDriverPage {
     }
 
     public void peopleCompaniesLinkClick(){
-        findElement(By.xpath(" //div[@id='mainSearchItems']/ul/li[1]/label/span")).click();
+        findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'People, Companies & Associations')]")).click();
     }
 
     public void peopleClick(){
@@ -22,7 +22,7 @@ public class SearchPage extends FluentWebDriverPage {
     }
 
     public void dealSponsorClick(){
-        findElement(By.xpath("//div[@id='mainSearchItems']/ul/li[3]/label/span")).click();
+        findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'Developers, Deal Sponsors')]")).click();
     }
 
     public void selectDealSponsor(){
@@ -48,10 +48,10 @@ public class SearchPage extends FluentWebDriverPage {
     }
 
     public void clickRealEstateLink(){
-        findElement(By.xpath("//div[@id='mainSearchItems']/ul/li[4]/label/span")).click();
+        findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'Real Estate Advisors')]")).click();
     }
 
-    public void clickAdviserLink(){
+    public void clickAdvisorLink(){
         findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[1]/label/strong/span")).click();
     }
 
@@ -89,4 +89,55 @@ public class SearchPage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li[1]/label/strong/span[contains(text(),'Core')]")).click();
     }
 
+    public void clickFund(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[2]/label/strong")).click();
+    }
+
+    public void clickCoreOfFund(){
+        findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong")).click();
+    }
+
+    public void clickMoney(){
+        findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'Money')]")).click();
+    }
+
+    public void clickEquity(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Equity')]")).click();
+    }
+
+    public void clickMezz(){
+        findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Mezz')]")).click();
+    }
+
+    public void clickDirectIntoProjectLink(){
+        findElement(By.xpath("//div[@id='fourthSearchItems']/ul/li/label/strong/span[contains(text(),'Direct Into Project')]")).click();
+    }
+
+    public void clickFundLink(){
+        findElement(By.xpath("//div[@id='fourthSearchItems']/ul/li/label[@class='hold selected']/strong/span[contains(text(),'Fund')]")).click();
+    }
+
+    public void clickDebt(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Debt')]")).click();
+    }
+
+    public void clickLoans(){
+        findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Loans')]")).click();
+    }
+
+    public void clickLandLoan(){
+        findElement(By.xpath("//div[@id='fourthSearchItems']/ul/li/label/strong/span[contains(text(),'Land Loan')]")).click();
+    }
+
+    public void clickIncomeOrCore(){
+        findElement(By.xpath("//div[@id='fourthSearchItems']/ul/li/label/strong/span[contains(text(),'Income / Core')]")).click();
+    }
+
+    public void clickPreferred(){
+        findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Preferred')]")).click();
+    }
+
+    public void clickFundOfMoney(){
+        findElement(By.xpath("//div[@id='fourthSearchItems']/ul/li[2]/label/strong/span[contains(text(),'Fund')]")).click();
+    }
 }

@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import test.Support.ReadData;
 
 public class DeveloperDealAndFundSponsorPage extends FluentWebDriverPage{
+
     ReadData ReadData = new ReadData();
+
     public DeveloperDealAndFundSponsorPage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
@@ -15,7 +17,7 @@ public class DeveloperDealAndFundSponsorPage extends FluentWebDriverPage{
     public void verifyFindSearch(int RowIndex){
         try{
             String strFindText = ReadData.readDataExcel("DealSponsorDeveloperFund", RowIndex, "VerifyFindSearch");
-            String strText = findElement(By.xpath("//div[@id='searchFilters']/div/span/strong[contains(text(),'"+strFindText+"')]")).getText();
+            String strText = findElement(By.xpath("//div[@id='searchFilters']/div/span/strong")).getText();
             Assert.assertTrue(strFindText,strText.contains(strFindText));
         } catch (Exception e) {
             System.out.println(e);
@@ -27,6 +29,15 @@ public class DeveloperDealAndFundSponsorPage extends FluentWebDriverPage{
             String strSubRoleText = ReadData.readDataExcel("DealSponsorDeveloperFund", RowIndex, "VerifySubRoleSearch");
             String strText = findElement(By.xpath("//div[@id='searchFilters']/div/span/strong[contains(text(),'"+strSubRoleText+"')]")).getText();
             Assert.assertTrue(strSubRoleText,strText.contains(strSubRoleText));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void verifyDeveloperNameInSearch(int RowIndex){
+        try{
+            String strDeveloperName = ReadData.readDataExcel("DealSponsorDeveloperFund", RowIndex, "VerifyDeveloperName");
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDeveloperName+"')]"), getDriverProvider().get()));
         } catch (Exception e) {
             System.out.println(e);
         }

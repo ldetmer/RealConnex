@@ -262,7 +262,7 @@ public final class WaitUtil {
 
     public static void waitForElementAppearanceLink(WebDriver theDriver, final String theLinkText, final boolean theVisibleFlag) {
         long start = accurateSystemTimeInMillis();
-        new WebDriverWait(theDriver, 120).until(new ExpectedCondition<Boolean>() {
+        new WebDriverWait(theDriver,120).until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(@Nullable WebDriver input) {
                 List<WebElement> foundElements = input.findElements(By.linkText(theLinkText));
@@ -368,4 +368,6 @@ public final class WaitUtil {
         }
         return alertText;
     }
+
+
 }

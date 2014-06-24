@@ -2,8 +2,9 @@ package test.pages;
 
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
+import org.junit.Assert;
 import org.openqa.selenium.By;
-
+import test.steps.VerificationStatements;
 
 public class UserProfilePage extends FluentWebDriverPage {
     public UserProfilePage(WebDriverProvider driverProvider) {
@@ -16,6 +17,7 @@ public class UserProfilePage extends FluentWebDriverPage {
     }
 
     public void clickFindNow(){
+        executeScript("scrollTo(250,0)");
         findElement(By.xpath("//nav[@id='nav']/a/em/img")).click();
     }
 }

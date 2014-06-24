@@ -346,12 +346,12 @@ public class InvestmentDirectIntoValidationPage extends FluentWebDriverPage {
         }
     }
 
-    public void enterCapitalReturnsROE(){
+    public void enterCapitalReturnsROE(int RowIndex){
         try{
             //wait until capital return field is found
             WaitUtil.simpleSleep(500);
-            String strCashOnCashFrom = ReadData.readDataExcel("InvestmentBanker", , "ProjectRangesFrom");
-            String strCashOnCashTo = ReadData.readDataExcel("InvestmentBanker", , "ProjectRangesTo");
+            String strCashOnCashFrom = ReadData.readDataExcel("InvestmentBanker",RowIndex, "ProjectRangesFrom");
+            String strCashOnCashTo = ReadData.readDataExcel("InvestmentBanker",RowIndex, "ProjectRangesTo");
             findElement(By.id("ProjectFromCapitalReturnRoe")).click();
             findElement(By.id("ProjectFromCapitalReturnRoe")).clear();
             findElement(By.id("ProjectFromCapitalReturnRoe")).sendKeys(strCashOnCashFrom);
@@ -362,5 +362,57 @@ public class InvestmentDirectIntoValidationPage extends FluentWebDriverPage {
             System.out.println(e);
         }
     }
+
+    public void enterCAP(int RowIndex){
+        try{
+            //wait until CAP field is found
+            WaitUtil.simpleSleep(500);
+            String strCAPFrom = ReadData.readDataExcel("InvestmentBanker", RowIndex, "ProjectRangesFrom");
+            String strCAPTo = ReadData.readDataExcel("InvestmentBanker", RowIndex, "ProjectRangesTo");
+            findElement(By.id("ProjectFromCap")).click();
+            findElement(By.id("ProjectFromCap")).clear();
+            findElement(By.id("ProjectFromCap")).sendKeys(strCAPFrom);
+            findElement(By.id("ProjectToCap")).click();
+            findElement(By.id("ProjectToCap")).clear();
+            findElement(By.id("ProjectToCap")).sendKeys(strCAPTo);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void enterHoldingMin(int RowIndex){
+        try{
+            //wait until holding min field is found
+            WaitUtil.simpleSleep(500);
+            String strHoldingMinFrom = ReadData.readDataExcel("InvestmentBanker", RowIndex, "ProjectRangesFrom");
+            String strHoldingMinTo = ReadData.readDataExcel("InvestmentBanker", RowIndex, "ProjectRangesTo");
+            findElement(By.id("ProjectFromHoldingYearsMin")).click();
+            findElement(By.id("ProjectFromHoldingYearsMin")).clear();
+            findElement(By.id("ProjectFromHoldingYearsMin")).sendKeys(strHoldingMinFrom);
+            findElement(By.id("ProjectToHoldingYearsMin")).click();
+            findElement(By.id("ProjectToHoldingYearsMin")).clear();
+            findElement(By.id("ProjectToHoldingYearsMin")).sendKeys(strHoldingMinTo);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void enterHoldingMax(int RowIndex){
+        try{
+            //wait until holding max field is found
+            WaitUtil.simpleSleep(500);
+            String strHoldingMaxFrom = ReadData.readDataExcel("InvestmentBanker", RowIndex, "ProjectRangesFrom");
+            String strHoldingMaxTo = ReadData.readDataExcel("InvestmentBanker", RowIndex, "ProjectRangesTo");
+            findElement(By.id("ProjectFromHoldingYearsMax")).click();
+            findElement(By.id("ProjectFromHoldingYearsMax")).clear();
+            findElement(By.id("ProjectFromHoldingYearsMax")).sendKeys(strHoldingMaxFrom);
+            findElement(By.id("ProjectToHoldingYearsMax")).click();
+            findElement(By.id("ProjectToHoldingYearsMax")).clear();
+            findElement(By.id("ProjectToHoldingYearsMax")).sendKeys(strHoldingMaxTo);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 }
 
