@@ -34,5 +34,14 @@ public class ResultHandlingSteps {
         System.out.println("TestData File: " + newFile);
         OfficeCommonFunctions.UpdateDataToExcel("RunTimeExecutionIds", newFile.getAbsolutePath(),1,"TestCaseId",strTestCaseId);
     }
+    @When("I update TestCaseName $theTestCaseName")
+    public void updateTestCaseName(@Named("theTestCaseName") String strTestCaseName){
+        String file1 = this.getClass().getResource("").getPath();
+        //String file = this.getClass().getResource(System.getProperty("User.file", "/src/test/Resources/TestData.xls")).getPath();
+        String file = "D:/RealConnex/out/production/RealConnex/test/Resources/TestData.xls";
+        File newFile = new File(file);
+        System.out.println("TestData File: " + newFile);
+        OfficeCommonFunctions.UpdateDataToExcel("RunTimeExecutionIds", newFile.getAbsolutePath(),1,"TestCaseName",strTestCaseName);
+    }
 
 }

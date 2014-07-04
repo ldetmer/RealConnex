@@ -42,6 +42,7 @@ public class MoneyEquityFundCompanyValidationSearchPage extends FluentWebDriverP
     public void clickAssetStrategyField(){
         //wait until strategy field appears
         WaitUtil.simpleSleep(500);
+        scroll();
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 

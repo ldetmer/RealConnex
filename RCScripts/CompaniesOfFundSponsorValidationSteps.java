@@ -17,12 +17,12 @@ public class CompaniesOfFundSponsorValidationSteps {
     }
 
     @Then("I verify company of fund sponsor selected '$strSideOption' is displayed")
-    public void verifyCompanyOfDeveloper(@Named("strSideOption") String strSideOption){
+    public void verifyCompanyOfDeveloper(@Named("strSideOption") String strSideOption) throws Exception {
         companiesOfFundSponsorValidationPage.companyOfFundSponsorIsDisplayed(2,strSideOption);
     }
 
     @Then("I verify company of fund sponsor selected '$strSideSearch' is not displayed")
-    public void companyOfFundSponsorNotDisplayed(@Named("strSideSearch") String strSideSearch){
+    public void companyOfFundSponsorNotDisplayed(@Named("strSideSearch") String strSideSearch) throws Exception {
         companiesOfFundSponsorValidationPage.companyOfFundSponsorNotDisplayed(2, strSideSearch);
 
     }
@@ -48,7 +48,7 @@ public class CompaniesOfFundSponsorValidationSteps {
     }
 
     @Then("I verify fund sponsor company name of all search option is displayed")
-    public void fundSponsorOfAllSearch(){
+    public void fundSponsorOfAllSearch() throws Exception {
        companiesOfFundSponsorValidationPage.fundSponsorOfAllSearch(1);
     }
 
@@ -71,11 +71,6 @@ public class CompaniesOfFundSponsorValidationSteps {
     public void clearValueAddAndCorePlus(){
         companiesOfFundSponsorValidationPage.clearValueAddAndCorePlus();
     }
-
-    /*@When("I select land bank and lease up option in strategy drop down")
-    public void clickLandBankAndLeaseUp(){
-        companiesOfFundSponsorValidationPage.clickLandBankAndLeaseUp();
-    }*/
 
     @When("I clear land bank and lease up options")
     public void clearLandBankAndLeaseUp(){

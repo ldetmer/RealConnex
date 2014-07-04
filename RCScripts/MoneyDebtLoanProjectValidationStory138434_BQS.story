@@ -35,7 +35,7 @@ When I clear value for LVT slider
 And I set value of term field in money search
 Then I verify 'Aqua' project name is displayed in money debt loan search
 And I verify 'Kings-made Villa' project name is not displayed in money debt loan search
-When I clear value in term field in money search
+When I clear value of term field in money search
 And I click on interest field
 And I select interest only option in interest field
 Then I verify 'Kings-made Villa' project name is displayed in money debt loan search

@@ -1,6 +1,7 @@
 package test.steps;
 
 import com.google.inject.Inject;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
 import test.pages.LoginRealConnexPage;
@@ -21,7 +22,7 @@ public class LoginRealConnexSteps {
     }
 
     @When("I enter user email ID")
-    public void enterEmailId(){
+    public void enterEmailId()throws Exception{
         loginRealConnexPage.enterEmailId(1);
     }
 
@@ -35,13 +36,69 @@ public class LoginRealConnexSteps {
         loginRealConnexPage.clickLogIn();
     }
 
-    @When("I enter email ID of user")
-    public void enterEmailId_Privacy() throws Exception {
-        loginRealConnexPage.enterEmailId_Privacy(2);
+    @When("I enter deal sponsor email ID for privacy set to public")
+    public void enterEmailId_Public() throws Exception {
+        loginRealConnexPage.enterEmailId(2);
+    }
+
+    @When("I enter deal sponsor email ID whose privacy set to private")
+        @Alias("I enter deal sponsor email ID where privacy is set")
+    public void enterEmailId_DealSponsorPrivate() throws Exception {
+        loginRealConnexPage.enterEmailId(3);
+    }
+
+    @When("I enter investor email ID whose privacy set to private")
+    public void enterEmailId_InvestorPrivate() throws Exception {
+        loginRealConnexPage.enterEmailId(8);
+    }
+
+    @When("I enter lender email ID whose privacy set to private")
+    public void enterEmailId_LenderPrivate() throws Exception {
+        loginRealConnexPage.enterEmailId(9);
+    }
+
+    @When("I enter real estate advisor email ID whose privacy set to private")
+    public void enterEmailId_RealEstateAdvisorPrivate() throws Exception {
+        loginRealConnexPage.enterEmailId(10);
     }
 
     @When("I enter user login details:$LoginDetailsTable")
     public void enterLoginDetails(ExamplesTable LoginDetailsTable){
         loginRealConnexPage.enterLoginDetails(LoginDetailsTable);
+    }
+
+    @When("I enter investor email ID for login")
+    public void enterEmailIdOfInvestor() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(4);
+    }
+
+    @When("I enter deal sponsor email ID for login")
+    public void enterEmailIdOfDealSponsor() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(7);
+    }
+
+    @When("I enter lender email ID for login")
+    public void enterEmailIdOfLender() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(5);
+    }
+
+    @When("I enter real estate advisor email ID for login")
+    public void enterEmailIdOfRealEstateAdvisor() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(6);
+    }
+
+    @When("I enter email ID of user who set the privacy in my universe include")
+    public void enterEmailIdOfUserMyUniverseInclude() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(11);
+    }
+
+    @When("I enter email ID of user with role as deal sponsor and sub role as developer")
+    public void enterEmailIdOfDealSponsorDeveloperSubRole()throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(12);
+    }
+
+    @When("I enter password of user")
+    public void enterPasswordOfUser() throws Exception {
+       loginRealConnexPage.enterPasswordOfUser(2);
     }
 }

@@ -1,6 +1,5 @@
 package test.steps;
 
-
 import com.google.inject.Inject;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
@@ -8,6 +7,14 @@ import org.jbehave.core.annotations.When;
 import org.junit.Assert;
 import test.pages.CompaniesOfDealSponsorValidationPage;
 import test.pages.PageFactory;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Bhavana
+ * Date: 6/25/14
+ * Time: 12:25 PM
+ * To change this template use File | Settings | File Templates.
+ */
 
 public class CompaniesOfDealSponsorValidationSteps {
     private final CompaniesOfDealSponsorValidationPage companiesOfDealSponsorValidationPage;
@@ -377,7 +384,7 @@ public class CompaniesOfDealSponsorValidationSteps {
     }
 
     @Then("I verify company name of deal sponsor of all search option is displayed")
-    public void verifyAllOptions(){
+    public void verifyAllOptions()throws Exception{
         companiesOfDealSponsorValidationPage.verifyAllOptions(1);
     }
 
@@ -387,12 +394,12 @@ public class CompaniesOfDealSponsorValidationSteps {
     }
 
     @Then("I verify deal sponsor company selected '$strSideSearch' option is displayed")
-    public void verifyCompanyOfDealSponsor(@Named("strSideSearch") String strSideSearch){
+    public void verifyCompanyOfDealSponsor(@Named("strSideSearch") String strSideSearch) throws Exception{
         companiesOfDealSponsorValidationPage.companyIsDisplayed(2,strSideSearch);
     }
 
     @Then("I verify deal sponsor company selected '$strSideSearch' option is not displayed")
-    public void companyNotDisplayed(@Named("strSideSearch") String strSideSearch){
+    public void companyNotDisplayed(@Named("strSideSearch") String strSideSearch)throws Exception{
        companiesOfDealSponsorValidationPage.companyNotDisplayed(2,strSideSearch);
     }
 

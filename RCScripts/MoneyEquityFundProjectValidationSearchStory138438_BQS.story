@@ -39,6 +39,12 @@ And I set the value for fund term field
 Then I verify 'Gibb FUND' project of investor is displayed
 And I verify 'NICK FUND' project of investor is not displayed
 When I clear the value for fund term field
+And I click on 'Find Now' button
+And I click on 'Money' link
+And I click on 'Equity' link
+And I click on 'Preferred' link
+And I click on 'Fund' of money search
+And I click on 'GO' button
 When I click on fund strategy
 And I click on asset type field
 And I select office in the asset type drop down list

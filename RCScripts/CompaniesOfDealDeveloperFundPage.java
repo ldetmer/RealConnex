@@ -1,11 +1,18 @@
 package test.pages;
 
-import org.hibernate.validator.AssertTrue;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import test.Support.ReadData;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Bhavana
+ * Date: 6/23/14
+ * Time: 11:58 AM
+ * To change this template use File | Settings | File Templates.
+ */
 
 public class CompaniesOfDealDeveloperFundPage extends FluentWebDriverPage {
     ReadData ReadData = new ReadData();
@@ -13,48 +20,28 @@ public class CompaniesOfDealDeveloperFundPage extends FluentWebDriverPage {
         super(driverProvider);
     }
 
-    public void verifyDealSponsorCompanyName(int RowIndex){
-        try{
-            String strDealSponsorCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", RowIndex, "VerifyDealCompanyName");
-            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'" + strDealSponsorCompanyName + "')]"),getDriverProvider().get()));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void verifyDealSponsorCompanyName(int intRowIndex) throws Exception {
+        String strDealSponsorCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", intRowIndex, "VerifyDealCompanyName");
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'" + strDealSponsorCompanyName + "')]"),getDriverProvider().get()));
     }
 
-    public void clickDealSponsorCompany(int RowIndex){
-        try{
-            String strClickCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", RowIndex, "VerifyDealCompanyName");
-            findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strClickCompanyName+"')]")).click();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void clickDealSponsorCompany(int intRowIndex) throws Exception {
+        String strClickCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", intRowIndex, "VerifyDealCompanyName");
+        findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strClickCompanyName+"')]")).click();
     }
 
-    public void clickDeveloperCompanyName(int RowIndex){
-        try{
-            String strClickDeveloperCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", RowIndex, "VerifyDeveloperCompanyName");
-            findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strClickDeveloperCompanyName+"')]")).click();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void clickDeveloperCompanyName(int intRowIndex) throws Exception {
+        String strClickDeveloperCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", intRowIndex, "VerifyDeveloperCompanyName");
+        findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strClickDeveloperCompanyName+"')]")).click();
     }
 
-    public void verifyFundSponsorCompanyName(int RowIndex){
-        try{
-            String strFundSponsorCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", RowIndex, "VerifyFundSponsorCompanyName");
-            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strFundSponsorCompanyName+"')]"),getDriverProvider().get()));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void verifyFundSponsorCompanyName(int intRowIndex) throws Exception {
+        String strFundSponsorCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", intRowIndex, "VerifyFundSponsorCompanyName");
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strFundSponsorCompanyName+"')]"),getDriverProvider().get()));
     }
 
-    public void clickFundSponsorCompanyName(int RowIndex){
-        try{
-            String strFundSponsorCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", RowIndex, "VerifyFundSponsorCompanyName");
-            findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strFundSponsorCompanyName+"')]")).click();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void clickFundSponsorCompanyName(int intRowIndex) throws Exception {
+        String strFundSponsorCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", intRowIndex, "VerifyFundSponsorCompanyName");
+        findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strFundSponsorCompanyName+"')]")).click();
     }
 }

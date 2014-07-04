@@ -15,7 +15,7 @@ public class CompaniesOfFundSponsorSteps {
     }
 
     @Then("I verify company name of fund sponsor is displayed")
-    public void verifyFundSponsorCompany(){
+    public void verifyFundSponsorCompany() throws Exception {
         companiesOfFundSponsorPage.verifyFundSponsorCompany(1);
     }
 
@@ -52,26 +52,6 @@ public class CompaniesOfFundSponsorSteps {
     @When("I click on about field in fund sponsor company search")
     public void clickAboutField(){
         companiesOfFundSponsorPage.clickAboutField();
-    }
-
-    @When("I enter the project completed fields in fund sponsor search")
-    public void enterProjectFieldOfFundSponsor(){
-        companiesOfFundSponsorPage.enterProjectFieldOfFundSponsor(1);
-    }
-
-    @When("I clear the project completed field in fund sponsor search")
-    public void clearProjectFieldOfFundSponsor(){
-         companiesOfFundSponsorPage.clearProjectFieldOfFundSponsor();
-    }
-
-    @When("I enter the values for sq ft field in fund sponsor search")
-    public void enterSqFtFieldOfAbout(){
-        companiesOfFundSponsorPage.enterSqFtFieldOfAbout(1);
-    }
-
-    @When("I clear the values of sq ft field in fund sponsor search")
-    public void clearSqFtFieldOfFundSponsor(){
-        companiesOfFundSponsorPage.clearSqFtFieldOfFundSponsor();
     }
 
     @When("I select intermediary option in route to sponsor field")

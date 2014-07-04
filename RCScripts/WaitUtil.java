@@ -369,5 +369,20 @@ public final class WaitUtil {
         return alertText;
     }
 
+    public static boolean isElementNotPresent(By by,WebDriver driver) {
+        WebDriver driverForNotCond = driver;
+        driverForNotCond.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        try{
+            if(driverForNotCond.findElements(by).size() != 0){
+                return false;
+            }else{
+                return true;
+            }
+        } catch (NoSuchElementException e) {
+            return true;
+        }
+    }
+
+
 
 }

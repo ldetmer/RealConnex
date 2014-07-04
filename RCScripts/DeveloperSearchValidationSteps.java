@@ -33,8 +33,8 @@ public class DeveloperSearchValidationSteps {
     }
 
     @Then("I verify developer user of all option is displayed")
-    public void userOfAllSearchOption(){
-        Assert.assertTrue("Searched Results are not matching", developerSearchValidationPage.userOfAllSearchOption(1));
+    public void userOfAllSearchOption() throws Exception {
+      developerSearchValidationPage.userOfAllSearchOption(1);
     }
 
     @When("I clear strategy field of developer search")

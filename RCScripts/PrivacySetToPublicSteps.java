@@ -5,7 +5,6 @@ import org.jbehave.core.annotations.*;
 import test.pages.PageFactory;
 import test.pages.PrivacySetToPublicPage;
 
-
 /**
  * Created with IntelliJ IDEA.
  * User: Bhavana
@@ -44,12 +43,12 @@ public class PrivacySetToPublicSteps {
         privacySetToPublicPage.selectPublicButton();
     }
 
-    @When("I click on save button in me tab")
+    @When("I click on save button in ME tab")
     public void clickSaveButton_Me(){
         privacySetToPublicPage.clickSaveButton_Me();
     }
 
-    @When("I click on save button in company tab")
+    @When("I click on save button in COMPANY tab")
     public void clickSaveButton_Company(){
         privacySetToPublicPage.clickSaveButton_Company();
     }
@@ -74,6 +73,16 @@ public class PrivacySetToPublicSteps {
         privacySetToPublicPage.clickProjectsTab();
     }
 
+    @When("I click on FUNDS tab")
+    public void clickFundsTab(){
+        privacySetToPublicPage.clickFundsTab();
+    }
+
+    @When("I click on PRODUCTS tab")
+    public void clickProductsTab(){
+        privacySetToPublicPage.clickProductsTab();
+    }
+
     @When("I click on projects of the deal sponsor")
     public void clickProjectOfDealSponsor(){
         privacySetToPublicPage.clickProjectOfDealSponsor();
@@ -82,6 +91,41 @@ public class PrivacySetToPublicSteps {
     @When("I click on funds of the deal sponsor")
     public void clickFundOfDealSponsor(){
         privacySetToPublicPage.clickFundOfDealSponsor();
+    }
+
+    @When("I click on projects of the deal sponsor whose privacy is private")
+    public void clickProjectOfDealSponsor_Private(){
+        privacySetToPublicPage.clickProjectOfDealSponsor_Private();
+    }
+
+    @When("I click on funds of the deal sponsor whose privacy is private")
+    public void clickFundOfDealSponsor_Private(){
+        privacySetToPublicPage.clickFundOfDealSponsor_Private();
+    }
+
+    @When("I click on funds of the investor whose privacy is private")
+    public void clickFundOfInvestor_Private(){
+        privacySetToPublicPage.clickFundOfInvestor_Private();
+    }
+
+    @When("I click on loan of the lender whose privacy is private")
+     public void clickLoanOfLender_Private(){
+        privacySetToPublicPage.clickLoanOfLender_Private();
+    }
+
+    @When("I click on mezz of the lender whose privacy is private")
+    public void clickMezzOfLender_Private(){
+        privacySetToPublicPage.clickMezzOfLender_Private();
+    }
+
+    @When("I click on service project of the real estate advisor whose privacy is private")
+    public void clickServiceProject_Private(){
+        privacySetToPublicPage.clickServiceProject_Private();
+    }
+
+    @When("I click on listing project of the real estate advisor whose privacy is private")
+    public void clickListingProject_Private(){
+        privacySetToPublicPage.clickListingProject_Private();
     }
 
 }

@@ -184,7 +184,7 @@ public class ProjectOfInvestmentDirectIntoPage extends FluentWebDriverPage {
 
     public void clickOnCurrentAssetStatus(){
         //wait until page gets loaded
-        WaitUtil.simpleSleep(100);
+        WaitUtil.simpleSleep(1000);
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Current Asset Status:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 

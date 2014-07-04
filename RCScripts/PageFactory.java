@@ -253,7 +253,19 @@ public class PageFactory {
         return new PrivacySetToPublicPage(webDriverProvider);
     }
 
-    public SearchResultsPage newSearchResultsPage() {
-        return new SearchResultsPage(webDriverProvider);
+    public PrivacyVerificationPage newSearchResultsPage() {
+        return new PrivacyVerificationPage(webDriverProvider);
+    }
+
+    public PrivacySetToPrivatePage newPrivacySetToPrivatePage(){
+        return new PrivacySetToPrivatePage(webDriverProvider);
+    }
+
+    public CreateUserPage newCreateUserPage() {
+        return new CreateUserPage(webDriverProvider);
+    }
+
+    public MyUniversePage newMyUniversePage(){
+        return new MyUniversePage(webDriverProvider);
     }
 }

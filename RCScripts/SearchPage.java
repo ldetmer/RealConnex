@@ -89,6 +89,10 @@ public class SearchPage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li[1]/label/strong/span[contains(text(),'Core')]")).click();
     }
 
+    public void clickOpportunistic(){
+        findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Opportunistic')]")).click();
+    }
+
     public void clickFund(){
         findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[2]/label/strong")).click();
     }

@@ -8,7 +8,7 @@ I Verify that when privacy is set to "Public" for a project in "Project" page, u
 Scenario: 141181 : Verify that when privacy is set to "Public" for project in "Project" page, all users can view Project profile.
 When I update TestCaseId 141181
 When I launch RealConnex application
-And I enter email ID of user
+And I enter deal sponsor email ID for privacy set to public
 And I enter Password
 And I click on login button
 Then I should see Privacy button
@@ -24,10 +24,8 @@ And I click on public button of fund of deal sponsor
 And I click on save button in projects tab
 Then I verify 'Privacy successfully saved' message is displayed
 When I logout RealConnex application
-And I enter user login details:
-|Field|Value|
-|EmailId|test12@yopmail.com|
-|Password|test1234|
+And I enter deal sponsor email ID for login
+And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
@@ -63,10 +61,8 @@ And I verify 'Tech Fund' deal sponsor fund name is displayed in search result
 When I click on 'Tech Fund' deal sponsor fund name in search result
 And I click on 'Find Now' button
 When I logout RealConnex application
-And I enter user login details:
-|Field|Value|
-|EmailId|test13@yopmail.com|
-|Password|test1234|
+And I enter investor email ID for login
+And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
@@ -102,10 +98,8 @@ And I verify 'Tech Fund' deal sponsor fund name is displayed in search result
 When I click on 'Tech Fund' deal sponsor fund name in search result
 And I click on 'Find Now' button
 When I logout RealConnex application
-And I enter user login details:
-|Field|Value|
-|EmailId|test14@yopmail.com|
-|Password|test1234|
+And I enter lender email ID for login
+And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
@@ -141,10 +135,8 @@ And I verify 'Tech Fund' deal sponsor fund name is displayed in search result
 When I click on 'Tech Fund' deal sponsor fund name in search result
 And I click on 'Find Now' button
 When I logout RealConnex application
-And I enter user login details:
-|Field|Value|
-|EmailId|test15@yopmail.com|
-|Password|test1234|
+And I enter real estate advisor email ID for login
+And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button

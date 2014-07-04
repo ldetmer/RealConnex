@@ -35,6 +35,11 @@ And I select the value of deal size field
 Then I verify 'ProjectD' and 'ProjectL1' of investments is displayed
 And I verify 'Project Deal' and 'List Project' of investments is not displayed
 When I clear the value of deal size field
+And I click on 'Find Now' button
+And I click on 'Investments' link
+And I click on 'Direct Into Project' link
+And I click on 'Core' link
+And I click on 'GO' button
 And I click investing as drop down field
 And I select general partner option in investing as drop down field
 Then I verify 'Project Deal' and 'List Project' of investments is displayed

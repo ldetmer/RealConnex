@@ -22,7 +22,7 @@ public class CompaniesOfDeveloperSteps {
 
     @When("I clear asset option in asset type field")
     public void clearSolar(){
-        companiesOfDeveloperPage.clickSolar();
+        companiesOfDeveloperPage.clearSolar();
     }
 
     @When("I select sales and leaseback option in strategy drop down")
@@ -66,7 +66,7 @@ public class CompaniesOfDeveloperSteps {
     }
 
     @Then("I verify company name of developer")
-    public void developerCompanyName(){
+    public void developerCompanyName() throws Exception {
         companiesOfDeveloperPage.developerCompanyName(1);
     }
 

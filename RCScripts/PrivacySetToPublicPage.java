@@ -74,6 +74,18 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
         findElement(By.xpath("//section[@id='content']/nav/ul/li/a[contains(text(),'PROJECTS')]")).click();
     }
 
+    public void clickFundsTab(){
+         //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//section[@id='content']/nav/ul/li/a[contains(text(),'Funds')]")).click();
+    }
+
+    public void clickProductsTab(){
+         //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//section[@id='content']/nav/ul/li/a[contains(text(),'PRODUCTS')]")).click();
+    }
+
     public void clickProjectOfDealSponsor(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
@@ -84,5 +96,47 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
          //wait until page loads
         WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//span[contains(text(),'Tech Fund')]")).click();
+    }
+
+    public void clickProjectOfDealSponsor_Private(){
+         //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'JS Project')]")).click();
+    }
+
+    public void clickFundOfDealSponsor_Private(){
+         //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'JS Fund')]")).click();
+    }
+
+    public void clickFundOfInvestor_Private(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'KP Fund')]")).click();
+    }
+
+    public void clickLoanOfLender_Private(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'LT Loan')]")).click();
+    }
+
+    public void clickMezzOfLender_Private(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'LT Mezz')]")).click();
+    }
+
+    public void clickServiceProject_Private(){
+         //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'EL Services')]")).click();
+    }
+
+    public void clickListingProject_Private(){
+         //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'EL Listing')]")).click();
     }
 }

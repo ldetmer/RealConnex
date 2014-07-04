@@ -45,8 +45,7 @@ public class CompaniesOfDeveloperValidationPage extends FluentWebDriverPage {
                 //wait until page gets loaded
                 WaitUtil.simpleSleep(1000);
                 String strName = findElement(By.xpath("//tbody[@id='searchResults']/tr["+i+"]/td/a/strong/span")).getText();
-                if(strName.equals(strOtherUser))
-                {
+                if(strName.equals(strOtherUser)){
                     status = true;
                     break;
                 } else {

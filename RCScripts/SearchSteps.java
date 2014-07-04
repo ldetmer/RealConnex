@@ -112,6 +112,11 @@ public class SearchSteps {
         searchPage.clickCore();
     }
 
+    @When("I click on 'Opportunistic' link")
+    public void clickOpportunistic(){
+        searchPage.clickOpportunistic();
+    }
+
     @When("I click on 'Fund' link")
     public void clickFundOfFunds(){
         searchPage.clickFund();

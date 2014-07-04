@@ -33,6 +33,11 @@ And I set the value of investment amount
 Then I verify 'Pantaloons' and 'Beta' of investment fund is displayed
 And I verify 'Monsoon Heights' and 'Bright Apartments' of investment fund is not displayed
 When I clear the value of investment amount
+And I click on 'Find Now' button
+And I click on 'Investments' link
+And I click on 'Fund' link
+And I click on 'Core' in fund link
+And I click on 'GO' button
 When I click investing as drop down field
 And I select co developer option in investing as drop down field
 Then I verify 'Monsoon Heights' and 'Bright Apartments' of investment fund is displayed
