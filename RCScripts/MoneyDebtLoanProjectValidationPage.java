@@ -271,7 +271,7 @@ public class MoneyDebtLoanProjectValidationPage extends FluentWebDriverPage{
         //wait until page loads
         WaitUtil.simpleSleep(5000);
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/div/div[2]/a[1]"));
-        for(int i=0;i<20;i++){
+        for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
         //wait until page loads

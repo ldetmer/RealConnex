@@ -48,16 +48,19 @@ public class LoginRealConnexSteps {
     }
 
     @When("I enter investor email ID whose privacy set to private")
+        @Alias("I enter investor email ID where privacy is set")
     public void enterEmailId_InvestorPrivate() throws Exception {
         loginRealConnexPage.enterEmailId(8);
     }
 
     @When("I enter lender email ID whose privacy set to private")
+        @Alias("I enter lender email ID where privacy is set")
     public void enterEmailId_LenderPrivate() throws Exception {
         loginRealConnexPage.enterEmailId(9);
     }
 
     @When("I enter real estate advisor email ID whose privacy set to private")
+        @Alias("I enter real estate advisor email ID where privacy is set")
     public void enterEmailId_RealEstateAdvisorPrivate() throws Exception {
         loginRealConnexPage.enterEmailId(10);
     }
@@ -92,9 +95,44 @@ public class LoginRealConnexSteps {
         loginRealConnexPage.enterEmailIdOfUsers(11);
     }
 
+    @When("I enter investor email ID of user who set the privacy in my universe include as private in me tab")
+    public void enterEmailIdOfInvestorUserMyUniverseIncludePrivate() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(16);
+    }
+
+    @When("I enter deal sponsor email ID of user who set the privacy in my universe include as private in me tab")
+    public void enterEmailIdOfDealSponsorUserMyUniverseIncludePrivate() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(17);
+    }
+
+    @When("I enter real estate advisor email ID of user who set the privacy in my universe include as private in me tab")
+    public void enterEmailIdOfRealEstateAdvisorUserMyUniverseIncludePrivate() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(18);
+    }
+
+    @When("I enter lender email ID of user who set the privacy in my universe include as private in me tab")
+    public void enterEmailIdOfLenderUserMyUniverseIncludePrivate() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(19);
+    }
+
     @When("I enter email ID of user with role as deal sponsor and sub role as developer")
     public void enterEmailIdOfDealSponsorDeveloperSubRole()throws Exception {
         loginRealConnexPage.enterEmailIdOfUsers(12);
+    }
+
+    @When("I enter email ID of user with role as investor and sub role as advisor")
+    public void enterEmailIdOfInvestorAdvisorSubRole()throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(13);
+    }
+
+    @When("I enter email ID of user with role as lender and sub role as family office")
+    public void enterEmailIdOfLenderFamilyOfficeSubRole()throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(14);
+    }
+
+    @When("I enter email ID of user with role as real estate advisor and sub role as advisor")
+    public void enterEmailIdOfRealEstateAdvisorAdvisorSubRole()throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(15);
     }
 
     @When("I enter password of user")

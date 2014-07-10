@@ -7,6 +7,7 @@ I Verify that when privacy is set to "Public" in "Company >> Privacy" page, user
 
 Scenario: 141180: Verify that when privacy is set to "Public" in "Company" page, all users can view Company profile.
 When I update TestCaseId 141180
+When I update TestCaseName Privacy Set To Public In Company Tab
 When I launch RealConnex application
 And I enter deal sponsor email ID for privacy set to public
 And I enter Password

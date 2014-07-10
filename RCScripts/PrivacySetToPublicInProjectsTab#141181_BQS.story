@@ -7,6 +7,7 @@ I Verify that when privacy is set to "Public" for a project in "Project" page, u
 
 Scenario: 141181 : Verify that when privacy is set to "Public" for project in "Project" page, all users can view Project profile.
 When I update TestCaseId 141181
+When I update TestCaseName Privacy Set To Public In Project Tab
 When I launch RealConnex application
 And I enter deal sponsor email ID for privacy set to public
 And I enter Password

@@ -22,10 +22,12 @@ public class CompaniesOfFundSponsorPage extends FluentWebDriverPage {
     }
 
     public void verifyFundSponsorCompany(int intRowIndex) throws Exception {
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
         String strFundSponsorCompany = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", intRowIndex, "VerifyFundSponsorCompanyName");
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strFundSponsorCompany+"')]"), getDriverProvider().get()));
          //wait until page loads
-        WaitUtil.simpleSleep(500);
+        WaitUtil.simpleSleep(10000);
     }
 
     public void selectHealthCare(){

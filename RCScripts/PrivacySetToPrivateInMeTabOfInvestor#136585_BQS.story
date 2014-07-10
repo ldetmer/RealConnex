@@ -7,6 +7,7 @@ I Verify that when "Investor" user sets privacy to "Private" in "Me >> Privacy" 
 
 Scenario: 136585 : Verify that investor user privacy is set to "Private" in "Me" page can be viewed to user who have permission
 When I update TestCaseId 136585
+When I update TestCaseName Privacy Set To Private In Me Tab Of Investor
 When I launch RealConnex application
 And I enter investor email ID whose privacy set to private
 And I enter Password

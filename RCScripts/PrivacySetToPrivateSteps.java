@@ -88,6 +88,26 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.enterYopMailId(10);
     }
 
+    @When("I enter investor email ID of user who set the privacy in my universe include as private in yopmail")
+    public void enterYopMailIdOfInvestorPrivacySetToPrivateInMyUniverse_DealSponsor() throws Exception{
+        privacySetToPrivatePage.enterYopMailId(16);
+    }
+
+    @When("I enter deal sponsor email ID of user who set the privacy in my universe include as private in yopmail")
+    public void enterYopMailIdOfDealSponsorPrivacySetToPrivateInMyUniverse_Investor() throws Exception{
+        privacySetToPrivatePage.enterYopMailId(17);
+    }
+
+    @When("I enter real estate advisor email ID of user who set the privacy in my universe include as private in yopmail")
+    public void enterYopMailIdOfRealEstateAdvisorPrivacySetToPrivateInMyUniverse_Lender() throws Exception{
+        privacySetToPrivatePage.enterYopMailId(18);
+    }
+
+    @When("I enter lender email ID of user who set the privacy in my universe include as private in yopmail")
+    public void enterYopMailIdOfLenderPrivacySetToPrivateInMyUniverse_RealEstateAdvisor() throws Exception{
+        privacySetToPrivatePage.enterYopMailId(19);
+    }
+
     @When("I click on Accept link")
     public void clickAcceptLink(){
         privacySetToPrivatePage.clickAcceptLink();
@@ -241,5 +261,30 @@ public class PrivacySetToPrivateSteps {
     @When("I enter user name who has set the profile to include in my universe")
     public void enterIncludeUserName() throws Exception {
         privacySetToPrivatePage.enterUserName(5);
+    }
+
+    @When("I enter company name who has set the profile to include in my universe")
+    public void enterIncludeCompanyName() throws Exception {
+        privacySetToPrivatePage.enterCompanyName(5);
+    }
+
+    @When("I enter user name who has set the profile to private in include of my universe")
+    public void enterPrivateIncludeUserName() throws Exception {
+        privacySetToPrivatePage.enterUserName(6);
+    }
+
+    @When("I enter deal sponsor user name who has set the me profile to private in include of my universe")
+    public void enterPrivateIncludeDealSponsorUserName() throws Exception {
+        privacySetToPrivatePage.enterUserName(7);
+    }
+
+    @When("I enter real estate advisor user name who has set the me profile to private in include of my universe")
+    public void enterPrivateIncludeRealEstateAdvisorUserName() throws Exception {
+        privacySetToPrivatePage.enterUserName(8);
+    }
+
+    @When("I enter lender user name who has set the me profile to private in include of my universe")
+    public void enterPrivateIncludeLenderUserName() throws Exception {
+        privacySetToPrivatePage.enterUserName(9);
     }
 }

@@ -66,6 +66,8 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
          //wait until page loads
         WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//section[@id='content']/nav/ul/li/a[text()='COMPANY']")).click();
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
     }
 
     public void clickProjectsTab(){

@@ -91,6 +91,36 @@ public class PrivacyVerificationSteps {
         privacyVerificationPage.verifyUserProfileNotDisplayed(1);
     }
 
+    @Then("I verify user whose profile is set to include in my universe is not displayed")
+    public void verifyUserProfileSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyUserProfileSetToIncludeNotDisplayed(5);
+    }
+
+    @Then("I verify company whose profile is set to include in my universe is not displayed")
+    public void verifyCompanyProfileSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(5);
+    }
+
+    @Then("I verify user whose profile is set to private in me tab of include in my universe is not displayed")
+     public void verifyInvestorUserProfileSetToPrivateIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyUserProfileSetToIncludeNotDisplayed(6);
+    }
+
+    @Then("I verify deal sponsor user whose profile is set to private in me tab of include in my universe is not displayed")
+    public void verifyDealSponsorUserProfileSetToPrivateIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyUserProfileSetToIncludeNotDisplayed(7);
+    }
+
+    @Then("I verify real estate advisor user whose profile is set to private in me tab of include in my universe is not displayed")
+    public void verifyRealEstateAdvisorUserProfileSetToPrivateIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyUserProfileSetToIncludeNotDisplayed(8);
+    }
+
+    @Then("I verify lender user whose profile is set to private in me tab of include in my universe is not displayed")
+    public void verifyLenderUserProfileSetToPrivateIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyUserProfileSetToIncludeNotDisplayed(9);
+    }
+
     @Then("I verify investor user whose profile is set private is not displayed")
     public void verifyInvestorProfileNotDisplayed() throws Exception {
         privacyVerificationPage.verifyUserProfileNotDisplayed(2);

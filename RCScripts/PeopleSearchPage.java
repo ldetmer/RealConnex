@@ -4,12 +4,17 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import test.Support.OfficeCommonFunctions;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
+
+import java.io.File;
 
 
 public class PeopleSearchPage extends FluentWebDriverPage {
     ReadData ReadData = new ReadData();
+    int i = 1;
+    String[] gStrFieldName;
     public PeopleSearchPage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
@@ -24,19 +29,28 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     }
 
     public void verifyDealSponsorUserName(String strDealSponsorUserName){
-
         //wait until page loads
         WaitUtil.simpleSleep(3000);
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
     }
 
     public void verifyDealSponsorUserIsDisplayedName(String strDealSponsorUserName){
-
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
-    }
+        gStrFieldName[i] = findElement(By.xpath("//div[@id='searchFilters']/div/div["+i+"]/label")).getText();
+        i++;
+        try{
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
+        }catch (AssertionError e){
+            System.out.println(e);
+            String file = "D:/RealConnex/out/production/RealConnex/test/Resources/TestData.xls";
+            File newFile = new File(file);
+            System.out.println("TestData File: " + newFile);
+            OfficeCommonFunctions.UpdateDataToExcel("RunTimeExecutionIds", newFile.getAbsolutePath(), 1, "Field", gStrFieldName[i]);
+            OfficeCommonFunctions.UpdateDataToExcel("RunTimeExecutionIds", newFile.getAbsolutePath(), 1, "Reason", e.toString());
+        }
 
+    }
 
     public void clickVerifiedDealSponsorUser(int RowIndex){
         try{
@@ -50,7 +64,6 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     }
 
     public void verifyInvestorUserName(String strInvestorUserName){
-
         //wait until page loads
         WaitUtil.simpleSleep(3000);
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get()));
@@ -85,7 +98,6 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     }
 
     public void verifyServiceProviderUserName(String strServiceProviderUserName){
-
         //wait until page loads
         WaitUtil.simpleSleep(3000);
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strServiceProviderUserName+"')]"), getDriverProvider().get()));
@@ -104,7 +116,6 @@ public class PeopleSearchPage extends FluentWebDriverPage {
 
     public void enterUserTitle(int RowIndex){
         try{
-
             //wait until title field appears
             WaitUtil.simpleSleep(100);
             executeScript("scrollTo(250,0)");
@@ -112,7 +123,6 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             findElement(By.id("UserTitle")).click();
             findElement(By.id("UserTitle")).clear();
             findElement(By.id("UserTitle")).sendKeys(strUserTitle);
-
             //wait until title field appears
             WaitUtil.simpleSleep(7000);
         } catch (Exception e) {
@@ -137,7 +147,6 @@ public class PeopleSearchPage extends FluentWebDriverPage {
 
     public void enterLocation(int RowIndex){
         try{
-
             //wait until location field appear
             WaitUtil.simpleSleep(500);
             String strLocation = ReadData.readDataExcel("PeopleDetails", RowIndex, "Location");
@@ -150,9 +159,9 @@ public class PeopleSearchPage extends FluentWebDriverPage {
 
     public void clickLocation(int RowIndex){
         try{
-
             //wait until location is found
             WaitUtil.simpleSleep(500);
+            String strFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/label")).getText();
             String strLocation = ReadData.readDataExcel("PeopleDetails", RowIndex, "FullLocationName");
             findElement(By.xpath("//a[contains(text(),'"+strLocation+"')]")).click();
         } catch (Exception e) {
@@ -176,28 +185,24 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     }
 
     public void clearTitle(){
-
         //wait until title field appear
         WaitUtil.simpleSleep(500);
         findElement(By.id("UserTitle")).clear();
     }
 
     public void clearJobTitle(){
-
         //wait until job title field appear
         WaitUtil.simpleSleep(500);
         findElement(By.id("UserJobTitle")).clear();
     }
 
     public void clearLocation(){
-
-        //wait until location field appear
+         //wait until location field appear
         WaitUtil.simpleSleep(500);
         findElement(By.id("LocationInputSearch")).clear();
     }
 
     public void clearCompanyField(){
-
         //wait until company title field appear
         WaitUtil.simpleSleep(500);
         findElement(By.id("UserCompanyName")).clear();

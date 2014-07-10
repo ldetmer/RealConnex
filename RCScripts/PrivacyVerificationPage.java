@@ -59,6 +59,16 @@ public class PrivacyVerificationPage extends FluentWebDriverPage {
         Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrUserName+"')]"),getDriverProvider().get()));
     }
 
+    public void verifyUserProfileSetToIncludeNotDisplayed(int intRowIndex) throws Exception {
+        String lStrUserName = ReadData.readDataExcel("Privacy", intRowIndex ,"NamesOfDifferentRoles");
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrUserName+"')]"),getDriverProvider().get()));
+    }
+
+    public void verifyCompanyProfileSetToIncludeNotDisplayed(int intRowIndex) throws Exception {
+        String lStrCompanyName = ReadData.readDataExcel("Privacy", intRowIndex ,"CompanyNameOfDifferentRoles");
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrCompanyName+"')]"),getDriverProvider().get()));
+    }
+
     public void verifyCompanyProfileNotDisplayed(int intRowIndex) throws Exception {
         String lStrCompanyName = ReadData.readDataExcel("Privacy", intRowIndex ,"CompanyNameOfDifferentRoles");
         Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrCompanyName+"')]"),getDriverProvider().get()));

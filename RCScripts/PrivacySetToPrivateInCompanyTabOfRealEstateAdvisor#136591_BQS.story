@@ -7,6 +7,7 @@ I Verify that when "Property Service Provider" user sets privacy to "Private" in
 
 Scenario: 136591 : Verify that property service provider user privacy is set to "Private" in "Company" page can be viewed to user who have permission
 When I update TestCaseId 136591
+When I update TestCaseName Privacy Set To Private In Company Tab Of Real Estate Advisor
 When I launch RealConnex application
 And I enter real estate advisor email ID whose privacy set to private
 And I enter Password

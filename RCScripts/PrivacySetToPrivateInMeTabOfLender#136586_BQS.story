@@ -7,6 +7,7 @@ I Verify that when "Lender" user sets privacy to "Private" in "Me >> Privacy" pa
 
 Scenario: 136586 : Verify that lender user privacy is set to "Private" in "Me" page can be viewed to user who have permission
 When I update TestCaseId 136586
+When I update TestCaseName Privacy Set To Private In Me Tab Of Lender
 When I launch RealConnex application
 And I enter lender email ID whose privacy set to private
 And I enter Password

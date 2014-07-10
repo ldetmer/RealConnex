@@ -7,6 +7,7 @@ I Verify that when "Lender" user sets privacy to "Private" in "Company >> Privac
 
 Scenario: 136590 : Verify that lender user privacy is set to "Private" in "Company" page can be viewed to user who have permission
 When I update TestCaseId 136590
+When I update TestCaseName Privacy Set To Private In Company Tab Of Lender
 When I launch RealConnex application
 And I enter lender email ID whose privacy set to private
 And I enter Password

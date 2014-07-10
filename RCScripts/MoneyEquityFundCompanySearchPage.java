@@ -58,7 +58,7 @@ public class MoneyEquityFundCompanySearchPage extends FluentWebDriverPage {
         findElement(By.id("SubroleId_checkbox_18")).click();
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div/label[contains(text(),'Investor Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait util page load
-        WaitUtil.simpleSleep(5000);
+        WaitUtil.simpleSleep(10000);
     }
 
 }

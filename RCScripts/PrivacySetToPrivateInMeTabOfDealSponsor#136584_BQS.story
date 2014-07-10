@@ -7,6 +7,7 @@ I Verify that when "Deal Sponsor" user sets privacy to "Private" in "Me >> Priva
 
 Scenario: 136584 : Verify that deal sponsor user privacy is set to "Private" in "Me" page can be viewed to user who have permission
 When I update TestCaseId 136584
+When I update TestCaseName Privacy Set To Private In Me Tab Of Deal Sponsor
 When I launch RealConnex application
 And I enter deal sponsor email ID whose privacy set to private
 And I enter Password
