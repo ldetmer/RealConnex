@@ -8,11 +8,12 @@ when "Real Estate Advisors >> Investment Banker" search is performed
 
 Scenario: TC 138408: Verify companies other than investment banker is not retrieved when search is performed
 When I update TestCaseId 138408
-When I update TestCaseName Search Companies Of Investment Banker Validation
+When I update TestCaseName Perform: "Real Estate Advisor >> Investment Banker" search Verify that companies other than "Investment Banker" sub role users are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Real Estate Advisors' link

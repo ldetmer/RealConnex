@@ -101,6 +101,26 @@ public class PrivacyVerificationSteps {
         privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(5);
     }
 
+    @Then("I verify investor company whose profile is set private in include of my universe is not displayed")
+    public void verifyInvestorCompanyProfileSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(6);
+    }
+
+    @Then("I verify deal sponsor company whose profile is set private in include of my universe is not displayed")
+    public void verifyDealSponsorCompanyProfileSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(7);
+    }
+
+    @Then("I verify real estate advisor company whose profile is set private in include of my universe is not displayed")
+    public void verifyRealEstateAdvisorCompanyProfileSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(8);
+    }
+
+    @Then("I verify lender company whose profile is set private in include of my universe is not displayed")
+    public void verifyLenderCompanyProfileSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(9);
+    }
+
     @Then("I verify user whose profile is set to private in me tab of include in my universe is not displayed")
      public void verifyInvestorUserProfileSetToPrivateIncludeNotDisplayed() throws Exception {
         privacyVerificationPage.verifyUserProfileSetToIncludeNotDisplayed(6);

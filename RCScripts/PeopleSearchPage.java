@@ -14,7 +14,8 @@ import java.io.File;
 public class PeopleSearchPage extends FluentWebDriverPage {
     ReadData ReadData = new ReadData();
     int i = 1;
-    String[] gStrFieldName;
+    String gStrFieldName;
+    /*public static String gStrReason = "";*/
     public PeopleSearchPage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
@@ -37,18 +38,14 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     public void verifyDealSponsorUserIsDisplayedName(String strDealSponsorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        gStrFieldName[i] = findElement(By.xpath("//div[@id='searchFilters']/div/div["+i+"]/label")).getText();
+        gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div/div["+i+"]/label")).getText();
         i++;
         try{
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
         }catch (AssertionError e){
             System.out.println(e);
-            String file = "D:/RealConnex/out/production/RealConnex/test/Resources/TestData.xls";
-            File newFile = new File(file);
-            System.out.println("TestData File: " + newFile);
-            OfficeCommonFunctions.UpdateDataToExcel("RunTimeExecutionIds", newFile.getAbsolutePath(), 1, "Field", gStrFieldName[i]);
-            OfficeCommonFunctions.UpdateDataToExcel("RunTimeExecutionIds", newFile.getAbsolutePath(), 1, "Reason", e.toString());
-        }
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ gStrFieldName + e.toString();
+         }
 
     }
 
@@ -139,7 +136,7 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             findElement(By.id("UserJobTitle")).sendKeys(strUserJobTitle);
             VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserJobTitle"),strUserJobTitle);
              //wait until title field appears
-            WaitUtil.simpleSleep(5000);
+            WaitUtil.simpleSleep(10000);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -172,7 +169,7 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     public void enterCompanyName(int RowIndex){
         try{
              //wait until title field appears
-            WaitUtil.simpleSleep(500);
+            WaitUtil.simpleSleep(100);
             String strCompanyName = ReadData.readDataExcel("PeopleDetails", RowIndex, "UserCompanyName");
             findElement(By.id("UserCompanyName")).click();
             findElement(By.id("UserCompanyName")).sendKeys(strCompanyName);

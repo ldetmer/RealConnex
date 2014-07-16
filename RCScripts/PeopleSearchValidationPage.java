@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import test.Support.ReadData;
+import test.steps.VerificationStatements;
+
 import java.util.List;
 
 public class PeopleSearchValidationPage extends FluentWebDriverPage {
@@ -18,7 +20,7 @@ public class PeopleSearchValidationPage extends FluentWebDriverPage {
     public void verifyInvestorUserNameNotDisplayed(String strInvestorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get()));
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get()));
     }
 
     public void verifyInvestorUserNameIsDisplayed(String strInvestorUserName){
@@ -30,13 +32,13 @@ public class PeopleSearchValidationPage extends FluentWebDriverPage {
     public void verifyDealSponsorUserNameNotDisplayed(String strDealSponsorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
     }
 
     public void enterInvestorUserName(int RowIndex){
         try{
             //wait until text field is found
-            WaitUtil.simpleSleep(500);
+            WaitUtil.simpleSleep(1000);
             String strUserTitle = ReadData.readDataExcel("PeopleDetails", RowIndex, "InvestorUserName");
             findElement(By.id("UserTitle")).click();
             findElement(By.id("UserTitle")).clear();
@@ -44,15 +46,20 @@ public class PeopleSearchValidationPage extends FluentWebDriverPage {
         } catch (Exception e) {
             System.out.println(e);
         }
+        //wait until text field is found
+        WaitUtil.simpleSleep(10000);
     }
 
     public void enterInvestorJobTitle(int RowIndex){
         try{
             //wait until title field appear
-            WaitUtil.simpleSleep(500);
+            WaitUtil.simpleSleep(10000);
             String strUserJobTitle = ReadData.readDataExcel("PeopleDetails", RowIndex, "InvestorJobTitle");
             findElement(By.id("UserJobTitle")).click();
             findElement(By.id("UserJobTitle")).sendKeys(strUserJobTitle);
+            VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserJobTitle"),strUserJobTitle);
+            //wait until title field appear
+            WaitUtil.simpleSleep(10000);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -63,12 +70,12 @@ public class PeopleSearchValidationPage extends FluentWebDriverPage {
     public void enterInvestorCompanyName(int RowIndex){
         try{
             //wait until company name appear
-            WaitUtil.simpleSleep(500);
+            WaitUtil.simpleSleep(1000);
             String strCompanyName = ReadData.readDataExcel("PeopleDetails", RowIndex, "InvestorCompanyName");
             findElement(By.id("UserCompanyName")).click();
             findElement(By.id("UserCompanyName")).sendKeys(strCompanyName);
             //wait until company name appear
-            WaitUtil.simpleSleep(5000);
+            WaitUtil.simpleSleep(10000);
         } catch (Exception e) {
             System.out.println(e);
         }

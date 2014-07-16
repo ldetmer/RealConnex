@@ -8,11 +8,12 @@ are not retrieved in "Investment >> Fund/Fund of Funds" search
 
 Scenario: TC 138426 : Verify project other than deal sponsor fund and investor fund are not retrieved when search is performed
 When I update TestCaseId 138426
-When I update TestCaseName Search Investment Fund Project Validation
+When I update TestCaseName Perform: "Investment >> Fund/Fund of Funds" search Verify that Projects other than Deal Sponsor "Fund" and Investor "Fund" projects are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Investments' link

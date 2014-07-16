@@ -35,5 +35,7 @@ public class LogoutPage extends FluentWebDriverPage {
          //wait until page loads
         WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
+
+
     }
 }

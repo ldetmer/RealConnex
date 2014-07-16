@@ -24,6 +24,12 @@ public class MyUniversePage extends FluentWebDriverPage {
         super(driverProvider);
     }
 
+    public void clickCloseTutorialField(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.cssSelector("a")).click();
+    }
+
     public void clickMyUniverseRadioButton(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
@@ -482,6 +488,8 @@ public class MyUniversePage extends FluentWebDriverPage {
          //wait until page load
         WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//a[contains(text(),'COMPANY')]")).click();
+        //wait until page load
+        WaitUtil.simpleSleep(5000);
     }
 
     public void clickEditOfStrategyField(){
@@ -590,5 +598,58 @@ public class MyUniversePage extends FluentWebDriverPage {
 
     public void scrollUp(){
         executeScript("scrollTo(250,0)");
+    }
+
+    public void clickOnEditCompanyField(){
+        //wait until page load
+        WaitUtil.simpleSleep(10000);
+        findElement(By.cssSelector("#initCompanyClick")).click();
+    }
+
+    public void enterCompanyName(){
+        String lStrCompanyName = "testAuto"+System.currentTimeMillis()+"Company";
+        findElement(By.id("CompanyTitle")).clear();
+        findElement(By.id("CompanyTitle")).sendKeys(lStrCompanyName);
+        VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("CompanyTitle"), lStrCompanyName);
+    }
+
+    public void selectDeveloperInWeAreAField(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div[@id='subRoleSelect']/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.cssSelector("#SubroleId_checkbox_1")).click();
+        findElement(By.xpath("//div[@id='subRoleSelect']/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectAdvisorInWeAreAField(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div/label[contains(text(),'We are a:')]/parent::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.cssSelector("#SubroleId_checkbox_18")).click();
+        findElement(By.xpath("//div/label[contains(text(),'We are a:')]/parent::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectFamilyOfficeInWeAreAField(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div/label[contains(text(),'We are a:')]/parent::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.cssSelector("#SubroleId_checkbox_39")).click();
+        findElement(By.xpath("//div/label[contains(text(),'We are a:')]/parent::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectAdvisorOfRealEstateAdvisorProfileInWeAreAField(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div/label[contains(text(),'We are a:')]/parent::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.cssSelector("#SubroleId_checkbox_57")).click();
+        findElement(By.xpath("//div/label[contains(text(),'We are a:')]/parent::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clickSaveButtonOfCompanyProfile(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//input[@value='Save']")).click();
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
     }
 }

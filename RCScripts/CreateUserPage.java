@@ -3,11 +3,19 @@ package test.pages;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
 /**
@@ -123,7 +131,7 @@ public class CreateUserPage extends FluentWebDriverPage {
 
     public void clickOk(){
          //wait until page load
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(5000);
         findElement(By.cssSelector("#registerSuccess > div.popup > div.modal-content > div.form-holder > fieldset > div.modal-footer > button.sbm")).click();
          //wait until page load
         WaitUtil.simpleSleep(1000);
@@ -148,21 +156,47 @@ public class CreateUserPage extends FluentWebDriverPage {
         findElement(By.id("UserLoginPopupEmail")).clear();
         findElement(By.id("UserLoginPopupEmail")).sendKeys(gStrEmailId);
         VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("UserLoginPopupEmail"), gStrEmailId);
+        findElement(By.id("UserLoginPopupEmail")).click();
     }
 
-    public void clickCheckInboxButton(){
-         //wait until page load
-        WaitUtil.simpleSleep(500);
-        findElement(By.cssSelector("input.sbut")).click();
+    public void clickCheckInboxButton() {
+         try{
+             Actions action = new Actions(getDriverProvider().get());
+             //wait until page load
+             WaitUtil.simpleSleep(1000);
+             action.sendKeys(Keys.ARROW_RIGHT).build().perform();
+             action.sendKeys(Keys.ENTER).build().perform();
+             findElement(By.xpath("//input[@value='Check Inbox']")).sendKeys(Keys.ENTER);
+
+             //wait until page load
+             WaitUtil.simpleSleep(1000);
+
+
+          /*  Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_RIGHT);
+            robot.keyRelease(KeyEvent.VK_RIGHT);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);*/
+        } catch (NoSuchElementException e) {
+            System.out.println(e);
+        }
         //wait until page load
-        WaitUtil.simpleSleep(5000);
+        WaitUtil.simpleSleep(1000);
+    }
+
+    public void clickCheckInboxButtonInYopmail(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//input[@value='Check Inbox']")).click();
     }
 
     public void switchToYopMailTab(){
-        ArrayList<String> tabs2 = new ArrayList<String> (getWindowHandles());
-        switchTo().window(tabs2.get(1));
+        //wait until page load
+        WaitUtil.simpleSleep(5000);
+        ArrayList<String> tabs = new ArrayList<String> (getWindowHandles());
+        switchTo().window(tabs.get(1));
         close();
-        switchTo().window(tabs2.get(0));
+        switchTo().window(tabs.get(0));
     }
 
     public void clickRealConnexMail(){

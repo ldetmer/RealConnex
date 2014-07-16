@@ -8,11 +8,12 @@ type option selected are retrieved in "Money>>Debt>>Loans" search
 
 Scenario: TC 138431 : Verify that companies of user with lender role and loan type option are retrieved
 When I update TestCaseId 138431
-When I update TestCaseName Search Money Debt Loan Company
+When I update TestCaseName Perform: "Money >> Debt >> Loans" search Verify that companies of users with "Lender" role and "Loan" Loan Type option selected are retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link

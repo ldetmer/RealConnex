@@ -8,11 +8,12 @@ are retrieved in "Money >> Debt >> Mezz" search
 
 Scenario: TC 138430 : Verify that project type of "Mezz" projects are retrieved in search
 When I update TestCaseId 138430
-When I update TestCaseName Search Money Debt Mezz Project Validation
+When I update TestCaseName Perform: "Money >> Debt >> Mezz" search Verify that projects other than "Mezz" project type are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link

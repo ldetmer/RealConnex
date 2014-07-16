@@ -23,6 +23,11 @@ public class MyUniverseSteps {
         myUniversePage = thePageFactory.newMyUniversePage();
     }
 
+    @When("I click on close tutorial field")
+    public void clickCloseTutorialField(){
+        myUniversePage.clickCloseTutorialField();
+    }
+
     @When("I click on my universe radio button")
     public void clickMyUniverseRadioButton(){
         myUniversePage.clickMyUniverseRadioButton();
@@ -349,6 +354,40 @@ public class MyUniverseSteps {
         myUniversePage.clickSaveButtonInAboutField();
     }
 
+    @When("I click on edit company field")
+    public void clickOnEditCompanyField(){
+        myUniversePage.clickOnEditCompanyField();
+    }
+
+    @When("I enter company name")
+    public void enterCompanyName(){
+        myUniversePage.enterCompanyName();
+    }
+
+    @When("I select developer option in We are a field")
+    public void selectDeveloperInWeAreAField(){
+        myUniversePage.selectDeveloperInWeAreAField();
+    }
+
+    @When("I select advisor option in We are a field")
+    public void selectAdvisorInWeAreAField(){
+        myUniversePage.selectAdvisorInWeAreAField();
+    }
+
+    @When("I select family office option in We are a field")
+    public void selectFamilyOfficeInWeAreAField(){
+        myUniversePage.selectFamilyOfficeInWeAreAField();
+    }
+
+    @When("I select advisor option in We are a field of real estate advisor profile")
+    public void selectAdvisorOfRealEstateAdvisorProfileInWeAreAField(){
+        myUniversePage.selectAdvisorOfRealEstateAdvisorProfileInWeAreAField();
+    }
+
+    @When("I click on save button of company profile")
+    public void clickSaveButtonOfCompanyProfile(){
+        myUniversePage.clickSaveButtonOfCompanyProfile();
+    }
 
    /* @Then("I verify user whose profile is set to include in my universe is not displayed")
     public void verifyIncludeProfileUserNameNotDisplayed() throws Exception {

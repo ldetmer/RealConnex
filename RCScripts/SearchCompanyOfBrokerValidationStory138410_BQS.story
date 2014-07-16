@@ -8,11 +8,12 @@ are retrieved, when "Real Estate Advisors >> Broker" search is performed
 
 Scenario: TC 138410: Verify companies of broker is retrieved when search is performed
 When I update TestCaseId 138410
-When I update TestCaseName Search Companies Of Broker Validation
+When I update TestCaseName Perform: "Real Estate Advisor >> Broker" search Verify that companies other than "Broker" sub role users are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Real Estate Advisors' link

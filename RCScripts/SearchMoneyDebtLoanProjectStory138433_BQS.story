@@ -3,15 +3,16 @@ Meta:
 
 Narrative:
 As a user
-I verify that project type of "Loan" projects are retrieved
+I verify that project type of "Loan" projects are retrieved in Money >> Debt >> Loans
 
 Scenario: TC 138433 : Verify that project type of "Loan" projects are retrieved
 When I update TestCaseId 138433
-When I update TestCaseName Search Money Debt Loan Project
+When I update TestCaseName Perform: "Money >> Debt >> Loans" search Verify that project type of "Loan" projects are retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link

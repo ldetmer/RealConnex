@@ -7,11 +7,12 @@ I Verify that desired list of all the 4 roles users are retrieved as search resu
 
 Scenario: TC 138204: Verify desired list of people are retrieved from search result
 When I update TestCaseId 138204
-When I update TestCaseName Search People
+When I update TestCaseName Verify that desired list of all the 4 roles users are retrieved as search result when people search is performed.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link

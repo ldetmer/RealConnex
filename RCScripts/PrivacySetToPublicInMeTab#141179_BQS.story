@@ -12,6 +12,7 @@ When I launch RealConnex application
 And I enter deal sponsor email ID for privacy set to public
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see Privacy button
 When I click on Privacy button
 Then I verify that privacy page is displayed
@@ -22,6 +23,7 @@ When I logout RealConnex application
 And I enter deal sponsor email ID for login
 And I enter password of user
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -34,6 +36,7 @@ And I logout RealConnex application
 And I enter investor email ID for login
 And I enter password of user
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -46,6 +49,7 @@ And I logout RealConnex application
 And I enter lender email ID for login
 And I enter password of user
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -58,6 +62,7 @@ And I logout RealConnex application
 And I enter real estate advisor email ID for login
 And I enter password of user
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link

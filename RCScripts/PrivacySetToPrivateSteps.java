@@ -268,6 +268,26 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.enterCompanyName(5);
     }
 
+    @When("I enter investor company name who has set the profile to private in include of my universe")
+    public void enterInvestorCompanyNameInIncludeOfMyUniverse() throws Exception {
+        privacySetToPrivatePage.enterCompanyName(6);
+    }
+
+    @When("I enter deal sponsor company name who has set the profile to private in include of my universe")
+    public void enterDealSponsorCompanyNameInIncludeOfMyUniverse() throws Exception {
+        privacySetToPrivatePage.enterCompanyName(7);
+    }
+
+    @When("I enter real estate advisor company name who has set the profile to private in include of my universe")
+    public void enterRealEstateAdvisorCompanyNameInIncludeOfMyUniverse() throws Exception {
+        privacySetToPrivatePage.enterCompanyName(8);
+    }
+
+    @When("I enter lender company name who has set the profile to private in include of my universe")
+    public void enterLenderCompanyNameInIncludeOfMyUniverse() throws Exception {
+        privacySetToPrivatePage.enterCompanyName(9);
+    }
+
     @When("I enter user name who has set the profile to private in include of my universe")
     public void enterPrivateIncludeUserName() throws Exception {
         privacySetToPrivatePage.enterUserName(6);

@@ -8,11 +8,12 @@ option selected are retrieved in "Money >> Debt >> Mezz" search
 
 Scenario: TC 138428 : Verify that companies other than user with lender role and mezz loan type are retrieved
 When I update TestCaseId 138428
-When I update TestCaseName Search Money Debt Mezz Company Validation
+When I update TestCaseName Perform: "Money >> Debt >> Mezz" search Verify that companies of users other than "Lender" role and "Mezz" Loan Type option selected are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link

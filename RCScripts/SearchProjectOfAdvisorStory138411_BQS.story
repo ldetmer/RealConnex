@@ -13,6 +13,7 @@ When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Real Estate Advisors' link
@@ -22,9 +23,9 @@ And I click on 'GO' button
 Then I should see 'Real Estate Advisors' as find in search option
 And I should see 'Advisor' as subrole in search option
 And I should see 'Appraisal' as strategy in search option
-When I click on company of user
+When I click on service of user
 And I return back to the searched page
-And I click on service of user
+When I click on company of user
 And I return back to the searched page
 And I set the values in the slider of project size
 Then I verify service project of advisor is displayed

@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
 
+import java.util.NoSuchElementException;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Bhavana
@@ -130,8 +132,12 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
 
     public void verifyAccessUpdatedMessage(){
          //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(1000);
+        try{
         Assert.assertEquals("Access successfully updated", findElement(By.cssSelector("div.ui-pnotify-text")).getText());
+        } catch (NoSuchElementException e) {
+            System.out.println(e);
+        }
     }
 
     public void verifyPrivateUserName(int intRowIndex) throws Exception {

@@ -8,11 +8,12 @@ retrieved when "Developer, Deal Sponsor>>Deal Sponsor" search is performed.
 
 Scenario: TC 138398: Verify companies other than deal sponsor subrole is not retrieved
 When I update TestCaseId 138398
-When I update TestCaseName Search Companies Of Deal Sponsor Validation
+When I update TestCaseName Perform: "Developer, Deal Sponsor >> Deal Sponsor" search Verify that companies other than "Deal Sponsor" sub role are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Developer,Deal Sponsor' link

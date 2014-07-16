@@ -8,11 +8,12 @@ are not retrieved when "Investment >> Direct Into Project" search
 
 Scenario: TC 138418: Verify companies of user other than deal sponsor role are not retrieved
 When I update TestCaseId 138418
-When I update TestCaseName Search Investment Direct Into Company Validation
+When I update TestCaseName Perform: "Investment >> Direct Into Project" search Verify that companies of users other than "Deal Sponsor" role but not "Fund Sponsor" sub-role are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Investments' link

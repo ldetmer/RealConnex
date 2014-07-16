@@ -12,6 +12,7 @@ import java.util.Map;
 
 
 public class LoginRealConnexPage extends FluentWebDriverPage {
+    public static String gStrReason = "";
     ReadData ReadData = new ReadData();
     public LoginRealConnexPage(WebDriverProvider driverProvider) {
         super(driverProvider);
@@ -45,6 +46,8 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
 
     public void clickLogIn(){
         findElement(By.cssSelector("input.login")).click();
+        //wait until page load
+        WaitUtil.simpleSleep(5000);
     }
 
     public void enterLoginDetails(ExamplesTable LoginDetailsTable){

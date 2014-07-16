@@ -6,13 +6,14 @@ As a user
 I verify that companies of users other than "Lender" role and "Loan" loan
 type option selected are not retrieved in "Money>>Debt>>Loans" search
 
-Scenario: TC 138432 :Verify that companies of user other then lender role and loan type option are not retrieved
+Scenario: TC 138432 : Verify that companies of user other then lender role and loan type option are not retrieved
 When I update TestCaseId 138432
-When I update TestCaseName Search Money Debt Loan Company Validation
+When I update TestCaseName Perform: "Money >> Debt >> Loans" search Verify that companies of users other than "Lender" role and "Loan" Loan Type option selected are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link

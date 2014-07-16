@@ -8,11 +8,12 @@ are not retrieved in "Investment >> Fund/Fund of Funds" search
 
 Scenario: TC 138423 : Verify that companies other than investor role are not retrieved.
 When I update TestCaseId 138423
-When I update TestCaseName Search Investment Fund Company Validation
+When I update TestCaseName Perform: "Investment >> Fund/Fund of Funds" search Verify that companies of users other than "Investor" role are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Investments' link

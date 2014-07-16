@@ -54,7 +54,7 @@ Then I verify message displayed after clicking on request a view
 When I logout RealConnex application
 And I launch yopmail
 And I enter deal sponsor email ID whose privacy set to private in yopmail
-And I click on check inbox button
+And I click on check inbox button in yopmail
 And I click on real connex mail
 And I click on Accept link
 And I switch to RealConnex page
@@ -65,7 +65,7 @@ Then I verify access successfully updated message is displayed
 When I logout RealConnex application
 And I launch yopmail
 And I enter yopmail email address of newly created user
-And I click on check inbox button
+And I click on check inbox button in yopmail
 And I click on real connex mail
 And I click on the user link who granted the permission to view the profile
 And I switch to RealConnex page

@@ -8,11 +8,12 @@ sub role are not retrieved when deal sponsor search is performed.
 
 Scenario: TC 138404: Verify companies other than Deal Sponsor,Developer,Fund Sponsor are not displayed when search is performed
 When I update TestCaseId 138404
-When I update TestCaseName Search Companies Of Deal Developer Fund Sponsor Validation
+When I update TestCaseName Perform: "Developer, Deal Sponsor >> Deal Sponsor, Developer, Fund Sponsor" search Verify that companies other than "Deal Sponsor", "Developer" and "Fund Sponsor" sub roles are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Developer,Deal Sponsor' link

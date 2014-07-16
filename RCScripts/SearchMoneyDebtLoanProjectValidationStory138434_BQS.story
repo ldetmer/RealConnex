@@ -7,11 +7,12 @@ I verify that project type of "Loan" projects are retrieved
 
 Scenario: TC 138434 : Verify that project type of "Loan" projects are retrieved
 When I update TestCaseId 138434
-When I update TestCaseName Search Money Debt Loan Project Validation
+When I update TestCaseName Perform: "Money >> Debt >> Loans" search Verify that projects other than "Loan" project type are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link

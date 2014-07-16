@@ -5,6 +5,8 @@ import org.jbehave.core.annotations.*;
 import test.pages.CreateUserPage;
 import test.pages.PageFactory;
 
+import java.awt.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Bhavana
@@ -136,6 +138,11 @@ public class CreateUserSteps {
     @When("I click on check inbox button")
     public void clickCheckInboxButton(){
         createUserPage.clickCheckInboxButton();
+    }
+
+    @When("I click on check inbox button in yopmail")
+    public void clickCheckInboxButtonInYopmail(){
+        createUserPage.clickCheckInboxButtonInYopmail();
     }
 
     @When("I switch to yop mail tab")

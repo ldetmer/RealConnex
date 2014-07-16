@@ -8,11 +8,12 @@ retrieved when "Money >> Equity" search
 
 Scenario: TC 138437 : Verify that companies of user with investor role are retrieved
 When I update TestCaseId 138437
-When I update TestCaseName Search Money Equity Fund Project
+When I update TestCaseName  	Perform: "Money >> Equity" search Verify that Deal Sponsor "Fund" and Investor "Fund" projects are retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link

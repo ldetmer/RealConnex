@@ -7,11 +7,12 @@ are retrieved in "Investment >> Direct Into Project" search
 
 Scenario: TC 138417 : Verify company of deal sponsor role is retrieved when search is performed
 When I update TestCaseId 138417
-When I update TestCaseName Search Investment Direct Into Company
+When I update TestCaseName Perform: "Investment >> Direct Into Project" search Verify that companies of users with role "Deal Sponsor" but not "Fund Sponsor" sub-role are retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Investments' link

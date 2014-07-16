@@ -13,6 +13,7 @@ When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Real Estate Advisors' link
@@ -23,9 +24,9 @@ And I click on 'GO' button
 Then I should see 'Real Estate Advisors' as find in search option
 And I should see 'Residential Broker' as subrole in search option
 And I should see 'Acquisitions' as strategy in search option
-When I click on broker company name
-And I return back to the searched page
 When I click on broker service name
+And I return back to the searched page
+When I click on broker company name
 And I return back to the searched page
 And I set the values in the slider of project size
 Then I verify service project of broker is displayed

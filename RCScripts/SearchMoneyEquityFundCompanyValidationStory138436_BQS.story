@@ -8,11 +8,12 @@ retrieved in "Money >> Equity" search
 
 Scenario: TC 138436 : Verify that companies of user other than investor role are retrieved
 When I update TestCaseId 138436
-When I update TestCaseName Search Money Equity Fund Company Validation
+When I update TestCaseName Perform: "Money >> Equity" search Verify that companies of users other than "Investor" role are not retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link

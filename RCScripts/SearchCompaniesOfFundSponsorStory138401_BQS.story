@@ -8,11 +8,12 @@ retrieved when "Developer/Deal Sponsor>>Fund Sponsor" search is performed.
 
 Scenario: TC 138401: Verify companies of fund sponsor are displayed when search is performed
 When I update TestCaseId 138401
-When I update TestCaseName Search Companies Of Fund Sponsor
+When I update TestCaseName Perform: "Developer, Deal Sponsor >> Fund Sponsor" search Verify that companies of "Fund Sponsor" sub role are retrieved.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Developer,Deal Sponsor' link

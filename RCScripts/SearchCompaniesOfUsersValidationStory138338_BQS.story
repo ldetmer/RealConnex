@@ -7,11 +7,12 @@ I search for list of companies in Real Connex application
 
 Scenario: TC 138338: Verify desired list of companies are retrieved from search result
 When I update TestCaseId 138338
-When I update TestCaseName Search Companies Of Users Validation
+When I update TestCaseName Verify that companies other than desired company are not retrieved when company search is performed
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
+And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
