@@ -62,7 +62,7 @@ public class ProjectOfInvestmentBankerSearchValidationPage extends FluentWebDriv
 
     public void returnToSearchedPage(){
          //wait until page gets loaded
-        WaitUtil.simpleSleep(100);
+        WaitUtil.simpleSleep(1000);
         navigate().back();
     }
 }

@@ -12,7 +12,6 @@ When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link
@@ -73,15 +72,15 @@ And I click on 'GO' button
 And I select non recourse option
 Then I verify 'Kings-made Villa' project name is displayed in money debt loan search
 When I select any option
-And I click collateral field
+And I click on collateral drop down
 And I select the asset option in collateral field
 Then I verify 'Kings-made Villa' project name is displayed in money debt loan search
-When I click collateral field
+When I click on collateral drop down
 And I clear the asset option in collateral field
-When I click collateral field
+When I click on collateral drop down
 And I select the asset option in collateral field
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click collateral field
+When I click on collateral drop down
 And I clear the asset option in collateral field
 And I click on collateral drop down
 And I select cross collateralized option in collateral field
@@ -350,63 +349,63 @@ And I click on 'Loans' link
 And I click on 'Land Loan' link
 And I click on 'GO' button
 And I click on lender characteristics field
-And I click lender profile in lender characteristics field
+And I click on lender profile in lender characteristics field
 And I select mezz fund option in lender profile
 Then I verify 'Kings-made Villa' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I clear mezz fund option in lender profile
-And I click lender profile in lender characteristics field
+And I click on lender profile in lender characteristics field
 And I select any option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select mezz fund option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select institution option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select foundation option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select corporate investor option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select investment bank option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select pension fund option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select sovereign wealth fund option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select bank option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select private lender option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select individual option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select RE fund option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select government agency option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select insurance company option in lender profile field
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select private equity fund option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select endowment fund option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I select all option in lender profile
 Then I verify 'Mich Loan' project name is displayed in money debt loan search
-When I click lender profile in lender characteristics field
+When I click on lender profile in lender characteristics field
 And I clear all option in lender profile
 And I logout from RealConnex application
 

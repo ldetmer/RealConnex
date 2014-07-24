@@ -5,18 +5,19 @@ Narrative:
 As a user
 I Verify that only Investor user can view Company Profile after permission is granted when Investor user is included in My Universe.
 
-Scenario: 136613 : Verify that investor user can view company profile after permission is granted when investor user is included in my universe
-When I update TestCaseId 136613
+Scenario: 136615 : Verify that investor user can view company profile after permission is granted when investor user is included in my universe
+When I update TestCaseId 136615
 When I update TestCaseName Privacy Set To Private In Company Tab Of My Universe Include Of Investor
 When I launch RealConnex application
 And I enter deal sponsor email ID of user who set the privacy in my universe include as private in me tab
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see Privacy button
 When I click on Privacy button
 Then I verify that privacy page is displayed
 When I click on COMPANY tab
+And I click on public button in COMPANY tab
+And I click on save button in COMPANY tab
 And I click on my universe radio button
 And I click on include radio button
 And I select investor check box
@@ -70,12 +71,12 @@ And I click on request a viewing link
 Then I verify message displayed after clicking on request a view
 When I logout RealConnex application
 And I launch yopmail
-And I enter investor email ID of user who set the privacy in my universe include as private in yopmail
+And I enter deal sponsor email ID of user who set the privacy in my universe include as private in yopmail
 And I click on check inbox button in yopmail
 And I click on real connex mail
 And I click on Accept link
 And I switch to RealConnex page
-And I enter investor email ID of user who set the privacy in my universe include as private in me tab
+And I enter deal sponsor email ID of user who set the privacy in my universe include as private in me tab
 And I enter Password
 And I click on login button
 Then I verify access successfully updated message is displayed
@@ -86,7 +87,7 @@ And I click on check inbox button in yopmail
 And I click on real connex mail
 And I click on the user link who granted the permission to view the profile
 And I switch to RealConnex page
-And I enter newly created 'Deal Sponsor' email ID
+And I enter newly created 'Investor' email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
@@ -153,19 +154,4 @@ And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter deal sponsor company name who has set the profile to private in include of my universe
 Then I verify deal sponsor company whose profile is set private in include of my universe is not displayed
-When I logout RealConnex application
-And I enter email ID of user who set the privacy in my universe include
-And I enter Password
-And I click on login button
-Then I should see Privacy button
-When I click on Privacy button
-Then I verify that privacy page is displayed
-When I click on COMPANY tab
-And I clear investor check box
-And I select sub role field of investor
-And I clear advisor sub role option
-And I clear the value in deal/fund size field of investor
-And I click on public button in COMPANY tab
-And I click on save button in COMPANY tab
-Then I verify 'Privacy successfully saved' message is displayed
 When I logout RealConnex application

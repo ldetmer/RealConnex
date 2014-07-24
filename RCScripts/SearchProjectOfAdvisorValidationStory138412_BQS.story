@@ -13,7 +13,6 @@ When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Real Estate Advisors' link
@@ -23,9 +22,9 @@ And I click on 'GO' button
 Then I should see 'Real Estate Advisors' as find in search option
 And I should see 'Advisor' as subrole in search option
 And I should see 'Appraisal' as strategy in search option
-When I click on company of user
+When I click on service of user
 And I return back to the searched page
-And I click on service of user
+And I click on company of user
 And I return back to the searched page
 And I set values of project slider
 Then I verify 'Shawn service' service name of advisor is displayed
@@ -33,28 +32,23 @@ And I verify 'Barb Service' service name of advisor is not displayed
 When I clear values of project slider
 And I select asset experience drop down field
 And I select office option in asset experience drop down
-Then I verify service name of advisor selected 'Advisor Office' option is displayed
-And I verify service name of advisor selected 'Advisor Multi Family' option is not displayed
+Then I verify service name of advisor selected 'Advisor Multi Family' option is not displayed
 When I select asset experience drop down field
 And I clear office option of asset experience drop down
 And I click on deal stage drop down
 And I select owned option in deal stage drop down
-Then I verify service name of advisor selected 'Owned' option is displayed
-And I verify service name of advisor selected 'Concept' option is not displayed
+Then I verify service name of advisor selected 'Concept' option is not displayed
 When I click on deal stage drop down
 And I clear owned option in deal stage drop down
 And I click on profile and experience field
 And I select number of office in profile field
-Then I verify 'Shawn service' service name of advisor is displayed
-And I verify 'Barb Service' service name of advisor is not displayed
+Then I verify 'Barb Service' service name of advisor is not displayed
 When I clear number of office in profile field
 And I select number of professionals in profile field
-Then I verify 'Shawn service' service name of advisor is displayed
-And I verify 'Barb Service' service name of advisor is not displayed
+Then I verify 'Barb Service' service name of advisor is not displayed
 When I clear number of professionals in profile field
 And I select number of transaction completed in profile field
-Then I verify 'Shawn service' service name of advisor is displayed
-And I verify 'Barb Service' service name of advisor is not displayed
+Then I verify 'Barb Service' service name of advisor is not displayed
 When I clear number of transaction completed in profile field
 And I logout from RealConnex application
 

@@ -4,6 +4,7 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import test.Support.ReadData;
 import test.steps.VerificationStatements;
 
 /**
@@ -33,6 +34,7 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
     public void selectPublicButton(){
          //wait util page load
         WaitUtil.simpleSleep(5000);
+        executeScript("scrollTo(100,0)");
         findElement(By.id("PrivacyStatus1")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("PrivacyStatus1"));
     }
@@ -88,16 +90,18 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
         findElement(By.xpath("//section[@id='content']/nav/ul/li/a[contains(text(),'PRODUCTS')]")).click();
     }
 
-    public void clickProjectOfDealSponsor(){
+    public void clickProjectOfDealSponsor(int intRowIndex) throws Exception {
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        findElement(By.xpath("//span[contains(text(),'Tech Project')]")).click();
+        String lStrProjectName = ReadData.readDataExcel("Privacy", intRowIndex,"ProjectsOfAllRoles");
+        findElement(By.xpath("//span[contains(text(),'"+lStrProjectName+"')]")).click();
     }
 
-    public void clickFundOfDealSponsor(){
+    public void clickFundOfDealSponsor(int intRowIndex) throws Exception {
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        findElement(By.xpath("//span[contains(text(),'Tech Fund')]")).click();
+        String lStrFundName = ReadData.readDataExcel("Privacy", intRowIndex,"FundOfAllRoles");
+        findElement(By.xpath("//span[contains(text(),'"+lStrFundName+"')]")).click();
     }
 
     public void clickProjectOfDealSponsor_Private(){
@@ -141,4 +145,5 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//span[contains(text(),'EL Listing')]")).click();
     }
+
 }

@@ -7,9 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
-
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,7 +27,7 @@ public class MyUniversePage extends FluentWebDriverPage {
     public void clickCloseTutorialField(){
         //wait until page loads
         WaitUtil.simpleSleep(5000);
-        findElement(By.cssSelector("a")).click();
+        findElement(By.xpath("//div[@class='top-close-hold']/a[contains(text(),'Close Tutorial?')]")).click();
     }
 
     public void clickMyUniverseRadioButton(){
@@ -44,12 +44,42 @@ public class MyUniversePage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.cssSelector("#PrivacyStatus4"));
     }
 
+    public void clickExcludeRadioButton(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.cssSelector("#PrivacyStatus5")).click();
+        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.cssSelector("#PrivacyStatus5"));
+    }
+
     public void selectDealSponsorCheckBox(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
         scrollDown();
         findElement(By.xpath("//div[@id='includeRules']/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/span/span")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.cssSelector("input[name='data[Privacy][Universe][Include][role_id][]']"));
+    }
+
+    public void selectDealSponsorCheckBoxInExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        scrollDown();
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/span/span")).click();
+        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.cssSelector("input[name=\"data[Privacy][Universe][Exclude][role_id][]\"]"));
+    }
+
+    public void selectInvestorCheckBoxInExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        scrollDown();
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/span/span")).click();
+    }
+
+    public void clearDealSponsorCheckBoxInExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        scrollDown();
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/span/span")).click();
+        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.cssSelector("input[name=\"data[Privacy][Universe][Exclude][role_id][]\"]"));
     }
 
     public void selectInvestorCheckBox(){
@@ -124,6 +154,18 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='includeRules']/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
+    public void selectSubRoleField_DealSponsorInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectSubRoleField_InvestorInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
     public void selectSubRoleField_Investor(){
         //wait until page loads
         WaitUtil.simpleSleep(5000);
@@ -148,6 +190,30 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.cssSelector("#Subroleinclude_Id_checkbox_1")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleinclude_Id_checkbox_1"));
         findElement(By.xpath("//div[@id='includeRules']/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectDeveloperOptionInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.cssSelector("#Subroleexclude_Id_checkbox_1")).click();
+        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleexclude_Id_checkbox_1"));
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectAdvisorOptionInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.cssSelector("#Subroleexclude_Id_checkbox_18")).click();
+        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleexclude_Id_checkbox_18"));
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void clearDeveloperOptionInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.cssSelector("#Subroleexclude_Id_checkbox_1")).click();
+        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleexclude_Id_checkbox_1"));
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void clearDeveloperOption(){
@@ -215,6 +281,32 @@ public class MyUniversePage extends FluentWebDriverPage {
         }
         WebElement sliderRight = findElement(By.xpath("//div[@id='includeRules']/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/a[2]"));
         for(int i=0;i<91;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+    }
+
+    public void setDealFundSize_DealSponsorInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/a[1]"));
+        for(int i=1;i<8;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/a[2]"));
+        for(int i=0;i<91;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+    }
+
+    public void setDealFundSize_InvestorInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/div/div/a[1]"));
+        for(int i=1;i<9;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/div/div/a[2]"));
+        for(int i=0;i<90;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
         }
     }
@@ -317,6 +409,14 @@ public class MyUniversePage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#lbl-pub-1"));
     }
 
+    public void selectPublicOption(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement viewOptions = findElement(By.xpath("//select[@name='data[Privacy][Universe][Exclude][view_permission]']"));
+        Select select = new Select(viewOptions);
+        select.selectByIndex(1);
+    }
+
     public void selectPublicRadioButton_Investor(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
@@ -401,6 +501,12 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.xpath("//form[@id='UserCompanyPrivacyForm']/div/input[@value='Save']")).click();
     }
 
+    public void clickSaveButton_Project(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.cssSelector("input.sbm")).click();
+    }
+
     public void verifyUserName_Universe(String lStrUserName){
          //wait until page load
         WaitUtil.simpleSleep(1000);
@@ -417,6 +523,22 @@ public class MyUniversePage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(1000);
     }
 
+    public void verifyProjectName_Universe(String lStrCompanyName){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrCompanyName+"')]"), getDriverProvider().get()));
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+    }
+
+    public void verifyLoanName_Universe(String lStrLoanName){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrLoanName+"')]"), getDriverProvider().get()));
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+    }
+
     public void clickUserName_Universe(String lStrUserName){
          //wait until page load
         WaitUtil.simpleSleep(1000);
@@ -427,6 +549,18 @@ public class MyUniversePage extends FluentWebDriverPage {
         //wait until page load
         WaitUtil.simpleSleep(1000);
         findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong/span[contains(text(),'"+lStrCompanyName+"')]")).click();
+    }
+
+    public void clickProjectName_Universe(String lStrUserName){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrUserName+"')]")).click();
+    }
+
+    public void clickLoanName_Universe(String lStrLoanName){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrLoanName+"')]")).click();
     }
 
     public void verifyIncludeProfileUserNameNotDisplayed(int intRowIndex) throws Exception {
@@ -651,5 +785,60 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.xpath("//input[@value='Save']")).click();
         //wait until page load
         WaitUtil.simpleSleep(1000);
+    }
+
+    public void setInvestmentAmountOfInvestorProjectIsSetToPrivate(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<7;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        for(int i=0;i<92;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clickLoanOfLenderMyUniverse(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'CY Loan')]")).click();
+    }
+
+    public void clickMezzOfLenderMyUniverse(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'CY Mezz')]")).click();
+    }
+
+    public void clickServiceProjectMyUniverseInclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'Davis Service')]")).click();
+    }
+
+    public void clickListingProjectMyUniverseInclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//span[contains(text(),'Davis Listing')]")).click();
+    }
+
+    public void verifyProjectOfServiceProviderNameMyUniverseInclude(String lStrProjectOfServiceProviderName){
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrProjectOfServiceProviderName+"')]"),getDriverProvider().get()));
+    }
+
+    public void clickProjectOfServiceProviderNameInMyUniverse(String lStrFundName){
+        findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrFundName+"')]")).click();
+    }
+
+    public void verifyProjectOfLenderNameMyUniverseInclude(String lStrProjectOfLender){
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrProjectOfLender+"')]"),getDriverProvider().get()));
+    }
+
+    public void clickProjectOfLenderNameInMyUniverse(String lStrProjectOfLender){
+        findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrProjectOfLender+"')]")).click();
     }
 }

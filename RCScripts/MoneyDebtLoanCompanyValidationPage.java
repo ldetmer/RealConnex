@@ -248,16 +248,16 @@ public class MoneyDebtLoanCompanyValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("SubroleId_checkbox_44")).click();
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("SubroleId_checkbox_44"));
-        findElement(By.id("SubroleId_checkbox_46")).click();
-        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("SubroleId_checkbox_46"));
+        findElement(By.cssSelector("#SubroleId_checkbox_46")).click();
+        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.cssSelector("#SubroleId_checkbox_46"));
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Lender Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void selectInsuranceCompany_lender(){
          //wait until page loads
         WaitUtil.simpleSleep(500);
-        findElement(By.id("SubroleId_checkbox_46")).click();
-        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("SubroleId_checkbox_46"));
+        findElement(By.cssSelector("#SubroleId_checkbox_46")).click();
+        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.cssSelector("#SubroleId_checkbox_46"));
         findElement(By.id("SubroleId_checkbox_48")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("SubroleId_checkbox_48"));
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Lender Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();

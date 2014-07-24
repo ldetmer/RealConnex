@@ -70,8 +70,16 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         //wait until page load
         WaitUtil.simpleSleep(1000);
         String lStrDealSponsorName = ReadData.readDataExcel("LoginRealConnex",intRowIndex,"EmailId");
+        findElement(By.id("login")).clear();
         findElement(By.id("login")).sendKeys(lStrDealSponsorName);
-        VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("login"), lStrDealSponsorName);
+    }
+
+    public void enterMailInatorId_Lender(int intRowIndex) throws Exception {
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        String lStrDealSponsorName = ReadData.readDataExcel("LoginRealConnex",intRowIndex,"EmailId");
+        findElement(By.id("inboxfield")).clear();
+        findElement(By.id("inboxfield")).sendKeys(lStrDealSponsorName);
     }
 
     public void clickAcceptLink(){
@@ -124,6 +132,15 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
     public void selectInvestmentAmountValueForListingProject(){
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[2]"));
         for(int i=0;i<95;i++){
+            sliderLeft.sendKeys(Keys.ARROW_DOWN);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void selectInvestmentAmountValueForListingProjectInMyUniverse(){
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[2]"));
+        for(int i=0;i<96;i++){
             sliderLeft.sendKeys(Keys.ARROW_DOWN);
         }
         //wait until page loads
@@ -197,6 +214,21 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(10000);
     }
 
+    public void setInvestmentAmount_PrivateOfDealSponsor(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<2;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        for(int i=0;i<97;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
     public void setInvestmentAmountOfInvestor_Private(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
@@ -263,5 +295,44 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(10000);
         String lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex,"ListingOfAllRoles");
         Assert.assertEquals(lStrPrivateFundName, findElement(By.cssSelector("h1")).getText());
+    }
+
+    public void setLoanAmount_PrivateMyUniverseInclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<8;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        for(int i=0;i<91;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(15000);
+    }
+
+    public void setEquity_PrivateInMyUniverse(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<7;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        for(int i=0;i<92;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(12000);
+    }
+
+    public void setProjectSize_PrivateInMyUniverse(){
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        for(int i=0;i<99;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
     }
 }

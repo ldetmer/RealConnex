@@ -12,7 +12,6 @@ When I launch RealConnex application
 And I enter user email ID
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Money' link
@@ -97,14 +96,12 @@ Then I verify project name of 'Land Bank' option is displayed
 And I verify project name of 'Forward Commitment/Forward Purchase' option is not displayed
 When I click asset strategy in loan for field
 And I clear land bank option in asset strategy
-And I set value of pre-leased
-Then I verify 'Kings-made Villa' project name is displayed in money debt loan search
-And I verify 'Aqua' project name is not displayed in money debt loan search
-When I clear value of pre-leased
-And I set value of pre-sold
-Then I verify 'Kings-made Villa' project name is displayed in money debt loan search
-And I verify 'Aqua' project name is not displayed in money debt loan search
-When I clear value of pre-sold
+And I set value of pre-leased field
+Then I verify 'Kings-made Villa' project name is not displayed in money debt loan search
+When I clear value of pre-leased field
+And I set value of pre-sold field
+Then I verify 'Kings-made Villa' project name is not displayed in money debt loan search
+When I clear value of pre-leased field
 And I click on lender characteristics field
 And I click lender profile in lender characteristics field
 And I select mezz fund option in lender profile

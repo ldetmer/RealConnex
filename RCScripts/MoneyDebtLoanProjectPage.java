@@ -369,6 +369,13 @@ public class MoneyDebtLoanProjectPage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Lender Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
+    public void clickOnLenderProfile(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        executeScript("scrollTo(0,200)");
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Lender Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
     public void selectMezzFund(){
          //wait until page loads
         WaitUtil.simpleSleep(500);
@@ -456,6 +463,17 @@ public class MoneyDebtLoanProjectPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(10000);
     }
 
+    public void setPreLeasedValues(){
+        //wait until page loads
+        WaitUtil.simpleSleep(500);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[6]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
     public void clearPreLeasedValue(){
          //wait until page loads
         WaitUtil.simpleSleep(500);
@@ -464,6 +482,17 @@ public class MoneyDebtLoanProjectPage extends FluentWebDriverPage {
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
          //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearPreLeasedValues(){
+        //wait until page loads
+        WaitUtil.simpleSleep(500);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[6]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_LEFT);
+        }
+        //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
 
@@ -478,6 +507,17 @@ public class MoneyDebtLoanProjectPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(10000);
     }
 
+    public void setPreSoldValues(){
+        //wait until page loads
+        WaitUtil.simpleSleep(500);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[7]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
     public void clearPreSoldValue(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
@@ -486,6 +526,17 @@ public class MoneyDebtLoanProjectPage extends FluentWebDriverPage {
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
          //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearPreSoldValues(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[7]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_LEFT);
+        }
+        //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
 

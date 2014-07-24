@@ -31,11 +31,11 @@ public class LogoutPage extends FluentWebDriverPage {
     public void clickLogout(){
          //wait until page loads
         WaitUtil.simpleSleep(10000);
-        findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span")).click();
+        findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong")).click();
          //wait until page loads
-        WaitUtil.simpleSleep(5000);
+        WaitUtil.simpleSleep(1000);
         findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
-
-
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
     }
 }

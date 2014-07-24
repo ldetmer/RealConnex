@@ -6,6 +6,7 @@ import test.pages.CreateUserPage;
 import test.pages.PageFactory;
 
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -131,12 +132,12 @@ public class CreateUserSteps {
         @Aliases(values = {"I enter newly created 'Investor' email ID",
                            "I enter newly created 'Real Estate Advisor,Broker' email ID",
                             "I enter newly created 'Lender' email ID"})
-    public void enterCreatedEmailId(){
+    public void enterCreatedEmailId()throws IOException{
         createUserPage.enterCreatedEmailId();
     }
 
     @When("I click on check inbox button")
-    public void clickCheckInboxButton(){
+    public void clickCheckInboxButton() throws IOException {
         createUserPage.clickCheckInboxButton();
     }
 
@@ -173,5 +174,30 @@ public class CreateUserSteps {
     @When("I click Skip Tour button")
     public void clickSkipTour(){
         createUserPage.clickSkipTour();
+    }
+
+    @When("I launch mailinator")
+    public void launchMailInator(){
+        createUserPage.launchMailInator();
+    }
+
+    @When("I enter mailinator email address of newly created user")
+    public void enterMailInatorId()  {
+        createUserPage.enterMailInatorId();
+    }
+
+    @When("I click on check it button")
+    public void clickCheckItButton() throws IOException {
+        createUserPage.clickCheckItButton();
+    }
+
+    @When("I click on RealConnex mail in the inbox")
+    public void clickRealConnexMailInMailinator(){
+        createUserPage.clickRealConnexMailInMailinator();
+    }
+
+    @When("I click on Click here link in the inbox")
+    public void clickClickHereLinkInInbox(){
+        createUserPage.clickClickHereLinkInInbox();
     }
 }

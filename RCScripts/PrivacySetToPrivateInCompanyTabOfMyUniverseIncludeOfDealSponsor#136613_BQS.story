@@ -12,11 +12,12 @@ When I launch RealConnex application
 And I enter investor email ID of user who set the privacy in my universe include as private in me tab
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see Privacy button
 When I click on Privacy button
 Then I verify that privacy page is displayed
 When I click on COMPANY tab
+And I click on public button in COMPANY tab
+And I click on save button in COMPANY tab
 And I click on my universe radio button
 And I click on include radio button
 And I select deal sponsor check box

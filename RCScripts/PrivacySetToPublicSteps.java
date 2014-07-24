@@ -37,8 +37,8 @@ public class PrivacySetToPublicSteps {
 
     @When("I click on public button in ME tab")
         @Aliases(values={"I click on public button in COMPANY tab",
-                         "I click on public button of project of deal sponsor",
-                         "I click on public button of fund of deal sponsor"})
+                         "I click on public button of project tab",
+                         "I click on public button of fund tab"})
     public void selectPublicButton(){
         privacySetToPublicPage.selectPublicButton();
     }
@@ -84,13 +84,13 @@ public class PrivacySetToPublicSteps {
     }
 
     @When("I click on projects of the deal sponsor")
-    public void clickProjectOfDealSponsor(){
-        privacySetToPublicPage.clickProjectOfDealSponsor();
+    public void clickProjectOfDealSponsor() throws Exception {
+        privacySetToPublicPage.clickProjectOfDealSponsor(2);
     }
 
     @When("I click on funds of the deal sponsor")
-    public void clickFundOfDealSponsor(){
-        privacySetToPublicPage.clickFundOfDealSponsor();
+    public void clickFundOfDealSponsor() throws Exception {
+        privacySetToPublicPage.clickFundOfDealSponsor(3);
     }
 
     @When("I click on projects of the deal sponsor whose privacy is private")
@@ -109,7 +109,7 @@ public class PrivacySetToPublicSteps {
     }
 
     @When("I click on loan of the lender whose privacy is private")
-     public void clickLoanOfLender_Private(){
+    public void clickLoanOfLender_Private(){
         privacySetToPublicPage.clickLoanOfLender_Private();
     }
 
@@ -126,6 +126,21 @@ public class PrivacySetToPublicSteps {
     @When("I click on listing project of the real estate advisor whose privacy is private")
     public void clickListingProject_Private(){
         privacySetToPublicPage.clickListingProject_Private();
+    }
+
+    @When("I click on projects of the deal sponsor in my universe include")
+    public void clickProjectOfDealSponsorInMyUniverseInclude() throws Exception {
+        privacySetToPublicPage.clickProjectOfDealSponsor(3);
+    }
+
+    @When("I click on funds of the deal sponsor in my universe include")
+    public void clickFundOfDealSponsorInMyUniverseInclude() throws Exception {
+        privacySetToPublicPage.clickFundOfDealSponsor(4);
+    }
+
+    @When("I click on funds of the investor in my universe include")
+    public void clickFundOfInvestorInMyUniverseInclude() throws Exception {
+        privacySetToPublicPage.clickFundOfDealSponsor(5);
     }
 
 }

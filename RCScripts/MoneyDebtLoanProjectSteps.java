@@ -198,6 +198,11 @@ public class MoneyDebtLoanProjectSteps {
         moneyDebtLoanProjectPage.clickLenderProfile();
     }
 
+    @When("I click on lender profile in lender characteristics field")
+    public void clickOnLenderProfile(){
+        moneyDebtLoanProjectPage.clickOnLenderProfile();
+    }
+
     @When("I select mezz fund option in lender profile")
     public void selectMezzFund(){
         moneyDebtLoanProjectPage.selectMezzFund();
@@ -238,9 +243,19 @@ public class MoneyDebtLoanProjectSteps {
         moneyDebtLoanProjectPage.setPreLeasedValue();
     }
 
+    @When("I set value of pre-leased field")
+    public void setPreLeasedValues(){
+        moneyDebtLoanProjectPage.setPreLeasedValues();
+    }
+
     @When("I clear value of pre-leased")
     public void clearPreLeasedValue(){
         moneyDebtLoanProjectPage.clearPreLeasedValue();
+    }
+
+    @When("I clear value of pre-leased field")
+    public void clearPreLeasedValues(){
+        moneyDebtLoanProjectPage.clearPreLeasedValues();
     }
 
     @When("I set value of pre-sold")
@@ -248,9 +263,19 @@ public class MoneyDebtLoanProjectSteps {
         moneyDebtLoanProjectPage.setPreSoldValue();
     }
 
+    @When("I set value of pre-sold field")
+    public void setPreSoldValues(){
+        moneyDebtLoanProjectPage.setPreSoldValues();
+    }
+
     @When("I clear value of pre-sold")
     public void clearPreSoldValue(){
         moneyDebtLoanProjectPage.clearPreSoldValue();
+    }
+
+    @When("I clear value of pre-sold field")
+    public void clearPreSoldValues(){
+        moneyDebtLoanProjectPage.clearPreSoldValues();
     }
 
     @When("I set value of LVT field")

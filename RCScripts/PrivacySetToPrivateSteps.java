@@ -153,6 +153,11 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.setInvestmentAmount_Private();
     }
 
+    @When("I select value in investment amount slider of deal sponsor fund whose privacy is set to private in my universe include")
+    public void setInvestmentAmount_PrivateDealSponsor(){
+        privacySetToPrivatePage.setInvestmentAmount_PrivateOfDealSponsor();
+    }
+
     @When("I select value in investment amount slider of investor fund whose privacy is set to private")
     public void setInvestmentAmountOfInvestor_Private(){
         privacySetToPrivatePage.setInvestmentAmountOfInvestor_Private();
@@ -213,6 +218,21 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.verifyPrivateProjectName(1);
     }
 
+    @Then("I verify the deal sponsor project who has set privacy to private in my universe include profile is displayed")
+    public void verifyDealSponsorPrivateProjectOfMyUniverseIncludeProfile() throws Exception {
+        privacySetToPrivatePage.verifyPrivateProjectName(3);
+    }
+
+    @Then("I verify the investor project who has set privacy to private in my universe include profile is displayed")
+    public void verifyInvestorPrivateProjectOfMyUniverseIncludeProfile() throws Exception {
+        privacySetToPrivatePage.verifyPrivateFundName(5);
+    }
+
+    @Then("I verify the deal sponsor fund who has set privacy to private in my universe include profile is displayed")
+    public void verifyDealSponsorPrivateFundProfileOfMyUniverseInclude() throws Exception {
+        privacySetToPrivatePage.verifyPrivateFundName(4);
+    }
+
     @Then("I verify the deal sponsor fund profile is displayed")
     public void verifyDealSponsorPrivateFundProfile() throws Exception {
         privacySetToPrivatePage.verifyPrivateFundName(1);
@@ -259,6 +279,7 @@ public class PrivacySetToPrivateSteps {
     }
 
     @When("I enter user name who has set the profile to include in my universe")
+        @Alias("I enter user name who has set profile to exclude in my universe")
     public void enterIncludeUserName() throws Exception {
         privacySetToPrivatePage.enterUserName(5);
     }
@@ -306,5 +327,30 @@ public class PrivacySetToPrivateSteps {
     @When("I enter lender user name who has set the me profile to private in include of my universe")
     public void enterPrivateIncludeLenderUserName() throws Exception {
         privacySetToPrivatePage.enterUserName(9);
+    }
+
+    @When("I set the value in loan amount field of lender whose privacy is set to private in my universe include")
+    public void setLoanAmount_PrivateMyUniverseInclude(){
+        privacySetToPrivatePage.setLoanAmount_PrivateMyUniverseInclude();
+    }
+
+    @When("I enter lender email ID in mailinator whose privacy set to private")
+    public void enterMailInatorId_Lender() throws Exception {
+        privacySetToPrivatePage.enterMailInatorId_Lender(9);
+    }
+
+    @When("I set value in equity field of lender whose privacy is set to private in my universe include")
+    public void setEquity_PrivateInMyUniverse(){
+        privacySetToPrivatePage.setEquity_PrivateInMyUniverse();
+    }
+
+    @When("I set the value in project size of service provider whose privacy is set to private in my universe include")
+    public void setProjectSize_PrivateInMyUniverse(){
+        privacySetToPrivatePage.setProjectSize_PrivateInMyUniverse();
+    }
+
+    @When("I select value in investment amount slider of property service provider whose privacy is set to private in my universe include")
+    public void selectInvestmentAmountValueForListingProjectInMyUniverse(){
+        privacySetToPrivatePage.selectInvestmentAmountValueForListingProjectInMyUniverse();
     }
 }

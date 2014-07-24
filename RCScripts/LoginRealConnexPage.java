@@ -23,6 +23,8 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
         getDriverProvider().get().manage().deleteAllCookies();
         get("http://realconnex.project-release.info/");
         manage().window().maximize();
+        //wait until page load
+        WaitUtil.simpleSleep(5000);
     }
 
     public void enterEmailId(int RowIndex) throws Exception {

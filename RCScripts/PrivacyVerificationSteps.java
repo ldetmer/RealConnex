@@ -92,8 +92,24 @@ public class PrivacyVerificationSteps {
     }
 
     @Then("I verify user whose profile is set to include in my universe is not displayed")
+        @Alias("I verify user whose profile is set to exclude in my universe is not displayed")
     public void verifyUserProfileSetToIncludeNotDisplayed() throws Exception {
         privacyVerificationPage.verifyUserProfileSetToIncludeNotDisplayed(5);
+    }
+
+    @Then("I verify deal sponsor project whose profile is set public in include of my universe is not displayed")
+    public void verifyProjectOfDealSponsorSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyProjectNotDisplayed(3);
+    }
+
+    @Then("I verify investor fund whose profile privacy is set in include of my universe is not displayed")
+    public void verifyFundOfInvestorSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyFundNotDisplayed(5);
+    }
+
+    @Then("I verify deal sponsor fund whose profile is set public in include of my universe is not displayed")
+    public void verifyFundOfDealSponsorSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyFundNotDisplayed(4);
     }
 
     @Then("I verify company whose profile is set to include in my universe is not displayed")
@@ -196,9 +212,20 @@ public class PrivacyVerificationSteps {
         privacyVerificationPage.verifyLoanNotDisplayed(1);
     }
 
+    @Then("I verify lender loan whose profile is set public in include of my universe is not displayed")
+        @Alias("I verify lender loan whose privacy is set in include of my universe is not displayed")
+    public void verifyLenderLoanNotDisplayed_MyUniverse()throws Exception {
+        privacyVerificationPage.verifyLoanNotDisplayed(2);
+    }
+
     @Then("I verify property service provider service profile is set to private is not displayed")
     public void verifyPropertyServiceProviderServiceNotDisplayed()throws Exception {
         privacyVerificationPage.verifyPropertyServiceProviderServiceNotDisplayed(1);
+    }
+
+    @Then("I verify property service provider service profile whose privacy is set to my universe include is not displayed")
+    public void verifyPropertyServiceProviderServiceInMyUniverseNotDisplayed()throws Exception {
+        privacyVerificationPage.verifyPropertyServiceProviderServiceNotDisplayed(2);
     }
 
     @Then("I verify lender mezz profile is set to private is not displayed")
@@ -206,9 +233,19 @@ public class PrivacyVerificationSteps {
         privacyVerificationPage.verifyMezzNotDisplayed(1);
     }
 
+    @Then("I verify lender mezz whose profile is set public in include of my universe is not displayed")
+    public void verifyLenderMezzNotDisplayed_MyUniverse()throws Exception {
+        privacyVerificationPage.verifyMezzNotDisplayed(2);
+    }
+
     @Then("I verify property service provide listing profile is set to private is not displayed")
     public void verifyPropertyServiceProviderListingNotDisplayed()throws Exception {
         privacyVerificationPage.verifyPropertyServiceProviderListingNotDisplayed(1);
+    }
+
+    @Then("I verify property service provider listing profile whose privacy is set to my universe include is not displayed")
+    public void verifyPropertyServiceProviderListingInMyUniverseIncludeNotDisplayed()throws Exception {
+        privacyVerificationPage.verifyPropertyServiceProviderListingNotDisplayed(2);
     }
 
     @Then("I verify '$lStrProjectOfServiceProviderName' property service provider service name is displayed in search result")

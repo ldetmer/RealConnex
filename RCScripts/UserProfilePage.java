@@ -17,6 +17,8 @@ public class UserProfilePage extends FluentWebDriverPage {
     }
 
     public void clickFindNow(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
         executeScript("scrollTo(250,0)");
         findElement(By.xpath("//nav[@id='nav']/a/em/img")).click();
     }

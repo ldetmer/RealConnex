@@ -2,6 +2,7 @@ package test.steps;
 
 import com.google.inject.Inject;
 import org.jbehave.core.annotations.Alias;
+import org.jbehave.core.annotations.Aliases;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
 import test.pages.LoginRealConnexPage;
@@ -96,21 +97,28 @@ public class LoginRealConnexSteps {
     }
 
     @When("I enter investor email ID of user who set the privacy in my universe include as private in me tab")
+        @Aliases(values = {"I enter investor email ID of user who set the privacy in my universe include in project tab",
+                "I enter investor email ID of user who set the privacy in my universe exclude"})
     public void enterEmailIdOfInvestorUserMyUniverseIncludePrivate() throws Exception {
         loginRealConnexPage.enterEmailIdOfUsers(16);
     }
 
     @When("I enter deal sponsor email ID of user who set the privacy in my universe include as private in me tab")
+        @Aliases( values = {"I enter deal sponsor email ID of user who set the privacy in my universe include as public in project tab",
+                "I enter deal sponsor email ID of user who set the privacy in my universe include as private in project tab",
+                "I enter deal sponsor email ID of user who set the privacy in my universe exclude"})
     public void enterEmailIdOfDealSponsorUserMyUniverseIncludePrivate() throws Exception {
         loginRealConnexPage.enterEmailIdOfUsers(17);
     }
 
     @When("I enter real estate advisor email ID of user who set the privacy in my universe include as private in me tab")
+        @Alias("I enter real estate advisor email ID of user who set the privacy in my universe include in project tab")
     public void enterEmailIdOfRealEstateAdvisorUserMyUniverseIncludePrivate() throws Exception {
         loginRealConnexPage.enterEmailIdOfUsers(18);
     }
 
     @When("I enter lender email ID of user who set the privacy in my universe include as private in me tab")
+         @Alias("I enter lender email ID of user who set the privacy in my universe include")
     public void enterEmailIdOfLenderUserMyUniverseIncludePrivate() throws Exception {
         loginRealConnexPage.enterEmailIdOfUsers(19);
     }

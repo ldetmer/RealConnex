@@ -12,11 +12,12 @@ When I launch RealConnex application
 And I enter email ID of user who set the privacy in my universe include
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see Privacy button
 When I click on Privacy button
 Then I verify that privacy page is displayed
 When I click on ME tab
+And I click on public button in ME tab
+And I click on save button in my universe page of ME tab
 And I click on my universe radio button
 And I click on include radio button
 And I select lender check box
@@ -32,7 +33,6 @@ When I logout RealConnex application
 And I enter email ID of user with role as lender and sub role as family office
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -46,7 +46,6 @@ And I logout RealConnex application
 And I enter lender email ID where privacy is set
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -58,7 +57,6 @@ When I logout RealConnex application
 And I enter deal sponsor email ID for login
 And I enter password of user
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -70,7 +68,6 @@ When I logout RealConnex application
 And I enter investor email ID for login
 And I enter password of user
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -82,7 +79,6 @@ When I logout RealConnex application
 And I enter lender email ID for login
 And I enter password of user
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -94,7 +90,6 @@ When I logout RealConnex application
 And I enter real estate advisor email ID for login
 And I enter password of user
 And I click on login button
-And I click on close tutorial field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -106,7 +101,6 @@ When I logout RealConnex application
 And I enter email ID of user who set the privacy in my universe include
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see Privacy button
 When I click on Privacy button
 Then I verify that privacy page is displayed

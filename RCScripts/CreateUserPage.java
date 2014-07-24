@@ -13,6 +13,7 @@ import test.steps.VerificationStatements;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -144,43 +145,27 @@ public class CreateUserPage extends FluentWebDriverPage {
     public void enterYopMailId(){
          //wait until page load
         WaitUtil.simpleSleep(500);
+        findElement(By.id("login")).clear();
         findElement(By.id("login")).sendKeys(gStrEmailId);
         System.out.println(gStrEmailId);
         VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("login"), gStrEmailId);
     }
 
-    public void enterCreatedEmailId(){
+    public void enterCreatedEmailId() throws IOException {
         //wait until page load
         WaitUtil.simpleSleep(5000);
         System.out.println("Email ID:"+gStrEmailId);
         findElement(By.id("UserLoginPopupEmail")).clear();
         findElement(By.id("UserLoginPopupEmail")).sendKeys(gStrEmailId);
         VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("UserLoginPopupEmail"), gStrEmailId);
-        findElement(By.id("UserLoginPopupEmail")).click();
     }
 
-    public void clickCheckInboxButton() {
-         try{
-             Actions action = new Actions(getDriverProvider().get());
-             //wait until page load
-             WaitUtil.simpleSleep(1000);
-             action.sendKeys(Keys.ARROW_RIGHT).build().perform();
-             action.sendKeys(Keys.ENTER).build().perform();
-             findElement(By.xpath("//input[@value='Check Inbox']")).sendKeys(Keys.ENTER);
-
-             //wait until page load
-             WaitUtil.simpleSleep(1000);
-
-
-          /*  Robot robot = new Robot();
-            robot.keyPress(KeyEvent.VK_RIGHT);
-            robot.keyRelease(KeyEvent.VK_RIGHT);
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);*/
-        } catch (NoSuchElementException e) {
-            System.out.println(e);
-        }
+    public void clickCheckInboxButton() throws IOException {
         //wait until page load
+        WaitUtil.simpleSleep(1000);
+        Runtime.getRuntime().exec("D:\\RealConnex\\AutoIt\\yopmailpopup.exe");
+        findElement(By.xpath("//input[@value='Check Inbox']")).click();
+         //wait until page load
         WaitUtil.simpleSleep(1000);
     }
 
@@ -194,14 +179,17 @@ public class CreateUserPage extends FluentWebDriverPage {
         //wait until page load
         WaitUtil.simpleSleep(5000);
         ArrayList<String> tabs = new ArrayList<String> (getWindowHandles());
+        int lStrTabSize = tabs.size();
+        if(lStrTabSize == 2){
         switchTo().window(tabs.get(1));
         close();
         switchTo().window(tabs.get(0));
+        }
     }
 
     public void clickRealConnexMail(){
          //wait until page load
-        WaitUtil.simpleSleep(500);
+        WaitUtil.simpleSleep(1000);
         switchTo().frame("ifinbox");
         findElement(By.xpath("//div[@id='m1']/div/a/span[@class='lmfd']/span[contains(text(),'RealConnex')]")).click();
         switchTo().defaultContent();
@@ -209,11 +197,21 @@ public class CreateUserPage extends FluentWebDriverPage {
 
     public void clickOnClickHereLink(){
          //wait until page load
-        WaitUtil.simpleSleep(500);
+        WaitUtil.simpleSleep(1000);
         switchTo().frame("ifmail");
         findElement(By.linkText("Click here")).click();
          //wait until page load
         WaitUtil.simpleSleep(10000);
+    }
+
+    public void clickClickHereLinkInInbox(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        switchTo().frame(0);
+        findElement(By.linkText("Click here")).click();
+        //wait until page load
+        WaitUtil.simpleSleep(10000);
+        switchTo().defaultContent();
     }
 
     public void switchToRealConnexTab(){
@@ -238,4 +236,31 @@ public class CreateUserPage extends FluentWebDriverPage {
          //wait until page load
         WaitUtil.simpleSleep(500);
     }
+
+    public void launchMailInator(){
+        get("http://www.mailinator.com");
+    }
+
+    public void enterMailInatorId(){
+        //wait until page load
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("inboxfield")).clear();
+        findElement(By.id("inboxfield")).sendKeys(gStrEmailId);
+        System.out.println(gStrEmailId);
+        VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("inboxfield"), gStrEmailId);
+    }
+
+    public void clickCheckItButton(){
+        //wait until page load
+        WaitUtil.simpleSleep(500);
+        findElement(By.xpath("//btn[@onclick='changeInbox();']")).click();
+    }
+
+    public void clickRealConnexMailInMailinator(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//ul[@id='mailcontainer']/li/a/div[@class='from ng-binding']")).click();
+        switchTo().defaultContent();
+    }
+
 }

@@ -4,11 +4,9 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import test.Support.OfficeCommonFunctions;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
-
-import java.io.File;
+import java.util.NoSuchElementException;
 
 
 public class PeopleSearchPage extends FluentWebDriverPage {
@@ -24,6 +22,9 @@ public class PeopleSearchPage extends FluentWebDriverPage {
         try{
             String strVerifyFind= ReadData.readDataExcel("PeopleDetails", RowIndex, "VerifyFind");
             Assert.assertEquals(strVerifyFind, findElement(By.cssSelector("span.opt > strong")).getText());
+        } catch (AssertionError e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -32,7 +33,12 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     public void verifyDealSponsorUserName(String strDealSponsorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
+        try{
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+        }
     }
 
     public void verifyDealSponsorUserIsDisplayedName(String strDealSponsorUserName){
@@ -44,9 +50,8 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
         }catch (AssertionError e){
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ gStrFieldName + e.toString();
-         }
-
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Matching User Is Not Displayed\n";
+        }
     }
 
     public void clickVerifiedDealSponsorUser(int RowIndex){
@@ -54,8 +59,12 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             String strClickDealSponsor = ReadData.readDataExcel("PeopleDetails", RowIndex, "DealSponsorName");
             findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strClickDealSponsor+"')]")).click();
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div/h1[contains(text(),'" + strClickDealSponsor + "')]"), getDriverProvider().get()));
+        } catch (AssertionError e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
         } catch (Exception e) {
             System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
         }
 
     }
@@ -63,7 +72,12 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     public void verifyInvestorUserName(String strInvestorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get()));
+        try{
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get()));
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+        }
     }
 
     public void clickVerifiedInvestorUser(int RowIndex){
@@ -71,15 +85,24 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             String strClickInvestorUser = ReadData.readDataExcel("PeopleDetails", RowIndex, "InvestorUserName");
             findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strClickInvestorUser+"')]")).click();
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div/h1[contains(text(),'"+strClickInvestorUser+"')]"),getDriverProvider().get()));
+        } catch (AssertionError e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
         } catch (Exception e) {
             System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
         }
     }
 
     public void verifyLenderUserName(String strLenderUserName){
          //wait until page loads
         WaitUtil.simpleSleep(3000);
+        try{
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strLenderUserName+"')]"), getDriverProvider().get()));
+        }catch (AssertionError e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+        }
     }
 
     public void clickVerifiedLenderUser(int RowIndex){
@@ -88,8 +111,13 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             String strClickLenderUser = ReadData.readDataExcel("PeopleDetails", RowIndex, "LenderUserName");
             findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strClickLenderUser+"')]")).click();
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div/h1[contains(text(),'"+strClickLenderUser+"')]"),getDriverProvider().get()));
-        } catch (Exception e) {
+        } catch (AssertionError e) {
             System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
         }
 
     }
@@ -97,7 +125,12 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     public void verifyServiceProviderUserName(String strServiceProviderUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
+        try{
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strServiceProviderUserName+"')]"), getDriverProvider().get()));
+        } catch (AssertionError e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+        }
     }
 
     public void clickVerifiedServiceProvider(int RowIndex){
@@ -107,6 +140,10 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div/h1[contains(text(),'"+strClickServiceProviderUser+"')]"),getDriverProvider().get()));
         } catch (Exception e) {
             System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+        } catch (AssertionError e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
         }
 
     }
@@ -122,6 +159,9 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             findElement(By.id("UserTitle")).sendKeys(strUserTitle);
             //wait until title field appears
             WaitUtil.simpleSleep(7000);
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -137,6 +177,9 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserJobTitle"),strUserJobTitle);
              //wait until title field appears
             WaitUtil.simpleSleep(10000);
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -149,6 +192,9 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             String strLocation = ReadData.readDataExcel("PeopleDetails", RowIndex, "Location");
             findElement(By.id("LocationInputSearch")).clear();
             findElement(By.id("LocationInputSearch")).sendKeys(strLocation);
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -161,6 +207,9 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             String strFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/label")).getText();
             String strLocation = ReadData.readDataExcel("PeopleDetails", RowIndex, "FullLocationName");
             findElement(By.xpath("//a[contains(text(),'"+strLocation+"')]")).click();
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -176,8 +225,12 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserCompanyName"),strCompanyName);
              //wait until company name appear
             WaitUtil.simpleSleep(10000);
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
         } catch (Exception e) {
             System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
         }
     }
 

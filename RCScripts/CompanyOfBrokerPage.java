@@ -37,7 +37,7 @@ public class CompanyOfBrokerPage extends FluentWebDriverPage {
     public void clickOnServiceOfBroker(int RowIndex){
         try{
             String strBrokerService = ReadData.readDataExcel("RealEstateDetails", RowIndex, "VerifyProject");
-            findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strBrokerService+"')]")).click();
+            findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/img[@alt='Service']/parent::a/strong[contains(text(),'"+strBrokerService+"')]")).click();
         } catch (Exception e) {
             System.out.println(e);
         }

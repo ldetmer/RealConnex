@@ -12,7 +12,6 @@ When I launch RealConnex application
 And I enter real estate advisor email ID whose privacy set to private
 And I enter Password
 And I click on login button
-And I click on close tutorial field
 Then I should see Privacy button
 When I click on Privacy button
 Then I verify that privacy page is displayed
