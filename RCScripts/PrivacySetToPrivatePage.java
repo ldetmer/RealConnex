@@ -5,8 +5,10 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import test.Support.ReadData;
+import test.Support.ReasonsInResultSheet;
 import test.steps.VerificationStatements;
 
 import java.util.NoSuchElementException;
@@ -19,6 +21,7 @@ import java.util.NoSuchElementException;
  * To change this template use File | Settings | File Templates.
  */
 public class PrivacySetToPrivatePage extends FluentWebDriverPage {
+    String gStrFieldName = "";
     public PrivacySetToPrivatePage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
@@ -26,22 +29,36 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
     public void clickMeTab(){
          //wait until page is loaded
         WaitUtil.simpleSleep(1000);
-        findElement(By.xpath("//a[contains(text(),'Me')]")).click();
+        try{
+            gStrFieldName = findElement(By.xpath("//section[@id='content']/nav/ul/li[1]/a")).getText();
+            findElement(By.xpath("//a[contains(text(),'Me')]")).click();
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed to click on the tab\n";
+        }
     }
 
     public void selectPrivateButton(){
          //wait until page is loaded
         WaitUtil.simpleSleep(10000);
-        findElement(By.id("PrivacyStatus2")).click();
+        try{
+            gStrFieldName = findElement(By.xpath("//input[@id='PrivacyStatus2']/parent::li/label/strong")).getText();
+            findElement(By.id("PrivacyStatus2")).click();
+        } catch(NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element was not found\n";
+        } catch(WebDriverException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element not clickable at that point\n";
+        }
     }
 
     public void enterUserName(int intRowIndex) throws Exception {
          //wait until page is loaded
         WaitUtil.simpleSleep(1000);
+        gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div/div[1]/label")).getText();
         String lStrDealSponsorName = ReadData.readDataExcel("Privacy", intRowIndex,"NamesOfDifferentRoles");
-        findElement(By.id("UserTitle")).clear();
-        findElement(By.id("UserTitle")).sendKeys(lStrDealSponsorName);
-        VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("UserTitle"), lStrDealSponsorName);
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserTitle"), lStrDealSponsorName, gStrFieldName, LoginRealConnexPage.gStrReason);
         //wait until page is loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -51,6 +68,14 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//a[contains(text(),'here')]")).click();
          //wait until page is loaded
+        WaitUtil.simpleSleep(5000);
+    }
+
+    public void verifyHereOfPrivateUser(){
+        //wait until page is loaded
+        WaitUtil.simpleSleep(5000);
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//a[contains(text(),'here')]"), getDriverProvider().get()));
+        //wait until page is loaded
         WaitUtil.simpleSleep(5000);
     }
 
@@ -155,6 +180,24 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         } catch (NoSuchElementException e) {
             System.out.println(e);
         }
+    }
+
+    public void verifyNotificationInHeader(){
+        findElement(By.xpath("//header[@id='header']/div[@class='note']/img")).click();
+        //wait until the element appear
+        WaitUtil.simpleSleep(1000);
+        String lStrUserName = findElement(By.xpath("//div/ul/li[1]/div/p/strong[1]/a")).getText();
+        String lStrProfileSetPrivateName = findElement(By.xpath("//div/ul/li[1]/div/p/strong[2]")).getText();
+        Assert.assertEquals(""+lStrUserName+" User want to see your project "+lStrProfileSetPrivateName+". Please click here to allow this request.", findElement(By.cssSelector("p")).getText());
+    }
+
+    public void verifyNotificationOfTheRequestedUser(){
+        findElement(By.xpath("//header[@id='header']/div[@class='note']/img")).click();
+        //wait until the element appear
+        WaitUtil.simpleSleep(1000);
+        String lStrUserName = findElement(By.xpath("//div[@class='note']/div/ul/li/div/p/strong/a")).getText();
+        String lStrProfileSetPrivateName = findElement(By.xpath("//div/ul/li/div/p/strong[2]")).getText();
+        Assert.assertEquals(""+lStrUserName+" User allow you to view his project "+lStrProfileSetPrivateName+"", findElement(By.cssSelector("p")).getText());
     }
 
     public void verifyPrivateUserName(int intRowIndex) throws Exception {
@@ -334,5 +377,24 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         }
         //wait until page loads
         WaitUtil.simpleSleep(10000);
+    }
+
+    public void setLoanAmountOfLenderCompany(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<2;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        for(int i=0;i<97;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
+        }
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
     }
 }

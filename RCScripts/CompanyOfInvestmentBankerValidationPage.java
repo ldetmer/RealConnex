@@ -69,6 +69,8 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
     }
 
     public void companyOfInvestmentBankerNotDisplayed(int RowIndex, String strColumnName){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
         try {
             String strCompanyName = ReadData.readDataExcel("ValidationDetails", RowIndex, strColumnName);
             Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strCompanyName+"')]"),getDriverProvider().get()));

@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import test.steps.VerificationStatements;
 
+import java.util.NoSuchElementException;
+
 public class UserProfilePage extends FluentWebDriverPage {
     public UserProfilePage(WebDriverProvider driverProvider) {
         super(driverProvider);
@@ -13,13 +15,24 @@ public class UserProfilePage extends FluentWebDriverPage {
 
     public void findNowImg(){
         //manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        findElement(By.xpath("//nav[@id='nav']/a/em/img")).isDisplayed();
+        try{
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//nav[@id='nav']/a/em/img"), getDriverProvider().get()));
+        } catch (AssertionError e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Image is not found\n";
+        }
+        //findElement(By.xpath("//nav[@id='nav']/a/em/img")).isDisplayed();
     }
 
     public void clickFindNow(){
         //wait until page load
         WaitUtil.simpleSleep(1000);
         executeScript("scrollTo(250,0)");
-        findElement(By.xpath("//nav[@id='nav']/a/em/img")).click();
+        try{
+            findElement(By.xpath("//nav[@id='nav']/a/em/img")).click();
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is not clicked\n";
+        }
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
     }
 }

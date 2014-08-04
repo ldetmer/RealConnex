@@ -29,33 +29,10 @@ public class CompaniesOfDeveloperValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
     }
 
-    public boolean companyDeveloperNotDisplayed(int RowIndex, String strColumnName){
-        boolean status = false;
-        try{
-            List<WebElement> links;
-
-            //wait until page gets loaded
-            WaitUtil.simpleSleep(5000);
-            links =  findElements(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span"));
-            int linksCount = links.size();
-            linksCount = linksCount/2;
-            for(int i=1;i<=linksCount;i++){
-                String strOtherUser = ReadData.readDataExcel("ValidationDetails", RowIndex, strColumnName);
-
-                //wait until page gets loaded
-                WaitUtil.simpleSleep(1000);
-                String strName = findElement(By.xpath("//tbody[@id='searchResults']/tr["+i+"]/td/a/strong/span")).getText();
-                if(strName.equals(strOtherUser)){
-                    status = true;
-                    break;
-                } else {
-                    status = true;
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return status;
+    public void companyDeveloperNotDisplayed(String strSideSearch){
+        //wait util page load
+        WaitUtil.simpleSleep(100);
+        Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strSideSearch+"')]"), getDriverProvider().get()));
     }
 
     public void verifyCompanyNameIsDisplayed(String strCompanyName){

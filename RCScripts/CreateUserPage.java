@@ -3,12 +3,10 @@ package test.pages;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import test.Support.ReadData;
+import test.Support.ReasonsInResultSheet;
 import test.steps.VerificationStatements;
 
 import java.awt.*;
@@ -28,7 +26,7 @@ import java.util.NoSuchElementException;
  */
 public class CreateUserPage extends FluentWebDriverPage {
 
-    String gStrEmailId = "";
+    String gStrEmailId = "", gStrFieldName = "";
     public CreateUserPage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
@@ -36,46 +34,57 @@ public class CreateUserPage extends FluentWebDriverPage {
     public void clickNotAMemberLink(){
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
-        findElement(By.cssSelector("a.link-1.sign")).click();
+        try{
+            findElement(By.cssSelector("a.link-1.sign")).click();
+        }catch(NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Link cannot be clicked\n";
+        } catch (WebDriverException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Link cannot be clicked\n";
+        }
+
     }
 
     public void enterEmailIdOfUserRoles(){
+        gStrFieldName = findElement(By.xpath("//input[@id='UserEmail']")).getAttribute("placeholder");
         gStrEmailId = "testAuto"+System.currentTimeMillis()+"@yopmail.com";
-        findElement(By.id("UserEmail")).clear();
-        findElement(By.id("UserEmail")).sendKeys(gStrEmailId);
-        VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("UserEmail"), gStrEmailId);
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserEmail"), gStrEmailId, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void enterFirstName(){
+        gStrFieldName = findElement(By.xpath("//input[@id='UserFirstName']")).getAttribute("placeholder");
         String lStrFirstName = "test"+System.currentTimeMillis();
-        findElement(By.id("UserFirstName")).clear();
-        findElement(By.id("UserFirstName")).sendKeys(lStrFirstName);
-        VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("UserFirstName"), lStrFirstName);
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserFirstName"), lStrFirstName, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void enterLastName(){
+        gStrFieldName = findElement(By.xpath("//input[@id='UserLastName']")).getAttribute("placeholder");
         String lStrLastName = "auto"+System.currentTimeMillis();
-        findElement(By.id("UserLastName")).clear();
-        findElement(By.id("UserLastName")).sendKeys(lStrLastName);
-        VerificationStatements.VerifyInputValue(getDriverProvider().get(), By.id("UserLastName"), lStrLastName);
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserLastName"), lStrLastName, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void enterPassword(int intRowIndex) throws Exception {
+        gStrFieldName = findElement(By.xpath("//input[@id='UserPassword']")).getAttribute("placeholder");
         String lStrPassword = ReadData.readDataExcel("LoginRealConnex", intRowIndex, "Password");
-        findElement(By.id("UserPassword")).clear();
-        findElement(By.id("UserPassword")).sendKeys(lStrPassword);
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserPassword"), lStrPassword, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void reEnterPassword(int intRowIndex) throws Exception {
+        gStrFieldName = findElement(By.xpath("//input[@id='UserConfirmPass']")).getAttribute("placeholder");
         String lStrReEnterPassword = ReadData.readDataExcel("LoginRealConnex",intRowIndex,"Password");
-        findElement(By.id("UserConfirmPass")).clear();
-        findElement(By.id("UserConfirmPass")).sendKeys(lStrReEnterPassword);
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserConfirmPass"), lStrReEnterPassword, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void clickSelectRoleDropDown(){
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
-        findElement(By.cssSelector("div.text")).click();
+        try{
+            findElement(By.cssSelector("div.text")).click();
+        } catch (NoSuchElementException e){
+           System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not found\n";
+        }
     }
 
     public void selectInvestorOption(){
@@ -93,7 +102,13 @@ public class CreateUserPage extends FluentWebDriverPage {
     public void selectRealEstateAdvisorBrokerOption(){
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
+        try{
+        gStrFieldName = findElement(By.xpath("//form[@id='UserHomeForm']/fieldset/div/span/div/ul/li[5]")).getText();
         findElement(By.xpath("//span/div/ul/li[text()='Real Estate Advisor, Broker']")).click();
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+
+        }
     }
 
     public void selectLenderOption(){

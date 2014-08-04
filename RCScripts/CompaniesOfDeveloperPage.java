@@ -98,6 +98,8 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
        findElement(By.id("RouteId_checkbox_4")).click();
        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RouteId_checkbox_4"));
        findElement(By.xpath("//div[@class='field clearfix']/label[contains(text(),'Route to Sponsor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+       //wait until page is loaded
+       WaitUtil.simpleSleep(10000);
    }
 
    public void clearPlacementAgents(){

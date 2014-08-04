@@ -70,6 +70,11 @@ public class MoneyDebtLoanCompanySteps {
         moneyDebtLoanCompanyPage.clickRouteToLender();
     }
 
+    @When("I click route to lender field in lender characteristics")
+    public void clickRouteToLenderField(){
+        moneyDebtLoanCompanyPage.clickRouteToLenderField();
+    }
+
     @When("I select brokers in route to lender field")
     public void selectBrokerOption(){
         moneyDebtLoanCompanyPage.selectBrokerOption();

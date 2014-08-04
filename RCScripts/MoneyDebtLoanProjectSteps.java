@@ -203,7 +203,7 @@ public class MoneyDebtLoanProjectSteps {
         moneyDebtLoanProjectPage.clickOnLenderProfile();
     }
 
-    @When("I select mezz fund option in lender profile")
+    @When("I select mezz fund option in lender profile of lender characteristics field")
     public void selectMezzFund(){
         moneyDebtLoanProjectPage.selectMezzFund();
     }

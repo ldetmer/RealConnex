@@ -131,6 +131,15 @@ public class MoneyDebtLoanCompanyPage extends FluentWebDriverPage{
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Route To Lender:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
+    public void clickRouteToLenderField(){
+        //wait until page loads
+        WaitUtil.simpleSleep(500);
+      /*  WebElement footerElement = findElement(By.xpath("//div[@id='footer']"));
+        Point position = footerElement.getLocation();
+        executeScript("scrollTo(0," + position.getY() + ")");*/
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Route To Lender:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
     public void selectBrokerOption(){
          //wait until page loads
         WaitUtil.simpleSleep(500);

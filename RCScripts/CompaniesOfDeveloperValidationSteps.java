@@ -24,8 +24,8 @@ public class CompaniesOfDeveloperValidationSteps {
 
     @Then("I verify developer company selected '$strSideSearch' option is not displayed")
     public void companyNotDisplayed(@Named("strSideSearch") String strSideSearch){
-        boolean status = companiesOfDeveloperValidationPage.companyDeveloperNotDisplayed(2, strSideSearch);
-        Assert.assertTrue("The Searched String is found in the List", status);
+        companiesOfDeveloperValidationPage.companyDeveloperNotDisplayed(strSideSearch);
+
     }
 
     @Then("I verify '$strCompanyName' company name is displayed in developers search")

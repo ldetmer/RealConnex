@@ -27,8 +27,12 @@ And I select sub role field of investor
 And I select advisor sub role option
 And I set the value in deal/fund size field of investor
 And I select private radio button of investor
+And I click on location field
+And I select the location of the user
 And I click on save button in my universe page of PROJECT tab
 Then I verify 'Privacy successfully saved' message is displayed
+When I click on funds of the investor in my universe include
+Then I verify the data in location field
 When I logout RealConnex application
 And I click on Not a Member? Join Now for Free! link in registration page
 And I enter investor email ID for registration
@@ -54,6 +58,7 @@ Then I verify RealConnex page
 When I click Skip Tour button
 And I click on Profile button
 And I select advisor option in I am a field
+And I enter the location of the newly created user
 And I click on save button in user profile page
 And I click on company tab in user profile
 And I click on edit in investment strategy field
@@ -83,6 +88,7 @@ And I enter investor email ID of user who set the privacy in my universe include
 And I enter Password
 And I click on login button
 Then I verify access successfully updated message is displayed
+And I verify the notification in the header
 When I logout RealConnex application
 And I launch yopmail
 And I enter yopmail email address of newly created user
@@ -94,6 +100,7 @@ And I enter newly created 'Investor' email ID
 And I enter Password
 And I click on login button
 Then I verify the investor project who has set privacy to private in my universe include profile is displayed
+And I verify the notification in the header of the requested user
 And I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'Investments' link
@@ -130,7 +137,8 @@ And I click on 'GO' button
 Then I should see 'Investments' in find of search option
 And I verify kind of search option in fund search
 And I verify risk of search option in fund search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Equity' link
@@ -140,7 +148,8 @@ And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Preferred Equity' in type of money search
 And I should see 'Fund' in kind of money search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
 And I enter deal sponsor email ID for login
@@ -155,7 +164,8 @@ And I click on 'GO' button
 Then I should see 'Investments' in find of search option
 And I verify kind of search option in fund search
 And I verify risk of search option in fund search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Equity' link
@@ -165,7 +175,8 @@ And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Preferred Equity' in type of money search
 And I should see 'Fund' in kind of money search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
 And I enter investor email ID for login
@@ -180,7 +191,8 @@ And I click on 'GO' button
 Then I should see 'Investments' in find of search option
 And I verify kind of search option in fund search
 And I verify risk of search option in fund search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Equity' link
@@ -190,7 +202,8 @@ And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Preferred Equity' in type of money search
 And I should see 'Fund' in kind of money search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
 And I enter lender email ID for login
@@ -205,7 +218,8 @@ And I click on 'GO' button
 Then I should see 'Investments' in find of search option
 And I verify kind of search option in fund search
 And I verify risk of search option in fund search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Equity' link
@@ -215,7 +229,8 @@ And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Preferred Equity' in type of money search
 And I should see 'Fund' in kind of money search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
 And I enter real estate advisor email ID for login
@@ -229,7 +244,8 @@ And I click on 'GO' button
 Then I should see 'Investments' in find of search option
 And I verify kind of search option in fund search
 And I verify risk of search option in fund search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Equity' link
@@ -239,22 +255,8 @@ And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Preferred Equity' in type of money search
 And I should see 'Fund' in kind of money search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
+When I select value in investment amount slider of investor fund whose privacy is set to private in my universe include
+Then I verify investor fund whose profile privacy is set to private in include of my universe is not displayed
 When I click on 'Find Now' button
 When I logout RealConnex application
-And I enter investor email ID of user who set the privacy in my universe include in project tab
-And I enter Password
-And I click on login button
-Then I should see Privacy button
-When I click on Privacy button
-Then I verify that privacy page is displayed
-When I click on FUNDS tab
-And I click on funds of the investor in my universe include
-And I clear investor check box
-And I select sub role field of investor
-And I clear advisor sub role option
-And I clear the value in deal/fund size field of investor
-And I click on public button of project tab
-And I click on save button in my universe page of PROJECT tab
-Then I verify 'Privacy successfully saved' message is displayed
-When I logout RealConnex application
+

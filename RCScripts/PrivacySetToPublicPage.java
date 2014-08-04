@@ -4,8 +4,11 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
+
+import java.util.NoSuchElementException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,28 +18,53 @@ import test.steps.VerificationStatements;
  * To change this template use File | Settings | File Templates.
  */
 public class PrivacySetToPublicPage extends FluentWebDriverPage {
+    String gStrFieldName = "";
     public PrivacySetToPublicPage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
 
     public void verifyPrivacyButton(){
-        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//nav[@id='nav']/ul[@class='sub-nav']/li/a/span[text()='Privacy']"), getDriverProvider().get()));
+        try{
+            gStrFieldName = findElement(By.cssSelector("a.privacy > span")).getText();
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//nav[@id='nav']/ul[@class='sub-nav']/li/a/span[text()='Privacy']"), getDriverProvider().get()));
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed to find the element\n";
+        }
     }
 
     public void clickPrivacyButton(){
-        findElement(By.xpath("//nav[@id='nav']/ul[@class='sub-nav']/li/a/span[text()='Privacy']")).click();
+        try{
+            gStrFieldName = findElement(By.cssSelector("a.privacy > span")).getText();
+            findElement(By.xpath("//nav[@id='nav']/ul[@class='sub-nav']/li/a/span[text()='Privacy']")).click();
+        } catch(NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Not able to click on the field\n";
+        }
     }
 
     public void verifyPrivacyPage(){
-        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//section[@id='content']/div[@class='top-title']/h1[text()='Privacy']"), getDriverProvider().get()));
+        try{
+            gStrFieldName = findElement(By.cssSelector("h1")).getText();
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//section[@id='content']/div[@class='top-title']/h1[text()='Privacy']"), getDriverProvider().get()));
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed in verifying the text\n";
+        }
     }
 
     public void selectPublicButton(){
          //wait util page load
         WaitUtil.simpleSleep(5000);
         executeScript("scrollTo(100,0)");
-        findElement(By.id("PrivacyStatus1")).click();
-        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("PrivacyStatus1"));
+        try{
+            gStrFieldName = findElement(By.xpath("//input[@id='PrivacyStatus1']/parent::li/label/strong")).getText();
+            findElement(By.id("PrivacyStatus1")).click();
+            VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("PrivacyStatus1"));
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed to select the radio button\n";
+        }
     }
 
     public void clickSaveButton_Me(){
@@ -48,7 +76,16 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
     public void clickSaveButton_Company(){
         //wait util page load
         WaitUtil.simpleSleep(5000);
-        findElement(By.xpath("//form[@id='UserCompanyPrivacyForm']/div/input[@class='sbm']")).click();
+        try{
+            gStrFieldName = findElement(By.xpath("//form[@id='UserCompanyPrivacyForm']/div/input[@type='submit']")).getAttribute("value");
+            findElement(By.xpath("//form[@id='UserCompanyPrivacyForm']/div/input[@class='sbm']")).click();
+        } catch (WebDriverException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not clickable at this point\n";
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Cannot find the element\n";
+        }
     }
 
     public void clickSaveButton_Project(){
@@ -60,14 +97,25 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
     public void verifyMessage(String lStrMessage){
         //wait until page load
         WaitUtil.simpleSleep(500);
-        String lStrMessageFromApplication = findElement(By.cssSelector("div.ui-pnotify-text")).getText();
-        Assert.assertEquals(lStrMessage,lStrMessageFromApplication);
+        try{
+            String lStrMessageFromApplication = findElement(By.cssSelector("div.ui-pnotify-text")).getText();
+            Assert.assertEquals(lStrMessage,lStrMessageFromApplication);
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Appropriate Message is not displayed\n";
+        }
     }
 
     public void clickCompanyTab(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        findElement(By.xpath("//section[@id='content']/nav/ul/li/a[text()='COMPANY']")).click();
+        try{
+            gStrFieldName = findElement(By.linkText("COMPANY")).getText();
+            findElement(By.xpath("//section[@id='content']/nav/ul/li/a[text()='COMPANY']")).click();
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed to click on the tab\n";
+        }
         //wait until page loads
         WaitUtil.simpleSleep(10000);
     }

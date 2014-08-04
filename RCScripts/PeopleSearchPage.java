@@ -5,7 +5,7 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import test.Support.ReadData;
-import test.steps.VerificationStatements;
+import test.Support.ReasonsInResultSheet;
 import java.util.NoSuchElementException;
 
 
@@ -13,7 +13,6 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     ReadData ReadData = new ReadData();
     int i = 1;
     String gStrFieldName;
-    /*public static String gStrReason = "";*/
     public PeopleSearchPage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
@@ -24,7 +23,10 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             Assert.assertEquals(strVerifyFind, findElement(By.cssSelector("span.opt > strong")).getText());
         } catch (AssertionError e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Verification of Find failed";
+        } catch (NullPointerException e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Not Able to Find the Excel Sheet";
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -33,24 +35,17 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     public void verifyDealSponsorUserName(String strDealSponsorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        try{
-            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
-        } catch (AssertionError e){
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        }
+        ReasonsInResultSheet.assertStatementIfElementIsPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strDealSponsorUserName+"')]"),getDriverProvider().get());
     }
 
     public void verifyDealSponsorUserIsDisplayedName(String strDealSponsorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div/div["+i+"]/label")).getText();
-        i++;
         try{
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
         }catch (AssertionError e){
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Matching User Is Not Displayed\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+LoginRealConnexPage.gStrFieldName+gStrFieldName+"\nReason of Error:"+"Matching User Is Not Displayed\n";
         }
     }
 
@@ -61,23 +56,17 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div/h1[contains(text(),'" + strClickDealSponsor + "')]"), getDriverProvider().get()));
         } catch (AssertionError e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"User In Search Result Is not able to Click\n";
         } catch (Exception e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Excel Cannot be Retrieved\n";
         }
-
     }
 
     public void verifyInvestorUserName(String strInvestorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        try{
-            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get()));
-        } catch (AssertionError e){
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        }
+        ReasonsInResultSheet.assertStatementIfElementIsPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strInvestorUserName+"')]"),getDriverProvider().get());
     }
 
     public void clickVerifiedInvestorUser(int RowIndex){
@@ -87,22 +76,17 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div/h1[contains(text(),'"+strClickInvestorUser+"')]"),getDriverProvider().get()));
         } catch (AssertionError e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Investor User Name In Search Result Is Not Able To Click";
         } catch (Exception e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Excel Cannot be Retrieved\n";
         }
     }
 
     public void verifyLenderUserName(String strLenderUserName){
          //wait until page loads
         WaitUtil.simpleSleep(3000);
-        try{
-        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strLenderUserName+"')]"), getDriverProvider().get()));
-        }catch (AssertionError e) {
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        }
+        ReasonsInResultSheet.assertStatementIfElementIsPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strLenderUserName+"')]"),getDriverProvider().get());
     }
 
     public void clickVerifiedLenderUser(int RowIndex){
@@ -113,11 +97,11 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div/h1[contains(text(),'"+strClickLenderUser+"')]"),getDriverProvider().get()));
         } catch (AssertionError e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ "Lender User Name Cannot Be Clicked\n";
         }
         catch (Exception e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Excel Cannot be Retrieved\n";
         }
 
     }
@@ -125,12 +109,7 @@ public class PeopleSearchPage extends FluentWebDriverPage {
     public void verifyServiceProviderUserName(String strServiceProviderUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        try{
-        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strServiceProviderUserName+"')]"), getDriverProvider().get()));
-        } catch (AssertionError e) {
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        }
+        ReasonsInResultSheet.assertStatementIfElementIsPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strServiceProviderUserName+"')]"),getDriverProvider().get());
     }
 
     public void clickVerifiedServiceProvider(int RowIndex){
@@ -140,98 +119,52 @@ public class PeopleSearchPage extends FluentWebDriverPage {
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div/h1[contains(text(),'"+strClickServiceProviderUser+"')]"),getDriverProvider().get()));
         } catch (Exception e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Excel Cannot be Retrieved\n";
         } catch (AssertionError e) {
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Not Able to Click on Service Provider Name\n";
         }
 
     }
 
-    public void enterUserTitle(int RowIndex){
-        try{
-            //wait until title field appears
-            WaitUtil.simpleSleep(100);
-            executeScript("scrollTo(250,0)");
-            String strUserTitle = ReadData.readDataExcel("PeopleDetails", RowIndex, "UserTitle");
-            findElement(By.id("UserTitle")).click();
-            findElement(By.id("UserTitle")).clear();
-            findElement(By.id("UserTitle")).sendKeys(strUserTitle);
-            //wait until title field appears
-            WaitUtil.simpleSleep(7000);
-        } catch (NoSuchElementException e){
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void enterUserTitle(int RowIndex) throws Exception {
+        executeScript("scrollTo(250,0)");
+        String strUserTitle = ReadData.readDataExcel("PeopleDetails", RowIndex, "UserTitle");
+        gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div/div[1]/label")).getText();
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserTitle"), strUserTitle, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
-    public void enterUserJobTitle(int RowIndex){
-        try{
-             //wait until title field appears
-            WaitUtil.simpleSleep(100);
-            String strUserJobTitle = ReadData.readDataExcel("PeopleDetails", RowIndex, "UserJobTitle");
-            findElement(By.id("UserJobTitle")).click();
-            findElement(By.id("UserJobTitle")).sendKeys(strUserJobTitle);
-            VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserJobTitle"),strUserJobTitle);
-             //wait until title field appears
-            WaitUtil.simpleSleep(10000);
-        } catch (NoSuchElementException e){
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void enterUserJobTitle(int RowIndex) throws Exception {
+        String strUserJobTitle = ReadData.readDataExcel("PeopleDetails", RowIndex, "UserJobTitle");
+        gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div/div[2]/label")).getText();
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserJobTitle"), strUserJobTitle, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
-    public void enterLocation(int RowIndex){
-        try{
-            //wait until location field appear
-            WaitUtil.simpleSleep(500);
-            String strLocation = ReadData.readDataExcel("PeopleDetails", RowIndex, "Location");
-            findElement(By.id("LocationInputSearch")).clear();
-            findElement(By.id("LocationInputSearch")).sendKeys(strLocation);
-        } catch (NoSuchElementException e){
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void enterLocation(int RowIndex) throws Exception {
+        String strLocation = ReadData.readDataExcel("PeopleDetails", RowIndex, "Location");
+        gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/label")).getText();
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("LocationInputSearch"), strLocation, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void clickLocation(int RowIndex){
         try{
             //wait until location is found
             WaitUtil.simpleSleep(500);
-            String strFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/label")).getText();
+            gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/label")).getText();
             String strLocation = ReadData.readDataExcel("PeopleDetails", RowIndex, "FullLocationName");
             findElement(By.xpath("//a[contains(text(),'"+strLocation+"')]")).click();
         } catch (NoSuchElementException e){
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not present\n";
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public void enterCompanyName(int RowIndex){
-        try{
-             //wait until title field appears
-            WaitUtil.simpleSleep(100);
-            String strCompanyName = ReadData.readDataExcel("PeopleDetails", RowIndex, "UserCompanyName");
-            findElement(By.id("UserCompanyName")).click();
-            findElement(By.id("UserCompanyName")).sendKeys(strCompanyName);
-            VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserCompanyName"),strCompanyName);
-             //wait until company name appear
-            WaitUtil.simpleSleep(10000);
-        } catch (NoSuchElementException e){
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        } catch (Exception e) {
-            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+ e.toString();
-        }
+    public void enterCompanyName(int RowIndex) throws Exception {
+        String strCompanyName = ReadData.readDataExcel("PeopleDetails", RowIndex, "UserCompanyName");
+        gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/label")).getText();
+        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserCompanyName"), strCompanyName, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void clearTitle(){

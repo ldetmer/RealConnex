@@ -55,6 +55,16 @@ public class MyUniverseSteps {
         myUniversePage.selectInvestorCheckBoxInExclude();
     }
 
+    @When("I select lender check box in my universe exclude")
+    public void selectLenderCheckBoxInExclude(){
+        myUniversePage.selectLenderCheckBoxInExclude();
+    }
+
+    @When("I select real estate advisor check box in my universe exclude")
+    public void selectRealEstateAdvisorCheckBoxInExclude(){
+        myUniversePage.selectRealEstateAdvisorCheckBoxInExclude();
+    }
+
     @When("I select investor check box")
     public void selectInvestorCheckBox(){
         myUniversePage.selectInvestorCheckBox();
@@ -105,6 +115,16 @@ public class MyUniverseSteps {
         myUniversePage.selectSubRoleField_InvestorInMyUniverseExclude();
     }
 
+    @When("I select sub role field of lender in my universe exclude")
+    public void selectSubRoleField_LenderInMyUniverseExclude(){
+        myUniversePage.selectSubRoleField_LenderInMyUniverseExclude();
+    }
+
+    @When("I select sub role field of real estate advisor in my universe exclude")
+    public void selectSubRoleField_RealEstateAdvisorInMyUniverseExclude(){
+        myUniversePage.selectSubRoleField_RealEstateAdvisorInMyUniverseExclude();
+    }
+
     @When("I select sub role field of investor")
     public void selectSubRoleField_Investor(){
         myUniversePage.selectSubRoleField_Investor();
@@ -133,6 +153,16 @@ public class MyUniverseSteps {
     @When("I select advisor sub role option in my universe exclude")
     public void selectAdvisorOptionInMyUniverseExclude(){
         myUniversePage.selectAdvisorOptionInMyUniverseExclude();
+    }
+
+    @When("I select family office sub role option in my universe exclude")
+    public void selectFamilyOfficeOptionInMyUniverseExclude(){
+        myUniversePage.selectFamilyOfficeOptionInMyUniverseExclude();
+    }
+
+    @When("I select advisor sub role option in my universe exclude of real estate advisor")
+    public void selectAdvisorOptionInMyUniverseExclude_RealEstateAdvisor(){
+        myUniversePage.selectAdvisorOptionInMyUniverseExclude_RealEstateAdvisor();
     }
 
     @When("I select advisor sub role option")
@@ -185,6 +215,16 @@ public class MyUniverseSteps {
         myUniversePage.setDealFundSize_InvestorInMyUniverseExclude();
     }
 
+    @When("I set the value in deal/fund size field of lender in my universe exclude")
+    public void setDealFundSize_LenderInMyUniverseExclude(){
+        myUniversePage.setDealFundSize_LenderInMyUniverseExclude();
+    }
+
+    @When("I set the value in deal/fund size field of real estate advisor in my universe exclude")
+    public void setDealFundSize_RealEstateAdvisorInMyUniverseExclude(){
+        myUniversePage.setDealFundSize_RealEstateAdvisorInMyUniverseExclude();
+    }
+
     @When("I set the value in deal/fund size field of investor")
     public void setDealFundSize_Investor(){
         myUniversePage.setDealFundSize_Investor();
@@ -231,6 +271,11 @@ public class MyUniverseSteps {
         myUniversePage.selectPublicOption();
     }
 
+    @When("I select private option in drop down")
+    public void selectPrivateOption(){
+        myUniversePage.selectPrivateOption();
+    }
+
     @When("I select public radio button of investor")
     public void selectPublicRadioButton_Investor(){
         myUniversePage.selectPublicRadioButton_Investor();
@@ -271,6 +316,11 @@ public class MyUniverseSteps {
         myUniversePage.clickLocationField();
     }
 
+    @When("I click on location field in my universe exclude")
+    public void clickLocationFieldOfMyUniverseExclude(){
+        myUniversePage.clickLocationFieldOfMyUniverseExclude();
+    }
+
     @When("I clear on location field")
     public void clearLocationField(){
         myUniversePage.clearLocationField();
@@ -279,6 +329,46 @@ public class MyUniverseSteps {
     @When("I select the location of the user")
     public void selectLocation(){
         myUniversePage.selectLocation();
+    }
+
+    @Then("I verify the data in location field")
+    public void verifyLocationField(){
+        myUniversePage.verifyLocationField();
+    }
+
+    @Then("I verify the data in location field of my universe exclude")
+    public void verifyLocationFieldInExclude(){
+        myUniversePage.verifyLocationFieldInExclude();
+    }
+
+    @Then("I verify real estate advisor check box is selected")
+    public void verifyCheckBoxRealEstateAdvisor(){
+        myUniversePage.verifyCheckBox();
+    }
+
+    @Then("I verify deal sponsor check box is selected")
+    public void verifyCheckBoxDealSponsor(){
+        myUniversePage.verifyCheckBoxDealSponsor();
+    }
+
+    @Then("I verify that public option is selected")
+    public void verifyPublicOptionIsSelected(){
+        myUniversePage.verifyPublicOptionIsSelected();
+    }
+
+    @Then("I verify real estate advisor subrole is selected")
+    public void verifySubRoleOfRealEstateAdvisor(){
+        myUniversePage.verifySubRoleOfRealEstateAdvisor();
+    }
+
+    @Then("I verify deal sponsor subrole is selected")
+    public void verifySubRoleOfDealSponsor(){
+        myUniversePage.verifySubRoleOfDealSponsor();
+    }
+
+    @When("I select the location of the user in my universe exclude")
+    public void selectLocationInMyUniverseExclude(){
+        myUniversePage.selectLocationInMyUniverseExclude();
     }
 
     @When("I click on save button in my universe page of ME tab")
@@ -303,6 +393,7 @@ public class MyUniverseSteps {
     }
 
     @Then("I verify '$lStrCompanyName' company name who has set privacy include in my universe is displayed")
+        @Alias("I verify '$lStrUserName' company name who has set privacy exclude in my universe is displayed")
     public void verifyCompanyName_Universe(@Named("lStrCompanyName") String lStrCompanyName){
         myUniversePage.verifyCompanyName_Universe(lStrCompanyName);
     }
@@ -327,6 +418,7 @@ public class MyUniverseSteps {
     }
 
     @When("I click '$lStrCompanyName' company name who has set privacy include in my universe")
+        @Alias("I click '$lStrCompanyName' company name who has set privacy exclude in my universe is displayed")
     public void clickCompanyName_Universe(@Named("lStrCompanyName")String lStrCompanyName){
         myUniversePage.clickCompanyName_Universe(lStrCompanyName);
     }
@@ -362,6 +454,16 @@ public class MyUniverseSteps {
     @When("I select advisor option in I am a field")
     public void selectAdvisorOptionInIAmAField(){
         myUniversePage.selectAdvisorOptionInIAmAField();
+    }
+
+    @When("I enter the location of the newly created user")
+    public void enterLocationOfNewlyCreatedUser(){
+        myUniversePage.enterLocationOfNewlyCreatedUser();
+    }
+
+    @When("I click on dashboard")
+    public void clickOnDashboard(){
+        myUniversePage.clickOnDashboard();
     }
 
     @When("I select family office option in I am a field")
@@ -518,4 +620,8 @@ public class MyUniverseSteps {
         myUniversePage.clickProjectOfLenderNameInMyUniverse(lStrProjectOfLender);
     }
 
+    @When("I select the value of deal size who has set the profile to my universe exclude")
+    public void selectValueInDealSize_Exclude(){
+        myUniversePage.selectValueInDealSize_Exclude();
+    }
 }

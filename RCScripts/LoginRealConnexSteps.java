@@ -28,7 +28,7 @@ public class LoginRealConnexSteps {
     }
 
     @When("I enter Password")
-    public void enterPassword(){
+    public void enterPassword() throws Exception {
         loginRealConnexPage.enterPassword(1);
     }
 
@@ -92,6 +92,7 @@ public class LoginRealConnexSteps {
     }
 
     @When("I enter email ID of user who set the privacy in my universe include")
+        @Alias("I enter email ID of user who set the privacy in my universe exclude")
     public void enterEmailIdOfUserMyUniverseInclude() throws Exception {
         loginRealConnexPage.enterEmailIdOfUsers(11);
     }

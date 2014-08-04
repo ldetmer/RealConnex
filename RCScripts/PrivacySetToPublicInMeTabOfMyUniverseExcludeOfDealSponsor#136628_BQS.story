@@ -9,7 +9,7 @@ Scenario: 136628 : Verify that deal sponsor user exclude from my universe are in
 When I update TestCaseId 136628
 When I update TestCaseName Verify that only Deal Sponsor users excluded from My Universe are invisible when the privacy is set to "Exclude the following from my universe" in "Me >> Privacy" page.
 When I launch RealConnex application
-And I enter deal sponsor email ID of user who set the privacy in my universe exclude
+And I enter email ID of user who set the privacy in my universe exclude
 And I enter Password
 And I click on login button
 Then I should see Privacy button
@@ -51,15 +51,4 @@ Then I should see 'People, Companies & Associations' as find in search option
 When I enter user name who has set the profile to include in my universe
 Then I verify 'Emily Hill' user name who has set privacy exclude in my universe is displayed
 When I click 'Emily Hill' user name who has set privacy exclude in my universe
-When I logout RealConnex application
-And I enter deal sponsor email ID of user who set the privacy in my universe exclude
-And I enter Password
-And I click on login button
-Then I should see Privacy button
-When I click on Privacy button
-Then I verify that privacy page is displayed
-When I click on ME tab
-And I click on public button in ME tab
-And I click on save button in my universe page of ME tab
-Then I verify 'Privacy successfully saved' message is displayed
 When I logout RealConnex application

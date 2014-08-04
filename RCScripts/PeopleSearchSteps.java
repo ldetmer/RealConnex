@@ -66,17 +66,17 @@ public class PeopleSearchSteps {
     }
 
     @When("I enter user title in name search option")
-    public void enterUserTitle() {
+    public void enterUserTitle() throws Exception {
         peopleSearchPage.enterUserTitle(1);
     }
 
     @When("I enter user job title in title search option")
-    public void enterUserJobTitle(){
+    public void enterUserJobTitle() throws Exception {
         peopleSearchPage.enterUserJobTitle(1);
     }
 
     @When("I enter location in location search option")
-    public void enterLocation(){
+    public void enterLocation() throws Exception {
         peopleSearchPage.enterLocation(1);
     }
 
@@ -86,7 +86,7 @@ public class PeopleSearchSteps {
     }
 
     @When("I enter user company name in company search option")
-    public void enterCompanyName(){
+    public void enterCompanyName() throws Exception {
         peopleSearchPage.enterCompanyName(1);
     }
 

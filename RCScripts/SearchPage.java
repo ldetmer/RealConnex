@@ -4,17 +4,29 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.By;
 
+import java.util.NoSuchElementException;
+
 public class SearchPage extends FluentWebDriverPage {
     public SearchPage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
 
     public void peopleCompaniesLinkClick(){
+        try{
         findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'People, Companies & Associations')]")).click();
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Not able to click the link\n";
+        }
     }
 
     public void peopleClick(){
-        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[1]/label/strong/span")).click();
+        try{
+            findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[1]/label/strong/span")).click();
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Not able to click the link\n";
+        }
     }
 
     public void companiesClick(){

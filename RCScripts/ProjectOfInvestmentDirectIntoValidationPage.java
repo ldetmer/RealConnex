@@ -251,7 +251,7 @@ public class ProjectOfInvestmentDirectIntoValidationPage extends FluentWebDriver
         }
 
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(12000);
     }
 
     public void clearMin(){

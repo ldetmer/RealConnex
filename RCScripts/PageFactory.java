@@ -2,6 +2,7 @@ package test.pages;
 
 import com.google.inject.Inject;
 import org.jbehave.web.selenium.WebDriverProvider;
+import test.Support.ReasonsInResultSheet;
 
 
 public class PageFactory {
@@ -16,6 +17,8 @@ public class PageFactory {
     public WindowHandling newWindowHandling() {
         return new WindowHandling(webDriverProvider);
     }
+
+
 
    /* public  BrowserPage newBrowserPage() {
         return new BrowserPage(webDriverProvider);

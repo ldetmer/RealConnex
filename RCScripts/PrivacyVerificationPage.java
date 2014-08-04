@@ -30,8 +30,16 @@ public class PrivacyVerificationPage extends FluentWebDriverPage {
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrCompanyName+"')]"),getDriverProvider().get()));
     }
 
+    public void verifyCompanyName_Private(String lStrCompanyName){
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong/span[contains(text(),'"+lStrCompanyName+"')]"),getDriverProvider().get()));
+    }
+
     public void clickCompanyName(String lStrCompanyName){
         findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrCompanyName+"')]")).click();
+    }
+
+    public void clickCompanyName_Private(String lStrCompanyName){
+        findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong/span[contains(text(),'"+lStrCompanyName+"')]")).click();
     }
 
     public void verifyProjectName(String lStrProjectName){
@@ -59,9 +67,19 @@ public class PrivacyVerificationPage extends FluentWebDriverPage {
         Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrUserName+"')]"),getDriverProvider().get()));
     }
 
-    public void verifyUserProfileSetToIncludeNotDisplayed(int intRowIndex) throws Exception {
-        String lStrUserName = ReadData.readDataExcel("Privacy", intRowIndex ,"NamesOfDifferentRoles");
-        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrUserName+"')]"),getDriverProvider().get()));
+    public void verifyUserProfileSetToIncludeNotDisplayed(int intRowIndex) {
+        try{
+            String lStrUserName = ReadData.readDataExcel("Privacy", intRowIndex ,"NamesOfDifferentRoles");
+            Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrUserName+"')]"),getDriverProvider().get()));
+        } catch (AssertionError e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is displayed\n";
+        } catch (NullPointerException e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Not able to read excel\n";
+        } catch (Exception e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Error In Fetching Data From Excel\n";
+        }
     }
 
     public void verifyCompanyProfileSetToIncludeNotDisplayed(int intRowIndex) throws Exception {
@@ -69,9 +87,20 @@ public class PrivacyVerificationPage extends FluentWebDriverPage {
         Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrCompanyName+"')]"),getDriverProvider().get()));
     }
 
+    public void verifyCompanyProfileSetToExcludeNotDisplayed(int intRowIndex) throws Exception{
+        String lStrCompanyName = ReadData.readDataExcel("Privacy", intRowIndex ,"CompanyNameOfDifferentRoles");
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrCompanyName+"')]"),getDriverProvider().get()));
+    }
+
     public void verifyCompanyProfileNotDisplayed(int intRowIndex) throws Exception {
         String lStrCompanyName = ReadData.readDataExcel("Privacy", intRowIndex ,"CompanyNameOfDifferentRoles");
         Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrCompanyName+"')]"),getDriverProvider().get()));
+
+    }
+
+    public void verifyLenderCompanyNotDisplayed_Private(int intRowIndex)throws Exception{
+        String lStrCompanyName = ReadData.readDataExcel("Privacy", intRowIndex ,"CompanyNameOfDifferentRoles");
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong/span[contains(text(),'"+lStrCompanyName+"')]"),getDriverProvider().get()));
     }
 
     public void verifyProjectNotDisplayed(int intRowIndex)throws Exception {
@@ -82,6 +111,12 @@ public class PrivacyVerificationPage extends FluentWebDriverPage {
     public void verifyFundNotDisplayed(int intRowIndex)throws Exception {
         String lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex,"FundOfAllRoles");
         Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrPrivateFundName+"')]"),getDriverProvider().get()));
+    }
+
+    public void verifyFundOfInvestorSetToIncludeNotDisplayed_Private(int intRowIndex) throws Exception {
+        String lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex,"FundOfAllRoles");
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong/span[contains(text(),'"+lStrPrivateFundName+"')]"),getDriverProvider().get()));
+
     }
 
     public void verifyLoanNotDisplayed(int intRowIndex)throws Exception{

@@ -195,7 +195,6 @@ And I should see 'Appraisal' as strategy in search option
 And I verify property service provider service profile whose privacy is set to my universe include is not displayed
 When I click on 'Find Now' button
 When I logout RealConnex application
-When I logout RealConnex application
 And I enter newly created 'Real Estate Advisor,Broker' email ID
 And I enter Password
 And I click on login button
@@ -312,6 +311,13 @@ And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on 'Investments' link
+And I click on 'Direct Into Project' link
+And I click on 'Core' link
+And I click on 'GO' button
+Then I should see 'Investments' in find of search option
+And I verify kind in search option
+And I verify risk in search option
 And I verify lender mezz whose profile is set public in include of my universe is not displayed
 When I click on 'Find Now' button
 When I logout RealConnex application

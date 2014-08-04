@@ -44,12 +44,28 @@ public class PrivacyVerificationSteps {
         privacyVerificationPage.verifyCompanyName(lStrCompanyName);
     }
 
+    @Then("I verify '$lStrCompanyName' deal sponsor company name who set profile to private is displayed in search result")
+    @Aliases(values = {"I verify '$lStrCompanyName' investor company name who set profile to private is displayed in search result",
+            "I verify '$lStrCompanyName' lender company name who set profile to private is displayed in search result",
+            "I verify '$lStrCompanyName' real estate advisor company name who set profile to private is displayed in search result"})
+    public void verifyCompanyName_Private(@Named("lStrCompanyName") String lStrCompanyName){
+        privacyVerificationPage.verifyCompanyName_Private(lStrCompanyName);
+    }
+
     @When("I click on '$lStrCompanyName' deal sponsor company name in search result")
         @Aliases(values = {"I click on '$lStrCompanyName' investor company name in search result",
                             "I click on '$lStrCompanyName' lender company name in search result",
                             "I click on '$lStrCompanyName' real estate advisor company name in search result"})
     public void clickCompanyName(@Named("lStrCompanyName") String lStrCompanyName){
         privacyVerificationPage.clickCompanyName(lStrCompanyName);
+    }
+
+    @When("I click on '$lStrCompanyName' deal sponsor company name who set profile to private in search result")
+    @Aliases(values = {"I click on '$lStrCompanyName' investor company name who set profile to private in search result",
+            "I click on '$lStrCompanyName' lender company name who set profile to private in search result",
+            "I click on '$lStrCompanyName' real estate advisor company name who set profile to private in search result"})
+    public void clickCompanyName_Private(@Named("lStrCompanyName") String lStrCompanyName){
+        privacyVerificationPage.clickCompanyName_Private(lStrCompanyName);
     }
 
     @Then("I verify '$lStrProjectName' deal sponsor project name is displayed in search result")
@@ -107,6 +123,11 @@ public class PrivacyVerificationSteps {
         privacyVerificationPage.verifyFundNotDisplayed(5);
     }
 
+    @Then("I verify investor fund whose profile privacy is set to private in include of my universe is not displayed")
+    public void verifyFundOfInvestorSetToIncludeNotDisplayed_Private() throws Exception {
+        privacyVerificationPage.verifyFundOfInvestorSetToIncludeNotDisplayed_Private(5);
+    }
+
     @Then("I verify deal sponsor fund whose profile is set public in include of my universe is not displayed")
     public void verifyFundOfDealSponsorSetToIncludeNotDisplayed() throws Exception {
         privacyVerificationPage.verifyFundNotDisplayed(4);
@@ -115,6 +136,11 @@ public class PrivacyVerificationSteps {
     @Then("I verify company whose profile is set to include in my universe is not displayed")
     public void verifyCompanyProfileSetToIncludeNotDisplayed() throws Exception {
         privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(5);
+    }
+
+    @Then("I verify company whose profile is set to exclude in my universe is not displayed")
+    public void verifyCompanyProfileSetToExcludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyCompanyProfileSetToExcludeNotDisplayed(5);
     }
 
     @Then("I verify investor company whose profile is set private in include of my universe is not displayed")
@@ -185,6 +211,12 @@ public class PrivacyVerificationSteps {
     @Then("I verify lender company whose profile is set private is not displayed")
     public void verifyLenderCompanyNotDisplayed() throws Exception {
         privacyVerificationPage.verifyCompanyProfileNotDisplayed(3);
+    }
+
+
+    @Then("I verify lender company name whose profile is set private is not displayed")
+    public void verifyLenderCompanyNotDisplayed_Private() throws Exception {
+        privacyVerificationPage.verifyLenderCompanyNotDisplayed_Private(3);
     }
 
     @Then("I verify real estate advisor company whose profile is set private is not displayed")

@@ -77,8 +77,9 @@ When I click on 'Find Now' button
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
-And I verify 'LTaylor Company' lender company name is displayed in search result
-When I click on 'LTaylor Company' lender company name in search result
+When I enter lender company name
+Then I verify 'LTaylor Company' lender company name who set profile to private is displayed in search result
+When I click on 'LTaylor Company' lender company name who set profile to private in search result
 And I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Debt' link
@@ -87,8 +88,9 @@ And I click on 'Land Loan' link
 And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Land Loan' in loan of money debt loan search
-And I verify 'LTaylor Company' lender company name is displayed in search result
-When I click on 'LTaylor Company' lender company name in search result
+When I enter average loan amount of lender company whose privacy is set to private
+Then I verify 'LTaylor Company' lender company name who set profile to private is displayed in search result
+When I click on 'LTaylor Company' lender company name who set profile to private in search result
 And I click on 'Find Now' button
 And I logout RealConnex application
 And I enter deal sponsor email ID for login
@@ -99,7 +101,8 @@ When I click on 'Find Now' button
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
-And I verify lender company whose profile is set private is not displayed
+When I enter lender company name
+Then I verify lender company name whose profile is set private is not displayed
 When I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Debt' link
@@ -108,7 +111,8 @@ And I click on 'Land Loan' link
 And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Land Loan' in loan of money debt loan search
-And I verify lender company whose profile is set private is not displayed
+When I enter average loan amount of lender company whose privacy is set to private
+Then I verify lender company name whose profile is set private is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
 And I enter investor email ID for login
@@ -119,7 +123,8 @@ When I click on 'Find Now' button
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
-And I verify lender company whose profile is set private is not displayed
+When I enter lender company name
+Then I verify lender company name whose profile is set private is not displayed
 When I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Debt' link
@@ -128,7 +133,8 @@ And I click on 'Land Loan' link
 And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Land Loan' in loan of money debt loan search
-And I verify lender company whose profile is set private is not displayed
+When I enter average loan amount of lender company whose privacy is set to private
+Then I verify lender company name whose profile is set private is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
 And I enter lender email ID for login
@@ -139,7 +145,8 @@ When I click on 'Find Now' button
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
-And I verify lender company whose profile is set private is not displayed
+When I enter lender company name
+Then I verify lender company name whose profile is set private is not displayed
 When I click on 'Find Now' button
 And I click on 'Money' link
 And I click on 'Debt' link
@@ -148,7 +155,8 @@ And I click on 'Land Loan' link
 And I click on 'GO' button
 Then I should see 'Money' in find of money search
 And I should see 'Land Loan' in loan of money debt loan search
-And I verify lender company whose profile is set private is not displayed
+When I enter average loan amount of lender company whose privacy is set to private
+Then I verify lender company name whose profile is set private is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
 

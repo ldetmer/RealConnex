@@ -3,9 +3,18 @@ package test.pages;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.By;
+import java.util.NoSuchElementException;
 
+/**
+ * Created with IntelliJ IDEA.
+ * User: Bhavana
+ * Date: 6/23/14
+ * Time: 12:01 PM
+ * To change this template use File | Settings | File Templates.
+ */
 
 public class LogoutPage extends FluentWebDriverPage {
+    String gStrFieldName = "";
     public LogoutPage(WebDriverProvider driverProvider){
         super(driverProvider);
     }

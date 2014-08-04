@@ -58,6 +58,11 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.clickHereOfPrivateUser();
     }
 
+    @Then("I verify click here link of the private user is displayed")
+    public void verifyHereOfPrivateUser(){
+        privacySetToPrivatePage.verifyHereOfPrivateUser();
+    }
+
     @When("I click on request a viewing link")
     public void clickRequestAView(){
         privacySetToPrivatePage.clickRequestAView();
@@ -171,6 +176,16 @@ public class PrivacySetToPrivateSteps {
     @Then("I verify access successfully updated message is displayed")
     public void verifyAccessUpdatedMessage(){
         privacySetToPrivatePage.verifyAccessUpdatedMessage();
+    }
+
+    @Then("I verify the notification in the header")
+    public void verifyNotificationInHeader(){
+        privacySetToPrivatePage.verifyNotificationInHeader();
+    }
+
+    @Then("I verify the notification in the header of the requested user")
+    public void verifyNotificationOfTheRequestedUser(){
+        privacySetToPrivatePage.verifyNotificationOfTheRequestedUser();
     }
 
     @Then("I verify the deal sponsor profile is displayed")
@@ -352,5 +367,10 @@ public class PrivacySetToPrivateSteps {
     @When("I select value in investment amount slider of property service provider whose privacy is set to private in my universe include")
     public void selectInvestmentAmountValueForListingProjectInMyUniverse(){
         privacySetToPrivatePage.selectInvestmentAmountValueForListingProjectInMyUniverse();
+    }
+
+    @When("I enter average loan amount of lender company whose privacy is set to private")
+    public void setLoanAmountOfLenderCompany(){
+        privacySetToPrivatePage.setLoanAmountOfLenderCompany();
     }
 }

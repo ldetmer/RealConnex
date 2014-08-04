@@ -271,9 +271,11 @@ public class MoneyDebtLoanProjectPage extends FluentWebDriverPage {
     }
 
     public void clickDealStageField(){
-        WebElement footerElement = findElement(By.xpath("//div[@id='footer']"));
+       /* WebElement footerElement = findElement(By.xpath("//div[@id='footer']"));
         Point position = footerElement.getLocation();
-        executeScript("scrollTo(0,"+position.getY()+")");
+        executeScript("scrollTo(0,"+position.getY()+")");*/
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Deal Stage:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 

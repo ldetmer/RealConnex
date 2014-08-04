@@ -3,6 +3,7 @@ package test.pages;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
+import org.junit.ComparisonFailure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
@@ -10,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
+
+import java.util.NoSuchElementException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,7 +22,7 @@ import test.steps.VerificationStatements;
  * To change this template use File | Settings | File Templates.
  */
 public class MyUniversePage extends FluentWebDriverPage {
-
+    String gStrFieldName = "";
     public MyUniversePage(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
@@ -33,8 +36,14 @@ public class MyUniversePage extends FluentWebDriverPage {
     public void clickMyUniverseRadioButton(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        findElement(By.cssSelector("#PrivacyStatus3")).click();
-        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#PrivacyStatus3"));
+        try{
+            gStrFieldName = findElement(By.xpath("//input[@id='PrivacyStatus3']/parent::li/label/strong")).getText();
+            findElement(By.cssSelector("#PrivacyStatus3")).click();
+            VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#PrivacyStatus3"));
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Radio button is not clicked\n";
+        }
     }
 
     public void clickIncludeRadioButton(){
@@ -47,8 +56,14 @@ public class MyUniversePage extends FluentWebDriverPage {
     public void clickExcludeRadioButton(){
         //wait until page loads
         WaitUtil.simpleSleep(5000);
-        findElement(By.cssSelector("#PrivacyStatus5")).click();
-        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.cssSelector("#PrivacyStatus5"));
+        try{
+            gStrFieldName = findElement(By.xpath("//input[@id='PrivacyStatus5']/parent::li/label")).getText();
+            findElement(By.cssSelector("#PrivacyStatus5")).click();
+            VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.cssSelector("#PrivacyStatus5"));
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Radio button is not clicked\n";
+        }
     }
 
     public void selectDealSponsorCheckBox(){
@@ -74,12 +89,25 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/span/span")).click();
     }
 
-    public void clearDealSponsorCheckBoxInExclude(){
+    public void selectLenderCheckBoxInExclude(){
         //wait until page loads
         WaitUtil.simpleSleep(5000);
         scrollDown();
-        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/span/span")).click();
-        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.cssSelector("input[name=\"data[Privacy][Universe][Exclude][role_id][]\"]"));
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Lender')]/parent::tr/td/span/span")).click();
+    }
+
+    public void selectRealEstateAdvisorCheckBoxInExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        scrollDown();
+        try{
+            findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Real Estate Advisor')]/parent::tr/td/span/span")).click();
+            VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.xpath("//tr[5]/td/span/span/input[@name='data[Privacy][Universe][Exclude][role_id][]']"));
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }  catch (AssertionError e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }
     }
 
     public void selectInvestorCheckBox(){
@@ -166,6 +194,22 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
+    public void selectSubRoleField_LenderInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Lender')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectSubRoleField_RealEstateAdvisorInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        try{
+            findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Real Estate Advisor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"SubRole Field is not clicked\n";
+        }
+    }
+
     public void selectSubRoleField_Investor(){
         //wait until page loads
         WaitUtil.simpleSleep(5000);
@@ -206,6 +250,26 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.cssSelector("#Subroleexclude_Id_checkbox_18")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleexclude_Id_checkbox_18"));
         findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectFamilyOfficeOptionInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        findElement(By.cssSelector("#Subroleexclude_Id_checkbox_39")).click();
+        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleexclude_Id_checkbox_39"));
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Lender')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void selectAdvisorOptionInMyUniverseExclude_RealEstateAdvisor(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        try{
+            findElement(By.cssSelector("#Subroleexclude_Id_checkbox_57")).click();
+            VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleexclude_Id_checkbox_57"));
+            findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Real Estate Advisor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is not able to click\n";
+        }
     }
 
     public void clearDeveloperOptionInMyUniverseExclude(){
@@ -307,6 +371,32 @@ public class MyUniversePage extends FluentWebDriverPage {
         }
         WebElement sliderRight = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Investor')]/parent::tr/td/div/div/a[2]"));
         for(int i=0;i<90;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+    }
+
+    public void setDealFundSize_LenderInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Lender')]/parent::tr/td/div/div/a[1]"));
+        for(int i=1;i<10;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Lender')]/parent::tr/td/div/div/a[2]"));
+        for(int i=0;i<89;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+        }
+    }
+
+    public void setDealFundSize_RealEstateAdvisorInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Real Estate Advisor')]/parent::tr/td/div/div/a[1]"));
+        for(int i=1;i<11;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Real Estate Advisor')]/parent::tr/td/div/div/a[2]"));
+        for(int i=0;i<88;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
         }
     }
@@ -417,6 +507,14 @@ public class MyUniversePage extends FluentWebDriverPage {
         select.selectByIndex(1);
     }
 
+    public void selectPrivateOption(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement viewOptions = findElement(By.xpath("//select[@name='data[Privacy][Universe][Exclude][view_permission]']"));
+        Select select = new Select(viewOptions);
+        select.selectByIndex(0);
+    }
+
     public void selectPublicRadioButton_Investor(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
@@ -473,6 +571,31 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.cssSelector("#incAddressInput")).click();
     }
 
+    public void clickLocationFieldOfMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        try{
+            gStrFieldName = findElement(By.xpath("//input[@id='excAddressInput']/parent::div/parent::div/label")).getText();
+            findElement(By.cssSelector("#excAddressInput")).click();
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not clicked\n";
+        }
+    }
+
+    public void selectLocationInMyUniverseExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        try{
+            gStrFieldName = findElement(By.xpath("//input[@id='excAddressInput']/parent::div/parent::div/label")).getText();
+            findElement(By.cssSelector("#excAddressInput")).click();
+            String lStrLocation = "Jud, North Dakota, United States";
+            findElement(By.cssSelector("#excAddressInput")).sendKeys(lStrLocation);
+            VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.cssSelector("#excAddressInput"),lStrLocation);
+        }catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not clicked\n";
+        }
+    }
+
     public void clearLocationField(){
          //wait until page loads
         WaitUtil.simpleSleep(1000);
@@ -489,10 +612,112 @@ public class MyUniversePage extends FluentWebDriverPage {
         VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.cssSelector("#incAddressInput"),lStrLocation);
     }
 
+    public void verifyLocationField(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        try{
+            gStrFieldName = findElement(By.xpath("//input[@id='incAddressInput']/parent::div/parent::div/label")).getText();
+            String lStrLocation = "Jud, North Dakota, United States";
+            VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.cssSelector("#incAddressInput"),lStrLocation);
+        } catch (ComparisonFailure e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed in comparing the data in the field\n";
+        }
+    }
+
+    public void verifyLocationFieldInExclude(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        try{
+            gStrFieldName = findElement(By.xpath("//div[@id='excludeRules']/div[@class='table-holder']/div/label")).getText();
+            String lStrLocation = "Jud, North Dakota, United States";
+            VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.cssSelector("#incAddressInput"),lStrLocation);
+        } catch (ComparisonFailure e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed in comparing the data in the field\n";
+        }
+    }
+
+    public void verifyCheckBox(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        scrollDown();
+        try{
+            VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.xpath("//tr[5]/td/span/span/input[@name='data[Privacy][Universe][Exclude][role_id][]']"));
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }  catch (AssertionError e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }
+    }
+
+    public void verifyCheckBoxDealSponsor(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        scrollDown();
+        try{
+            VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.cssSelector("input[name=\"data[Privacy][Universe][Exclude][role_id][]\"]"));
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }  catch (AssertionError e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }
+    }
+
+    public void verifyPublicOptionIsSelected(){
+        try{
+            gStrFieldName = findElement(By.xpath("//div[@id='excludeRules']/div[1]/div/label/strong")).getText();
+            WebElement viewOptions = findElement(By.xpath("//select[@name='data[Privacy][Universe][Exclude][view_permission]']"));
+            Select select = new Select(viewOptions);
+            WebElement option = select.getFirstSelectedOption();
+            String lStrFieldName = option.getText();
+            Assert.assertEquals(lStrFieldName, findElement(By.xpath("//div[@id='excludeRules']/div/div/label/select/option[@value='1']")).getText());
+        }  catch (AssertionError e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed in comparing the data in the field\n";
+        }
+    }
+
+    public void verifySubRoleOfRealEstateAdvisor(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement footerElement = findElement(By.xpath("//div[@id='footer']"));
+        Point position = footerElement.getLocation();
+        executeScript("scrollTo(0," + position.getY() + ")");
+        try{
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Real Estate Advisor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleinclude_Id_checkbox_57"));
+        findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Real Estate Advisor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }  catch (AssertionError e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }
+    }
+
+    public void verifySubRoleOfDealSponsor(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        try{
+            findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+            VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.cssSelector("#Subroleexclude_Id_checkbox_1"));
+            findElement(By.xpath("//div[@id='excludeRules']/div/table/tbody/tr/td[contains(text(),'Deal Sponsor')]/parent::tr/td/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }  catch (AssertionError e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Check box not clicked\n";
+        }
+    }
+
     public void clickSaveButton(){
         //wait until page load
         WaitUtil.simpleSleep(1000);
-        findElement(By.xpath("//form[@id='UserMePrivacyForm']/div/input[@value='Save']")).click();
+        try{
+            gStrFieldName = findElement(By.xpath("//form[@id='UserMePrivacyForm']/div/input[@type='submit']")).getText();
+            findElement(By.xpath("//form[@id='UserMePrivacyForm']/div/input[@value='Save']")).click();
+        } catch (NoSuchElementException e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed to click on the Save button\n";
+        }
     }
 
     public void clickSaveButton_Company(){
@@ -510,7 +735,11 @@ public class MyUniversePage extends FluentWebDriverPage {
     public void verifyUserName_Universe(String lStrUserName){
          //wait until page load
         WaitUtil.simpleSleep(1000);
+        try{
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong/span[contains(text(),'"+lStrUserName+"')]"), getDriverProvider().get()));
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"User Name is Not Retrieved in Search Result\n";
+        }
         //wait until page load
         WaitUtil.simpleSleep(1000);
     }
@@ -543,6 +772,7 @@ public class MyUniversePage extends FluentWebDriverPage {
          //wait until page load
         WaitUtil.simpleSleep(1000);
         findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong/span[contains(text(),'"+lStrUserName+"')]")).click();
+        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//section[@id='content']/div/h1[contains(text(),'"+lStrUserName+"')]"), getDriverProvider().get()));
     }
 
     public void clickCompanyName_Universe(String lStrCompanyName){
@@ -594,6 +824,17 @@ public class MyUniversePage extends FluentWebDriverPage {
         findElement(By.xpath("//div/label[contains(text(),'I am a:')]/parent::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         findElement(By.cssSelector("#SubroleId_checkbox_18")).click();
         findElement(By.xpath("//div/label[contains(text(),'I am a:')]/parent::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void enterLocationOfNewlyCreatedUser(){
+        findElement(By.id("UserLocationTxt")).click();
+        String lStrLocation = "Jud, North Dakota, United States";
+        findElement(By.id("UserLocationTxt")).sendKeys(lStrLocation);
+        VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserLocationTxt"),lStrLocation);
+    }
+
+    public void clickOnDashboard(){
+        findElement(By.xpath("//nav[@id='nav']/ul/li[@class='active']/a")).click();
     }
 
     public void selectFamilyOfficeOptionInIAmAField(){
@@ -716,7 +957,8 @@ public class MyUniversePage extends FluentWebDriverPage {
 
     public void clickSaveButtonInStrategyField(){
          //wait until page load
-        WaitUtil.simpleSleep(5000);
+        WaitUtil.simpleSleep(2000);
+       // executeScript("scrollTo(100,0)");
         findElement(By.xpath("//div/h3[contains(text(),'Strategy')]/parent::div/input[@value='Save']")).click();
         //wait until page load
         WaitUtil.simpleSleep(10000);
@@ -793,13 +1035,13 @@ public class MyUniversePage extends FluentWebDriverPage {
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<7;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            WaitUtil.simpleSleep(200);
         }
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
         for(int i=0;i<92;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            WaitUtil.simpleSleep(200);
         }
-        //wait until page loads
-        WaitUtil.simpleSleep(10000);
     }
 
     public void clickLoanOfLenderMyUniverse(){
@@ -840,5 +1082,22 @@ public class MyUniversePage extends FluentWebDriverPage {
 
     public void clickProjectOfLenderNameInMyUniverse(String lStrProjectOfLender){
         findElement(By.xpath("//tbody[@id='searchResults']/tr/td[@class='col-1']/a/strong[contains(text(),'"+lStrProjectOfLender+"')]")).click();
+    }
+
+    public void selectValueInDealSize_Exclude(){
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<2;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+             //wait until page gets loaded
+            WaitUtil.simpleSleep(200);
+        }
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        for(int i=0;i<97;i++){
+            sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page gets loaded
+            WaitUtil.simpleSleep(200);
+        }
+         //wait until page gets loaded
+        WaitUtil.simpleSleep(500);
     }
 }
