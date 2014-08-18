@@ -4,9 +4,7 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import test.steps.VerificationStatements;
-
-import java.util.NoSuchElementException;
+import org.openqa.selenium.NoSuchElementException;
 
 public class UserProfilePage extends FluentWebDriverPage {
     public UserProfilePage(WebDriverProvider driverProvider) {
@@ -18,19 +16,19 @@ public class UserProfilePage extends FluentWebDriverPage {
         try{
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//nav[@id='nav']/a/em/img"), getDriverProvider().get()));
         } catch (AssertionError e){
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Image is not found\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Find Now Image is not found\n";
         }
         //findElement(By.xpath("//nav[@id='nav']/a/em/img")).isDisplayed();
     }
 
     public void clickFindNow(){
         //wait until page load
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(10000);
         executeScript("scrollTo(250,0)");
         try{
             findElement(By.xpath("//nav[@id='nav']/a/em/img")).click();
         } catch (NoSuchElementException e){
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is not clicked\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Find Now Element is not clicked\n";
         }
         //wait until page load
         WaitUtil.simpleSleep(1000);

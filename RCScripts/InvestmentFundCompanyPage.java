@@ -136,6 +136,8 @@ public class InvestmentFundCompanyPage extends FluentWebDriverPage{
         //wait until field is displayed
         WaitUtil.simpleSleep(100);
         findElement(By.id("syndications_")).click();
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
     }
 
 }

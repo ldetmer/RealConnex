@@ -3,8 +3,8 @@ package test.pages;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
-import java.util.NoSuchElementException;
 
 public class SearchPage extends FluentWebDriverPage {
     public SearchPage(WebDriverProvider driverProvider) {
@@ -16,7 +16,7 @@ public class SearchPage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'People, Companies & Associations')]")).click();
         } catch (NoSuchElementException e){
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Not able to click the link\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click People Companies and Association link\n";
         }
     }
 
@@ -25,12 +25,16 @@ public class SearchPage extends FluentWebDriverPage {
             findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[1]/label/strong/span")).click();
         } catch (NoSuchElementException e){
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Not able to click the link\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on People link\n";
         }
     }
 
     public void companiesClick(){
+        try{
         findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[2]/label/strong/span")).click();
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Companies Link\n";
+        }
     }
 
     public void dealSponsorClick(){
@@ -42,7 +46,11 @@ public class SearchPage extends FluentWebDriverPage {
     }
 
     public void clickGo(){
+        try{
         findElement(By.linkText("GO")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on the Go link\n";
+        }
     }
 
     public void selectDeveloper(){
@@ -90,15 +98,28 @@ public class SearchPage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li[1]/label/strong/span")).click();
     }
     public void clickInvestments(){
+        try{
         findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'Investments')]")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Investments link\n";
+        }
     }
 
     public void clickDirectIntoProject(){
+        try{
         findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Direct Into Project')]")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Direct Into Project link\n";
+
+        }
     }
 
     public void clickCore(){
+        try{
         findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li[1]/label/strong/span[contains(text(),'Core')]")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Core link\n";
+        }
     }
 
     public void clickOpportunistic(){
@@ -106,15 +127,28 @@ public class SearchPage extends FluentWebDriverPage {
     }
 
     public void clickFund(){
+        try{
         findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[2]/label/strong")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Fund link\n";
+        }
     }
 
     public void clickCoreOfFund(){
+        try{
         findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Core link in Fund Search\n";
+
+        }
     }
 
     public void clickMoney(){
+        try{
         findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'Money')]")).click();
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Money link\n";
+        }
     }
 
     public void clickEquity(){
@@ -134,15 +168,27 @@ public class SearchPage extends FluentWebDriverPage {
     }
 
     public void clickDebt(){
+        try{
         findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Debt')]")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Debt link\n";
+        }
     }
 
     public void clickLoans(){
+        try{
         findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Loans')]")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Loans link\n";
+        }
     }
 
     public void clickLandLoan(){
+        try{
         findElement(By.xpath("//div[@id='fourthSearchItems']/ul/li/label/strong/span[contains(text(),'Land Loan')]")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Land Loan link\n";
+        }
     }
 
     public void clickIncomeOrCore(){
@@ -150,7 +196,12 @@ public class SearchPage extends FluentWebDriverPage {
     }
 
     public void clickPreferred(){
+        try{
         findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Preferred')]")).click();
+        } catch (NoSuchElementException n){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Preferred link\n";
+
+        }
     }
 
     public void clickFundOfMoney(){

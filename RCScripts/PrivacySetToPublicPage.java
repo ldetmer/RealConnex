@@ -82,8 +82,8 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
         } catch (WebDriverException e){
             System.out.println(e);
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not clickable at this point\n";
-        } catch (NoSuchElementException e){
-            System.out.println(e);
+        } catch (NoSuchElementException n){
+            System.out.println(n);
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Cannot find the element\n";
         }
     }

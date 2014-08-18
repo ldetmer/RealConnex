@@ -52,8 +52,11 @@ Then I verify RealConnex page
 When I click Skip Tour button
 And I click on Profile button
 And I select advisor option in I am a field
+And I enter the location of the newly created user
 And I click on save button in user profile page
 And I click on company tab in user profile
+And I enter company name
+And I select same as my personal details check box in company tab
 And I click on edit in investment strategy field
 And I set the value of preferred deal size in user profile
 And I click on save button in strategy field
@@ -66,8 +69,8 @@ When I enter user name who has set profile to exclude in my universe
 Then I verify user whose profile is set to exclude in my universe is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
-And I enter investor email ID for login
-And I enter password of user
+And I enter investor email Id with different deal/fund size
+And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
@@ -75,7 +78,18 @@ And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter user name who has set the profile to include in my universe
-Then I verify click here link of the private user is displayed
+Then I verify click here link of the private user is displayed in search result
+When I logout RealConnex application
+And I enter investor with different location
+And I enter Password
+And I click on login button
+Then I should see 'Find Now' image
+When I click on 'Find Now' button
+And I click on 'People,companies and association' link
+And I click on 'People' link
+Then I should see 'People, Companies & Associations' as find in search option
+When I enter user name who has set the profile to include in my universe
+Then I verify click here link of the private user is displayed in search result
 When I logout RealConnex application
 And I enter deal sponsor email ID for login
 And I enter password of user
@@ -86,7 +100,7 @@ And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter user name who has set the profile to include in my universe
-Then I verify click here link of the private user is displayed
+Then I verify click here link of the private user is displayed in search result
 When I logout RealConnex application
 And I enter lender email ID for login
 And I enter password of user
@@ -97,7 +111,7 @@ And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter user name who has set the profile to include in my universe
-Then I verify click here link of the private user is displayed
+Then I verify click here link of the private user is displayed in search result
 When I logout RealConnex application
 And I enter real estate advisor email ID for login
 And I enter password of user
@@ -108,5 +122,5 @@ And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter user name who has set the profile to include in my universe
-Then I verify click here link of the private user is displayed
+Then I verify click here link of the private user is displayed in search result
 When I logout RealConnex application

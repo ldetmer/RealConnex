@@ -75,6 +75,8 @@ public class InvestmentDirectIntoCompanyPage extends FluentWebDriverPage{
         WaitUtil.simpleSleep(5000);
         findElement(By.id("RouteId_checkbox_1")).click();
         findElement(By.xpath("//div[@id='searchFilters']/div/div/label[contains(text(),'Route To Sponsor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait until page gets loaded
+        WaitUtil.simpleSleep(5000);
     }
 
     public void clickAssetInterest(){
@@ -96,6 +98,8 @@ public class InvestmentDirectIntoCompanyPage extends FluentWebDriverPage{
         findElement(By.id("DealstageId_checkbox_1")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("DealstageId_checkbox_1"));
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Deal Stage:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
     }
 
     public void clearOwnedOption(){

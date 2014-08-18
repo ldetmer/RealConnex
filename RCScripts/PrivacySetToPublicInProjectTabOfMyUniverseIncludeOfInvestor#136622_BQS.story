@@ -132,39 +132,6 @@ And I should see 'Fund' in kind of money search
 And I verify investor fund whose profile privacy is set in include of my universe is not displayed
 When I click on 'Find Now' button
 When I logout RealConnex application
-And I enter investor email ID for login
-And I enter password of user
-And I click on login button
-Then I should see 'Find Now' image
-When I click on 'Find Now' button
-And I click on 'Investments' link
-And I click on 'Fund' link
-And I click on 'Core' in fund link
-And I click on 'GO' button
-Then I should see 'Investments' in find of search option
-And I verify kind of search option in fund search
-And I verify risk of search option in fund search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
-When I click on 'Find Now' button
-And I click on 'Money' link
-And I click on 'Equity' link
-And I click on 'Preferred' link
-And I click on 'Direct Into Project' link in money search
-And I click on 'GO' button
-Then I should see 'Money' in find of money search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
-When I click on 'Find Now' button
-And I click on 'Money' link
-And I click on 'Equity' link
-And I click on 'Preferred' link
-And I click on 'Fund' of money search
-And I click on 'GO' button
-Then I should see 'Money' in find of money search
-And I should see 'Preferred Equity' in type of money search
-And I should see 'Fund' in kind of money search
-And I verify investor fund whose profile privacy is set in include of my universe is not displayed
-When I click on 'Find Now' button
-When I logout RealConnex application
 And I enter lender email ID for login
 And I enter password of user
 And I click on login button

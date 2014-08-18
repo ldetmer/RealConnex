@@ -91,7 +91,7 @@ public class CompaniesSearchPage extends FluentWebDriverPage {
             findElement(By.id("CompanySubrole")).click();
             findElement(By.id("CompanySubrole")).sendKeys(strSubRoleType);
             //wait until page gets loaded
-            WaitUtil.simpleSleep(10000);
+            WaitUtil.simpleSleep(12000);
         } catch (Exception e) {
             System.out.println(e);
         }

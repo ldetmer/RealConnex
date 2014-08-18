@@ -63,6 +63,21 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.verifyHereOfPrivateUser();
     }
 
+    @Then("I verify click here link of the private user is displayed in search result")
+    public void verifyHereOfPrivateUserInSearchResult(){
+        privacySetToPrivatePage.verifyHereOfPrivateUserInSearchResult();
+    }
+
+    @Then("I verify click here link of the private company is displayed in search result")
+    public void verifyHereOfPrivateCompany(){
+        privacySetToPrivatePage.verifyHereOfPrivateCompany();
+    }
+
+    @Then("I verify click here link of the private company is displayed in company search result")
+    public void verifyHereOfPrivateCompanyInCompanySearch(){
+        privacySetToPrivatePage.verifyHereOfPrivateCompanyInCompanySearch();
+    }
+
     @When("I click on request a viewing link")
     public void clickRequestAView(){
         privacySetToPrivatePage.clickRequestAView();
@@ -101,6 +116,17 @@ public class PrivacySetToPrivateSteps {
     @When("I enter deal sponsor email ID of user who set the privacy in my universe include as private in yopmail")
     public void enterYopMailIdOfDealSponsorPrivacySetToPrivateInMyUniverse_Investor() throws Exception{
         privacySetToPrivatePage.enterYopMailId(17);
+    }
+
+    @When("I enter deal sponsor email ID of user who set the privacy in my universe exclude as private in yopmail")
+        @Alias("I enter email ID of user who set the privacy in my universe exclude as private in yopmail")
+    public void enterYopMailIdOfPrivacySetToPrivateInMyUniverseExclude_DealSponsor() throws Exception{
+        privacySetToPrivatePage.enterYopMailId(11);
+    }
+
+    @When("I enter yopmail email address of investor user")
+    public void enterYopMailIdOfInvestor() throws Exception {
+        privacySetToPrivatePage.enterYopMailId(4);
     }
 
     @When("I enter real estate advisor email ID of user who set the privacy in my universe include as private in yopmail")
@@ -183,14 +209,39 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.verifyNotificationInHeader();
     }
 
+    @Then("I verify the notification in the header of privacy")
+    public void verifyNotificationInHeaderOfPrivacy(){
+        privacySetToPrivatePage.verifyNotificationInHeaderOfPrivacy();
+    }
+
     @Then("I verify the notification in the header of the requested user")
     public void verifyNotificationOfTheRequestedUser(){
         privacySetToPrivatePage.verifyNotificationOfTheRequestedUser();
     }
 
+    @Then("I verify the notification in the header of the requested user of privacy")
+    public void verifyNotificationOfTheRequestedUserOfPrivacy(){
+        privacySetToPrivatePage.verifyNotificationOfTheRequestedUserOfPrivacy();
+    }
+
+    @Then("I verify the me profile notification in the header of requested user")
+    public void verifyTheUserProfileOfRequestedUser(){
+        privacySetToPrivatePage.verifyTheUserProfileOfRequestedUser();
+    }
+
+    @Then("I verify the me profile notification in the header of permission granted user")
+    public void verifyTheUserProfileOfPermissionGrantedUser(){
+        privacySetToPrivatePage.verifyTheUserProfileOfPermissionGrantedUser();
+    }
+
     @Then("I verify the deal sponsor profile is displayed")
     public void verifyDealSponsorPrivateUserName() throws Exception {
         privacySetToPrivatePage.verifyPrivateUserName(1);
+    }
+
+    @Then("I verify the deal sponsor profile who set the privacy to private in exclude is displayed")
+    public void verifyDealSponsorPrivateUserNameIsDisplayed() throws Exception {
+        privacySetToPrivatePage.verifyPrivateUserName(5);
     }
 
     @Then("I verify the investor profile is displayed")
@@ -219,13 +270,18 @@ public class PrivacySetToPrivateSteps {
     }
 
     @Then("I verify the lender company profile is displayed")
-    public void verifyLenderPrivateCompanyProfile() throws Exception {
+    public void verifyLenderPrivateCompanyProfile() {
         privacySetToPrivatePage.verifyPrivateCompanyName(3);
     }
 
     @Then("I verify the real estate advisor company profile is displayed")
     public void verifyRealEstateAdvisorPrivateCompanyProfile() throws Exception {
         privacySetToPrivatePage.verifyPrivateCompanyName(4);
+    }
+
+    @Then("I verify the deal sponsor company profile who set the privacy to private in exclude is displayed")
+    public void verifyDealSponsorPrivateCompanyNameIsDisplayed() throws Exception {
+        privacySetToPrivatePage.verifyPrivateCompanyName(5);
     }
 
     @Then("I verify the deal sponsor project profile is displayed")
@@ -306,6 +362,11 @@ public class PrivacySetToPrivateSteps {
 
     @When("I enter investor company name who has set the profile to private in include of my universe")
     public void enterInvestorCompanyNameInIncludeOfMyUniverse() throws Exception {
+        privacySetToPrivatePage.enterCompanyName(6);
+    }
+
+    @When("I enter investor company name who has set the profile in exclude of my universe")
+    public void enterInvestorCompanyNameInExcludeOfMyUniverse() throws Exception {
         privacySetToPrivatePage.enterCompanyName(6);
     }
 

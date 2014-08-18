@@ -26,8 +26,15 @@ And I select lender check box in my universe exclude
 And I select sub role field of lender in my universe exclude
 And I select family office sub role option in my universe exclude
 And I set the value in deal/fund size field of lender in my universe exclude
+And I click on location field in my universe exclude
+And I select the location of the user in my universe exclude
 And I click on save button in my universe page of ME tab
 Then I verify 'Privacy successfully saved' message is displayed
+And I verify that public option is selected
+And I verify lender check box is selected
+And I verify family office subrole is selected
+And I verify deal/fund size of the lender i.e 10 million to 11 million is set
+And I verify the data in location field of my universe exclude
 When I logout RealConnex application
 And I enter email ID of user with role as lender and sub role as family office
 And I enter Password
@@ -54,18 +61,6 @@ Then I verify 'Emily Hill' user name who has set privacy exclude in my universe 
 When I click 'Emily Hill' user name who has set privacy exclude in my universe
 When I logout RealConnex application
 And I enter investor email ID for login
-And I enter password of user
-And I click on login button
-Then I should see 'Find Now' image
-When I click on 'Find Now' button
-And I click on 'People,companies and association' link
-And I click on 'People' link
-Then I should see 'People, Companies & Associations' as find in search option
-When I enter user name who has set the profile to include in my universe
-Then I verify 'Emily Hill' user name who has set privacy exclude in my universe is displayed
-When I click 'Emily Hill' user name who has set privacy exclude in my universe
-When I logout RealConnex application
-And I enter lender email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image

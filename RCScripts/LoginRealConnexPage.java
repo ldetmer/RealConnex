@@ -8,12 +8,20 @@ import org.openqa.selenium.WebDriverException;
 import test.Support.ReadData;
 import test.Support.ReasonsInResultSheet;
 import test.steps.VerificationStatements;
-
+import org.openqa.selenium.Keys;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * Created with IntelliJ IDEA.
+ * User: Bhavana
+ * Date: 7/3/14
+ * Time: 4:42 PM
+ * To change this template use File | Settings | File Templates.
+ */
 
 public class LoginRealConnexPage extends FluentWebDriverPage {
+    public static String lStrNewCreatedUserName = "";
     public static String gStrReason = "";
     public static String gStrFieldName = "";
     ReadData ReadData = new ReadData();
@@ -30,10 +38,14 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(5000);
     }
 
-    public void enterEmailId(int RowIndex) throws Exception {
-        String strEmailId = ReadData.readDataExcel("LoginRealConnex", RowIndex, "EmailId");
-        gStrFieldName = findElement(By.id("UserLoginPopupEmail")).getAttribute("placeholder");
-        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserLoginPopupEmail"), strEmailId, gStrFieldName, LoginRealConnexPage.gStrReason);
+    public void enterEmailId(int RowIndex) {
+        try {
+            String strEmailId = ReadData.readDataExcel("LoginRealConnex", RowIndex, "EmailId");
+            gStrFieldName = findElement(By.id("UserLoginPopupEmail")).getAttribute("placeholder");
+            ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserLoginPopupEmail"), strEmailId, gStrFieldName, LoginRealConnexPage.gStrReason);
+        } catch (Exception e) {
+           System.out.println(e);
+        }
     }
 
     public void enterPassword(int RowIndex) throws Exception {
@@ -43,12 +55,16 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
     }
 
     public void clickLogIn(){
-        try{
-            gStrFieldName = findElement(By.cssSelector("input.login")).getAttribute("value");
-            findElement(By.cssSelector("input.login")).click();
-        } catch(WebDriverException e){
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not clickable at that point\n";
-        }
+        String lStrText = "We are sorry, but that username/password combination does not match our records.";
+            try{
+                //wait until page load
+                WaitUtil.simpleSleep(10000);
+                gStrFieldName = findElement(By.cssSelector("input.login")).getAttribute("value");
+                findElement(By.cssSelector("input.login")).sendKeys(Keys.ENTER);
+            } catch(WebDriverException e){
+                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not clickable at that point\n";
+            }
+
         //wait until page load
         WaitUtil.simpleSleep(5000);
     }
@@ -71,10 +87,15 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
         VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserLoginPopupPassword"),strPassword);
     }
 
-    public void enterEmailIdOfUsers(int intRowIndex) throws Exception {
-        gStrFieldName = findElement(By.id("UserLoginPopupEmail")).getAttribute("placeholder");
-        String lStrEmail = ReadData.readDataExcel("LoginRealConnex", intRowIndex,"EmailId");
-        ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserLoginPopupEmail"), lStrEmail, gStrFieldName, LoginRealConnexPage.gStrReason);
+    public void enterEmailIdOfUsers(int intRowIndex) {
+        try{
+             gStrFieldName = findElement(By.id("UserLoginPopupEmail")).getAttribute("placeholder");
+            String lStrEmail = ReadData.readDataExcel("LoginRealConnex", intRowIndex,"EmailId");
+            ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserLoginPopupEmail"), lStrEmail, gStrFieldName, LoginRealConnexPage.gStrReason);
+        } catch (Exception e) {
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Unable to read excel\n";
+        }
     }
 
     public void enterPasswordOfUser(int intRowIndex) throws Exception {

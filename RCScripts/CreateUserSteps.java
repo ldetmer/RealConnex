@@ -176,6 +176,11 @@ public class CreateUserSteps {
         createUserPage.clickSkipTour();
     }
 
+    @When("I get the user name")
+    public void getUserName(){
+        createUserPage.getUserName();
+    }
+
     @When("I launch mailinator")
     public void launchMailInator(){
         createUserPage.launchMailInator();

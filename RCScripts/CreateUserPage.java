@@ -4,17 +4,12 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import test.Support.ReadData;
 import test.Support.ReasonsInResultSheet;
 import test.steps.VerificationStatements;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import org.openqa.selenium.NoSuchElementException;
 
 
 /**
@@ -36,8 +31,8 @@ public class CreateUserPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(1000);
         try{
             findElement(By.cssSelector("a.link-1.sign")).click();
-        }catch(NoSuchElementException e){
-            System.out.println(e);
+        }catch(NoSuchElementException n){
+            System.out.println(n);
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Link cannot be clicked\n";
         } catch (WebDriverException e){
             System.out.println(e);
@@ -131,7 +126,7 @@ public class CreateUserPage extends FluentWebDriverPage {
     public void clickRegisterButton(){
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
-        findElement(By.cssSelector("input.sbm")).click();
+        findElement(By.cssSelector("input.sbm")).sendKeys(Keys.ENTER);
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
     }
@@ -139,18 +134,28 @@ public class CreateUserPage extends FluentWebDriverPage {
     public void verifyConfirmationMessage(String lStrConfirmationMessage){
          //wait until page load
         WaitUtil.simpleSleep(1000);
+        try{
         String lStrMessage = findElement(By.cssSelector("#registerSuccess > div.popup > div.modal-content > div.title > strong")).getText();
         Assert.assertEquals(lStrMessage, lStrConfirmationMessage);
          //wait until page load
         WaitUtil.simpleSleep(1000);
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Confirmation message not displayed\n";
+        }
     }
 
     public void clickOk(){
+        try{
          //wait until page load
         WaitUtil.simpleSleep(5000);
         findElement(By.cssSelector("#registerSuccess > div.popup > div.modal-content > div.form-holder > fieldset > div.modal-footer > button.sbm")).click();
          //wait until page load
         WaitUtil.simpleSleep(1000);
+        } catch (NoSuchElementException n){
+            System.out.println(n);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element Is not clickable\n";
+        }
     }
 
     public void launchYopMail(){
@@ -205,16 +210,22 @@ public class CreateUserPage extends FluentWebDriverPage {
     public void clickRealConnexMail(){
          //wait until page load
         WaitUtil.simpleSleep(1000);
+        try{
         switchTo().frame("ifinbox");
         findElement(By.xpath("//div[@id='m1']/div/a/span[@class='lmfd']/span[contains(text(),'RealConnex')]")).click();
         switchTo().defaultContent();
+        } catch (NoSuchElementException n){
+            System.out.println(n);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Link is not clicked\n";
+        }
     }
 
     public void clickOnClickHereLink(){
          //wait until page load
         WaitUtil.simpleSleep(1000);
         switchTo().frame("ifmail");
-        findElement(By.linkText("Click here")).click();
+        findElement(By.xpath("//div[@id='mailmillieu']/div[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/span")).click();
+        //findElement(By.linkText("Click here")).click();
          //wait until page load
         WaitUtil.simpleSleep(10000);
     }
@@ -250,6 +261,12 @@ public class CreateUserPage extends FluentWebDriverPage {
         findElement(By.cssSelector("a.skip")).click();
          //wait until page load
         WaitUtil.simpleSleep(500);
+    }
+
+    public void getUserName(){
+        //wait until page load
+        WaitUtil.simpleSleep(500);
+        LoginRealConnexPage.lStrNewCreatedUserName = findElement(By.xpath("//section[@id='content']/div[@class='top-title']/h1")).getText();
     }
 
     public void launchMailInator(){

@@ -260,10 +260,14 @@ public class MyUniverseSteps {
         myUniversePage.clearDealFundSize_RealEstateAdvisor();
     }
 
-
     @When("I select public radio button of deal sponsor")
     public void selectPublicRadioButton_DealSponsor(){
         myUniversePage.selectPublicRadioButton_DealSponsor();
+    }
+
+    @Then("I verify public radio button of deal sponsor")
+    public void verifyPublicRadioButton_DealSponsor(){
+        myUniversePage.verifyPublicRadioButton_DealSponsor();
     }
 
     @When("I select public option in drop down")
@@ -341,9 +345,14 @@ public class MyUniverseSteps {
         myUniversePage.verifyLocationFieldInExclude();
     }
 
+    @Then("I verify the data in location field of my universe exclude in company tab")
+    public void verifyLocationFieldInExcludeCompanyTab(){
+        myUniversePage.verifyLocationFieldInExcludeCompanyTab();
+    }
+
     @Then("I verify real estate advisor check box is selected")
     public void verifyCheckBoxRealEstateAdvisor(){
-        myUniversePage.verifyCheckBox();
+        myUniversePage.verifyCheckBoxRealEstateAdvisor();
     }
 
     @Then("I verify deal sponsor check box is selected")
@@ -351,9 +360,24 @@ public class MyUniverseSteps {
         myUniversePage.verifyCheckBoxDealSponsor();
     }
 
+    @Then("I verify investor check box is selected")
+    public void verifyCheckBoxInvestor(){
+        myUniversePage.verifyCheckBoxInvestor();
+    }
+
+    @Then("I verify lender check box is selected")
+    public void verifyCheckBoxLender(){
+        myUniversePage.verifyCheckBoxLender();
+    }
+
     @Then("I verify that public option is selected")
     public void verifyPublicOptionIsSelected(){
         myUniversePage.verifyPublicOptionIsSelected();
+    }
+
+    @Then("I verify that private option is selected")
+    public void verifyPrivateOptionIsSelected(){
+        myUniversePage.verifyPrivateOptionIsSelected();
     }
 
     @Then("I verify real estate advisor subrole is selected")
@@ -366,9 +390,44 @@ public class MyUniverseSteps {
         myUniversePage.verifySubRoleOfDealSponsor();
     }
 
+    @Then("I verify advisor subrole is selected")
+    public void verifySubRoleOfAdvisor(){
+        myUniversePage.verifySubRoleOfAdvisor();
+    }
+
+    @Then("I verify family office subrole is selected")
+    public void verifySubRoleOfFamilyOffice(){
+        myUniversePage.verifySubRoleOfFamilyOffice();
+    }
+
+    @Then("I verify advisor subrole is selected in real estate advisor")
+    public void verifyAdvisorSubRoleOfRealEstateAdvisor(){
+        myUniversePage.verifyAdvisorSubRoleOfRealEstateAdvisor();
+    }
+
+    @Then("I verify deal/fund size of the investor i.e $lStrDealSizeFrom to $lStrDealSizeTo is set")
+    public void verifyDealFundSizeOfInvestor(@Named("lStrDealSizeFrom") String lStrDealSizeFrom , @Named("lStrDealSizeTo") String lStrDealSizeTo){
+        myUniversePage.verifyDealFundSizeOfInvestor(lStrDealSizeFrom,lStrDealSizeTo);
+    }
+
+    @Then("I verify deal/fund size of the lender i.e $lStrDealSizeFrom to $lStrDealSizeTo is set")
+    public void verifyDealFundSizeOfLender(@Named("lStrDealSizeFrom") String lStrDealSizeFrom , @Named("lStrDealSizeTo") String lStrDealSizeTo){
+        myUniversePage.verifyDealFundSizeOfLender(lStrDealSizeFrom,lStrDealSizeTo);
+    }
+
+    @Then("I verify deal/fund size of the real estate advisor i.e $lStrDealSizeFrom to $lStrDealSizeTo is set")
+    public void verifyDealFundSizeOfRealEstateAdvisor(@Named("lStrDealSizeFrom") String lStrDealSizeFrom , @Named("lStrDealSizeTo") String lStrDealSizeTo){
+        myUniversePage.verifyDealFundSizeOfRealEstateAdvisor(lStrDealSizeFrom,lStrDealSizeTo);
+    }
+
     @When("I select the location of the user in my universe exclude")
     public void selectLocationInMyUniverseExclude(){
         myUniversePage.selectLocationInMyUniverseExclude();
+    }
+
+    @When("I select the location of the user in my universe exclude of company tab")
+    public void selectLocationInMyUniverseExcludeOfCompanyTab(){
+        myUniversePage.selectLocationInMyUniverseExcludeOfCompanyTab();
     }
 
     @When("I click on save button in my universe page of ME tab")
@@ -398,6 +457,11 @@ public class MyUniverseSteps {
         myUniversePage.verifyCompanyName_Universe(lStrCompanyName);
     }
 
+    @Then("I verify '$lStrCompanyName' company name who has set privacy to exclude in my universe is displayed")
+    public void verifyCompanyName_MyUniverse(@Named("lStrCompanyName") String lStrCompanyName){
+        myUniversePage.verifyCompanyName_MyUniverse(lStrCompanyName);
+    }
+
     @Then("I verify '$lStrProjectName' deal sponsor project name who has set privacy to public in include of my universe is displayed")
         @Aliases(values = {"I verify '$lStrFundName' deal sponsor fund name who has set privacy to public in include of my universe is displayed",
                             "I verify '$lStrFundName' investor fund name who has set privacy in include of my universe is displayed"})
@@ -421,6 +485,11 @@ public class MyUniverseSteps {
         @Alias("I click '$lStrCompanyName' company name who has set privacy exclude in my universe is displayed")
     public void clickCompanyName_Universe(@Named("lStrCompanyName")String lStrCompanyName){
         myUniversePage.clickCompanyName_Universe(lStrCompanyName);
+    }
+
+    @When("I click '$lStrCompanyName' on company name who has set privacy to exclude in my universe is displayed")
+    public void clickCompanyName_MyUniverse(@Named("lStrCompanyName")String lStrCompanyName){
+        myUniversePage.clickCompanyName_MyUniverse(lStrCompanyName);
     }
 
     @When("I click '$lStrProjectName' deal sponsor project name who has set privacy to public in include of my universe")
@@ -456,6 +525,16 @@ public class MyUniverseSteps {
         myUniversePage.selectAdvisorOptionInIAmAField();
     }
 
+    @When("I select bank option in I am a field")
+    public void selectBankOptionInIAmAField(){
+        myUniversePage.selectBankOptionInIAmAField();
+    }
+
+    @When("I select same as my personal details check box in company tab")
+    public void selectSameAsMyPersonalDetailsCheckBox(){
+        myUniversePage.selectSameAsMyPersonalDetailsCheckBox();
+    }
+
     @When("I enter the location of the newly created user")
     public void enterLocationOfNewlyCreatedUser(){
         myUniversePage.enterLocationOfNewlyCreatedUser();
@@ -471,9 +550,19 @@ public class MyUniverseSteps {
         myUniversePage.selectFamilyOfficeOptionInIAmAField();
     }
 
+    @When("I select private lender option in I am a field")
+    public void selectPrivateLenderOptionInIAmAField(){
+        myUniversePage.selectPrivateLenderOptionInIAmAField();
+    }
+
     @When("I select advisor option in I am a field of real estate advisor profile")
     public void selectAdvisorOptionInIAmAField_RealEstateAdvisor(){
         myUniversePage.selectAdvisorOptionInIAmAField_RealEstateAdvisor();
+    }
+
+    @When("I select corporate finance option in I am a field of real estate advisor profile")
+    public void selectCorporateFinanceOptionInIAmAField(){
+        myUniversePage.selectCorporateFinanceOptionInIAmAField();
     }
 
     @When("I click on save button in user profile page")

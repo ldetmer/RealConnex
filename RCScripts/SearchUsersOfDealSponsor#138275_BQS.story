@@ -8,7 +8,7 @@ I Verify users of "Deal Sponsor" sub-role are retrieved when
 
 Scenario: TC 138275: Verify deal sponsors are displayed when search is performed
 When I update TestCaseId 138275
-When I update TestCaseName Search Users Of Deal Sponsor
+When I update TestCaseName Verify users of "Deal Sponsor" sub-role are retrieved when "Developer/Deal Sponsor>>Deal Sponsor" search is performed.
 When I launch RealConnex application
 And I enter user email ID
 And I enter Password

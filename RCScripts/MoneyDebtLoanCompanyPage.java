@@ -22,8 +22,11 @@ public class MoneyDebtLoanCompanyPage extends FluentWebDriverPage{
         try {
             String strFindName = ReadData.readDataExcel("Money", RowIndex, "FindInSearchOption");
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div[@id='searchFilters']/div/span/strong[contains(text(),'"+strFindName+"')]"), getDriverProvider().get()));
+        } catch (AssertionError a) {
+            System.out.println(a);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Search name could not be found\n";
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 
@@ -33,6 +36,8 @@ public class MoneyDebtLoanCompanyPage extends FluentWebDriverPage{
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div[@id='searchFilters']/div/span/strong[contains(text(),'"+strLoanName+"')]"), getDriverProvider().get()));
         } catch (Exception e) {
             e.printStackTrace();
+        } catch (AssertionError a){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed in verifying the search option\n";
         }
     }
 

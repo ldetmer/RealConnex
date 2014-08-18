@@ -2,8 +2,9 @@ package test.pages;
 
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
-import org.openqa.selenium.By;
-import java.util.NoSuchElementException;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,13 +39,20 @@ public class LogoutPage extends FluentWebDriverPage {
     }
 
     public void clickLogout(){
-         //wait until page loads
-        WaitUtil.simpleSleep(10000);
-        findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong")).click();
-         //wait until page loads
-        WaitUtil.simpleSleep(1000);
-        findElement(By.xpath("//a[contains(text(),'Logout')]")).click();
-        //wait until page loads
-        WaitUtil.simpleSleep(5000);
+        try{
+             //wait until page loads
+            WaitUtil.simpleSleep(10000);
+            WebElement myLink = findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong"));
+            Actions action = new Actions(getDriverProvider().get());
+            //action.moveToElement(myLink).click(myLink).build().perform();
+            action.moveToElement(myLink).clickAndHold(myLink).build().perform();
+            //findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong")).click();
+            //findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong")).sendKeys(Keys.ENTER);
+             //wait until page loads
+            WaitUtil.simpleSleep(5000);
+            findElement(By.xpath("//a[contains(text(),'Logout')]")).sendKeys(Keys.ENTER);
+        } catch (NoSuchElementException e){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Logout link cannot be clicked\n";
+        }
     }
 }

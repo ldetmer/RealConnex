@@ -2,13 +2,10 @@ package test.pages;
 
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import test.Support.ReadData;
-import test.steps.VerificationStatements;
+import test.Support.ReasonsInResultSheet;
 
-import java.util.List;
 
 public class PeopleSearchValidationPage extends FluentWebDriverPage {
 
@@ -19,20 +16,20 @@ public class PeopleSearchValidationPage extends FluentWebDriverPage {
 
     public void verifyInvestorUserNameNotDisplayed(String strInvestorUserName){
         //wait until page loads
-        WaitUtil.simpleSleep(3000);
-        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get()));
+        WaitUtil.simpleSleep(5000);
+        ReasonsInResultSheet.assertStatementIfElementIsNotPresentAndFieldName(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get());
     }
 
     public void verifyInvestorUserNameIsDisplayed(String strInvestorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get()));
+        ReasonsInResultSheet.assertStatementIfElementIsPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorUserName+"')]"), getDriverProvider().get());
     }
 
     public void verifyDealSponsorUserNameNotDisplayed(String strDealSponsorUserName){
         //wait until page loads
         WaitUtil.simpleSleep(3000);
-        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get()));
+        ReasonsInResultSheet.assertStatementIfElementIsNotPresentAndFieldName(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorUserName+"')]"), getDriverProvider().get());
     }
 
     public void enterInvestorUserName(int RowIndex){
@@ -40,9 +37,8 @@ public class PeopleSearchValidationPage extends FluentWebDriverPage {
             //wait until text field is found
             WaitUtil.simpleSleep(1000);
             String strUserTitle = ReadData.readDataExcel("PeopleDetails", RowIndex, "InvestorUserName");
-            findElement(By.id("UserTitle")).click();
-            findElement(By.id("UserTitle")).clear();
-            findElement(By.id("UserTitle")).sendKeys(strUserTitle);
+            LoginRealConnexPage.gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div/div[1]/label")).getText();
+            ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserTitle"), strUserTitle, LoginRealConnexPage.gStrFieldName, LoginRealConnexPage.gStrReason);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -52,33 +48,28 @@ public class PeopleSearchValidationPage extends FluentWebDriverPage {
 
     public void enterInvestorJobTitle(int RowIndex){
         try{
-            //wait until title field appear
-            WaitUtil.simpleSleep(10000);
             String strUserJobTitle = ReadData.readDataExcel("PeopleDetails", RowIndex, "InvestorJobTitle");
-            findElement(By.id("UserJobTitle")).click();
-            findElement(By.id("UserJobTitle")).sendKeys(strUserJobTitle);
-            VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.id("UserJobTitle"),strUserJobTitle);
-            //wait until title field appear
-            WaitUtil.simpleSleep(10000);
+            LoginRealConnexPage.gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div/div[2]/label")).getText();
+            //wait until text field is found
+            WaitUtil.simpleSleep(5000);
+            ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserJobTitle"), strUserJobTitle, LoginRealConnexPage.gStrFieldName, LoginRealConnexPage.gStrReason);
         } catch (Exception e) {
             System.out.println(e);
         }
         //wait until title field appear
-        WaitUtil.simpleSleep(15000);
+        WaitUtil.simpleSleep(10000);
     }
 
     public void enterInvestorCompanyName(int RowIndex){
         try{
-            //wait until company name appear
-            WaitUtil.simpleSleep(1000);
             String strCompanyName = ReadData.readDataExcel("PeopleDetails", RowIndex, "InvestorCompanyName");
-            findElement(By.id("UserCompanyName")).click();
-            findElement(By.id("UserCompanyName")).sendKeys(strCompanyName);
-            //wait until company name appear
-            WaitUtil.simpleSleep(10000);
+            LoginRealConnexPage.gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/label")).getText();
+            ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserCompanyName"), strCompanyName, LoginRealConnexPage.gStrFieldName, LoginRealConnexPage.gStrReason);
         } catch (Exception e) {
             System.out.println(e);
         }
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
     }
 
 }

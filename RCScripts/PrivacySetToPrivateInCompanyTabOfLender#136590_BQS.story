@@ -41,6 +41,7 @@ And I click on Click here link
 And I switch to RealConnex page
 Then I verify RealConnex page
 When I click Skip Tour button
+And I get the user name
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link
@@ -61,6 +62,7 @@ And I enter lender email ID whose privacy set to private
 And I enter Password
 And I click on login button
 Then I verify access successfully updated message is displayed
+And I verify the notification in the header of privacy
 When I logout RealConnex application
 And I launch yopmail
 And I enter yopmail email address of newly created user
@@ -72,6 +74,7 @@ And I enter newly created 'Real Estate Advisor,Broker' email ID
 And I enter Password
 And I click on login button
 Then I verify the lender company profile is displayed
+And I verify the notification in the header of the requested user of privacy
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
 And I click on 'People,companies and association' link

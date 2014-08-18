@@ -114,7 +114,7 @@ public class PrivacyVerificationSteps {
     }
 
     @Then("I verify deal sponsor project whose profile is set public in include of my universe is not displayed")
-    public void verifyProjectOfDealSponsorSetToIncludeNotDisplayed() throws Exception {
+    public void verifyProjectOfDealSponsorSetToIncludeNotDisplayed() {
         privacyVerificationPage.verifyProjectNotDisplayed(3);
     }
 
@@ -129,7 +129,7 @@ public class PrivacyVerificationSteps {
     }
 
     @Then("I verify deal sponsor fund whose profile is set public in include of my universe is not displayed")
-    public void verifyFundOfDealSponsorSetToIncludeNotDisplayed() throws Exception {
+    public void verifyFundOfDealSponsorSetToIncludeNotDisplayed() {
         privacyVerificationPage.verifyFundNotDisplayed(4);
     }
 
@@ -139,12 +139,17 @@ public class PrivacyVerificationSteps {
     }
 
     @Then("I verify company whose profile is set to exclude in my universe is not displayed")
-    public void verifyCompanyProfileSetToExcludeNotDisplayed() throws Exception {
+    public void verifyCompanyProfileSetToExcludeNotDisplayed() {
         privacyVerificationPage.verifyCompanyProfileSetToExcludeNotDisplayed(5);
     }
 
     @Then("I verify investor company whose profile is set private in include of my universe is not displayed")
     public void verifyInvestorCompanyProfileSetToIncludeNotDisplayed() throws Exception {
+        privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(6);
+    }
+
+    @Then("I verify investor company whose profile is set private in exclude of my universe is not displayed")
+    public void verifyInvestorCompanyProfileSetToExcludeNotDisplayed() throws Exception {
         privacyVerificationPage.verifyCompanyProfileSetToIncludeNotDisplayed(6);
     }
 
@@ -215,7 +220,7 @@ public class PrivacyVerificationSteps {
 
 
     @Then("I verify lender company name whose profile is set private is not displayed")
-    public void verifyLenderCompanyNotDisplayed_Private() throws Exception {
+    public void verifyLenderCompanyNotDisplayed_Private(){
         privacyVerificationPage.verifyLenderCompanyNotDisplayed_Private(3);
     }
 

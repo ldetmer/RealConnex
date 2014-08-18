@@ -300,16 +300,6 @@ public final class WaitUtil {
         }
     }
 
-    /*public static boolean isElementPresent(By by,WebDriver driver) {
-        try {
-            driver.findElement(by);
-            return true;
-
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }*/
-
     public void waitAndClickElement(WebDriver driver, final By selector) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(40, TimeUnit.SECONDS)
@@ -383,6 +373,18 @@ public final class WaitUtil {
         }
     }
 
-
+    public static boolean verifyElementNotPresent(By by,WebDriver driver,long lnTime) {
+        WebDriver driverForNotCond = driver;
+        driverForNotCond.manage().timeouts().implicitlyWait(lnTime, TimeUnit.SECONDS);
+        try{
+            if(driverForNotCond.findElements(by).size() != 0){
+                return false;
+            }else{
+                return true;
+            }
+        } catch (NoSuchElementException e) {
+            return true;
+        }
+    }
 
 }
