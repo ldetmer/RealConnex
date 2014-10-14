@@ -45,12 +45,13 @@ public class SearchPage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[2]/label/strong/span")).click();
     }
 
-    public void clickGo(){
+    public void clickViewSearchResults(){
         try{
-        findElement(By.linkText("GO")).click();
+            findElement(By.cssSelector("#stepCounterHolder > a")).click();
         } catch (NoSuchElementException n){
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on the Go link\n";
         }
+        WaitUtil.simpleSleep(5000);
     }
 
     public void selectDeveloper(){
@@ -72,11 +73,11 @@ public class SearchPage extends FluentWebDriverPage {
     }
 
     public void clickAdvisorLink(){
-        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li[1]/label/strong/span")).click();
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Advisor')]")).click();
     }
 
     public void clickAppraisalLink(){
-        findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li[3]/label/strong/span")).click();
+        findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Appraisals')]")).click();
     }
 
     public void clickBroker(){
@@ -145,7 +146,8 @@ public class SearchPage extends FluentWebDriverPage {
 
     public void clickMoney(){
         try{
-        findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'Money')]")).click();
+            WaitUtil.simpleSleep(10000);
+            findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'Money')]")).click();
         } catch (NoSuchElementException e){
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on Money link\n";
         }
@@ -206,5 +208,57 @@ public class SearchPage extends FluentWebDriverPage {
 
     public void clickFundOfMoney(){
         findElement(By.xpath("//div[@id='fourthSearchItems']/ul/li[2]/label/strong/span[contains(text(),'Fund')]")).click();
+    }
+
+    public void clickHardMoney(){
+       findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Hard Money')]")).click();
+    }
+
+    public void clickSearchRealConnexMarketPlaceLink(){
+        WaitUtil.simpleSleep(20000);
+        findElement(By.xpath("//div[@id='showTree']/span/div[@class='select']/b/i")).click();
+        WaitUtil.simpleSleep(1000);
+    }
+
+    public void jvPartnerLinkClick(){
+       findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'JV Partners')]")).click();
+    }
+
+    public void clickNewBusinessLinkClick(){
+        WaitUtil.simpleSleep(10000);
+        findElement(By.xpath("//div[@id='mainSearchItems']/ul/li/label/span[contains(text(),'New Business')]")).click();
+        WaitUtil.simpleSleep(5000);
+    }
+
+    public void landLinkClick(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Land')]")).click();
+    }
+
+    public void clickOnLoansInNewBusinessSearch(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Loans')]")).click();
+    }
+
+    public void clickLoansOrHardMoneyLink(){
+       findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Loans/Hard Money')]")).click();
+    }
+
+    public void clickMezzOfNewBusinessSearch(){
+        findElement(By.xpath("//div[@id='thirdSearchItems']/ul/li/label/strong/span[contains(text(),'Mezz')]")).click();
+    }
+
+    public void clickProject(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Project')]")).click();
+    }
+
+    public void clickEquity_JVPartner(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Project')]")).click();
+    }
+
+    public void clickService(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Services')]")).click();
+    }
+
+    public void clickOther(){
+        findElement(By.xpath("//div[@id='secondSearchItems']/ul/li/label/strong/span[contains(text(),'Other')]")).click();
     }
 }

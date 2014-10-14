@@ -10,15 +10,17 @@ Scenario: TC 138422 : Verify companies of user is retrieved when investment Fund
 When I update TestCaseId 138422
 When I update TestCaseName Perform: "Investment >> Fund/Fund of Funds" search Verify that companies of users with "Investor" role are retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Investments' link
 And I click on 'Fund' link
 And I click on 'Core' in fund link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Investments' in find of search option
 And I verify kind of search option in fund search
 And I verify risk of search option in fund search
@@ -84,6 +86,23 @@ And I select all option in route to investment field
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
 When I click on route to investment field
 And I clear all option in route to investment field
+And I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on MidWest region
+And I click on states field
+And I click on West Virginia state
+And I click on cities field
+And I enter and select Yerba city
+And I click on geographical coverage field
+Then I verify 'NEPTUNE' company name of investments fund is displayed
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Investments' link
+And I click on 'Fund' link
+And I click on 'Core' in fund link
+And I click on 'View Search Results' button
 And I click on fund strategy
 And I click on asset type field
 And I select solar option of asset type
@@ -122,7 +141,7 @@ And I click on residential option in asset type
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
 When I click on asset type field
 And I click on single option in asset type
-Then I verify 'ANDREW FUND' and 'LAVEN FUND' of investment fund is displayed
+Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
 When I click on asset type field
 And I click on retirement option in asset type
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
@@ -179,74 +198,74 @@ And I click all option in risk profile type
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
 When I click on 'RiskProfile' drop down field
 And I clear risk profile
-And I click on asset strategy drop down
+And I click on 'Asset Strategy' drop down field
 And I select rezoning option in asset strategy
 Then I verify 'NEPTUNE' company name of investments fund is displayed
-When I click on asset strategy drop down
+When I click on 'Asset Strategy' drop down field
 And I clear rezoning option in asset strategy
-And I click on 'Asset Strategy' drop down
+And I click on 'Asset Strategy' drop down field
 And I select acquisition option in a strategy field of drop down list
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I clear acquisition option in a strategy field of drop down list
-And I click on 'Asset Strategy' drop down
+And I click on 'Asset Strategy' drop down field
 And I click on sale leaseback option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on stable income producing option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on quick flip option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on restructuring option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on recapitalization option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on land bank option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on change of use option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on development option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on platform build option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on pursuit option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on lease up option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on work out option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on restructuring corporate option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on public to private option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on rezoning option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on renovation option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on forward commitment option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on others option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I click on all option in strategy
 Then I verify 'LAVEN COMPANY' company name of investments fund is displayed
-When I click on 'Asset Strategy' drop down
+When I click on 'Asset Strategy' drop down field
 And I clear all option in strategy
 And I check syndicators type check box
 Then I verify 'NEPTUNE' company name of investments fund is displayed

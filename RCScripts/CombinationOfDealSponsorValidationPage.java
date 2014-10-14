@@ -23,16 +23,20 @@ public class CombinationOfDealSponsorValidationPage extends FluentWebDriverPage 
     }
 
     public void verifyCompanyNameIsDisplayed(String strCompanyName){
+        try{
          //wait util page load
         WaitUtil.simpleSleep(100);
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strCompanyName+"')]"), getDriverProvider().get()));
          //wait util page load
         WaitUtil.simpleSleep(1000);
+        } catch (AssertionError A){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Camp co company name is not displayed in the search result\n";
+        }
     }
 
     public void verifyCompanyNameIsNotDisplayed(String strCompanyName){
          //wait util page load
-        WaitUtil.simpleSleep(100);
-        Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strCompanyName+"')]"), getDriverProvider().get()));
+        WaitUtil.simpleSleep(6000);
+       Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strCompanyName+"')]"), getDriverProvider().get()));
     }
 }

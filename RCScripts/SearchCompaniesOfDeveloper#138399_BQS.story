@@ -10,14 +10,16 @@ Scenario: TC 138399: Verify companies of developer sub role are displayed when s
 When I update TestCaseId 138399
 When I update TestCaseName Perform: "Developer, Deal Sponsor >> Developer" search Verify that companies of "Developer" sub role are retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I click on 'Developer' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Developers, Deal Sponsors' in find of search option
 And I should see sub role as 'Developer'
 And I verify the 'Developer' name is displayed
@@ -42,10 +44,11 @@ When I clear value for sq ft developed
 And I set value of deals completed
 Then I verify company name of developer
 When I clear value of deals completed
-When I click on 'Find Now' button
+When I click on edit button to start search
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I click on 'Developer' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 And I click on 'Route to Sponsor' drop down field
 And I select placement agents in route to sponsor drop down
 Then I verify company name of developer
@@ -68,72 +71,72 @@ And I select all option in route to sponsor
 Then I verify developer company name of all search option is displayed
 When I click on 'Route to Sponsor' drop down field
 And I clear route to sponsor option
-When I click on asset experience
-And I click on asset type field of deal sponsor search
+And I click on asset experience field
+And I click on asset type field in asset experience
 And I select solar option in the asset drop down list
 Then I verify company name of developer
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I clear asset option in asset type field
-And I click on asset type field of deal sponsor search
+And I click on asset type field in asset experience
 And I select a asset type office in drop down list
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on multifamily option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on hotel option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on sports option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on health care option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on storage option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on other option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on retail option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on industrial option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on residential option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on single option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on retirement option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on student option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on other housing option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on residential multi family option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I clear residential of asset field
-And I click on asset type field of deal sponsor search
+And I click on asset type field in asset experience
 And I click on mixed use option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on commercial option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on solar option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on all option in asset type
 Then I verify developer company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I clear all option in asset type
 And I click on 'RiskProfile' drop down field
 And I select opportunistic option in risk profile

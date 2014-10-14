@@ -22,6 +22,11 @@ public class LoginRealConnexSteps {
         loginRealConnexPage.launchRealConnexPage();
     }
 
+    @When("I click on Log In button in RealConnex login page")
+    public void clickLogInButtonInLoginPage(){
+        loginRealConnexPage.clickLogInButtonInLoginPage();
+    }
+
     @When("I enter user email ID")
     public void enterEmailId()throws Exception{
         loginRealConnexPage.enterEmailId(1);
@@ -137,8 +142,6 @@ public class LoginRealConnexSteps {
         loginRealConnexPage.enterEmailIdOfUsers(4);
     }
 
-
-
     @When("I enter deal sponsor email ID for login")
     public void enterEmailIdOfDealSponsor() {
         loginRealConnexPage.enterEmailIdOfUsers(7);
@@ -188,9 +191,15 @@ public class LoginRealConnexSteps {
         loginRealConnexPage.enterEmailIdOfUsers(19);
     }
 
-    @When("I enter email ID of user with role as deal sponsor and sub role as developer")
+    @When("I enter email ID of user with role as deal sponsor and sub role as developer with deal/fund size")
+        @Alias("I enter email id of deal sponsor with same location")
     public void enterEmailIdOfDealSponsorDeveloperSubRole() {
         loginRealConnexPage.enterEmailIdOfUsers(12);
+    }
+
+    @When("I enter email ID of user with same location")
+    public void enterEmailIdOfUserWithSameLocation() {
+        loginRealConnexPage.enterEmailIdOfUsers(35);
     }
 
     @When("I enter email ID of deal sponsor user with no filters")
@@ -226,5 +235,57 @@ public class LoginRealConnexSteps {
     @When("I enter password of user")
     public void enterPasswordOfUser() throws Exception {
        loginRealConnexPage.enterPasswordOfUser(2);
+    }
+
+    @When("I enter deal sponsor email id for jv partner search")
+        @Aliases(values = {"I enter deal sponsor email id for new business search",
+                "I enter email id of user with deal sponsor role and developer subrole"})
+    public void enterEmailIdOfDealSponsorOfJVPartnerSearch() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(36);
+    }
+
+    @When("I enter deal sponsor email id who has created the jv requirement")
+    public void enterEmailIdOfDealSponsorOfJVPartner() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(37);
+    }
+
+    @When("I enter lender email id who has created the jv requirement in project")
+    public void enterEmailIdOfInvestorOfJVPartner() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(38);
+    }
+
+    @When("I enter email id of user who has created the jv requirement and lighthouse is off")
+    public void enterEmailIdOfInvestorOfJVPartner_LighthouseOff() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(39);
+    }
+
+    @When("I enter lender email id who has created the jv requirement")
+    public void enterEmailIdOfLenderOfJVPartner() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(40);
+    }
+
+    @When("I enter real estate user email id who has created the jv requirement")
+    public void enterEmailIdOfREAOfJVPartner() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(41);
+    }
+
+    @When("I enter deal sponsor email id who has created the jv requirement in jv search other")
+    public void enterEmailIdOfDSOfJVPartner() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(42);
+    }
+
+    @When("I enter deal sponsor user email id for new business loan search")
+    public void enterEmailIdOfDSOfNewBusinessLoanSearch() throws Exception {
+        loginRealConnexPage.enterEmailIdOfUsers(43);
+    }
+
+    @When("I enter the email id of the user whose lighthouse search is off in new business loan search")
+    public void enterEmailIdOfUserWhoseLightHouseSearchOffInLoanSearch(){
+        loginRealConnexPage.enterEmailIdOfUsers(39);
+    }
+
+    @When("I enter email ID of user with deal sponsor and developer role and deal/fund size of 20 to 30")
+    public void enterEmailIdOfDealSponsorDeveloperSubRoleWithDifferentDealSize() {
+        loginRealConnexPage.enterEmailIdOfUsers(44);
     }
 }

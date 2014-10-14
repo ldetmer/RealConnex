@@ -10,14 +10,16 @@ Scenario: TC 138400: Verify companies other than developer sub role are not disp
 When I update TestCaseId 138400
 When I update TestCaseName Perform: "Developer, Deal Sponsor >> Developer" search Verify that companies other than "Developer" sub role are not retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I click on 'Developer' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Developers, Deal Sponsors' in find of search option
 And I should see sub role as 'Developer'
 And I verify the 'Developer' name is displayed
@@ -51,10 +53,11 @@ Then I verify 'Camp Co' company name is displayed in developers search
 And I verify 'Steele' company name is not displayed in developers search
 When I clear value of deals completed field
 Then I should see 'Find Now' image
-When I click on 'Find Now' button
+When I click on edit button to start search
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I click on 'Developer' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 And I click on 'Route to Sponsor' drop down field
 And I select placement agents in route to sponsor drop down
 Then I verify developer company selected 'Placement Agents' option is displayed
@@ -85,7 +88,6 @@ Then I verify 'Steele' company name is displayed in developers search
 And I verify 'Camp Co' company name is not displayed in deal sponsors developers search
 When I un check Syndicate check box
 And I select co-invests with partners field
-Then I verify 'Steele' company name is displayed in developers search
-And I verify 'Camp Co' company name is not displayed in deal sponsors developers search
+Then I verify 'Camp Co' company name is not displayed in deal sponsors developers search
 When I clear co invests with partners field
 And I logout from RealConnex application

@@ -194,7 +194,7 @@ public class MoneyDebtMezzProjectSearchPage extends FluentWebDriverPage{
         //wait until page loads
         WaitUtil.simpleSleep(5000);
         findElement(By.id("AssetstrategyId_checkbox_7")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
@@ -211,13 +211,13 @@ public class MoneyDebtMezzProjectSearchPage extends FluentWebDriverPage{
         findElement(By.id("CollateralId_checkbox_2")).click();
         findElement(By.xpath("//div[@id='searchFilters']/div/div/label[contains(text(),'Collateral:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(8000);
     }
 
     public void clickAssetTypes(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        executeScript("scrollTo(0,500)");
+        //executeScript("scrollTo(0,500)");
         findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Types:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
@@ -225,7 +225,7 @@ public class MoneyDebtMezzProjectSearchPage extends FluentWebDriverPage{
         //wait until page loads
         WaitUtil.simpleSleep(500);
         findElement(By.id("AssettypeId_checkbox_2")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Types:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Types:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
@@ -243,7 +243,7 @@ public class MoneyDebtMezzProjectSearchPage extends FluentWebDriverPage{
         //wait until deal stage field appears
         WaitUtil.simpleSleep(100);
         findElement(By.id("DealstageId_checkbox_4")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Deal Stage:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Deal Stage:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
@@ -252,7 +252,7 @@ public class MoneyDebtMezzProjectSearchPage extends FluentWebDriverPage{
         //wait until page gets loaded
         WaitUtil.simpleSleep(100);
         findElement(By.id("AssetstatusId_checkbox_2")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Current Asset Status:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Current Asset Status:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
@@ -261,7 +261,7 @@ public class MoneyDebtMezzProjectSearchPage extends FluentWebDriverPage{
         //wait until page gets loaded
         WaitUtil.simpleSleep(100);
         findElement(By.id("SubroleId_checkbox_38")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Lender Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div/label[contains(text(),'Lender Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until page loads
         WaitUtil.simpleSleep(10000);
     }

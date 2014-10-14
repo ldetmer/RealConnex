@@ -10,16 +10,33 @@ Scenario: TC 138392: Verify developer are displayed when search is performed
 When I update TestCaseId 138392
 When I update TestCaseName Search Users Of Developer Validation
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I click on 'Developer' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Developers, Deal Sponsors' in find of search option
 And I should see sub role as 'Developer'
+When I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on MidWest region
+And I click on states field
+And I click on West Virginia state
+And I click on cities field
+And I enter and select Halo city
+Then I verify 'Jiah Maten' investor user name is not displayed
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Developer,Deal Sponsor' link
+And I click on 'Developer' link
+And I click on 'View Search Results' button
 When I click on asset experience
 And I click on 'Asset Strategy' drop down field
 And I select sale and leaseback option in strategy drop down list

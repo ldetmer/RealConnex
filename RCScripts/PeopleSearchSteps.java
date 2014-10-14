@@ -110,4 +110,49 @@ public class PeopleSearchSteps {
         peopleSearchPage.clearCompanyField();
     }
 
+    @When("I click on geographical coverage field")
+    public void clickGeographicalCoverage(){
+        peopleSearchPage.clickGeographicalCoverage();
+    }
+
+    @When("I click on countries field")
+    public void clickOnCountries(){
+        peopleSearchPage.clickOnCountries();
+    }
+
+    @When("I select United States checkbox in countries field")
+    public void selectUnitedStatesCheckBox(){
+        peopleSearchPage.selectUnitedStatesCheckBox();
+    }
+
+    @When("I click on region field")
+    public void clickRegionField(){
+        peopleSearchPage.clickRegionField();
+    }
+
+    @When("I click on Southwest region")
+    public void clickSouthWest(){
+        peopleSearchPage.clickSouthWest();
+    }
+
+    @When("I click on states field")
+    public void clickStatesField(){
+        peopleSearchPage.clickStatesField();
+    }
+
+    @When("I click on Texas state")
+    public void clickTexasState(){
+        peopleSearchPage.clickTexasState();
+    }
+
+    @When("I click on cities field")
+    public void clickCitiesField(){
+        peopleSearchPage.clickCitiesField();
+    }
+
+    @When("I enter and select Massa city")
+    public void enterAndSelectMassaCity(){
+        peopleSearchPage.enterAndSelectMassaCity();
+    }
+
 }

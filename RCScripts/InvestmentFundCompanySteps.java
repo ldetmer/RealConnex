@@ -109,4 +109,9 @@ public class InvestmentFundCompanySteps {
     public void unCheckSyndicators(){
         investmentFundCompanyPage.checkSyndicators();
     }
+
+    @When("I enter and select Yerba city")
+    public void enterAndSelectYerbaCity(){
+        investmentFundCompanyPage.enterAndSelectYerbaCity();
+    }
 }

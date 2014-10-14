@@ -3,6 +3,7 @@ package test.steps;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Assert;
@@ -115,5 +116,77 @@ public class InvestmentFundProjectSteps {
     @Then("I verify '$strDealSponsorFund' and '$strInvestorFund' of investment fund is displayed")
     public void verifyFundOfInvestmentIsDisplayed(@Named("strDealSponsorFund") String strDealSponsorFund,@Named("strInvestorFund") String strInvestorFund){
         investmentFundProjectPage.verifyFundOfInvestmentIsDisplayed(strDealSponsorFund, strInvestorFund);
+    }
+
+    @When("I select COC Percent value in return profile in investment fund search")
+        @Alias("I select COC Percent value in return profile of money search")
+    public void selectCocPercent(){
+        investmentFundProjectPage.selectCocPercent_InvestmentFund();
+    }
+
+    @When("I clear COC Percent value in return profile in investment fund search")
+    @Alias("I clear COC Percent value in return profile of money search")
+    public void clearCocPercent(){
+        investmentFundProjectPage.clearCocPercent_InvestmentFund();
+    }
+
+    @When("I select IRR Percent value in return profile in investment fund search")
+    @Alias("I select IRR Percent value in return profile of money search")
+    public void selectIrrPercent(){
+        investmentFundProjectPage.selectIrrPercent_InvestmentFund();
+    }
+
+    @When("I clear IRR Percent value in return profile in investment fund search")
+    @Alias("I clear IRR Percent value in return profile of money search")
+    public void clearIrrPercent(){
+        investmentFundProjectPage.clearIrrPercent_InvestmentFund();
+    }
+
+    @When("I select ROE Percent value in return profile in investment fund search")
+    @Alias("I select ROE Percent value in return profile of money search")
+    public void selectRoePercent(){
+        investmentFundProjectPage.selectRoePercent_InvestmentFund();
+    }
+
+    @When("I clear ROE Percent value in return profile in investment fund search")
+    @Alias("I clear ROE Percent value in return profile of money search")
+    public void clearRoePercent(){
+        investmentFundProjectPage.clearRoePercent_InvestmentFund();
+    }
+
+    @When("I select CAP Percent value in return profile in investment fund search")
+    @Alias("I select CAP Percent value in return profile of money search")
+    public void selectCapPercent(){
+        investmentFundProjectPage.selectCapPercent_InvestmentFund();
+    }
+
+    @When("I clear CAP Percent value in return profile in investment fund search")
+    @Alias("I clear CAP Percent value in return profile of money search")
+    public void clearCapPercent(){
+        investmentFundProjectPage.clearCapPercent_InvestmentFund();
+    }
+
+    @When("I select holding min value in return profile in investment fund search")
+    @Alias("I select holding min value in return profile of money search")
+    public void selectHoldingMin(){
+        investmentFundProjectPage.selectHoldingMin_InvestmentFund();
+    }
+
+    @When("I clear holding min value in return profile in investment fund search")
+    @Alias("I clear holding min value in return profile of money search")
+    public void clearHoldingMin(){
+        investmentFundProjectPage.clearHoldingMin_InvestmentFund();
+    }
+
+    @When("I select holding max value in return profile in investment fund search")
+    @Alias("I select holding max value in return profile of money search")
+    public void selectHoldingMax(){
+        investmentFundProjectPage.selectHoldingMax_InvestmentFund();
+    }
+
+    @When("I clear holding max value in return profile in investment fund search")
+    @Alias("I clear holding max value in return profile of money search")
+    public void clearHoldingMax(){
+        investmentFundProjectPage.clearHoldingMax_InvestmentFund();
     }
 }

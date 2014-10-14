@@ -63,7 +63,7 @@ public class PeopleSearchValidationPage extends FluentWebDriverPage {
     public void enterInvestorCompanyName(int RowIndex){
         try{
             String strCompanyName = ReadData.readDataExcel("PeopleDetails", RowIndex, "InvestorCompanyName");
-            LoginRealConnexPage.gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/label")).getText();
+            LoginRealConnexPage.gStrFieldName = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/label")).getText();
             ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(), By.id("UserCompanyName"), strCompanyName, LoginRealConnexPage.gStrFieldName, LoginRealConnexPage.gStrReason);
         } catch (Exception e) {
             System.out.println(e);

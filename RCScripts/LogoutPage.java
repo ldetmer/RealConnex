@@ -2,6 +2,7 @@ package test.pages;
 
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -27,6 +28,7 @@ public class LogoutPage extends FluentWebDriverPage {
             //wait until search field gets loaded
             WaitUtil.simpleSleep(500);
             findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/a")).click();
+            //findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/a[@class='edit']")).click();
             //wait until search field gets loaded
             WaitUtil.simpleSleep(500);
             findElement(By.xpath("//header[@id='header']/div[@class='user']/a/img")).click();
@@ -39,20 +41,37 @@ public class LogoutPage extends FluentWebDriverPage {
     }
 
     public void clickLogout(){
-        try{
-             //wait until page loads
-            WaitUtil.simpleSleep(10000);
-            WebElement myLink = findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong"));
-            Actions action = new Actions(getDriverProvider().get());
-            //action.moveToElement(myLink).click(myLink).build().perform();
-            action.moveToElement(myLink).clickAndHold(myLink).build().perform();
-            //findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong")).click();
-            //findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong")).sendKeys(Keys.ENTER);
-             //wait until page loads
-            WaitUtil.simpleSleep(5000);
-            findElement(By.xpath("//a[contains(text(),'Logout')]")).sendKeys(Keys.ENTER);
-        } catch (NoSuchElementException e){
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Logout link cannot be clicked\n";
+        int intCnt=0;
+        boolean blnFound=false;
+        while(!blnFound && intCnt<=5){
+            try{
+                WaitUtil.simpleSleep(5000);
+                //WebElement myLink = findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong"));
+                findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong")).click();
+                if(!findElement(By.xpath("//a[text()='Logout']")).isDisplayed()) {
+                    findElement(By.xpath("//header[@id='header']/div[@class='user']/a/span/strong")).click();
+                } else{
+                findElement(By.xpath("//a[text()='Logout']")).sendKeys(Keys.ENTER);
+                WaitUtil.simpleSleep(5000);
+                Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//header[@id='header']/a[contains(text(),'Log In')]"), getDriverProvider().get()));
+                blnFound=true;
+                }
+            }catch(NoSuchElementException e){
+                WaitUtil.simpleSleep(5000);
+                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Logout link cannot be clicked\n";
+                intCnt++;
+            } catch(AssertionError A){
+                WaitUtil.simpleSleep(5000);
+                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Real Connex page is not displayed\n";
+                intCnt++;
+            }
         }
+
+    }
+
+    public void clickEditToFindNow(){
+        WaitUtil.simpleSleep(5000);
+        executeScript("scroll(150,0)");
+        findElement(By.xpath("//div[@id='searchFilters']/div[@class='box']/a[@class='edit']")).click();
     }
 }

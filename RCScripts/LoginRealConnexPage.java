@@ -3,6 +3,7 @@ package test.pages;
 import org.jbehave.core.model.ExamplesTable;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
 import test.Support.ReadData;
@@ -32,10 +33,17 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
     public void launchRealConnexPage() throws IOException {
         // Runtime.getRuntime().exec("D:\\SampleScenarios\\src\\AutoIt\\authenticationPopUp.exe");
         getDriverProvider().get().manage().deleteAllCookies();
-        get("http://realconnex.project-release.info/");
-        manage().window().maximize();
+        //get("http://realconnex.project-release.info/");
+        get("http://realconnex-release.project-release.info/");
+        getDriverProvider().get().manage().window().maximize();
         //wait until page load
         WaitUtil.simpleSleep(5000);
+    }
+
+    public void clickLogInButtonInLoginPage(){
+        //wait until page load
+        WaitUtil.simpleSleep(5000);
+        findElement(By.xpath("//header[@id='header']/a[contains(text(),'Log In')]")).click();
     }
 
     public void enterEmailId(int RowIndex) {
@@ -55,18 +63,26 @@ public class LoginRealConnexPage extends FluentWebDriverPage {
     }
 
     public void clickLogIn(){
-        String lStrText = "We are sorry, but that username/password combination does not match our records.";
+        gStrFieldName = findElement(By.xpath("//form[@id='UserLoginPopup']/fieldset/div/input")).getAttribute("value");
+        int intCnt=0;
+        boolean blnFound=false;
+        while(!blnFound && intCnt<=5){
             try{
-                //wait until page load
-                WaitUtil.simpleSleep(10000);
-                gStrFieldName = findElement(By.cssSelector("input.login")).getAttribute("value");
-                findElement(By.cssSelector("input.login")).sendKeys(Keys.ENTER);
-            } catch(WebDriverException e){
-                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not clickable at that point\n";
+                findElement(By.xpath("//form[@id='UserLoginPopup']/fieldset/div/input[@value='Login']")).sendKeys(Keys.ENTER);
+                Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//nav[@id='nav']/a/em/img"), getDriverProvider().get()));
+                blnFound=true;
+            }catch(WebDriverException e){
+                WaitUtil.simpleSleep(100);
+                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Login button is not clicked\n";
+                intCnt++;
+            } catch (AssertionError A){
+                WaitUtil.simpleSleep(100);
+                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"RealConnex home page is not displayed\n";
+                intCnt++;
             }
-
-        //wait until page load
-        WaitUtil.simpleSleep(5000);
+        }
+         //wait until page load
+        WaitUtil.simpleSleep(1000);
     }
 
     public void enterLoginDetails(ExamplesTable LoginDetailsTable){

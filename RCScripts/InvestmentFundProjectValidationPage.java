@@ -31,11 +31,16 @@ public class InvestmentFundProjectValidationPage extends FluentWebDriverPage{
     }
 
     public void verifyFundOfInvestmentsNotDisplayed(String strDealSponsorFund, String strInvestorFund){
-
+       try{
         //wait until page loads
         WaitUtil.simpleSleep(10000);
-        Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorFund+"')]"), getDriverProvider().get()));
-        Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorFund+"')]"), getDriverProvider().get()));
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strDealSponsorFund+"')]"), getDriverProvider().get()));
+        Assert.assertTrue(WaitUtil.isElementNotPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorFund+"')]"), getDriverProvider().get()));
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+       }catch (AssertionError A){
+           System.out.println(A);
+       }
     }
 
 
@@ -44,9 +49,11 @@ public class InvestmentFundProjectValidationPage extends FluentWebDriverPage{
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(9000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearFundSize(){
@@ -66,9 +73,11 @@ public class InvestmentFundProjectValidationPage extends FluentWebDriverPage{
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(9000);
+        WaitUtil.simpleSleep(10000);
     }
 
     public void clearValueOfInvestmentAmount(){
@@ -100,16 +109,20 @@ public class InvestmentFundProjectValidationPage extends FluentWebDriverPage{
     public void setManagerExperienceField(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[1]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<40;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
+        //wait until page loads
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearManagerExperienceField(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[1]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<40;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -118,18 +131,18 @@ public class InvestmentFundProjectValidationPage extends FluentWebDriverPage{
     public void setAverageReturn1YearField(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<20;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(15000);
     }
 
     public void clearAverageReturn1YearField(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<20;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -140,18 +153,18 @@ public class InvestmentFundProjectValidationPage extends FluentWebDriverPage{
     public void setAverageReturnValue3YearField(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[3]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<30;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(15000);
     }
 
     public void clearAverageReturnValue3YearField(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[3]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<30;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -162,18 +175,18 @@ public class InvestmentFundProjectValidationPage extends FluentWebDriverPage{
     public void setAverageReturnValue5YearField(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[4]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<40;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(15000);
     }
 
     public void clearAverageReturnValue5YearField(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[4]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<40;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }

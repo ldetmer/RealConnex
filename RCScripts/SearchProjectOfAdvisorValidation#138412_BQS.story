@@ -10,15 +10,17 @@ Scenario: TC 138412: Verify service project other than advisor sub role is not r
 When I update TestCaseId 138412
 When I update TestCaseName Search Project Of Advisor Validation
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Real Estate Advisors' link
 And I click on 'Advisor' link
 And I click on 'Appraisal' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Real Estate Advisors' as find in search option
 And I should see 'Advisor' as subrole in search option
 And I should see 'Appraisal' as strategy in search option
@@ -40,6 +42,22 @@ And I select owned option in deal stage drop down
 Then I verify service name of advisor selected 'Concept' option is not displayed
 When I click on deal stage drop down
 And I clear owned option in deal stage drop down
+And I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on MidWest region
+And I click on states field
+And I click on Missouri state
+And I click on cities field
+And I enter and select Ink city
+Then I verify 'Shawn service' service name of advisor is not displayed
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Real Estate Advisors' link
+And I click on 'Advisor' link
+And I click on 'Appraisal' link
+And I click on 'View Search Results' button
 And I click on profile and experience field
 And I select number of office in profile field
 Then I verify 'Barb Service' service name of advisor is not displayed

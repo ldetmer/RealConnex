@@ -6,7 +6,6 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Assert;
 import test.pages.DealSponsorPage;
-import test.pages.LoginRealConnexPage;
 import test.pages.PageFactory;
 
 import javax.inject.Inject;
@@ -22,12 +21,8 @@ public class DealSponsorSteps {
 
     @Then("I should see '$nameOfFindInSearchOption' in find of search option")
     public void verifyFindInSearchOption(@Named("nameOfFindInSearchOption") String strNameOfFindInSearchOption){
-        try{
         String lStrNameOfFindInSearchOption = dealSponsorPage.verifyFindInSearchOption();
         Assert.assertTrue(strNameOfFindInSearchOption.contains(lStrNameOfFindInSearchOption));
-        } catch (AssertionError a){
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Unable to click on the search link\n";
-        }
     }
 
     @Then("I should see sub role as '$nameOSubRole'")
@@ -61,6 +56,10 @@ public class DealSponsorSteps {
         dealSponsorPage.clickAssetExperience();
     }
 
+    @When("I click on asset experience field")
+    public void clickAssetExperienceField_CompanySearch(){
+        dealSponsorPage.clickAssetExperienceField_CompanySearch();
+    }
 
 }
 

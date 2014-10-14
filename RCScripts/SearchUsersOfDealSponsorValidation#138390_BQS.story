@@ -10,14 +10,33 @@ Scenario: TC 138390: Verify other than deal sponsors are not displayed when sear
 When I update TestCaseId 138390
 When I update TestCaseName Search Users Of Deal Sponsor Validation
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I click on 'Deal Sponsor' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
+Then I should see 'Developers, Deal Sponsors' in find of search option
+And I should see sub role as 'Deal Sponsors'
+When I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on Southwest region
+And I click on states field
+And I click on Texas state
+And I click on cities field
+And I enter and select Massa city
+Then I verify 'Jiah Maten' investor user name is not displayed
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Developer,Deal Sponsor' link
+And I click on 'Deal Sponsor' link
+And I click on 'View Search Results' button
 Then I should see 'Developers, Deal Sponsors' in find of search option
 And I should see sub role as 'Deal Sponsors'
 When I click on asset experience

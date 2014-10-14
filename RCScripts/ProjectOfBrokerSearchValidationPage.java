@@ -24,7 +24,7 @@ public class ProjectOfBrokerSearchValidationPage extends FluentWebDriverPage{
 
     public void verifyServiceNameOfBrokerNotDisplayed(String strServiceNameIsNotDisplayed){
         //wait until page loads
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(10000);
         Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[@data-role='title'][text()='"+strServiceNameIsNotDisplayed+"']"), getDriverProvider().get()));
     }
 
@@ -38,12 +38,14 @@ public class ProjectOfBrokerSearchValidationPage extends FluentWebDriverPage{
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strAllCompanyName+"')]"), getDriverProvider().get()));
         } catch (Exception e) {
             e.printStackTrace();
+        } catch (AssertionError A){
+            System.out.println(A);
         }
     }
 
     public void serviceOfBrokerNotDisplayed(int RowIndex, String strColumnName) throws Exception {
         //wait until page gets loaded
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(10000);
         String strCompanyName = ReadData.readDataExcel("ValidationDetails", RowIndex, strColumnName);
         Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[@data-role='title'][text()='" + strCompanyName + "']"), getDriverProvider().get()));
 

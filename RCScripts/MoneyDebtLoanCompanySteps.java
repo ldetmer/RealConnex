@@ -2,6 +2,7 @@ package test.steps;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import test.pages.MoneyDebtLoanCompanyPage;
@@ -26,6 +27,7 @@ public class MoneyDebtLoanCompanySteps {
     }
 
     @Then("I verify '$strCompanyNameDebtLoan' company name is displayed in money debt loan search")
+        @Alias("I verify '$strCompanyNameOfMoneyDebt' company name is displayed in money debt hard money search")
     public void verifyCompanyNameDebtLoan(@Named("strCompanyNameDebtLoan") String strCompanyNameDebtLoan){
         moneyDebtLoanCompanyPage.verifyCompanyNameDebtLoan(strCompanyNameDebtLoan);
     }
@@ -83,5 +85,35 @@ public class MoneyDebtLoanCompanySteps {
     @When("I clear brokers in route to lender field")
     public void clearBrokerOption(){
         moneyDebtLoanCompanyPage.clearBrokerOption();
+    }
+
+    @When("I set the value of LTV field")
+    public void setLTVField(){
+        moneyDebtLoanCompanyPage.setLTVField();
+    }
+
+    @When("I clear the value of LTV field")
+    public void clearLTVField(){
+        moneyDebtLoanCompanyPage.clearLTVField();
+    }
+
+    @When("I click on platform build option in asset strategy")
+    public void clickPlatformBuild(){
+        moneyDebtLoanCompanyPage.clickPlatformBuild();
+    }
+
+    @When("I clear on platform build option in asset strategy")
+    public void clearPlatformBuild(){
+        moneyDebtLoanCompanyPage.clearPlatformBuild();
+    }
+
+    @When("I click on New York state")
+    public void clickNewYorkState(){
+        moneyDebtLoanCompanyPage.clickNewYorkState();
+    }
+
+    @When("I enter and select Buffalo city")
+    public void enterAndSelectBuffaloCity(){
+        moneyDebtLoanCompanyPage.enterAndSelectBuffaloCity();
     }
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import test.Support.ReadData;
+import test.steps.VerificationStatements;
 
 public class MoneyEquityFundProjectSearchPage extends FluentWebDriverPage{
     ReadData ReadData = new test.Support.ReadData();
@@ -26,31 +27,37 @@ public class MoneyEquityFundProjectSearchPage extends FluentWebDriverPage{
     public void clickInvestmentStatus(){
         //wait util page load
         WaitUtil.simpleSleep(500);
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div/label[contains(text(),'Investment Status:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div/label[contains(text(),'Investment Status:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait util page load
+        WaitUtil.simpleSleep(10000);
     }
 
     public void selectGeneralPartner(){
         //wait util page load
         WaitUtil.simpleSleep(500);
-        findElement(By.id("InvestmentstructureId_checkbox_1")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div/label[contains(text(),'Investment Status:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.id("InvestortypeId_checkbox_1")).click();
         //wait util page load
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(2000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div/label[contains(text(),'Investment Status:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait util page load
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clickRouteToInvestor(){
        //wait util page load
        WaitUtil.simpleSleep(500);
-       findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div/label[contains(text(),'Route To Investor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+       findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div/label[contains(text(),'Route To Investor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void selectDirectOnly(){
         //wait util page load
         WaitUtil.simpleSleep(500);
         findElement(By.id("RoutetoinvestorId_checkbox_1")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div/label[contains(text(),'Route To Investor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait util page load
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(2000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div/label[contains(text(),'Route To Investor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait util page load
+        WaitUtil.simpleSleep(20000);
     }
 
     public void setFundTerm(){
@@ -80,6 +87,18 @@ public class MoneyEquityFundProjectSearchPage extends FluentWebDriverPage{
             sliderRight.sendKeys(Keys.ARROW_RIGHT);
         }
         //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearRiskProfile_Money(){
+        //wait until page gets loaded
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("RiskprofileId_checkbox_1")).click();
+        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("RiskprofileId_checkbox_1"));
+        findElement(By.id("RiskprofileId_checkbox_2")).click();
+        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("RiskprofileId_checkbox_2"));
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
 }

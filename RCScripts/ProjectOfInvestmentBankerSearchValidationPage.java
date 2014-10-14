@@ -24,7 +24,7 @@ public class ProjectOfInvestmentBankerSearchValidationPage extends FluentWebDriv
 
     public void verifyServiceNameOfInvestmentBankerNotDisplayed(String strServiceNameIsNotDisplayed){
         //wait until page loads
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(10000);
         Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strServiceNameIsNotDisplayed+"')]"), getDriverProvider().get()));
     }
 

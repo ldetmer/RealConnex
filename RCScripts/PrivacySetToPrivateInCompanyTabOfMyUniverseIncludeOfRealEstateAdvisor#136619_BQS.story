@@ -9,6 +9,7 @@ Scenario: 136619 : Verify that property service provider user can view company p
 When I update TestCaseId 136619
 When I update TestCaseName Verify that only Property Service Provider user can view Company Profile after permission is granted when Property Service Provider user is included in My Universe.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter lender email ID of user who set the privacy in my universe include as private in me tab
 And I enter Password
 And I click on login button
@@ -26,10 +27,14 @@ And I select sub role field of real estate advisor
 And I select advisor sub role option in real estate advisor
 And I set the value in deal/fund size field of real estate advisor
 And I select private radio button of real estate advisor
+And I select country of the user in my universe include
+And I select regions of the user in my universe include
+And I select states of the user in my universe include
+And I select cities of the user in my universe include
 And I click on save button in my universe page of COMPANY tab
 Then I verify 'Privacy successfully saved' message is displayed
 When I logout RealConnex application
-And I click on Not a Member? Join Now for Free! link in registration page
+And I click on sign up for free link
 And I enter real estate advisor,broker email ID for registration
 And I enter first name of user
 And I enter last name of user
@@ -37,10 +42,10 @@ And I enter password in registration field
 And I re enter password in registration field
 And I click select role drop down field
 And I select Real Estate Advisor,Broker option in select role drop down
-Then I verify 'Real Estate Advisor, Broker' is selected in drop down
+Then I verify 'Real Estate Advisor' is selected in drop down
 When I click register button
 Then I verify 'Almost Done!' confirmation message is displayed
-When I click on OK button
+When I click on close button
 And I launch yopmail
 And I enter yopmail email address of newly created user
 And I click on check inbox button
@@ -49,8 +54,10 @@ And I click on real connex mail
 And I click on Click here link
 And I switch to RealConnex page
 Then I verify RealConnex page
-When I click on Profile button
+When I click Skip Tour button
+And I click on Edit Profile link
 And I select advisor option in I am a field of real estate advisor profile
+And I enter the location of the newly created user
 And I click on save button in user profile page
 And I click on company tab in user profile
 And I enter company name
@@ -61,6 +68,7 @@ And I set the value of average transaction size in user profile
 And I click on save button in about field
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
@@ -75,6 +83,7 @@ And I click on check inbox button in yopmail
 And I click on real connex mail
 And I click on Accept link
 And I switch to RealConnex page
+And I click on Log In button in RealConnex login page
 And I enter lender email ID of user who set the privacy in my universe include
 And I enter Password
 And I click on login button
@@ -86,68 +95,79 @@ And I click on check inbox button in yopmail
 And I click on real connex mail
 And I click on the user link who granted the permission to view the profile
 And I switch to RealConnex page
+And I click on Log In button in RealConnex login page
 And I enter newly created 'Real Estate Advisor,Broker' email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter lender company name who has set the profile to private in include of my universe
 Then I verify 'YCarol Company' company name who has set privacy include in my universe is displayed
 When I click 'YCarol Company' company name who has set privacy include in my universe
-And I click on 'Find Now' button
 And I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter lender email ID where privacy is set
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter lender company name who has set the profile to private in include of my universe
 Then I verify lender company whose profile is set private in include of my universe is not displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter deal sponsor email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter lender company name who has set the profile to private in include of my universe
 Then I verify lender company whose profile is set private in include of my universe is not displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter investor email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter lender company name who has set the profile to private in include of my universe
 Then I verify lender company whose profile is set private in include of my universe is not displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter lender email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter lender company name who has set the profile to private in include of my universe
 Then I verify lender company whose profile is set private in include of my universe is not displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter real estate advisor email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option

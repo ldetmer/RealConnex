@@ -271,4 +271,12 @@ public class PageFactory {
     public MyUniversePage newMyUniversePage(){
         return new MyUniversePage(webDriverProvider);
     }
+
+    public JVPartnerPage newJVPartnerPage(){
+        return new JVPartnerPage(webDriverProvider);
+    }
+
+    public NewBusinessPage newNewBusinessPage(){
+        return new NewBusinessPage(webDriverProvider);
+    }
 }

@@ -38,9 +38,9 @@ public class SearchSteps {
         searchPage.selectDealSponsor();
     }
 
-    @When("I click on 'GO' button")
-    public void clickGo(){
-        searchPage.clickGo();
+    @When("I click on 'View Search Results' button")
+    public void clickViewSearchResults(){
+        searchPage.clickViewSearchResults();
     }
 
     @When("I click on 'Developer' link")
@@ -180,5 +180,65 @@ public class SearchSteps {
     @When("I click on 'Income/Core' link")
     public void clickIncomeOrCore(){
         searchPage.clickIncomeOrCore();
+    }
+
+    @When("I click on 'Hard Money' link")
+    public void clickHardMoney(){
+        searchPage.clickHardMoney();
+    }
+
+    @When("I click on search real connex marketplace link")
+    public void clickSearchRealConnexMarketPlaceLink(){
+        searchPage.clickSearchRealConnexMarketPlaceLink();
+    }
+
+    @When("I click on 'JV Partner' link")
+    public void jvPartnerLinkClick(){
+        searchPage.jvPartnerLinkClick();
+    }
+
+    @When("I click on 'New Business' link")
+    public void clickNewBusinessLinkClick(){
+        searchPage.clickNewBusinessLinkClick();
+    }
+
+    @When("I click on 'Loans' link in new business search")
+    public void clickOnLoansInNewBusinessSearch(){
+        searchPage.clickOnLoansInNewBusinessSearch();
+    }
+
+    @When("I click on 'LoansOrHardMoney' link")
+    public void clickLoansOrHardMoneyLink(){
+        searchPage.clickLoansOrHardMoneyLink();
+    }
+
+    @When("I click on 'Mezz' link of new business search")
+    public void clickMezzOfNewBusinessSearch(){
+        searchPage.clickMezzOfNewBusinessSearch();
+    }
+
+    @When("I click on 'Land' link")
+    public void landLinkClick(){
+        searchPage.landLinkClick();
+    }
+
+    @When("I click on 'Project' link")
+    public void clickProject(){
+        searchPage.clickProject();
+    }
+
+    @When("I click on 'Equity' link in JV Partner search")
+    public void clickEquity_JVPartner(){
+        searchPage.clickEquity_JVPartner();
+    }
+
+    @When("I click on 'Services' link")
+    public void clickService(){
+        searchPage.clickService();
+    }
+
+    @When("I click on 'Other' link")
+    public void clickOther(){
+        searchPage.clickOther();
     }
 }

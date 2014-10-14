@@ -10,50 +10,41 @@ Scenario: TC 138396: Verify user other than deal sponsor,developer and fund spon
 When I update TestCaseId 138396
 When I update TestCaseName Search Users Of Deal Sponsor Developer And Fund Sponsor Validation
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I select 'Developer','DealSponsor','FundSponsor' check box
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Developers, Deal Sponsors' as find in search option
 And I should see 'Developer, Deal Sponsor, Fund Sponsor' as sub role in search option
 And I should see 'Marylin Joe' deal sponsor user name is displayed
 When I click on verified deal sponsor user name
 And I return back to the searched page
-Then I should see 'Sterling' company name of deal sponsor
-When I click on company name of deal sponsor
-And I return back to the searched page
 Then I verify the 'Developer' name is displayed
 When I click on verified developer name
-And I return back to the searched page
-When I click on Developer company name
 And I return back to the searched page
 Then I verify 'Fund Sponsor' user is displayed
 When I click on the verified fund sponsor name
 And I return back to the searched page
-Then I verify 'Fund Sponsor' company name is displayed
-When I click on Fund Sponsor company name
-And I return back to the searched page
 When I click on asset experience
 And I click on 'Asset Strategy' drop down field
 And I select acquisition option in a strategy field of drop down list
-Then I verify user selected 'DealSponsor Acquisition' option is displayed
-And I verify user selected 'Lease-Up' option is not displayed
+Then I verify user selected 'Lease-Up' option is not displayed
 When I click on 'Asset Strategy' drop down field
 And I clear acquisition option in a strategy field of drop down list
 And I click on 'Asset Strategy' drop down field
 And I select sale and leaseback option in strategy drop down list
-Then I verify user selected 'Sale And Leaseback' option is displayed
-And I verify user selected 'Lease-Up' option is not displayed
+Then I verify user selected 'Lease-Up' option is not displayed
 When I click on 'Asset Strategy' drop down field
 And I clear strategy of asset drop down
 And I click on 'Asset Strategy' drop down field
 And I click on land bank option in strategy type
-Then I verify user selected 'Land Bank' option is displayed
-And I verify user selected 'Lease-Up' option is not displayed
+Then I verify user selected 'Lease-Up' option is not displayed
 When I click on 'Asset Strategy' drop down field
 And I clear strategy drop down field of fund sponsor
 And I logout from RealConnex application

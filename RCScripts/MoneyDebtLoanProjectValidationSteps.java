@@ -3,6 +3,7 @@ package test.steps;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Assert;
@@ -98,8 +99,14 @@ public class MoneyDebtLoanProjectValidationSteps {
     }
 
     @When("I select concept and under contract option in deal stage field")
+    @Alias("I select under contract option in deal stage field")
     public void selectConceptAndUnderContract(){
         moneyDebtLoanProjectValidationPage.selectConceptAndUnderContract();
+    }
+
+    @When("I clear under contract option in deal stage field")
+    public void clearUnderContract(){
+        moneyDebtLoanProjectValidationPage.clearUnderContract();
     }
 
     @When("I clear concept and under contract option in deal stage field")

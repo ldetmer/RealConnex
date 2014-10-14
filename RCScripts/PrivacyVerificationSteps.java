@@ -114,8 +114,14 @@ public class PrivacyVerificationSteps {
     }
 
     @Then("I verify deal sponsor project whose profile is set public in include of my universe is not displayed")
+        @Alias("I verify deal sponsor project whose profile is set public in exclude of my universe is not displayed")
     public void verifyProjectOfDealSponsorSetToIncludeNotDisplayed() {
         privacyVerificationPage.verifyProjectNotDisplayed(3);
+    }
+
+    @Then("I verify deal sponsor project whose profile is set in my universe is not displayed")
+    public void verifyProjectOfDealSponsorNotDisplayed() {
+        privacyVerificationPage.verifyProjectNotDisplayedInSearch(3);
     }
 
     @Then("I verify investor fund whose profile privacy is set in include of my universe is not displayed")
@@ -124,13 +130,19 @@ public class PrivacyVerificationSteps {
     }
 
     @Then("I verify investor fund whose profile privacy is set to private in include of my universe is not displayed")
-    public void verifyFundOfInvestorSetToIncludeNotDisplayed_Private() throws Exception {
+        @Alias("I verify investor fund whose profile privacy is set to exclude of my universe is not displayed")
+    public void verifyFundOfInvestorSetToIncludeNotDisplayed_Private()  {
         privacyVerificationPage.verifyFundOfInvestorSetToIncludeNotDisplayed_Private(5);
     }
 
     @Then("I verify deal sponsor fund whose profile is set public in include of my universe is not displayed")
     public void verifyFundOfDealSponsorSetToIncludeNotDisplayed() {
         privacyVerificationPage.verifyFundNotDisplayed(4);
+    }
+
+    @Then("I verify deal sponsor fund whose profile is set in my universe is not displayed")
+    public void verifyFundOfDealSponsorNotDisplayed() {
+        privacyVerificationPage.verifyFundNotDisplayedInSearch(4);
     }
 
     @Then("I verify company whose profile is set to include in my universe is not displayed")
@@ -250,9 +262,15 @@ public class PrivacyVerificationSteps {
     }
 
     @Then("I verify lender loan whose profile is set public in include of my universe is not displayed")
-        @Alias("I verify lender loan whose privacy is set in include of my universe is not displayed")
-    public void verifyLenderLoanNotDisplayed_MyUniverse()throws Exception {
+        @Aliases(values = {"I verify lender loan whose privacy is set in include of my universe is not displayed",
+                "I verify lender loan whose profile is set public in exclude of my universe is not displayed"})
+    public void verifyLenderLoanNotDisplayed_MyUniverse() {
         privacyVerificationPage.verifyLoanNotDisplayed(2);
+    }
+
+    @Then("I verify lender loan whose profile is set my universe is not displayed")
+    public void verifyLenderLoanNotDisplayedInMyUniverse() {
+        privacyVerificationPage.verifyLenderLoanNotDisplayedInMyUniverse(2);
     }
 
     @Then("I verify property service provider service profile is set to private is not displayed")
@@ -271,8 +289,14 @@ public class PrivacyVerificationSteps {
     }
 
     @Then("I verify lender mezz whose profile is set public in include of my universe is not displayed")
-    public void verifyLenderMezzNotDisplayed_MyUniverse()throws Exception {
+    @Alias("I verify lender mezz whose profile is set in exclude of my universe is not displayed")
+    public void verifyLenderMezzNotDisplayed_MyUniverse(){
         privacyVerificationPage.verifyMezzNotDisplayed(2);
+    }
+
+    @Then("I verify lender mezz whose profile is set in my universe is not displayed")
+    public void verifyLenderMezzNotDisplayedInMyUniverse(){
+        privacyVerificationPage.verifyLenderMezzNotDisplayedInMyUniverse(2);
     }
 
     @Then("I verify property service provide listing profile is set to private is not displayed")

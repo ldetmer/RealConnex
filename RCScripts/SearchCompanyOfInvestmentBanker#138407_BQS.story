@@ -10,21 +10,23 @@ Scenario: TC 138407: Verify companies of investment banker is retrieved when sea
 When I update TestCaseId 138407
 When I update TestCaseName Perform: "Real Estate Advisor >> Investment Banker" search Verify that companies of "Investment Banker" sub role users are retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Real Estate Advisors' link
 And I click on 'Investment Banker' link
 And I click on 'Capital Raising' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Real Estate Advisors' as find in search option
 And I should see 'Investment Banker' as subrole in search option
 And I should see 'Capital Raising' as strategy in search option
-When I click on banker company name
-And I return back to the searched page
 When I click on banker project name
+And I return back to the searched page
+When I click on banker company name
 And I return back to the searched page
 And I set the values in the slider of project size
 Then I verify company name of investment banker is displayed
@@ -128,6 +130,22 @@ And I click on in DD option in deal stage
 Then I verify company name of investment banker selected all search option is displayed
 When I click on deal stage drop down
 And I clear deal stage field
+And I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on MidWest region
+And I click on states field
+And I click on Wisconsin state
+And I click on cities field
+And I enter and select Eden city
+Then I verify company name of investment banker is displayed
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Real Estate Advisors' link
+And I click on 'Investment Banker' link
+And I click on 'Capital Raising' link
+And I click on 'View Search Results' button
 And I click on profile and experience field
 And I select number of offices
 Then I verify company name of investment banker is displayed

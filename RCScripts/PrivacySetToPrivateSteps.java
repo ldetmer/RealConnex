@@ -1,10 +1,7 @@
 package test.steps;
 
 import com.google.inject.Inject;
-import org.jbehave.core.annotations.Alias;
-import org.jbehave.core.annotations.Named;
-import org.jbehave.core.annotations.Then;
-import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.*;
 import test.pages.PageFactory;
 import test.pages.PrivacySetToPrivatePage;
 
@@ -76,6 +73,26 @@ public class PrivacySetToPrivateSteps {
     @Then("I verify click here link of the private company is displayed in company search result")
     public void verifyHereOfPrivateCompanyInCompanySearch(){
         privacySetToPrivatePage.verifyHereOfPrivateCompanyInCompanySearch();
+    }
+
+    @Then("I verify click here link of the fund is displayed in search result")
+    public void verifyHereOfFundInSearch(){
+        privacySetToPrivatePage.verifyHereOfFundInSearch();
+    }
+
+    @Then("I verify click here link of the loan is displayed in search result")
+    public void verifyHereOfLoanInSearch(){
+        privacySetToPrivatePage.verifyHereOfLoanInSearch();
+    }
+
+    @Then("I verify click here link of the service is displayed in search result")
+    public void verifyHereOfServiceInSearch(){
+        privacySetToPrivatePage.verifyHereOfServiceInSearch();
+    }
+
+    @Then("I verify click here link of the mezz is displayed in search result")
+    public void verifyHereOfMezzInSearch(){
+        privacySetToPrivatePage.verifyHereOfMezzInSearch();
     }
 
     @When("I click on request a viewing link")
@@ -229,9 +246,29 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.verifyTheUserProfileOfRequestedUser();
     }
 
+    @Then("I verify the company profile notification in the header of requested user")
+    public void verifyTheCompanyProfileOfRequestedUser(){
+        privacySetToPrivatePage.verifyTheCompanyProfileOfRequestedUser();
+    }
+
     @Then("I verify the me profile notification in the header of permission granted user")
     public void verifyTheUserProfileOfPermissionGrantedUser(){
         privacySetToPrivatePage.verifyTheUserProfileOfPermissionGrantedUser();
+    }
+
+    @Then("I verify the company profile notification in the header of permission granted user")
+    public void verifyTheCompanyProfileOfPermissionGrantedUser(){
+        privacySetToPrivatePage.verifyTheCompanyProfileOfPermissionGrantedUser();
+    }
+
+    @Then("I verify the project notification in the header of privacy")
+    public void verifyNotificationInHeaderOfPrivacyOfProject(){
+        privacySetToPrivatePage.verifyNotificationInHeaderOfPrivacyOfProject();
+    }
+
+    @Then("I verify the project notification in the header of the requested user of privacy")
+    public void verifyNotificationOfTheRequestedUserOfPrivacyOfProject(){
+        privacySetToPrivatePage.verifyNotificationOfTheRequestedUserOfPrivacyOfProject();
     }
 
     @Then("I verify the deal sponsor profile is displayed")
@@ -280,7 +317,7 @@ public class PrivacySetToPrivateSteps {
     }
 
     @Then("I verify the deal sponsor company profile who set the privacy to private in exclude is displayed")
-    public void verifyDealSponsorPrivateCompanyNameIsDisplayed() throws Exception {
+    public void verifyDealSponsorPrivateCompanyNameIsDisplayed() {
         privacySetToPrivatePage.verifyPrivateCompanyName(5);
     }
 
@@ -319,9 +356,19 @@ public class PrivacySetToPrivateSteps {
         privacySetToPrivatePage.verifyPrivateLoanName(1);
     }
 
+    @Then("I verify the lender loan name is displayed")
+    public void verifyLenderPrivateLoanName() throws Exception {
+        privacySetToPrivatePage.verifyPrivateLoanName(2);
+    }
+
     @Then("I verify the lender mezz profile is displayed")
     public void verifyLenderPrivateMezzProfile() throws Exception {
         privacySetToPrivatePage.verifyPrivateMezzName(1);
+    }
+
+    @Then("I verify the lender mezz name is displayed")
+    public void verifyLenderPrivateMezzName() throws Exception {
+        privacySetToPrivatePage.verifyPrivateMezzName(2);
     }
 
     @When("I set the value in loan amount field of lender whose privacy is set to private")
@@ -340,12 +387,12 @@ public class PrivacySetToPrivateSteps {
     }
 
     @Then("I verify the property service provider service profile is displayed")
-    public void verifyPropertyServiceProviderServiceProfile() throws Exception {
+    public void verifyPropertyServiceProviderServiceProfile()  {
         privacySetToPrivatePage.verifyPropertyServiceProviderServiceProfile(1);
     }
 
     @Then("I verify the property service provider listing profile is displayed")
-    public void verifyPropertyServiceProviderListingProfile() throws Exception {
+    public void verifyPropertyServiceProviderListingProfile() {
         privacySetToPrivatePage.verifyPropertyServiceProviderListingProfile(1);
     }
 
@@ -356,6 +403,7 @@ public class PrivacySetToPrivateSteps {
     }
 
     @When("I enter company name who has set the profile to include in my universe")
+    @Alias("I enter company name who has set the profile to exclude in my universe")
     public void enterIncludeCompanyName() throws Exception {
         privacySetToPrivatePage.enterCompanyName(5);
     }
@@ -434,4 +482,67 @@ public class PrivacySetToPrivateSteps {
     public void setLoanAmountOfLenderCompany(){
         privacySetToPrivatePage.setLoanAmountOfLenderCompany();
     }
+
+    @When("I click on fund tab")
+    public void clickFundTab(){
+        privacySetToPrivatePage.clickUserProfileTab();
+    }
+
+    @When("I verify the text in the fund tab")
+    public void verifyTextInFundTab(){
+        privacySetToPrivatePage.verifyTextInFundTab();
+    }
+
+    @When("I click on fund and projects tab of user profile")
+    public void clickFundAndProjectTab(){
+        privacySetToPrivatePage.clickUserProfileTab();
+    }
+
+    @When("I click on product tab of user profile")
+    public void clickProductTab(){
+        privacySetToPrivatePage.clickUserProfileTab();
+    }
+
+    @When("I click on service and listing tab of user profile")
+    public void clickServiceAndListingTab(){
+        privacySetToPrivatePage.clickUserProfileTab();
+    }
+
+    @When("I click on loan link")
+    public void clickLoanLink(){
+       privacySetToPrivatePage.clickLoanLink();
+    }
+
+    @When("I click on services link")
+    public void clickServicesLink(){
+        privacySetToPrivatePage.clickServicesLink();
+    }
+
+    @When("I click on listings link")
+    public void clickListingLink(){
+        privacySetToPrivatePage.clickListingLink();
+    }
+
+    @When("I click on funds link")
+    public void clickFundsLink(){
+        privacySetToPrivatePage.clickFundsLink();
+    }
+
+    @When("I click on projects link")
+    public void clickProjectsLink(){
+        privacySetToPrivatePage.clickProjectsLink();
+    }
+
+    @Then("I verify the text in the loan user page when loan link is clicked")
+    @Aliases(values={"I verify the text in the service and listing user page when service or listing link is clicked",
+            "I verify the text in the fund and project user page when fund or project link is clicked"})
+    public void verifyTextInLoanLink(){
+        privacySetToPrivatePage.verifyTextInFundTab();
+    }
+
+    @When("I click on mezz link")
+    public void clickMezzLink(){
+        privacySetToPrivatePage.clickMezzLink();
+    }
+
 }

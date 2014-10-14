@@ -52,4 +52,10 @@ public class MoneyEquityFundCompanySearchSteps {
         moneyEquityFundCompanySearchPage.selectAdvisor();
     }
 
+    @When("I enter and select San Francisco city")
+    public void enterAndSelectSanFranciscoCity(){
+        moneyEquityFundCompanySearchPage.enterAndSelectSanFranciscoCity();
+    }
+
+
 }

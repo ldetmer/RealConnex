@@ -9,6 +9,7 @@ Scenario: 136585 : Verify that investor user privacy is set to "Private" in "Me"
 When I update TestCaseId 136585
 When I update TestCaseName Privacy Set To Private In Me Tab Of Investor
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter investor email ID whose privacy set to private
 And I enter Password
 And I click on login button
@@ -20,18 +21,18 @@ And I select private radio button
 And I click on save button in ME tab
 Then I verify 'Privacy successfully saved' message is displayed
 When I logout RealConnex application
-And I click on Not a Member? Join Now for Free! link in registration page
+And I click on sign up for free link
 And I enter deal sponsor email ID for registration
 And I enter first name of user
 And I enter last name of user
 And I enter password in registration field
 And I re enter password in registration field
 And I click select role drop down field
-And I select Deal Sponsor,Developer And Fund Manger option in select role drop down
-Then I verify 'Deal Sponsor, Developer, Fund Manager' is selected in drop down
+And I select Developer / Sponsor option in select role drop down
+Then I verify 'Developer / Sponsor' is selected in drop down
 When I click register button
 Then I verify 'Almost Done!' confirmation message is displayed
-When I click on OK button
+When I click on close button
 And I launch yopmail
 And I enter yopmail email address of newly created user
 And I click on check inbox button
@@ -43,6 +44,7 @@ Then I verify RealConnex page
 When I click Skip Tour button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option
@@ -57,6 +59,7 @@ And I click on check inbox button
 And I click on real connex mail
 And I click on Accept link
 And I switch to RealConnex page
+And I click on Log In button in RealConnex login page
 And I enter investor email ID whose privacy set to private
 And I enter Password
 And I click on login button
@@ -68,46 +71,53 @@ And I click on check inbox button
 And I click on real connex mail
 And I click on the user link who granted the permission to view the profile
 And I switch to RealConnex page
+And I click on Log In button in RealConnex login page
 And I enter newly created 'Deal Sponsor' email ID
 And I enter Password
 And I click on login button
 Then I verify the investor profile is displayed
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option
 And I verify 'Katharina Paul' investor user name is displayed in search result
 When I click on 'Katharina Paul' investor user name in search result
-And I click on 'Find Now' button
 And I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter investor email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option
 And I verify investor user whose profile is set private is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter lender email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option
 And I verify investor user whose profile is set private is not displayed
 When I click on 'Find Now' button
 And I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter real estate advisor email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'People' link
 Then I should see 'People, Companies & Associations' as find in search option

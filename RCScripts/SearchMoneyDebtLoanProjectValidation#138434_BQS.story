@@ -9,16 +9,18 @@ Scenario: TC 138434 : Verify that project type of "Loan" projects are retrieved
 When I update TestCaseId 138434
 When I update TestCaseName Perform: "Money >> Debt >> Loans" search Verify that projects other than "Loan" project type are not retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Money' link
 And I click on 'Debt' link
 And I click on 'Loans' link
 And I click on 'Land Loan' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Money' in find of money search
 And I should see 'Land Loan' in loan of money debt loan search
 When I set asset or build value field
@@ -33,6 +35,13 @@ When I clear value for LVT slider
 And I set value of term field in money search
 Then I verify 'Kings-made Villa' project name is not displayed in money debt loan search
 When I clear value of term field in money search
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Money' link
+And I click on 'Debt' link
+And I click on 'Loans' link
+And I click on 'Land Loan' link
+And I click on 'View Search Results' button
 And I click on interest field
 And I select interest only option in interest field
 Then I verify 'Aqua' project name is not displayed in money debt loan search
@@ -55,11 +64,28 @@ And I clear the asset option in collateral field
 And I check requires points in project field
 Then I verify 'Aqua' project name is not displayed in money debt loan search
 When I un check requires points in project field
+And I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on NorthEast region
+And I click on states field
+And I click on New York state
+And I click on cities field
+And I enter and select Buffalo city
+Then I verify 'Aqua' project name is not displayed in money debt loan search
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Money' link
+And I click on 'Debt' link
+And I click on 'Loans' link
+And I click on 'Land Loan' link
+And I click on 'View Search Results' button
 And I click loan for field
-And I click asset types in loan for field
+And I click on asset type field of money search
 And I select commercial option in asset type field
 Then I verify project name of 'Industrial' option is not displayed
-When I click asset types in loan for field
+When I click on asset type field of money search
 And I clear commercial option in asset type field
 And I click risk profile in loan for field
 And I select development option in risk profile field

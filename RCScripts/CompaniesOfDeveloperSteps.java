@@ -77,7 +77,7 @@ public class CompaniesOfDeveloperSteps {
 
     @When("I clear co invests with partners field")
     public void clearCoInvests(){
-        companiesOfDeveloperPage.selectCoInvests();
+        companiesOfDeveloperPage.clearCoInvests();
     }
 }
 

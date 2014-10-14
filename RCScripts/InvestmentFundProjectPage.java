@@ -46,10 +46,11 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<50;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(100);
         }
-
-        //wait until page loads
-        WaitUtil.simpleSleep(10000);
+         //wait until page loads
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValuesOfFundSize(){
@@ -68,14 +69,17 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<20;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
         for(int i=0;i<60;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
-
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearInvestmentAmount(){
@@ -93,13 +97,11 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     }
 
     public void selectInHouseSponsors(){
-
         //wait until page loads
         WaitUtil.simpleSleep(500);
         findElement(By.id("in_house_sponsors_")).click();
-
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(25000);
     }
 
     public void selectCoInvestWithOperatingPartners(){
@@ -115,13 +117,13 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     public void clickFundExperience(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        findElement(By.id("ui-accordion-1-header-2")).click();
+        findElement(By.id("ui-accordion-1-header-3")).click();
     }
 
     public void setManagerExperience(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[1]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<20;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
@@ -130,7 +132,7 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     public void clearManagerExperience(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[1]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<20;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -139,7 +141,7 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     public void setAverageReturn1Year(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<10;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
@@ -148,7 +150,7 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     public void clearAverageReturn1Year(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<10;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -157,7 +159,7 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     public void setAverageReturnValue3Year(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[3]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<20;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
@@ -166,7 +168,7 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     public void clearAverageReturnValue3Year(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[3]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<20;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -175,7 +177,7 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     public void setAverageReturnValue5Year(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[4]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<30;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
@@ -184,7 +186,7 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
     public void clearAverageReturnValue5Year(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div[4]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<30;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -198,7 +200,147 @@ public class InvestmentFundProjectPage extends FluentWebDriverPage {
         Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strInvestorFund+"')]"), getDriverProvider().get()));
     }
 
+    public void selectCocPercent_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(5000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[1]/div[1]/div/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
 
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearCocPercent_InvestmentFund(){
+
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[1]/div[1]/div/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_LEFT);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void selectIrrPercent_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[2]/div[1]/div[1]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearIrrPercent_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[2]/div[1]/div[1]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_LEFT);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void selectRoePercent_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[2]/div[1]/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearRoePercent_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[2]/div[1]/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_LEFT);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void selectCapPercent_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[3]/div[1]/div/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearCapPercent_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[3]/div[1]/div/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_LEFT);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void selectHoldingMin_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[4]/div/div[1]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearHoldingMin_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[4]/div/div[1]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_LEFT);
+        }
+    }
+
+    public void selectHoldingMax_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[4]/div/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_UP);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
+
+    public void clearHoldingMax_InvestmentFund(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/ul/li[4]/div/div[2]/div/div[2]/a[1]"));
+        for(int i=0;i<50;i++){
+            sliderLeft.sendKeys(Keys.ARROW_LEFT);
+        }
+
+        //wait until page loads
+        WaitUtil.simpleSleep(10000);
+    }
 
 
 }

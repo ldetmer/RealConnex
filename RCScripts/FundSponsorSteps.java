@@ -70,4 +70,14 @@ public class FundSponsorSteps {
     public void clearStrategy(){
         fundSponsorPage.clearStrategy();
     }
+
+    @When("I click on Iowa state")
+    public void clickIowaState(){
+        fundSponsorPage.clickIowaState();
+    }
+
+    @When("I enter and select Hale city")
+    public void enterAndSelectHaleCity(){
+        fundSponsorPage.enterAndSelectHaleCity();
+    }
 }

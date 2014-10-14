@@ -3,6 +3,7 @@ package test.pages;
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
+import org.junit.ComparisonFailure;
 import org.openqa.selenium.*;
 import test.Support.ReadData;
 import test.Support.ReasonsInResultSheet;
@@ -59,11 +60,29 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
     }
 
     public void clickHereOfPrivateUser(){
-         //wait until page is loaded
-        WaitUtil.simpleSleep(5000);
-        findElement(By.xpath("//a[contains(text(),'here')]")).click();
-         //wait until page is loaded
-        WaitUtil.simpleSleep(5000);
+        int intCnt=0;
+        boolean blnFound=false;
+        while(!blnFound && intCnt<=10){
+            try{
+                //wait until page is loaded
+                WaitUtil.simpleSleep(10000);
+                findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a[text()='here']")).click();
+                Assert.assertEquals("Request a Viewing", findElement(By.linkText("Request a Viewing")).getText());
+                blnFound=true;
+            } catch (ElementNotVisibleException EV) {
+                WaitUtil.simpleSleep(5000);
+                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Click Here link cannot be clicked\n";
+                intCnt++;
+            } catch (AssertionError A) {
+                WaitUtil.simpleSleep(5000);
+                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Click Here link cannot be clicked and Request a Viewing is not displayed\n";
+                intCnt++;
+            }  catch (StaleElementReferenceException SR){
+                WaitUtil.simpleSleep(5000);
+                LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Click Here link cannot be clicked and Request a Viewing is not displayed\n";
+                intCnt++;
+            }
+        }
     }
 
     public void verifyHereOfPrivateUser(){
@@ -91,6 +110,9 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         } catch (AssertionError A){
             System.out.println(A);
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed to verify private user link in search result\n";
+        } catch (NoSuchElementException A){
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Click here link is not displayed in search result\n";
         }
     }
 
@@ -107,7 +129,7 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
             WaitUtil.simpleSleep(5000);
         } catch (AssertionError A){
             System.out.println(A);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed to verify private user link in search result\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed to verify private company link in search result\n";
         } catch (StaleElementReferenceException S){
             System.out.println(S);
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is not attached to the page document\n";
@@ -124,6 +146,94 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
             Assert.assertEquals("This company’s contact details are private.\n" +
                     "Click here to view their profile and request more information.", findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText());
             //Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//a[contains(text(),'here')]"), getDriverProvider().get()));
+            //wait until page is loaded
+            WaitUtil.simpleSleep(5000);
+        } catch (AssertionError A){
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed to verify private company link in search result\n";
+        } catch (StaleElementReferenceException S){
+            System.out.println(S);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is not attached to the page document\n";
+        }  catch (NoSuchElementException NE){
+            System.out.println(NE);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"No such element click here is displayed when comapny search is performed\n";
+        }
+    }
+
+    public void verifyHereOfFundInSearch(){
+        try{
+            //wait until page is loaded
+            WaitUtil.simpleSleep(5000);
+            String lStrMessage = findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText();
+            System.out.println(lStrMessage);
+            Assert.assertEquals("This Fund’s contact details are private.\n" +
+                    "Click here to view their profile and request more information.", findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText());
+            //wait until page is loaded
+            WaitUtil.simpleSleep(5000);
+        } catch (AssertionError A){
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed to verify private user link in search result\n";
+        } catch (StaleElementReferenceException S){
+            System.out.println(S);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is not attached to the page document\n";
+        }  catch (NoSuchElementException NE){
+            System.out.println(NE);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"No such element click here is displayed when company search is performed\n";
+        }
+    }
+
+    public void verifyHereOfLoanInSearch(){
+        try{
+            //wait until page is loaded
+            WaitUtil.simpleSleep(5000);
+            String lStrMessage = findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText();
+            System.out.println(lStrMessage);
+            Assert.assertEquals("This Loan’s contact details are private.\n" +
+                    "Click here to view their profile and request more information.", findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText());
+            //wait until page is loaded
+            WaitUtil.simpleSleep(5000);
+        } catch (AssertionError A){
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed to verify private user link in search result\n";
+        } catch (StaleElementReferenceException S){
+            System.out.println(S);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is not attached to the page document\n";
+        }  catch (NoSuchElementException NE){
+            System.out.println(NE);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"No such element click here is displayed when comapny search is performed\n";
+        }
+    }
+
+    public void verifyHereOfServiceInSearch(){
+        try{
+            //wait until page is loaded
+            WaitUtil.simpleSleep(5000);
+            String lStrMessage = findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText();
+            System.out.println(lStrMessage);
+            Assert.assertEquals("This Service’s contact details are private.\n" +
+                    "Click here to view their profile and request more information.", findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText());
+            //wait until page is loaded
+            WaitUtil.simpleSleep(5000);
+        } catch (AssertionError A){
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed to verify private user link in search result\n";
+        } catch (StaleElementReferenceException S){
+            System.out.println(S);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element is not attached to the page document\n";
+        }  catch (NoSuchElementException NE){
+            System.out.println(NE);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"No such element click here is displayed when comapny search is performed\n";
+        }
+    }
+
+    public void verifyHereOfMezzInSearch(){
+        try{
+            //wait until page is loaded
+            WaitUtil.simpleSleep(5000);
+            String lStrMessage = findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText();
+            System.out.println(lStrMessage);
+            Assert.assertEquals("This Mezz’s contact details are private.\n" +
+                    "Click here to view their profile and request more information.", findElement(By.xpath("//tbody[@id='searchResults']/tr/td[2]")).getText());
             //wait until page is loaded
             WaitUtil.simpleSleep(5000);
         } catch (AssertionError A){
@@ -145,9 +255,13 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
     }
 
     public void verifyMessageDisplayedForClickOnRequestAView(){
+        try{
          //wait until page is loaded
-        WaitUtil.simpleSleep(5000);
+        WaitUtil.simpleSleep(1000);
         Assert.assertEquals("Your request has been sent to the owner of this profile. You will be e-mailed when you have been granted access.", findElement(By.cssSelector("div.ui-pnotify-text")).getText());
+        } catch (ComparisonFailure C){
+            System.out.println(C);
+        }
     }
 
     public void enterYopMailId(int intRowIndex) throws Exception {
@@ -219,7 +333,7 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
             sliderLeft.sendKeys(Keys.ARROW_DOWN);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(15000);
     }
 
     public void selectInvestmentAmountValueForListingProjectInMyUniverse(){
@@ -232,14 +346,13 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
     }
 
     public void verifyAccessUpdatedMessage(){
-         //wait until page loads
-        WaitUtil.simpleSleep(1000);
         try{
         Assert.assertEquals("Access successfully updated", findElement(By.cssSelector("div.ui-pnotify-text")).getText());
         } catch (NoSuchElementException e) {
             System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Access Successfully Updated message is not displayed\n";
         }  catch (AssertionError a){
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Failed in retrieving the privacy updated message in request granted user\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Access Successfully Updated message is not displayed\n";
         }
     }
 
@@ -266,7 +379,7 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
             //wait until the element appear
             WaitUtil.simpleSleep(5000);
             String lStrUserName = findElement(By.xpath("//div/ul/li[1]/div/p/strong[1]/a")).getText();
-            String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[3]/div/ul/li/div/p/strong[2]")).getText();
+            String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[2]/div/ul/li[1]/div/p/strong[2]]")).getText();
             Assert.assertEquals(""+lStrUserName+" User want to see your company "+lStrCompanyName+". Please click here to allow this request.", findElement(By.cssSelector("p")).getText());
         } catch (NoSuchElementException n){
             System.out.println(n);
@@ -301,7 +414,7 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
             //wait until the element appear
             WaitUtil.simpleSleep(5000);
             String lStrUserName = findElement(By.xpath("//div[@class='note']/div/ul/li/div/p/strong/a")).getText();
-            String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[3]/div/ul/li/div/p/strong[2]")).getText();
+            String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[2]/div/ul/li/div/p/strong[2]")).getText();
             Assert.assertEquals(""+lStrUserName+" User allow you to view his company "+lStrCompanyName+"", findElement(By.cssSelector("p")).getText());
         } catch (AssertionError e){
             System.out.println(e);
@@ -329,13 +442,30 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         }
     }
 
-    public void verifyTheUserProfileOfPermissionGrantedUser(){
+    public void verifyTheCompanyProfileOfRequestedUser(){
         try{
             findElement(By.xpath("//header[@id='header']/div[@class='note']/img")).click();
             //wait until the element appear
             WaitUtil.simpleSleep(5000);
             String lStrUserName = findElement(By.xpath("//div[@class='note']/div/ul/li/div/p/strong/a")).getText();
             String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[3]/div/ul/li/div/p/strong[2]")).getText();
+            Assert.assertEquals(""+lStrUserName+" User allow you to view his company "+lStrCompanyName+"", findElement(By.cssSelector("p")).getText());
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Failed to display company name in notification\n";
+        }   catch (NoSuchElementException n){
+            System.out.println(n);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Element is not found\n";
+        }
+    }
+
+    public void  verifyTheUserProfileOfPermissionGrantedUser(){
+        try{
+            findElement(By.xpath("//header[@id='header']/div[@class='note']/img")).click();
+            //wait until the element appear
+            WaitUtil.simpleSleep(5000);
+            String lStrUserName = findElement(By.xpath("//div[@class='note']/div/ul/li/div/p/strong/a")).getText();
+            String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[2]/div/ul/li/div/p/strong[2]")).getText();
             Assert.assertEquals(""+lStrUserName+" User want to see your profile. Please click here to allow this request." , findElement(By.cssSelector("p")).getText());
         } catch (AssertionError e){
             System.out.println(e);
@@ -347,11 +477,74 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         }
     }
 
-    public void verifyPrivateUserName(int intRowIndex) throws Exception {
+    public void verifyTheCompanyProfileOfPermissionGrantedUser(){
+        try{
+            findElement(By.xpath("//header[@id='header']/div[@class='note']/img")).click();
+            //wait until the element appear
+            WaitUtil.simpleSleep(5000);
+            String lStrUserName = findElement(By.xpath("//div[@class='note']/div/ul/li/div/p/strong/a")).getText();
+            String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[3]/div/ul/li/div/p/strong[2]")).getText();
+            Assert.assertEquals(""+lStrUserName+" User want to see your company "+lStrCompanyName+"" , findElement(By.cssSelector("p")).getText());
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Failed to display the notifiaction of the user who grant the permission\n";
+        }   catch (NoSuchElementException n){
+            System.out.println(n);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Element is not found\n";
+
+        }
+    }
+
+    public void verifyNotificationInHeaderOfPrivacyOfProject(){
+        try{
+            findElement(By.xpath("//header[@id='header']/div[@class='note']/img")).click();
+            //wait until the element appear
+            WaitUtil.simpleSleep(5000);
+            String lStrUserName = findElement(By.xpath("//div/ul/li[1]/div/p/strong[1]/a")).getText();
+            String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[3]/div/ul/li/div/p/strong[2]")).getText();
+            Assert.assertEquals(""+lStrUserName+" User want to see your project "+lStrCompanyName+". Please click here to allow this request.", findElement(By.cssSelector("p")).getText());
+        } catch (NoSuchElementException n){
+            System.out.println(n);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Element is not found\n";
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Failed to display project name in notification field\n";
+        }
+    }
+
+    public void verifyNotificationOfTheRequestedUserOfPrivacyOfProject(){
+        try{
+            findElement(By.xpath("//header[@id='header']/div[@class='note']/img")).click();
+            //wait until the element appear
+            WaitUtil.simpleSleep(5000);
+            String lStrUserName = findElement(By.xpath("//div[@class='note']/div/ul/li/div/p/strong/a")).getText();
+            String lStrCompanyName = findElement(By.xpath("//header[@id='header']/div[3]/div/ul/li/div/p/strong[2]")).getText();
+            Assert.assertEquals(""+lStrUserName+" User allow you to view his project "+lStrCompanyName+"", findElement(By.cssSelector("p")).getText());
+        } catch (AssertionError e){
+            System.out.println(e);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Failed to display project name in notification\n";
+        }   catch (NoSuchElementException n){
+            System.out.println(n);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Element is not found\n";
+
+        }
+    }
+
+    public void verifyPrivateUserName(int intRowIndex)  {
+        try{
          //wait until page loads
         WaitUtil.simpleSleep(10000);
         String lStrPrivateUserName = ReadData.readDataExcel("Privacy", intRowIndex,"NamesOfDifferentRoles");
         Assert.assertEquals(lStrPrivateUserName, findElement(By.cssSelector("h1")).getText());
+        } catch (ComparisonFailure CF){
+            System.out.println(CF);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"EH Company is not displayed\n";
+        } catch (AssertionError A){
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"EH Company is not displayed\n";
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void verifyPrivateCompanyName(int intRowIndex)  {
@@ -383,18 +576,32 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         Assert.assertEquals(lStrPrivateFundName, findElement(By.cssSelector("h1")).getText());
     }
 
-    public void verifyPrivateLoanName(int intRowIndex) throws Exception{
+    public void verifyPrivateLoanName(int intRowIndex) {
+        try{
         //wait until page loads
         WaitUtil.simpleSleep(10000);
         String lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex,"LoanOfAllRoles");
         Assert.assertEquals(lStrPrivateFundName, findElement(By.cssSelector("h1")).getText());
+        } catch (ComparisonFailure C){
+            System.out.println(C);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"CY Mezz Name is not siaplyed in the header\n";
+        } catch (AssertionError A){
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"CY Mezz Name is not siaplyed in the header\n";
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void verifyPrivateMezzName(int intRowIndex) throws Exception {
+        try{
         //wait until page loads
         WaitUtil.simpleSleep(10000);
         String lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex,"MezzOfAllRoles");
         Assert.assertEquals(lStrPrivateFundName, findElement(By.cssSelector("h1")).getText());
+        }catch (ComparisonFailure CF){
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"CY Mezz is not displayed\n";
+        }
     }
 
     public void setInvestmentAmount_Private(){
@@ -422,9 +629,11 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
         for(int i=0;i<97;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(25000);
     }
 
     public void setInvestmentAmountOfInvestor_Private(){
@@ -439,7 +648,7 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
             sliderRight.sendKeys(Keys.ARROW_DOWN);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void setLoanAmount_Private(){
@@ -452,6 +661,7 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
         for(int i=0;i<93;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            WaitUtil.simpleSleep(200);
         }
         //wait until page loads
         WaitUtil.simpleSleep(15000);
@@ -469,7 +679,7 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
             sliderRight.sendKeys(Keys.ARROW_DOWN);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(15000);
     }
 
     public void setProjectSize_Private(){
@@ -478,21 +688,45 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
             sliderRight.sendKeys(Keys.ARROW_DOWN);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(15000);
     }
 
-    public void verifyPropertyServiceProviderServiceProfile(int intRowIndex) throws Exception{
+    public void verifyPropertyServiceProviderServiceProfile(int intRowIndex) {
         //wait until page loads
         WaitUtil.simpleSleep(10000);
-        String lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex,"ServiceOfAllRoles");
-        Assert.assertEquals(lStrPrivateFundName, findElement(By.cssSelector("h1")).getText());
+        String lStrPrivateFundName = null;
+        try {
+            lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex, "ServiceOfAllRoles");
+            Assert.assertEquals(lStrPrivateFundName, findElement(By.cssSelector("h1")).getText());
+        } catch (Exception e) {
+            System.out.println(e);
+        } catch (ComparisonFailure CF) {
+            System.out.println(CF);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"El Service is not displayed\n";
+        } catch (AssertionError A) {
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"El Service is not displayed\n";
+        }
+
     }
 
-    public void verifyPropertyServiceProviderListingProfile(int intRowIndex) throws Exception{
+    public void verifyPropertyServiceProviderListingProfile(int intRowIndex) {
         //wait until page loads
         WaitUtil.simpleSleep(10000);
-        String lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex,"ListingOfAllRoles");
-        Assert.assertEquals(lStrPrivateFundName, findElement(By.cssSelector("h1")).getText());
+        String lStrPrivateFundName = null;
+        try {
+            lStrPrivateFundName = ReadData.readDataExcel("Privacy", intRowIndex, "ListingOfAllRoles");
+            Assert.assertEquals(lStrPrivateFundName, findElement(By.cssSelector("h1")).getText());
+        } catch (Exception e) {
+            System.out.println(e);
+        } catch (ComparisonFailure CF) {
+            System.out.println(CF);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"El Listing is not displayed\n";
+        } catch (AssertionError A) {
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"El Listing is not displayed\n";
+        }
+
     }
 
     public void setLoanAmount_PrivateMyUniverseInclude(){
@@ -505,9 +739,11 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
         for(int i=0;i<91;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(15000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void setEquity_PrivateInMyUniverse(){
@@ -520,9 +756,11 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
         for(int i=0;i<92;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(12000);
+        WaitUtil.simpleSleep(1000);
     }
 
     public void setProjectSize_PrivateInMyUniverse(){
@@ -552,4 +790,59 @@ public class PrivacySetToPrivatePage extends FluentWebDriverPage {
         //wait until page loads
         WaitUtil.simpleSleep(1000);
     }
+
+    public void clickUserProfileTab(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        //findElement(By.linkText("Funds")).click();
+        findElement(By.xpath("//section[@id='content']/nav/ul/li[@class='active']/a")).click();
+    }
+
+    public void verifyTextInFundTab(){
+        try{
+            //wait until page loads
+            WaitUtil.simpleSleep(1000);
+            Assert.assertEquals("This Fund’s contact details are private. Click here to view their profile and request more information.", findElement(By.xpath("//section[@id='content']/div[3]/div/table/tbody/tr[2]/td[2]")).getText());
+        } catch (AssertionError A) {
+            System.out.println(A);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"\nReason of Error:"+"Private Message of the Fund Profile Is Not Displayed\n";
+        }
+    }
+
+    public void clickLoanLink(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        findElement(By.linkText("Loans")).click();
+    }
+
+    public void clickServicesLink(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        findElement(By.linkText("Services")).click();
+    }
+
+    public void clickListingLink(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        findElement(By.linkText("Listings")).click();
+    }
+
+    public void clickMezzLink(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        findElement(By.linkText("Mezzs")).click();
+    }
+
+    public void clickFundsLink(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        findElement(By.linkText("Funds")).click();
+    }
+
+    public void clickProjectsLink(){
+        //wait until page loads
+        WaitUtil.simpleSleep(1000);
+        findElement(By.linkText("Projects")).click();
+    }
+
 }

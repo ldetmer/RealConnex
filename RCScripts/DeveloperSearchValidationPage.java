@@ -21,7 +21,7 @@ public class DeveloperSearchValidationPage extends FluentWebDriverPage {
         //wait until checkbox is found
         WaitUtil.simpleSleep(500);
         findElement(By.id("AssetstrategyId_checkbox_6")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void clearStrategy(){
@@ -30,7 +30,7 @@ public class DeveloperSearchValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("AssetstrategyId_checkbox_3")).click();
         findElement(By.id("AssetstrategyId_checkbox_6")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void clickBuyLand(){

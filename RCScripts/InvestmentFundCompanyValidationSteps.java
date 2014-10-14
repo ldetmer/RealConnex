@@ -80,4 +80,13 @@ public class InvestmentFundCompanyValidationSteps {
         investmentFundCompanyValidationPage.clearRezoningAndRecapitalization();
     }
 
+    @When("I select core plus option in risk profile of investment fund search")
+    public void selectCorePlus(){
+        investmentFundCompanyValidationPage.selectCorePlus_Fund();
+    }
+
+    @When("I clear core plus option in risk profile of investment fund search")
+    public void clearCorePlus(){
+        investmentFundCompanyValidationPage.clearCorePlus_Fund();
+    }
 }

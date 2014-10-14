@@ -32,11 +32,12 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
     public void setProjectSizeSlider(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        executeScript("scrollTo(150,0)");
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<30;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
-        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[2]"));
         for(int i=0;i<30;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
         }
@@ -45,14 +46,16 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
     }
 
     public void clearProjectSizeSlider(){
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<30;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
-        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
+        WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[2]"));
         for(int i=70;i<100;i++){
             sliderRight.sendKeys(Keys.ARROW_RIGHT);
         }
+        //wait until page loads
+        WaitUtil.simpleSleep(20000);
     }
 
     public void verifyAllOptionsOfInvestmentBankerCompany(int RowIndex){
@@ -70,7 +73,7 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
 
     public void companyOfInvestmentBankerNotDisplayed(int RowIndex, String strColumnName){
         //wait until page loads
-        WaitUtil.simpleSleep(5000);
+        WaitUtil.simpleSleep(10000);
         try {
             String strCompanyName = ReadData.readDataExcel("ValidationDetails", RowIndex, strColumnName);
             Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strCompanyName+"')]"),getDriverProvider().get()));
@@ -124,9 +127,11 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
     public void selectNumberOfOffice(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[1]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         //wait until page loads
         WaitUtil.simpleSleep(15000);
@@ -135,7 +140,7 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
     public void clearNumberOfOffice(){
          //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[1]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -146,9 +151,11 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
     public void selectNumberOfProfessionals(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         //wait until page loads
         WaitUtil.simpleSleep(10000);
@@ -157,7 +164,7 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
     public void clearNumberOfProfessionals(){
          //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -168,40 +175,42 @@ public class CompanyOfInvestmentBankerValidationPage extends FluentWebDriverPage
     public void selectNumberOfValueTransaction(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[3]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearNumberOfValueTransaction(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[3]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
     }
 
     public void selectNumOfTransactionCompleted(){
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[4]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
         //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
 
     public void clearNumOfTransactionCompleted(){
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div[4]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
          //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
-
-
 }

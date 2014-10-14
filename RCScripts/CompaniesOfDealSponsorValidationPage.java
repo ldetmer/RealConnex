@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
 
@@ -28,11 +29,10 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
 
     public void selectOfficeAssetType(){
          //wait until page gets loaded
-        WaitUtil.simpleSleep(100);
-        WaitUtil.isElementPresent(By.id("AssettypeId_checkbox_1"), getDriverProvider().get());
+        WaitUtil.simpleSleep(5000);
         findElement(By.id("AssettypeId_checkbox_1")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_1"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -66,7 +66,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_1"));
         findElement(By.id("AssettypeId_checkbox_3")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_3"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -78,7 +78,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_3"));
         findElement(By.id("AssettypeId_checkbox_5")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_5"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -91,7 +91,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         WaitUtil.isElementPresent(By.id("AssettypeId_checkbox_11"), getDriverProvider().get());
         findElement(By.id("AssettypeId_checkbox_11")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_11"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -103,7 +103,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_11"));
         findElement(By.id("AssettypeId_checkbox_13")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_13"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -118,7 +118,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
                 WaitUtil.isElementPresent(By.id("AssettypeId_checkbox_15"),getDriverProvider().get());
                 findElement(By.id("AssettypeId_checkbox_15")).click();
                 VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_15"));
-                findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+                findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
                 bnlFound= true;
             }catch(ElementNotVisibleException e){
                 WaitUtil.simpleSleep(1000);
@@ -134,7 +134,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_15"));
         findElement(By.id("AssettypeId_checkbox_17")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_17"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -146,7 +146,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_17"));
         findElement(By.id("AssettypeId_checkbox_2")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_2"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -158,7 +158,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_2"));
         findElement(By.id("AssettypeId_checkbox_4")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_4"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -170,7 +170,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_4"));
         findElement(By.id("AssettypeId_checkbox_6")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_6"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -182,7 +182,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_6"));
         findElement(By.id("AssettypeId_checkbox_7")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_7"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -194,7 +194,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_6"));
         findElement(By.id("AssettypeId_checkbox_8")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_8"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -206,28 +206,17 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_6"));
         findElement(By.id("AssettypeId_checkbox_9")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_9"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
 
-    public void clickOtherHousing() throws ElementNotVisibleException{
-        boolean bnlFound = false;
-        int intCount = 0;
-        while (!bnlFound && intCount <= 5){
-            try{
-                findElement(By.id("AssettypeId_checkbox_6")).click();
-                VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_6"));
-                findElement(By.id("AssettypeId_checkbox_10")).click();
-                VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_10"));
-                findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
-                bnlFound= true;
-            }catch(ElementNotVisibleException e){
-                WaitUtil.simpleSleep(1000);
-                intCount = intCount+1;
-            }
-        }
-
+    public void clickOtherHousing() {
+         findElement(By.id("AssettypeId_checkbox_6")).click();
+         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_6"));
+         findElement(By.id("AssettypeId_checkbox_10")).click();
+         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_10"));
+         findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void clickResidentialMultiFamily(){
@@ -237,7 +226,10 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_6"));
         findElement(By.id("AssettypeId_checkbox_18")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_18"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        WebElement myLink = findElement(By.id("AssettypeId_checkbox_4"));
+        Actions action = new Actions(getDriverProvider().get());
+        action.moveToElement(myLink).build().perform();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -247,7 +239,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("AssettypeId_checkbox_6")).click();
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_6"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -257,7 +249,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("AssettypeId_checkbox_12")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_12"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -269,7 +261,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_12"));
         findElement(By.id("AssettypeId_checkbox_14")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_14"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -281,7 +273,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_14"));
         findElement(By.id("AssettypeId_checkbox_16")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_16"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -293,7 +285,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_16"));
         findElement(By.id("AssettypeId_checkbox_19")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_19"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -303,7 +295,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("AssettypeId_checkbox_19")).click();
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("AssettypeId_checkbox_19"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -313,7 +305,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("RiskprofileId_checkbox_1")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_1"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -323,7 +315,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("RiskprofileId_checkbox_2")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_2"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -347,7 +339,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_1"));
         findElement(By.id("RiskprofileId_checkbox_2")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("RiskprofileId_checkbox_2"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -359,7 +351,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_2"));
         findElement(By.id("RiskprofileId_checkbox_3")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_3"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -371,7 +363,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_3"));
         findElement(By.id("RiskprofileId_checkbox_4")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_4"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -383,7 +375,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_4"));
         findElement(By.id("RiskprofileId_checkbox_5")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_5"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -395,7 +387,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_5"));
         findElement(By.id("RiskprofileId_checkbox_6")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_6"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -407,7 +399,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_6"));
         findElement(By.id("RiskprofileId_checkbox_7")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_7"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -417,7 +409,7 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("RiskprofileId_checkbox_7")).click();
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_7"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page gets loaded
         WaitUtil.simpleSleep(10000);
     }
@@ -937,18 +929,20 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
     public void setValueForDealSize(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
          //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueForDealSize(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -959,18 +953,20 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
     public void setValueForYearInBusiness(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(700);
         }
          //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueForYearInBusiness(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -981,18 +977,20 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
     public void setValueForNumberOfProfessionals(){
          //wait until page loads
         WaitUtil.simpleSleep(7000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
          //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueForNumberOfProfessionals(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -1003,18 +1001,20 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
     public void setValueForProjectCompleted(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[5]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
         }
          //wait until page loads
-        WaitUtil.simpleSleep(15000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueForProjectCompleted(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[5]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -1025,18 +1025,20 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
     public void setValueForSqFt(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[6]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[5]/div/div[2]/a[1]"));
         for(int i=0;i<200;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
         }
          //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueForSqFt(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[6]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[5]/div/div[2]/a[1]"));
         for(int i=0;i<200;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
@@ -1047,18 +1049,20 @@ public class CompaniesOfDealSponsorValidationPage extends FluentWebDriverPage {
     public void setValueOfDealsCompletedField(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[7]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[6]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(800);
         }
          //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueOfDealsCompletedField(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[7]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[6]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }

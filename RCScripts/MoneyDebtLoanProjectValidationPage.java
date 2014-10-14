@@ -104,7 +104,7 @@ public class MoneyDebtLoanProjectValidationPage extends FluentWebDriverPage{
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(5000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clickRecourse(){
@@ -181,6 +181,15 @@ public class MoneyDebtLoanProjectValidationPage extends FluentWebDriverPage{
         WaitUtil.simpleSleep(500);
     }
 
+    public void clearUnderContract(){
+        //wait until page loads
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("DealstageId_checkbox_2")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Deal Stage:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait until page loads
+        WaitUtil.simpleSleep(500);
+    }
+
     public void clearConceptAndUnderContract(){
         //wait until page loads
         WaitUtil.simpleSleep(500);
@@ -230,7 +239,6 @@ public class MoneyDebtLoanProjectValidationPage extends FluentWebDriverPage{
     }
 
     public void setValueOfLVT(){
-
         //wait until page loads
         WaitUtil.simpleSleep(5000);
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/div/div[2]/a[1]"));
@@ -238,7 +246,7 @@ public class MoneyDebtLoanProjectValidationPage extends FluentWebDriverPage{
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueOfLVT(){
@@ -254,15 +262,14 @@ public class MoneyDebtLoanProjectValidationPage extends FluentWebDriverPage{
     }
 
     public void setValueOfTermField(){
-
-        //wait until page loads
+         //wait until page loads
         WaitUtil.simpleSleep(5000);
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/div/div[2]/a[1]"));
         for(int i=0;i<80;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
 
     }
 

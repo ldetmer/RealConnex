@@ -116,5 +116,15 @@ public class CompanyOfInvestmentBankerSteps {
         companyOfinvestmentBankerPage.clearNumberOfTransactionCompleted();
     }
 
+    @When("I click on Wisconsin state")
+    public void clickWisconsinState(){
+        companyOfinvestmentBankerPage.clickWisconsinState();
+    }
+
+    @When("I enter and select Eden city")
+    public void enterAndSelectEdenCity(){
+        companyOfinvestmentBankerPage.enterAndSelectEdenCity();
+    }
+
 
 }

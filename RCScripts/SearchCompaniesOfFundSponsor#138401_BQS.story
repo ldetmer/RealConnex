@@ -10,14 +10,16 @@ Scenario: TC 138401: Verify companies of fund sponsor are displayed when search 
 When I update TestCaseId 138401
 When I update TestCaseName Perform: "Developer, Deal Sponsor >> Fund Sponsor" search Verify that companies of "Fund Sponsor" sub role are retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I select 'Fund Sponsor' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I verify the sub role type
 And I verify 'Fund Sponsor' user is displayed
 When I click on the verified fund sponsor name
@@ -42,10 +44,11 @@ And I set value of deals completed
 Then I verify company name of fund sponsor is displayed
 When I clear value of deals completed
 Then I should see 'Find Now' image
-When I click on 'Find Now' button
+When I click on edit button to start search
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I select 'Fund Sponsor' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 And I click on 'Route to Sponsor' drop down field
 And I select intermediary option in route to sponsor field
 Then I verify company name of fund sponsor is displayed
@@ -68,72 +71,72 @@ And I select all option in route to sponsor
 Then I verify fund sponsor company name of all search option is displayed
 When I click on 'Route to Sponsor' drop down field
 And I clear route to sponsor option
-And I click on asset experience
-And I click on asset type field of deal sponsor search
+And I click on asset experience field
+And I click on asset type field in asset experience
 And I select health care option in asset type drop down
 Then I verify company name of fund sponsor is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I clear health care option in project type drop down
-And I click on asset type field of deal sponsor search
+And I click on asset type field in asset experience
 And I select office in the asset type drop down list
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on multifamily option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on hotel option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on sports option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on health care option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on storage option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on other option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on retail option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on industrial option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on residential option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on single option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on retirement option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on student option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on other housing option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on residential multi family option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I clear residential of asset field
-And I click on asset type field of deal sponsor search
+And I click on asset type field in asset experience
 And I click on mixed use option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on commercial option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on solar option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I click on all option in asset type
 Then I verify fund sponsor company name of all search option is displayed
-When I click on asset type field of deal sponsor search
+When I click on asset type field in asset experience
 And I clear all option in asset type
 And I click on 'RiskProfile' drop down field
 And I select value add option in risk profile field

@@ -92,21 +92,24 @@ public class ProjectOfAdvisorSearchValidationPage extends FluentWebDriverPage {
     public void setProjectSliderValue(){
         //wait until page loads
         WaitUtil.simpleSleep(1000);
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        executeScript("scroll(150,0)");
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<50;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(500);
         }
          //wait until page loads
         WaitUtil.simpleSleep(10000);
     }
 
     public void clearProjectSliderValue(){
-        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
+        WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<50;i++){
             sliderLeft.sendKeys(Keys.ARROW_LEFT);
         }
          //wait until page loads
-        WaitUtil.simpleSleep(15000);
+        WaitUtil.simpleSleep(20000);
     }
 
 

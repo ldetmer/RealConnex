@@ -81,6 +81,11 @@ public class CompaniesOfDealSponsorSteps {
         companiesOfDealSponsorPage.clickAssetTypeOfDealSponsor();
     }
 
+    @When("I click on asset type field in asset experience")
+    public void clickAssetTypeOfDealSponsor_AssetExperience(){
+        companiesOfDealSponsorPage.clickAssetTypeOfDealSponsor_AssetExperience();
+    }
+
     @When("I click on about field in deal sponsor company search")
     public void clickAbout(){
         companiesOfDealSponsorPage.clickAbout();

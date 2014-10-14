@@ -34,9 +34,9 @@ public class RealConnexWebDriverProvider extends DelegatingWebDriverProvider {
         // Set a 10 minute limit per test
         dc.setCapability("max-duration", 10 * 60);
         // Set a 30 second command timeout
-        dc.setCapability("command-timeout", 60);
+        dc.setCapability("command-timeout", 30);
         // Set a 15 second idle timeout
-        dc.setCapability("idle-timeout", 30);
+        dc.setCapability("idle-timeout", 15);
 
     }
 }

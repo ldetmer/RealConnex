@@ -2,6 +2,7 @@ package test.steps;
 
 
 import com.google.inject.Inject;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import test.Support.ReadData;
@@ -63,6 +64,7 @@ public class CompanyOfAdvisorSearchSteps {
     }
 
     @When("I click on deal stage drop down")
+        @Alias("I click on deal stage drop down in search")
     public void clickDealStage(){
         companyOfAdvisorSearchPage.clickDealStage();
     }
@@ -76,5 +78,16 @@ public class CompanyOfAdvisorSearchSteps {
     public void clearOwnedOptionInDealStage(){
         companyOfAdvisorSearchPage.selectOwnedOptionInDealStage();
     }
+
+    @When("I click on Missouri state")
+    public void clickMissouriState(){
+        companyOfAdvisorSearchPage.clickMissouriState();
+    }
+
+    @When("I enter and select Ink city")
+    public void enterAndSelectInlCity(){
+        companyOfAdvisorSearchPage.enterAndSelectInkCity();
+    }
+
 
 }

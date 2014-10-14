@@ -4,6 +4,8 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import test.Support.ReadData;
 import test.Support.ReasonsInResultSheet;
 import test.steps.VerificationStatements;
@@ -30,32 +32,50 @@ public class CreateUserPage extends FluentWebDriverPage {
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
         try{
-            findElement(By.cssSelector("a.link-1.sign")).click();
+            findElement(By.cssSelector("a.sign")).click();
         }catch(NoSuchElementException n){
             System.out.println(n);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Link cannot be clicked\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Sign up Link cannot be clicked\n";
         } catch (WebDriverException e){
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Link cannot be clicked\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Sign up Link cannot be clicked\n";
         }
 
     }
 
     public void enterEmailIdOfUserRoles(){
+        /*Actions moveTo = new Actions(getDriverProvider().get());
+        moveTo.moveToElement(findElement(By.xpath("//input[@id='UserEmail']")),1,1).click().build().perform();*/
+       /*String popUpHeader = findElement(By.xpath("//div[@id='sign']/div/strong")).getText();
+        Assert.assertEquals(popUpHeader, "Sign Up Now - It’s FREE!");*/
         gStrFieldName = findElement(By.xpath("//input[@id='UserEmail']")).getAttribute("placeholder");
-        gStrEmailId = "testAuto"+System.currentTimeMillis()+"@yopmail.com";
+        gStrEmailId = "Auto"+System.currentTimeMillis()+"@yopmail.com";
+        WaitUtil.simpleSleep(5000);
         ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserEmail"), gStrEmailId, gStrFieldName, LoginRealConnexPage.gStrReason);
+
+
+        /*findElement(By.xpath("//div[@id='sign']/div/strong[text()='Sign Up Now - It’s FREE!']")).click();
+        WaitUtil.simpleSleep(1000);
+        findElement(By.id("UserEmail")).click();
+        findElement(By.id("UserEmail")).clear();
+        findElement(By.id("UserEmail")).sendKeys(gStrEmailId);
+        VerificationStatements.VerifyInputValue(getDriverProvider().get(),By.xpath("//input[@id='UserEmail']"), gStrEmailId);
+*/
+        /*JavascriptExecutor executor = (JavascriptExecutor) (getDriverProvider().get());
+        executor.executeScript("window.document.getElementById('UserEmail').clear();");
+        executor.executeScript("window.document.getElementById('UserEmail').sendKeys(gStrEmailId);");*/
+         //ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserEmail"), gStrEmailId, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void enterFirstName(){
         gStrFieldName = findElement(By.xpath("//input[@id='UserFirstName']")).getAttribute("placeholder");
-        String lStrFirstName = "test"+System.currentTimeMillis();
+        String lStrFirstName = "Auto";
         ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserFirstName"), lStrFirstName, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
     public void enterLastName(){
         gStrFieldName = findElement(By.xpath("//input[@id='UserLastName']")).getAttribute("placeholder");
-        String lStrLastName = "auto"+System.currentTimeMillis();
+        String lStrLastName = ""+System.currentTimeMillis();
         ReasonsInResultSheet.enterDataToTextField(getDriverProvider().get(),By.id("UserLastName"), lStrLastName, gStrFieldName, LoginRealConnexPage.gStrReason);
     }
 
@@ -73,25 +93,26 @@ public class CreateUserPage extends FluentWebDriverPage {
 
     public void clickSelectRoleDropDown(){
          //wait until element is visible
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(3000);
         try{
-            findElement(By.cssSelector("div.text")).click();
+            gStrFieldName = findElement(By.xpath("//form[@id='UserHomeForm']/fieldset/div[4]/span/div[1]/div")).getText();
+            findElement(By.cssSelector("#UserHomeForm > fieldset > div.row > span.selectbox > div.select > div.text")).click();
         } catch (NoSuchElementException e){
            System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Element is not found\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Select Role Element is not found\n";
         }
     }
 
     public void selectInvestorOption(){
         //wait until element is visible
-        WaitUtil.simpleSleep(1000);
-        findElement(By.xpath("//span/div/ul/li[text()='Investor']")).click();
+        WaitUtil.simpleSleep(3000);
+        findElement(By.xpath("//form[@id='UserHomeForm']/fieldset/div/span/div/ul/li[contains(text(),'Investor')]")).click();
     }
 
     public void selectDealSponsorDeveloperAndFundMangerOption(){
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
-        findElement(By.xpath("//span/div/ul/li[text()='Deal Sponsor, Developer, Fund Manager']")).click();
+        findElement(By.xpath("//form[@id='UserHomeForm']/fieldset/div/span/div/ul/li[text()='Developer / Sponsor']")).click();
     }
 
     public void selectRealEstateAdvisorBrokerOption(){
@@ -99,7 +120,7 @@ public class CreateUserPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(1000);
         try{
         gStrFieldName = findElement(By.xpath("//form[@id='UserHomeForm']/fieldset/div/span/div/ul/li[5]")).getText();
-        findElement(By.xpath("//span/div/ul/li[text()='Real Estate Advisor, Broker']")).click();
+        findElement(By.xpath("//form[@id='UserHomeForm']/fieldset/div/span/div/ul/li[text()='Real Estate Advisor']")).click();
         } catch (NoSuchElementException e){
             System.out.println(e);
 
@@ -109,52 +130,55 @@ public class CreateUserPage extends FluentWebDriverPage {
     public void selectLenderOption(){
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
-        findElement(By.xpath("//span/div/ul/li[text()='Lender']")).click();
+        findElement(By.xpath("//form[@id='UserHomeForm']/fieldset/div/span/div/ul/li[text()='Lender']")).click();
     }
 
     public void verifyTextInRoleSelectedDropDown(String lStrSelectedOptionInDropDown){
-        String lStrRoleSelectedActual = findElement(By.cssSelector("div.text")).getText();
+        String lStrRoleSelectedActual = findElement(By.cssSelector("#UserHomeForm > fieldset > div.row > span.selectbox > div.select > div.text")).getText();
         Assert.assertEquals(lStrSelectedOptionInDropDown,lStrRoleSelectedActual);
     }
 
     public void clickCertifyAccreditedInvestorCheckBox(){
         //wait until element is visible
         WaitUtil.simpleSleep(1000);
-        findElement(By.cssSelector("#accreditAddon > span.checkbox")).click();
+        findElement(By.id("agreeAccredit")).click();
     }
 
     public void clickRegisterButton(){
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
-        findElement(By.cssSelector("input.sbm")).sendKeys(Keys.ENTER);
+        findElement(By.cssSelector("#UserHomeForm > fieldset > div.row > input.sbm")).sendKeys(Keys.ENTER);
          //wait until element is visible
         WaitUtil.simpleSleep(1000);
     }
 
     public void verifyConfirmationMessage(String lStrConfirmationMessage){
          //wait until page load
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(5000);
         try{
-        String lStrMessage = findElement(By.cssSelector("#registerSuccess > div.popup > div.modal-content > div.title > strong")).getText();
-        Assert.assertEquals(lStrMessage, lStrConfirmationMessage);
-         //wait until page load
-        WaitUtil.simpleSleep(1000);
+            String lStrMessage = findElement(By.xpath("//div[@id='registerSuccess']/div[1]/strong")).getText();
+            Assert.assertEquals(lStrMessage, lStrConfirmationMessage);
+            //wait until page load
+             WaitUtil.simpleSleep(1000);
         } catch (AssertionError e){
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Confirmation message not displayed\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Almost Done Confirmation message not displayed\n";
         }
     }
 
-    public void clickOk(){
+    public void clickClose(){
         try{
          //wait until page load
         WaitUtil.simpleSleep(5000);
-        findElement(By.cssSelector("#registerSuccess > div.popup > div.modal-content > div.form-holder > fieldset > div.modal-footer > button.sbm")).click();
+        findElement(By.cssSelector("a.fancybox-item.fancybox-close")).click();
          //wait until page load
         WaitUtil.simpleSleep(1000);
         } catch (NoSuchElementException n){
             System.out.println(n);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Element Is not clickable\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Close button of registration is not clickable\n";
+        } catch (WebDriverException W){
+            System.out.println(W);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Close button of registration is not clickable\n";
         }
     }
 
@@ -186,13 +210,15 @@ public class CreateUserPage extends FluentWebDriverPage {
         Runtime.getRuntime().exec("D:\\RealConnex\\AutoIt\\yopmailpopup.exe");
         findElement(By.xpath("//input[@value='Check Inbox']")).click();
          //wait until page load
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(3000);
     }
 
     public void clickCheckInboxButtonInYopmail(){
         //wait until page load
         WaitUtil.simpleSleep(1000);
         findElement(By.xpath("//input[@value='Check Inbox']")).click();
+        //wait until page load
+        WaitUtil.simpleSleep(3000);
     }
 
     public void switchToYopMailTab(){
@@ -227,7 +253,7 @@ public class CreateUserPage extends FluentWebDriverPage {
         findElement(By.xpath("//div[@id='mailmillieu']/div[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/span")).click();
         //findElement(By.linkText("Click here")).click();
          //wait until page load
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(12000);
     }
 
     public void clickClickHereLinkInInbox(){
@@ -246,18 +272,18 @@ public class CreateUserPage extends FluentWebDriverPage {
         close();
         switchTo().window(tabs2.get(1));
         //wait until page load
-        WaitUtil.simpleSleep(500);
+        WaitUtil.simpleSleep(10000);
     }
 
     public void verifyRealConnexPage(){
          //wait until page load
-        WaitUtil.simpleSleep(500);
+        WaitUtil.simpleSleep(100);
         Assert.assertTrue(WaitUtil.isElementPresent(By.cssSelector("h1"),getDriverProvider().get()));
     }
 
     public void clickSkipTour(){
          //wait until page load
-        WaitUtil.simpleSleep(500);
+        WaitUtil.simpleSleep(10000);
         findElement(By.cssSelector("a.skip")).click();
          //wait until page load
         WaitUtil.simpleSleep(500);

@@ -62,13 +62,12 @@ public class CompaniesSearchValidationPage extends FluentWebDriverPage{
 
     public void enterDeveloperType(int RowIndex){
         try{
-
             //wait until company name appear
             WaitUtil.simpleSleep(500);
             String strSubRoleType = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "SubRole");
             findElement(By.id("CompanySubrole")).click();
             findElement(By.id("CompanySubrole")).sendKeys(strSubRoleType);
-
+            findElement(By.id("CompanySubrole")).click();
             //wait until company name appear
             WaitUtil.simpleSleep(5000);
         } catch (Exception e) {

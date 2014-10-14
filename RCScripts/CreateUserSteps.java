@@ -23,7 +23,7 @@ public class CreateUserSteps {
         createUserPage = thePageFactory.newCreateUserPage();
     }
 
-    @When("I click on Not a Member? Join Now for Free! link in registration page")
+    @When("I click on sign up for free link")
     public void clickNotAMemberLink(){
         createUserPage.clickNotAMemberLink();
     }
@@ -88,7 +88,7 @@ public class CreateUserSteps {
         createUserPage.clickCertifyAccreditedInvestorCheckBox();
     }
 
-    @When("I select Deal Sponsor,Developer And Fund Manger option in select role drop down")
+    @When("I select Developer / Sponsor option in select role drop down")
     public void selectDealSponsorDeveloperAndFundMangerOption(){
         createUserPage.selectDealSponsorDeveloperAndFundMangerOption();
     }
@@ -113,9 +113,9 @@ public class CreateUserSteps {
         createUserPage.verifyConfirmationMessage(lStrConfirmationMessage);
     }
 
-    @When("I click on OK button")
-    public void clickOk(){
-        createUserPage.clickOk();
+    @When("I click on close button")
+    public void clickClose(){
+        createUserPage.clickClose();
     }
 
     @When("I launch yopmail")

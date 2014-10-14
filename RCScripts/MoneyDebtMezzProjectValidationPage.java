@@ -18,7 +18,7 @@ public class MoneyDebtMezzProjectValidationPage extends FluentWebDriverPage{
 
     public void verifyProjectNameDebtMezzNotDisplayed(String strProjectName){
         //wait util page load
-        WaitUtil.simpleSleep(100);
+        WaitUtil.simpleSleep(10000);
         Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'" + strProjectName + "')]"), getDriverProvider().get()));
 
     }
@@ -59,13 +59,17 @@ public class MoneyDebtMezzProjectValidationPage extends FluentWebDriverPage{
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[1]"));
         for(int i=0;i<50;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
         }
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[2]/div/div[2]/a[2]"));
         for(int i=0;i<30;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(9000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueOfEquity(){
@@ -89,13 +93,17 @@ public class MoneyDebtMezzProjectValidationPage extends FluentWebDriverPage{
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/div/div[2]/a[1]"));
         for(int i=0;i<50;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
         }
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[3]/div/div[2]/a[2]"));
         for(int i=0;i<30;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(9000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueOfDebt(){
@@ -123,9 +131,11 @@ public class MoneyDebtMezzProjectValidationPage extends FluentWebDriverPage{
         WebElement sliderRight = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[4]/div/div[2]/a[2]"));
         for(int i=0;i<30;i++){
             sliderRight.sendKeys(Keys.ARROW_DOWN);
+            //wait until page loads
+            WaitUtil.simpleSleep(200);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(9000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueOfTerm(){
@@ -155,7 +165,7 @@ public class MoneyDebtMezzProjectValidationPage extends FluentWebDriverPage{
             sliderRight.sendKeys(Keys.ARROW_DOWN);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(9000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearValueOfInterestRate(){
@@ -170,7 +180,7 @@ public class MoneyDebtMezzProjectValidationPage extends FluentWebDriverPage{
             sliderRight.sendKeys(Keys.ARROW_RIGHT);
         }
         //wait until page loads
-        WaitUtil.simpleSleep(9000);
+        WaitUtil.simpleSleep(12000);
     }
 
 

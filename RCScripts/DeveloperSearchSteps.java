@@ -58,4 +58,19 @@ public class DeveloperSearchSteps {
         developerSearchPage.clearStrategy();
     }
 
+    @When("I click on MidWest region")
+    public void clickMidWest(){
+        developerSearchPage.clickMidWest();
+    }
+
+    @When("I click on West Virginia state")
+    public void clickWestVirginiaState(){
+        developerSearchPage.clickWestVirginiaState();
+    }
+
+    @When("I enter and select Halo city")
+    public void enterAndSelectHaloCity(){
+        developerSearchPage.enterAndSelectHaloCity();
+    }
+
 }

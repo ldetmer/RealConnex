@@ -4,6 +4,7 @@ import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriverException;
 import test.Support.ReadData;
 import test.steps.VerificationStatements;
@@ -25,8 +26,9 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
 
     public void verifyPrivacyButton(){
         try{
-            gStrFieldName = findElement(By.cssSelector("a.privacy > span")).getText();
-            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//nav[@id='nav']/ul[@class='sub-nav']/li/a/span[text()='Privacy']"), getDriverProvider().get()));
+            WaitUtil.simpleSleep(5000);
+            gStrFieldName = findElement(By.cssSelector("a.privacy > em.ico > img")).getText();
+            Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//nav[@id='nav']/ul/li[3]/a/em/img"), getDriverProvider().get()));
         } catch (AssertionError e){
             System.out.println(e);
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Failed to find the element\n";
@@ -35,8 +37,9 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
 
     public void clickPrivacyButton(){
         try{
-            gStrFieldName = findElement(By.cssSelector("a.privacy > span")).getText();
-            findElement(By.xpath("//nav[@id='nav']/ul[@class='sub-nav']/li/a/span[text()='Privacy']")).click();
+            WaitUtil.simpleSleep(5000);
+            gStrFieldName = findElement(By.cssSelector("a.privacy > em.ico > img")).getText();
+            findElement(By.xpath("//nav[@id='nav']/ul/li[3]/a/em/img")).click();
         } catch(NoSuchElementException e){
             System.out.println(e);
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +";"+"Affected Field:"+gStrFieldName+"\nReason of Error:"+"Not able to click on the field\n";
@@ -102,7 +105,13 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
             Assert.assertEquals(lStrMessage,lStrMessageFromApplication);
         } catch (AssertionError e){
             System.out.println(e);
-            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Appropriate Message is not displayed\n";
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Privacy successfully saved Message is not displayed\n";
+        }  catch (NoSuchElementException N) {
+            System.out.println(N);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Privacy successfully saved Message is not displayed\n";
+        }  catch (StaleElementReferenceException S){
+            System.out.println(S);
+            LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Privacy successfully saved Message is not displayed\n";
         }
     }
 
@@ -123,7 +132,8 @@ public class PrivacySetToPublicPage extends FluentWebDriverPage {
     public void clickProjectsTab(){
          //wait until page loads
         WaitUtil.simpleSleep(5000);
-        findElement(By.xpath("//section[@id='content']/nav/ul/li/a[contains(text(),'PROJECTS')]")).click();
+        //findElement(By.xpath("//section[@id='content']/nav/ul/li/a[contains(text(),'PROJECTS')]")).click();
+        findElement(By.xpath("//section[@id='content']/nav/ul/li/a[contains(text(),'Postings')]")).click();
     }
 
     public void clickFundsTab(){

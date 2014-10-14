@@ -23,4 +23,10 @@ public class LogoutSteps {
         logoutPage.clickLogout();
     }
 
+
+    @When("I click on edit button to start search")
+    public void clickEditToFindNow(){
+        logoutPage.clickEditToFindNow();
+    }
+
 }

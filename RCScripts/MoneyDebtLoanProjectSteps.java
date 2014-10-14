@@ -10,6 +10,7 @@ package test.steps;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import test.pages.MoneyDebtLoanProjectPage;
@@ -113,6 +114,11 @@ public class MoneyDebtLoanProjectSteps {
         moneyDebtLoanProjectPage.clickLoanForField();
     }
 
+    @When("I click loan for field in money debt mezz search")
+    public void clickLoanForFieldInDebtMezz(){
+        moneyDebtLoanProjectPage.clickLoanForFieldInDebtMezz();
+    }
+
     @When("I click asset types in loan for field")
     public void clickAssetTypes(){
         moneyDebtLoanProjectPage.clickAssetTypes();
@@ -174,6 +180,7 @@ public class MoneyDebtLoanProjectSteps {
     }
 
     @When("I click asset strategy in loan for field")
+        @Alias("I click asset strategy field in money search")
     public void clickAssetStrategyField(){
         moneyDebtLoanProjectPage.clickAssetStrategyField();
     }
@@ -296,6 +303,116 @@ public class MoneyDebtLoanProjectSteps {
     @When("I clear value of term field")
     public void clearTermField(){
         moneyDebtLoanProjectPage.clearTermField();
+    }
+
+    @When("I click on deal stage drop down field in money search")
+    public void clickDealStage(){
+        moneyDebtLoanProjectPage.clickDealStage_MoneySearch();
+    }
+
+    @When("I click on concept option in deal stage drop down of money search")
+    public void clickConcept(){
+        moneyDebtLoanProjectPage.clickConcept_MoneySearch();
+    }
+
+    @When("I click on permitted option in deal stage drop down of money search")
+    public void clickPermitted(){
+        moneyDebtLoanProjectPage.clickPermitted_MoneySearch();
+    }
+
+    @When("I click on ready for purchase option in deal stage drop down of money search")
+    public void clickReady(){
+        moneyDebtLoanProjectPage.clickReady_MoneySearch();
+    }
+
+    @When("I click on LOI option in deal stage drop down of money search")
+    public void clickLOI(){
+        moneyDebtLoanProjectPage.clickLOI_MoneySearch();
+    }
+
+    @When("I click on under contract option in deal stage drop down of money search")
+    public void clickUnderContract(){
+        moneyDebtLoanProjectPage.clickUnderContract_MoneySearch();
+    }
+
+    @When("I click on plans option in deal stage drop down of money search")
+    public void clickPlans(){
+        moneyDebtLoanProjectPage.clickPlans_MoneySearch();
+    }
+
+    @When("I click on under construction option in deal stage drop down of money search")
+    public void clickUnderConstruction(){
+        moneyDebtLoanProjectPage.clickUnderConstruction_MoneySearch();
+    }
+
+    @When("I click on pursuit option in deal stage drop down of money search")
+    public void clickPursuit(){
+        moneyDebtLoanProjectPage.clickPursuit_MoneySearch();
+    }
+
+    @When("I click on in DD option in deal stage drop down of money search")
+    public void clickInDD(){
+        moneyDebtLoanProjectPage.clickInDD_MoneySearch();
+    }
+
+    @When("I select all option in deal stage drop down of money search")
+    public void selectAll_MoneySearch(){
+        moneyDebtLoanProjectPage.selectAll_MoneySearch();
+    }
+
+    @When("I clear all field in deal stage of money search")
+    public void clearAll_MoneySearch(){
+        moneyDebtLoanProjectPage.clearAll_MoneySearch();
+    }
+
+    @When("I click on current asset status drop down field in money search")
+    public void clickOnCurrentAssetStatus_Money(){
+        moneyDebtLoanProjectPage.clickOnCurrentAssetStatus_Money();
+    }
+
+    @When("I select partially stabilized option in current asset status field of money search")
+    public void selectPartiallyStabilized_Money(){
+        moneyDebtLoanProjectPage.selectPartiallyStabilized_Money();
+    }
+
+    @When("I select vacant option in current asset status field of money search")
+    public void selectVacant_Money(){
+        moneyDebtLoanProjectPage.selectVacant_Money();
+    }
+
+    @When("I select under construction option in current asset status field of money search")
+    public void selectUnderConstruction_Money(){
+        moneyDebtLoanProjectPage.selectUnderConstruction_Money();
+    }
+
+    @When("I select all option in current asset status field of money search")
+    public void selectAll_Money(){
+        moneyDebtLoanProjectPage.selectAll_Money();
+    }
+
+    @When("I select reo option in current asset status field of money search")
+    public void selectReo(){
+        moneyDebtLoanProjectPage.selectReo_Money();
+    }
+
+    @When("I select vacant structure option in current asset status field of money search")
+    public void selectVacantStructure(){
+        moneyDebtLoanProjectPage.selectVacantStructure_Money();
+    }
+
+    @When("I select partially rented option in current asset status field of money search")
+    public void selectPartiallyRented(){
+        moneyDebtLoanProjectPage.selectPartiallyRented_Money();
+    }
+
+    @When("I clear entitled option in current asset status field of money search")
+    public void clearEntitled(){
+        moneyDebtLoanProjectPage.clearEntitled_Money();
+    }
+
+    @When("I select entitled option in current asset status field of money search")
+    public void selectEntitled(){
+        moneyDebtLoanProjectPage.selectEntitled_Money();
     }
 
 }

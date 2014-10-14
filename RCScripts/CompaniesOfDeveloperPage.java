@@ -27,9 +27,9 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
        WaitUtil.simpleSleep(500);
        findElement(By.id("AssettypeId_checkbox_16")).click();
        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_16"));
-       findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+       findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until project drop down appears
-       WaitUtil.simpleSleep(1000);
+       WaitUtil.simpleSleep(20000);
    }
 
     public void clearSolar(){
@@ -37,7 +37,7 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("AssettypeId_checkbox_16")).click();
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("AssettypeId_checkbox_16"));
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until project drop down appears
         WaitUtil.simpleSleep(1000);
     }
@@ -47,9 +47,9 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
        WaitUtil.simpleSleep(500);
        findElement(By.id("AssetstrategyId_checkbox_3")).click();
        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("AssetstrategyId_checkbox_3"));
-       findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+       findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until page uploads
-       WaitUtil.simpleSleep(10000);
+       WaitUtil.simpleSleep(20000);
    }
 
    public void clearSales(){
@@ -57,7 +57,7 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
        WaitUtil.simpleSleep(500);
        findElement(By.id("AssetstrategyId_checkbox_3")).click();
        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(), By.id("AssetstrategyId_checkbox_3"));
-       findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+       findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
    }
 
    public void clickOpportunistic(){
@@ -65,7 +65,9 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
        WaitUtil.simpleSleep(500);
        findElement(By.id("RiskprofileId_checkbox_5")).click();
        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_5"));
-       findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+       findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+       //wait until page load
+       WaitUtil.simpleSleep(20000);
    }
 
    public void clearOpportunistic(){
@@ -73,7 +75,7 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
        WaitUtil.simpleSleep(500);
        findElement(By.id("RiskprofileId_checkbox_5")).click();
        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("RiskprofileId_checkbox_5"));
-       findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+       findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Risk Profile:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
    }
 
    public void clickFamilyOffice(){
@@ -99,7 +101,7 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
        VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("RouteId_checkbox_4"));
        findElement(By.xpath("//div[@class='field clearfix']/label[contains(text(),'Route to Sponsor:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
        //wait until page is loaded
-       WaitUtil.simpleSleep(10000);
+       WaitUtil.simpleSleep(20000);
    }
 
    public void clearPlacementAgents(){
@@ -120,10 +122,19 @@ public class CompaniesOfDeveloperPage extends FluentWebDriverPage {
    public void selectCoInvests(){
        //wait until page gets loaded
        WaitUtil.simpleSleep(500);
-       findElement(By.id("coinvest_partner_")).click();
-       VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("coinvest_partner_"));
+       findElement(By.id("coinvestpartners_")).click();
+       VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("coinvestpartners_"));
        //wait until page gets loaded
        WaitUtil.simpleSleep(10000);
    }
+
+    public void clearCoInvests(){
+        //wait until page gets loaded
+        WaitUtil.simpleSleep(500);
+        findElement(By.id("coinvestpartners_")).click();
+        VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("coinvestpartners_"));
+        //wait until page gets loaded
+        WaitUtil.simpleSleep(10000);
+    }
 }
 

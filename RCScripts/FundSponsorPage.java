@@ -5,6 +5,7 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import test.Support.ReadData;
 import java.util.List;
@@ -19,6 +20,7 @@ public class FundSponsorPage extends FluentWebDriverPage {
 
     public void verifySubRole(int RowIndex){
         try{
+            WaitUtil.simpleSleep(1000);
             String strFundSponsorSubRole = ReadData.readDataExcel("DealSponsorDeveloperFund", RowIndex, "VerifySubRole");
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//div[@id='searchFilters']/div/span/strong[contains(text(),'"+strFundSponsorSubRole+"')]"), getDriverProvider().get()));
         } catch (Exception e) {
@@ -56,6 +58,7 @@ public class FundSponsorPage extends FluentWebDriverPage {
 
     public void clickOnFundSponsorCompanyName(int RowIndex){
         try{
+            WaitUtil.simpleSleep(1000);
             String strCompanyName = ReadData.readDataExcel("CompaniesOfDealDeveloperFund", RowIndex, "VerifyFundSponsorCompanyName");
             findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strCompanyName+"')]")).click();
         } catch (Exception e) {
@@ -64,14 +67,11 @@ public class FundSponsorPage extends FluentWebDriverPage {
     }
 
     public void selectStrategyType(){
-
-        //wait until checkbox is found
-        WaitUtil.simpleSleep(100);
+        WaitUtil.simpleSleep(500);
         findElement(By.id("AssetstrategyId_checkbox_13")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
-
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until checkbox is found
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(25000);
     }
 
     public void clearStrategy()throws ElementNotVisibleException{
@@ -80,7 +80,7 @@ public class FundSponsorPage extends FluentWebDriverPage {
         while (!bnlFound && intCount <= 5){
             try{
                 findElement(By.id("AssetstrategyId_checkbox_13")).click();
-                findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+                findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
                 bnlFound= true;
             }catch(ElementNotVisibleException e){
                 WaitUtil.simpleSleep(5000);
@@ -145,4 +145,19 @@ public class FundSponsorPage extends FluentWebDriverPage {
         return status;
     }
 
+    public void clickIowaState(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Select States:')]/parent::div/div/multi-selectbox/div/div/div/div/div/div[@class='col-md-9']/label[contains(text(),'Iowa')]")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Select States:')]/parent::div/div/multi-selectbox/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
+
+    public void enterAndSelectHaleCity(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/div/input")).sendKeys("Hale");
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/div/div/div/div[@class='col-md-9']/label[contains(text(),'Hale (Iowa)')]")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+    }
 }

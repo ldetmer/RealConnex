@@ -31,6 +31,6 @@ public class UserProfilePage extends FluentWebDriverPage {
             LoginRealConnexPage.gStrReason = LoginRealConnexPage.gStrReason +"; "+"Find Now Element is not clicked\n";
         }
         //wait until page load
-        WaitUtil.simpleSleep(1000);
+        WaitUtil.simpleSleep(15000);
     }
 }

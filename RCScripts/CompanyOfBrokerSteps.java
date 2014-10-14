@@ -60,5 +60,18 @@ public class CompanyOfBrokerSteps {
         companyOfBrokerPage.clearInDdOption();
     }
 
+    @When("I click on West region")
+    public void clickWest(){
+        companyOfBrokerPage.clickWest();
+    }
 
+    @When("I click on California state")
+    public void clickCaliforniaState(){
+        companyOfBrokerPage.clickCaliforniaState();
+    }
+
+    @When("I enter and select Napa city")
+    public void enterAndSelectNapaCity(){
+        companyOfBrokerPage.enterAndSelectNapaCity();
+    }
 }

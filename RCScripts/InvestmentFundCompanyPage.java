@@ -104,14 +104,14 @@ public class InvestmentFundCompanyPage extends FluentWebDriverPage{
         //wait until asset field appears
         WaitUtil.simpleSleep(1000);
         //executeScript("scrollTo(0,550)");
-        findElement(By.id("ui-accordion-1-header-0")).click();
+        findElement(By.id("ui-accordion-1-header-1")).click();
     }
 
     public void clickAssetType(){
         //wait until asset field appears
         WaitUtil.simpleSleep(5000);
         executeScript("scrollTo(0,550)");
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until asset field appears
         WaitUtil.simpleSleep(5000);
     }
@@ -120,7 +120,7 @@ public class InvestmentFundCompanyPage extends FluentWebDriverPage{
         //wait until asset field is displayed
         WaitUtil.simpleSleep(1000);
         findElement(By.id("AssettypeId_checkbox_16")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait until asset field appears
         WaitUtil.simpleSleep(5000);
     }
@@ -129,15 +129,26 @@ public class InvestmentFundCompanyPage extends FluentWebDriverPage{
         //wait until deal stage field appears
         WaitUtil.simpleSleep(500);
         findElement(By.id("AssetstrategyId_checkbox_14")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Asset Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Asset Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait until asset field appears
+        WaitUtil.simpleSleep(10000);
     }
 
     public void checkSyndicators(){
         //wait until field is displayed
-        WaitUtil.simpleSleep(100);
+        WaitUtil.simpleSleep(500);
         findElement(By.id("syndications_")).click();
         //wait until page load
+        WaitUtil.simpleSleep(20000);
+    }
+
+    public void enterAndSelectYerbaCity(){
+        //wait until page load
         WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/div/input")).sendKeys("Yerba");
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/div/div/div/div[@class='col-md-9']/label[contains(text(),'Yerba (West Virginia)')]")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
 }

@@ -85,9 +85,8 @@ public class ProjectOfInvestmentDirectIntoPage extends FluentWebDriverPage {
 
     public void verifyProjectOfInvestmentBanker(int RowIndex){
         try {
-
             //wait until companies appears in search
-            WaitUtil.simpleSleep(5000);
+            WaitUtil.simpleSleep(15000);
             String strProject = ReadData.readDataExcel("Investments", RowIndex, "InvestmentBankerProject");
             Assert.assertTrue(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'"+strProject+"')]"),getDriverProvider().get()));
         } catch (Exception e) {
@@ -112,10 +111,11 @@ public class ProjectOfInvestmentDirectIntoPage extends FluentWebDriverPage {
         WebElement sliderLeft = findElement(By.xpath("//div[@id='searchFilters']/div[2]/div[1]/div/div[2]/a[1]"));
         for(int i=0;i<40;i++){
             sliderLeft.sendKeys(Keys.ARROW_UP);
+            //wait until page loads
+            WaitUtil.simpleSleep(600);
         }
-
         //wait until page loads
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(20000);
     }
 
     public void clearInvestmentAmount(){
@@ -165,6 +165,8 @@ public class ProjectOfInvestmentDirectIntoPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("InvestortypeId_checkbox_1")).click();
         VerificationStatements.VerifyClickSelectedStatus(getDriverProvider().get(),By.id("InvestortypeId_checkbox_1"));
+        //wait until page gets loaded
+        WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//div[@id='searchFilters']/div/div/label[contains(text(),'Investing As:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
@@ -173,6 +175,8 @@ public class ProjectOfInvestmentDirectIntoPage extends FluentWebDriverPage {
         WaitUtil.simpleSleep(500);
         findElement(By.id("InvestortypeId_checkbox_1")).click();
         VerificationStatements.VerifyClickNotSelectedStatus(getDriverProvider().get(),By.id("InvestortypeId_checkbox_1"));
+        //wait until page gets loaded
+        WaitUtil.simpleSleep(5000);
         findElement(By.xpath("//div[@id='searchFilters']/div/div/label[contains(text(),'Investing As:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
@@ -205,6 +209,12 @@ public class ProjectOfInvestmentDirectIntoPage extends FluentWebDriverPage {
     }
 
     public void clickReturnProfile(){
+        //wait until page gets loaded
+        WaitUtil.simpleSleep(100);
+        findElement(By.id("ui-accordion-1-header-2")).click();
+    }
+
+    public void clickReturnProfile_InvestmentDirectInto(){
         //wait until page gets loaded
         WaitUtil.simpleSleep(100);
         findElement(By.id("ui-accordion-1-header-1")).click();

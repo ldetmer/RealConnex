@@ -10,16 +10,18 @@ Scenario: TC 138431 : Verify that companies of user with lender role and loan ty
 When I update TestCaseId 138431
 When I update TestCaseName Perform: "Money >> Debt >> Loans" search Verify that companies of users with "Lender" role and "Loan" Loan Type option selected are retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Money' link
 And I click on 'Debt' link
 And I click on 'Loans' link
 And I click on 'Land Loan' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Money' in find of money search
 And I should see 'Land Loan' in loan of money debt loan search
 When I set the value in loan amount field
@@ -31,6 +33,23 @@ When I clear value of LVT field
 And I set the value in term field
 Then I verify 'SATURN' company name is displayed in money debt loan search
 When I clear the value in term field
+And I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on NorthEast region
+And I click on states field
+And I click on New York state
+And I click on cities field
+And I enter and select Buffalo city
+Then I verify 'SATURN' company name is displayed in money debt loan search
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Money' link
+And I click on 'Debt' link
+And I click on 'Loans' link
+And I click on 'Land Loan' link
+And I click on 'View Search Results' button
 And I click on lender characteristics field
 And I click lender profile in lender characteristics field
 And I select insurance company option in lender profile

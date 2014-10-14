@@ -10,20 +10,20 @@ Scenario: TC 138414: Verify service project other than investment banker are  no
 When I update TestCaseId 138414
 When I update TestCaseName Search Project Of Investment Banker Validation
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Real Estate Advisors' link
 And I click on 'Investment Banker' link
 And I click on 'Capital Raising' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Real Estate Advisors' as find in search option
 And I should see 'Investment Banker' as subrole in search option
 And I should see 'Capital Raising' as strategy in search option
-When I click on banker company name
-And I return back to the searched page
 When I click on banker project name
 And I return back to the searched page
 And I set values of project slider
@@ -42,6 +42,23 @@ Then I verify service name of investment banker selected 'Banker Permitted' opti
 And I verify service name of investment banker selected 'Pursuit' option is not displayed
 When I click on deal stage drop down
 And I clear permitted option in deal stage drop down
+And I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on MidWest region
+And I click on states field
+And I click on Wisconsin state
+And I click on cities field
+And I enter and select Eden city
+And I click on geographical coverage field
+Then I verify 'Faber' service name of investment banker is not displayed
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Real Estate Advisors' link
+And I click on 'Investment Banker' link
+And I click on 'Capital Raising' link
+And I click on 'View Search Results' button
 And I click on profile and experience field
 And I select number of office in profile field
 Then I verify 'Faber' service name of investment banker is displayed

@@ -10,32 +10,26 @@ Scenario: TC 138395: Verify deal sponsor,developer and fund sponsor are displaye
 When I update TestCaseId 138395
 When I update TestCaseName Search Users Of Developer Deal And Fund Sponsor
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I select 'Developer','DealSponsor','FundSponsor' check box
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Developers, Deal Sponsors' as find in search option
 And I should see 'Developer, Deal Sponsor, Fund Sponsor' as sub role in search option
 And I should see 'Marylin Joe' deal sponsor user name is displayed
 When I click on verified deal sponsor user name
 And I return back to the searched page
-Then I should see 'Sterling' company name of deal sponsor
-When I click on company name of deal sponsor
-And I return back to the searched page
 Then I verify the 'Developer' name is displayed
 When I click on verified developer name
 And I return back to the searched page
-And I click on Developer company name
-And I return back to the searched page
 Then I verify 'Fund Sponsor' user is displayed
 When I click on the verified fund sponsor name
-And I return back to the searched page
-Then I verify 'Fund Sponsor' company name is displayed
-When I click on Fund Sponsor company name
 And I return back to the searched page
 And I click on asset experience
 And I click on 'Asset Strategy' drop down field

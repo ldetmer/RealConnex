@@ -15,6 +15,7 @@ public class CompaniesSearchPage extends FluentWebDriverPage {
 
     public void clickDealSponsorCompanyName(int RowIndex){
         try{
+            WaitUtil.simpleSleep(1000);
             String strVerifyCompanyName = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "VerifyCompanyName");
             findElement(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong[contains(text(),'"+strVerifyCompanyName+"')]")).click();
         } catch (Exception e) {
@@ -84,14 +85,14 @@ public class CompaniesSearchPage extends FluentWebDriverPage {
     }
 
     public void enterTypeField(int RowIndex){
-        try{
-            //wait until page gets loaded
-            WaitUtil.simpleSleep(500);
+        try {
             String strSubRoleType = ReadData.readDataExcel("CompaniesFieldDetails", RowIndex, "SubRoleType");
             findElement(By.id("CompanySubrole")).click();
+            //wait until page gets loaded
+            WaitUtil.simpleSleep(10000);
             findElement(By.id("CompanySubrole")).sendKeys(strSubRoleType);
             //wait until page gets loaded
-            WaitUtil.simpleSleep(12000);
+            WaitUtil.simpleSleep(10000);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -113,17 +114,29 @@ public class CompaniesSearchPage extends FluentWebDriverPage {
 
 
     public void clearCompanyNameField(){
+        int intCnt=0;
+        boolean blnFound=false;
+        while(!blnFound && intCnt<10){
+            try{
+                //wait until name field appears
+                WaitUtil.simpleSleep(500);
+                findElement(By.id("CompanyTitle")).clear();
+                blnFound=true;
+                WaitUtil.simpleSleep(1000);
+            }catch(Exception e){
+                WaitUtil.simpleSleep(20000);
+                intCnt++;
+            }
+        }
 
-        //wait until name field appears
-        WaitUtil.simpleSleep(500);
-        findElement(By.id("CompanyTitle")).clear();
     }
 
     public void clearTypeField(){
-
         //wait until name field appears
         WaitUtil.simpleSleep(500);
         findElement(By.id("CompanySubrole")).clear();
+        //wait until name field appears
+        WaitUtil.simpleSleep(20000);
     }
 }
 

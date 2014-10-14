@@ -10,16 +10,18 @@ Scenario: TC 138409: Verify companies of broker is retrieved when search is perf
 When I update TestCaseId 138409
 When I update TestCaseName Perform: "Real Estate Advisor >> Broker" search Verify that companies of "Broker" sub role users are retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Real Estate Advisors' link
 And I click on 'Broker' link
 And I click on 'Residential' link
 And I click on 'Acquisitions' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Real Estate Advisors' as find in search option
 And I should see 'Residential Broker' as subrole in search option
 And I should see 'Acquisitions' as strategy in search option
@@ -129,6 +131,23 @@ And I click on in DD option in deal stage
 Then I verify company name of broker selected all search option is displayed
 When I click on deal stage drop down
 And I clear deal stage field
+And I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on West region
+And I click on states field
+And I click on California state
+And I click on cities field
+And I enter and select Napa city
+Then I verify company name of broker is displayed
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Real Estate Advisors' link
+And I click on 'Broker' link
+And I click on 'Residential' link
+And I click on 'Acquisitions' link
+And I click on 'View Search Results' button
 And I click on profile and experience field
 And I select number of offices
 Then I verify company name of broker is displayed

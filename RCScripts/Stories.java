@@ -32,7 +32,7 @@ public class Stories {
 
         // Don't throw an exception for failing stories while generating reports
         storyEmbedder.embedderControls().doBatch(false);
-        storyEmbedder.embedderControls().doGenerateViewAfterStories(true);
+        storyEmbedder.embedderControls().doGenerateViewAfterStories(false);
         storyEmbedder.embedderControls().doIgnoreFailureInStories(false);
         storyEmbedder.embedderControls().doIgnoreFailureInView(false);
         storyEmbedder.embedderControls().doSkip(false);

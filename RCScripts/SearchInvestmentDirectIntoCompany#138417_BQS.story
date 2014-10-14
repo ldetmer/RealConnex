@@ -9,22 +9,20 @@ Scenario: TC 138417 : Verify company of deal sponsor role is retrieved when sear
 When I update TestCaseId 138417
 When I update TestCaseName Perform: "Investment >> Direct Into Project" search Verify that companies of users with role "Deal Sponsor" but not "Fund Sponsor" sub-role are retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Investments' link
 And I click on 'Direct Into Project' link
 And I click on 'Core' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Investments' in find of search option
 And I verify kind in search option
 And I verify risk in search option
-When I click on investment direct into service project
-And I return back to the searched page
-When I click on investment direct into listing project
-And I return back to the searched page
 When I click on investment direct into company
 And I return back to the searched page
 And I select the value in deal size
@@ -138,100 +136,100 @@ Then I verify 'Andrew Company' company name of investments is displayed
 When I click route to sponsor field
 And I clear all option option in route to sponsor
 And I click on asset interest
-And I click on asset type field of deal sponsor search
-And I select office in the asset type drop down list
+And I click on asset type field in investment direct into search
+And I select a asset type office in investment direct into search
 Then I verify the company name of investment direct into is displayed
-When I click on asset type field of deal sponsor search
-And I clear asset type drop down
-And I click on asset type field
-And I select a asset type office in drop down list
+When I click on asset type field in investment direct into search
+And I clear asset type drop down in investment direct into search
+And I click on asset type field in investment direct into search
+And I select a asset type office in investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on multifamily option in asset type
+When I click on asset type field in investment direct into search
+And I click on multifamily option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on hotel option in asset type
+When I click on asset type field in investment direct into search
+And I click on hotel option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on sports option in asset type
+When I click on asset type field in investment direct into search
+And I click on sports option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on health care option in asset type
+When I click on asset type field in investment direct into search
+And I click on health care option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on storage option in asset type
+When I click on asset type field in investment direct into search
+And I click on storage option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on other option in asset type
+When I click on asset type field in investment direct into search
+And I click on other option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on retail option in asset type
+When I click on asset type field in investment direct into search
+And I click on retail option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on industrial option in asset type
+When I click on asset type field in investment direct into search
+And I click on industrial option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on residential option in asset type
+When I click on asset type field in investment direct into search
+And I click on residential option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on single option in asset type
+When I click on asset type field in investment direct into search
+And I click on single option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on retirement option in asset type
+When I click on asset type field in investment direct into search
+And I click on retirement option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on student option in asset type
+When I click on asset type field in investment direct into search
+And I click on student option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on other housing option in asset type
+When I click on asset type field in investment direct into search
+And I click on other housing option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on residential multi family option in asset type
+When I click on asset type field in investment direct into search
+And I click on residential multi family option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I clear residential of asset field
-And I click on asset type field
-And I click on mixed use option in asset type
+When I click on asset type field in investment direct into search
+And I clear residential of asset field of investment direct into search
+And I click on asset type field in investment direct into search
+And I click on mixed use option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on commercial option in asset type
+When I click on asset type field in investment direct into search
+And I click on commercial option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on solar option in asset type
+When I click on asset type field in investment direct into search
+And I click on solar option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I click on all option in asset type
+When I click on asset type field in investment direct into search
+And I click on all option in asset type of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on asset type field
-And I clear all option in asset type
-And I click on 'RiskProfile' drop down field
-And I select core option in risk profile drop down
+When I click on asset type field in investment direct into search
+And I clear all option in asset type of investment direct into search
+And I click on 'RiskProfile' drop down field in investment direct into project
+And I select core option in risk profile drop down of investment direct into project
 Then I verify the company name of investment direct into is displayed
-When I click on 'RiskProfile' drop down field
-And I clear core in risk profile drop down
-And I click on 'RiskProfile' drop down field
-And I select a risk profile in drop down list
+When I click on 'RiskProfile' drop down field in investment direct into project
+And I clear core in risk profile drop down of investment direct into project
+And I click on 'RiskProfile' drop down field in investment direct into project
+And I select core option in risk profile drop down of investment direct into project
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'RiskProfile' drop down field
-And I click on core plus risk profile type
+When I click on 'RiskProfile' drop down field in investment direct into project
+And I click on core plus risk profile type of investment direct into project
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'RiskProfile' drop down field
-And I click on value add risk profile type
+When I click on 'RiskProfile' drop down field in investment direct into project
+And I click on value add risk profile type of investment direct into project
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'RiskProfile' drop down field
-And I click on development risk profile type
+When I click on 'RiskProfile' drop down field in investment direct into project
+And I click on development risk profile type of investment direct into project
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'RiskProfile' drop down field
-And I click on opportunistic risk profile type
+When I click on 'RiskProfile' drop down field in investment direct into project
+And I click on opportunistic risk profile type  of investment direct into project
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'RiskProfile' drop down field
-And I click on other option of risk profile type
+When I click on 'RiskProfile' drop down field in investment direct into project
+And I click on other option of risk profile type of investment direct into project
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'RiskProfile' drop down field
-And I click all option in risk profile type
+When I click on 'RiskProfile' drop down field in investment direct into project
+And I click all option in risk profile type of investment direct into project
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'RiskProfile' drop down field
-And I clear risk profile
+When I click on 'RiskProfile' drop down field in investment direct into project
+And I clear risk profile of investment direct into project
 And I click on deal stage drop down field
 And I select owned option in deal stage drop down field
 Then I verify the company name of investment direct into is displayed
@@ -274,71 +272,82 @@ And I select acquisition option in asset strategy field
 Then I verify the company name of investment direct into is displayed
 When I click on asset strategy drop down
 And I clear acquisition option in asset strategy field
-And I click on 'Asset Strategy' drop down field
-And I select acquisition option in a strategy field of drop down list
+And I click on asset strategy drop down
+And I select acquisition option in asset strategy field
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I clear acquisition option in a strategy field of drop down list
-And I click on 'Asset Strategy' drop down field
-And I click on sale leaseback option in strategy
+When I click on asset strategy drop down
+And I clear acquisition option in asset strategy field
+And I click on asset strategy drop down
+And I click on sale leaseback option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on stable income producing option in strategy
+When I click on asset strategy drop down
+And I click on stable income producing option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on quick flip option in strategy
+When I click on asset strategy drop down
+And I click on quick flip option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on restructuring option in strategy
+When I click on asset strategy drop down
+And I click on restructuring option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on recapitalization option in strategy
+When I click on asset strategy drop down
+And I click on recapitalization option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on land bank option in strategy
+When I click on asset strategy drop down
+And I click on land bank option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on change of use option in strategy
+When I click on asset strategy drop down
+And I click on change of use option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on development option in strategy
+When I click on asset strategy drop down
+And I click on development option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on platform build option in strategy
+When I click on asset strategy drop down
+And I click on platform build option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on pursuit option in strategy
+When I click on asset strategy drop down
+And I click on pursuit option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on lease up option in strategy
+When I click on asset strategy drop down
+And I click on lease up option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on work out option in strategy
+When I click on asset strategy drop down
+And I click on work out option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on restructuring corporate option in strategy
+When I click on asset strategy drop down
+And I click on restructuring corporate option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on public to private option in strategy
+When I click on asset strategy drop down
+And I click on public to private option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on rezoning option in strategy
+When I click on asset strategy drop down
+And I click on rezoning option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on renovation option in strategy
+When I click on asset strategy drop down
+And I click on renovation option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on forward commitment option in strategy
+When I click on asset strategy drop down
+And I click on forward commitment option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on others option in strategy
+When I click on asset strategy drop down
+And I click on others option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I click on all option in strategy
+When I click on asset strategy drop down
+And I click on all option in strategy of investment direct into search
 Then I verify 'Andrew Company' company name of investments is displayed
-When I click on 'Asset Strategy' drop down field
-And I clear all option in strategy
+When I click on asset strategy drop down
+And I clear all option in strategy of investment direct into search
 And I check the syndicating check field
 Then I verify the company name of investment direct into is displayed
 When I un check the syndicating check field
-And I logout from RealConnex application
+And I click on geographical coverage field in investment search
+And I click on countries field in investment search
+And I select United States checkbox in countries field of investment search
+And I click on region field in investment search
+And I click on NorthEast region in investment search
+And I click on states field in investment search
+And I click on New Jersey state in investment search
+And I click on cities field in investment search
+And I enter and select Kearny city in investment search
+And I click on geographical coverage field in investment search
+Then I verify the company name of investment direct into is displayed
+When I logout from RealConnex application

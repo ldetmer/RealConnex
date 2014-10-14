@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import test.Support.DateTimeFunctions;
 import test.Support.OfficeCommonFunctions;
 import test.Support.ReadData;
+import test.pages.LoginRealConnexPage;
+import test.pages.PeopleSearchPage;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -19,11 +21,20 @@ public class PerStoryWebDriverConfiguration extends WebDriverSteps {
     public static int intSuccessCount = 0;
     public static Date gdtStartDate;// Date variable
     ReadData ReadData= new ReadData(); //Created object to access ReadData class functions
+    //static PerStoryWebDriverConfiguration perStoryWebDriverConfiguration;
     public PerStoryWebDriverConfiguration(WebDriverProvider driverProvider) {
         super(driverProvider);
     }
     WebDriver webDriver;
     OfficeCommonFunctions objOfficeCommonFunctions =new OfficeCommonFunctions();
+
+    /*public static void writeToExcelFunction() throws Exception {
+        if(LoginRealConnexPage.gStrReason!=""){
+            perStoryWebDriverConfiguration.afterScenario();
+        } else {
+            perStoryWebDriverConfiguration.afterScenarioSuccess();
+        }
+    }*/
 
     @BeforeStory
     public void beforeStory() throws Exception {
@@ -46,13 +57,13 @@ public class PerStoryWebDriverConfiguration extends WebDriverSteps {
     @AfterStory
     public void afterStory() throws Exception {
         System.out.println("Shutting down WebDriver");
-       try{
-           getDriverProvider().get().close();
-           webDriver.quit();
+        try{
+            getDriverProvider().get().close();
+            webDriver.quit();
 
-       }catch(Exception e){
+        }catch(Exception e){
 
-       }
+        }
         System.out.println("Shut down WebDriver");
     }
 
@@ -69,8 +80,6 @@ public class PerStoryWebDriverConfiguration extends WebDriverSteps {
             driverProvider.initialize();
             driverProvider.get().manage().deleteAllCookies();
         }
-
-
 
         //Specifies the amount of time the driver should wait when searching for an element if it is not immediately present.
         webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -91,26 +100,47 @@ public class PerStoryWebDriverConfiguration extends WebDriverSteps {
     public void afterScenario() throws Exception {
         //Read the User story ID and Scenario ID from the test data excel.
         String lStrTestCaseId = ReadData.readTestDataExcel("RunTimeExecutionIds", 1, "TestCaseId");
+        String lStrTestCaseName = ReadData.readTestDataExcel("RunTimeExecutionIds",1,"TestCaseName");
 
         String lStrRunDate = DateTimeFunctions.getCurrentDate("MM/dd/yyyy hh:mm:ss z");
         String lStrTimeTaken = String.valueOf(DateTimeFunctions.TimeTaken(gdtStartDate));
 
         //Write the results to the Results excel file
-        String[] lArrData = {lStrTestCaseId, "FAIL",lStrRunDate,lStrTimeTaken};
-        objOfficeCommonFunctions.AppendDataToExcel("Results", "TestCaseId",lArrData);
+        //String[] lArrData = {lStrTestCaseId,"FAIL",lStrRunDate,lStrTimeTaken};
+        String[] lArrData = {lStrTestCaseId,lStrTestCaseName,"FAIL",lStrRunDate,lStrTimeTaken,LoginRealConnexPage.gStrReason};
+        objOfficeCommonFunctions.AppendDataToExcel("Result",lArrData);
+        LoginRealConnexPage.gStrReason = "";
     }
 
     @AfterScenario(uponOutcome = AfterScenario.Outcome.SUCCESS)
     public void afterScenarioSuccess() throws Exception {
         //Read the User story ID and Scenario ID from the test data excel.
-        String lStrTestCaseId = ReadData.readTestDataExcel("RunTimeExecutionIds", 1, "TestCaseId");
+        if(LoginRealConnexPage.gStrReason!=""){
 
-        String lStrRunDate = DateTimeFunctions.getCurrentDate("MM/dd/yyyy hh:mm:ss z");
-        String lStrTimeTaken = String.valueOf(DateTimeFunctions.TimeTaken(gdtStartDate));
+            String lStrTestCaseId = ReadData.readTestDataExcel("RunTimeExecutionIds", 1, "TestCaseId");
+            String lStrTestCaseName = ReadData.readTestDataExcel("RunTimeExecutionIds",1,"TestCaseName");
 
-        //Write the results to the Results excel file
-        //Write the results to the Results excel file
-        String[] lArrData = {lStrTestCaseId,"PASS",lStrRunDate,lStrTimeTaken};
-        objOfficeCommonFunctions.AppendDataToExcel("Results", "TestCaseId",lArrData);
+            String lStrRunDate = DateTimeFunctions.getCurrentDate("MM/dd/yyyy hh:mm:ss z");
+            String lStrTimeTaken = String.valueOf(DateTimeFunctions.TimeTaken(gdtStartDate));
+
+            //Write the results to the Results excel file
+            //String[] lArrData = {lStrTestCaseId,"PASS",lStrRunDate,lStrTimeTaken};
+            String[] lArrData = {lStrTestCaseId,lStrTestCaseName,"FAIL",lStrRunDate,lStrTimeTaken,LoginRealConnexPage.gStrReason};
+            objOfficeCommonFunctions.AppendDataToExcel("Result",lArrData);
+            LoginRealConnexPage.gStrReason = "";
+        }else {
+            String lStrTestCaseId = ReadData.readTestDataExcel("RunTimeExecutionIds", 1, "TestCaseId");
+            String lStrTestCaseName = ReadData.readTestDataExcel("RunTimeExecutionIds",1,"TestCaseName");
+
+            String lStrRunDate = DateTimeFunctions.getCurrentDate("MM/dd/yyyy hh:mm:ss z");
+            String lStrTimeTaken = String.valueOf(DateTimeFunctions.TimeTaken(gdtStartDate));
+
+            //Write the results to the Results excel file
+            //String[] lArrData = {lStrTestCaseId,"FAIL",lStrRunDate,lStrTimeTaken};
+            String[] lArrData = {lStrTestCaseId,lStrTestCaseName,"PASS",lStrRunDate,lStrTimeTaken,LoginRealConnexPage.gStrReason};
+            objOfficeCommonFunctions.AppendDataToExcel("Result",lArrData);
+            LoginRealConnexPage.gStrReason = "";
+        }
+        LoginRealConnexPage.gStrReason = "";
     }
 }

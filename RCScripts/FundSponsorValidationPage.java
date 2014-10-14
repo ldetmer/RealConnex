@@ -18,7 +18,7 @@ public class FundSponsorValidationPage extends FluentWebDriverPage{
          //wait until page load
         WaitUtil.simpleSleep(100);
         findElement(By.id("AssetstrategyId_checkbox_6")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
          //wait until page load
         WaitUtil.simpleSleep(10000);
     }
@@ -29,7 +29,7 @@ public class FundSponsorValidationPage extends FluentWebDriverPage{
         WaitUtil.simpleSleep(100);
         findElement(By.id("AssetstrategyId_checkbox_13")).click();
         findElement(By.id("AssetstrategyId_checkbox_6")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-1']/div/label[contains(text(),'Strategy:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void userOfAllSearchOption(int RowIndex){

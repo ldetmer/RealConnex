@@ -34,6 +34,8 @@ public class CompaniesOfFundSponsorValidationPage extends FluentWebDriverPage{
     }
 
     public void companyOfFundSponsorNotDisplayed(int intRowIndex, String strColumnName) throws Exception {
+        //wait util page load
+        WaitUtil.simpleSleep(5000);
         String strOtherUser = ReadData.readDataExcel("ValidationDetails", intRowIndex, strColumnName);
         Assert.assertFalse(WaitUtil.isElementPresent(By.xpath("//tbody[@id='searchResults']/tr/td/a/strong/span[contains(text(),'" + strOtherUser + "')]"), getDriverProvider().get()));
     }

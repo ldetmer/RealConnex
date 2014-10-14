@@ -420,6 +420,11 @@ public class MyUniverseSteps {
         myUniversePage.verifyDealFundSizeOfRealEstateAdvisor(lStrDealSizeFrom,lStrDealSizeTo);
     }
 
+    @Then("I verify deal/fund size of the deal sponsor i.e $lStrDealSizeFrom to $lStrDealSizeTo is set")
+    public void verifyDealFundSizeOfDealSponsor(@Named("lStrDealSizeFrom") String lStrDealSizeFrom , @Named("lStrDealSizeTo") String lStrDealSizeTo){
+        myUniversePage.verifyDealFundSizeOfDealSponsor(lStrDealSizeFrom,lStrDealSizeTo);
+    }
+
     @When("I select the location of the user in my universe exclude")
     public void selectLocationInMyUniverseExclude(){
         myUniversePage.selectLocationInMyUniverseExclude();
@@ -428,6 +433,86 @@ public class MyUniverseSteps {
     @When("I select the location of the user in my universe exclude of company tab")
     public void selectLocationInMyUniverseExcludeOfCompanyTab(){
         myUniversePage.selectLocationInMyUniverseExcludeOfCompanyTab();
+    }
+
+    @When("I select country of the user in my universe exclude")
+    public void selectCountryInMyUniverseExcludeOfCompanyTab(){
+        myUniversePage.selectCountryInMyUniverseExcludeOfCompanyTab();
+    }
+
+    @When("I select country of the user in my universe include")
+    public void selectCountryInMyUniverseInclude(){
+        myUniversePage.selectCountryInMyUniverseInclude();
+    }
+
+    @When("I select country of the user in me tab of my universe include")
+    public void selectCountryInMeTabOfMyUniverseInclude(){
+        myUniversePage.selectCountryInMeTabOfMyUniverseInclude();
+    }
+
+    @When("I select country of the user in posting tab of my universe include")
+    public void selectCountryInPostingTabOfMyUniverseInclude(){
+        myUniversePage.selectCountryInPostingTabOfMyUniverseInclude();
+    }
+
+    @When("I select regions of the user in my universe exclude")
+    public void selectRegionInMyUniverseExcludeOfCompanyTab(){
+        myUniversePage.selectRegionInMyUniverseExcludeOfCompanyTab();
+    }
+
+    @When("I select regions of the user in my universe include")
+    public void selectRegionInMyUniverseInclude(){
+        myUniversePage.selectRegionInMyUniverseInclude();
+    }
+
+    @When("I select regions of the user in me tab of my universe include")
+    public void selectRegionInMeTabMyUniverseInclude(){
+        myUniversePage.selectRegionInMeTabMyUniverseInclude();
+    }
+
+    @When("I select regions of the user in posting tab of my universe include")
+    public void selectRegionInProjectTabMyUniverseInclude(){
+        myUniversePage.selectRegionInProjectTabMyUniverseInclude();
+    }
+
+    @When("I select states of the user in my universe exclude")
+    public void selectStatesInMyUniverseExcludeOfCompanyTab(){
+        myUniversePage.selectStatesInMyUniverseExcludeOfCompanyTab();
+    }
+
+    @When("I select states of the user in my universe include")
+    public void selectStatesInMyUniverseInclude(){
+        myUniversePage.selectStatesInMyUniverseInclude();
+    }
+
+    @When("I select states of the user in me tab of my universe include")
+    public void selectStatesInMeTabMyUniverseInclude(){
+        myUniversePage.selectStatesInMeTabMyUniverseInclude();
+    }
+
+    @When("I select states of the user in posting tab of my universe include")
+    public void selectStatesInPostingTabMyUniverseInclude(){
+        myUniversePage.selectStatesInPostingTabMyUniverseInclude();
+    }
+
+    @When("I select cities of the user in my universe exclude")
+    public void selectCitiesInMyUniverseExcludeOfCompanyTab(){
+        myUniversePage.selectCitiesInMyUniverseExcludeOfCompanyTab();
+    }
+
+    @When("I select cities of the user in my universe include")
+    public void selectCitiesInMyUniverseInclude(){
+        myUniversePage.selectCitiesInMyUniverseInclude();
+    }
+
+    @When("I select cities of the user in me tab of my universe include")
+    public void selectCitiesInMeTabMyUniverseInclude(){
+        myUniversePage.selectCitiesInMeTabMyUniverseInclude();
+    }
+
+    @When("I select cities of the user in posting tab of my universe include")
+    public void selectCitiesInPostingTabMyUniverseInclude(){
+        myUniversePage.selectCitiesInPostingTabMyUniverseInclude();
     }
 
     @When("I click on save button in my universe page of ME tab")
@@ -469,6 +554,20 @@ public class MyUniverseSteps {
         myUniversePage.verifyProjectName_Universe(lStrCompanyName);
     }
 
+    @Then("I verify '$lStrProjectName' deal sponsor project name who has set privacy in my universe is displayed")
+    @Aliases(values = {"I verify '$lStrFundName' deal sponsor fund name who has set privacy in my universe is displayed",
+            "I verify '$lStrFundName' investor fund name who has set privacy in my universe is displayed"})
+    public void verifyProjectName_UniverseInclude(@Named("lStrCompanyName") String lStrCompanyName){
+        myUniversePage.verifyProjectName_UniverseExclude(lStrCompanyName);
+    }
+
+    @Then("I verify '$lStrProjectName' of deal sponsor project name who has set privacy to public in exclude of my universe is displayed")
+    @Aliases(values = {"I verify '$lStrFundName' of deal sponsor fund name who has set privacy to public in exclude of my universe is displayed",
+            "I verify '$lStrFundName' of investor fund name who has set privacy in exclude of my universe is displayed"})
+    public void verifyProjectName_UniverseExclude(@Named("lStrCompanyName") String lStrCompanyName){
+        myUniversePage.verifyProjectName_UniverseExclude(lStrCompanyName);
+    }
+
     @Then("I verify '$lStrLoanName' lender loan name who has set privacy in include of my universe is displayed")
     @Alias("I verify '$lStrLoanName' lender mezz name who has set privacy in include of my universe is displayed")
     public void verifyLoanName_Universe(@Named("lStrLoanName") String lStrLoanName){
@@ -499,15 +598,29 @@ public class MyUniverseSteps {
         myUniversePage.clickProjectName_Universe(lStrUserName);
     }
 
+    @When("I click '$lStrProjectName' deal sponsor project name who has set privacy in my universe")
+    @Aliases(values = {"I click '$lStrFundName' deal sponsor fund name who has set privacy in my universe",
+            "I click '$lStrFundName' investor fund name who has set privacy in my universe"})
+    public void clickProjectName_UniverseInclude(@Named("lStrUserName")String lStrUserName){
+        myUniversePage.clickProjectName_UniverseExclude(lStrUserName);
+    }
+
+    @When("I click '$lStrProjectName' of deal sponsor project name who has set privacy to public in exclude of my universe")
+    @Aliases(values = {"I click '$lStrFundName' of deal sponsor fund name who has set privacy to public in exclude of my universe",
+            "I click '$lStrFundName' of investor fund name who has set privacy in exclude of my universe"})
+    public void clickProjectName_UniverseExclude(@Named("lStrUserName")String lStrUserName){
+        myUniversePage.clickProjectName_UniverseExclude(lStrUserName);
+    }
+
     @When("I click '$lStrLoanName' lender loan name who has set privacy in include of my universe")
         @Alias("I click '$lStrLoanName' lender mezz name who has set privacy in include of my universe")
     public void clickLoanName_Universe(@Named("lStrLoanName") String lStrLoanName){
         myUniversePage.clickLoanName_Universe(lStrLoanName);
     }
 
-    @When("I click on Profile button")
+    @When("I click on Edit Profile link")
     public void clickProfileButton(){
-        myUniversePage.clickProfileButton();
+        myUniversePage.clickProfileLink();
     }
 
     @When("I click on edit button of the profile")
@@ -518,6 +631,11 @@ public class MyUniverseSteps {
     @When("I select developer option in I am a field")
     public void selectDeveloperOptionInIAmAField(){
         myUniversePage.selectDeveloperOptionInIAmAField();
+    }
+
+    @When("I select deal sponsor option in I am a field")
+    public void selectDealSponsorOptionInIAmAField(){
+        myUniversePage.selectDealSponsorOptionInIAmAField();
     }
 
     @When("I select advisor option in I am a field")
@@ -691,10 +809,22 @@ public class MyUniverseSteps {
         myUniversePage.verifyProjectOfServiceProviderNameMyUniverseInclude(lStrProjectOfServiceProviderName);
     }
 
+    @Then("I verify '$lStrProjectOfServiceProviderName' property service provider service name who set privacy in my universe exclude is displayed")
+    @Alias("I verify '$lStrProjectOfServiceProviderName' property service provider listing name who set privacy in my universe exclude is displayed")
+    public void verifyProjectOfServiceProviderNameMyUniverseExclude(@Named("$lStrProjectOfServiceProviderName") String lStrProjectOfServiceProviderName){
+        myUniversePage.verifyProjectOfServiceProviderNameMyUniverseExclude(lStrProjectOfServiceProviderName);
+    }
+
     @When("I click on '$lStrLoanName' property service provider service name who set privacy in my universe include")
     @Alias("I click on '$lStrLoanName' property service provider listing name who set privacy in my universe include")
     public void clickProjectOfServiceProviderNameInMyUniverse(@Named("lStrLoanName") String lStrLoanName){
         myUniversePage.clickProjectOfServiceProviderNameInMyUniverse(lStrLoanName);
+    }
+
+    @When("I click on '$lStrLoanName' property service provider service name who set privacy in my universe exclude")
+    @Alias("I click on '$lStrLoanName' property service provider listing name who set privacy in my universe exclude")
+    public void clickProjectOfServiceProviderNameInMyUniverseExclude(@Named("lStrLoanName") String lStrLoanName){
+        myUniversePage.clickProjectOfServiceProviderNameInMyUniverseExclude(lStrLoanName);
     }
 
     @Then("I verify '$lStrProjectOfLender' lender loan name who set privacy in my universe include is displayed")
@@ -712,5 +842,15 @@ public class MyUniverseSteps {
     @When("I select the value of deal size who has set the profile to my universe exclude")
     public void selectValueInDealSize_Exclude(){
         myUniversePage.selectValueInDealSize_Exclude();
+    }
+
+    @When("I click on Activities in side pane")
+    public void clickActivities(){
+        myUniversePage.clickActivities();
+    }
+
+    @When("I click on your postings link")
+    public void clickOnYourPosting(){
+        myUniversePage.clickOnYourPosting();
     }
 }

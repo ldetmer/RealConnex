@@ -9,6 +9,7 @@ Scenario: 143830 : Verify that only deal sponsor user cannot access company prof
 When I update TestCaseId 143830
 When I update TestCaseName Select “Deal Sponsor” role and verify that only the user with Deal sponsor role cannot access “Company” profile.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter email ID of user who set the privacy in my universe exclude
 And I enter Password
 And I click on login button
@@ -28,55 +29,65 @@ Then I verify 'Privacy successfully saved' message is displayed
 And I verify that public option is selected
 And I verify deal sponsor check box is selected
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter email ID of deal sponsor user with no filters
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter company name who has set the profile to include in my universe
 Then I verify company whose profile is set to include in my universe is not displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter email ID of deal sponsor user with subrole as fund sponsor
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter company name who has set the profile to include in my universe
 Then I verify company whose profile is set to include in my universe is not displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter email ID of deal sponsor user with deal/fund size
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter company name who has set the profile to include in my universe
 Then I verify company whose profile is set to include in my universe is not displayed
 When I logout RealConnex application
-And I enter email ID of user with role as deal sponsor and sub role as developer
+And I click on Log In button in RealConnex login page
+And I enter email id of user with deal sponsor role and developer subrole
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
 When I enter company name who has set the profile to include in my universe
 Then I verify company whose profile is set to include in my universe is not displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter investor email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
@@ -84,11 +95,13 @@ When I enter company name who has set the profile to include in my universe
 Then I verify 'EH Company' company name who has set privacy exclude in my universe is displayed
 When I click 'EH Company' company name who has set privacy exclude in my universe is displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter lender email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option
@@ -96,11 +109,13 @@ When I enter company name who has set the profile to include in my universe
 Then I verify 'EH Company' company name who has set privacy exclude in my universe is displayed
 When I click 'EH Company' company name who has set privacy exclude in my universe is displayed
 When I logout RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter real estate advisor email ID for login
 And I enter password of user
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'People,companies and association' link
 And I click on 'Companies/Associations' link
 Then I should see 'People, Companies & Associations' as find in search option

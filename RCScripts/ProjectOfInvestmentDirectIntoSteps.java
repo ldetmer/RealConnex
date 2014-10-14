@@ -120,6 +120,11 @@ public class ProjectOfInvestmentDirectIntoSteps {
         projectOfInvestmentBankerDirectIntoPage.clickReturnProfile();
     }
 
+    @When("I click on return profile in investment direct into")
+    public void clickReturnProfile_InvestmentDirectInto(){
+        projectOfInvestmentBankerDirectIntoPage.clickReturnProfile_InvestmentDirectInto();
+    }
+
     @When("I select COC Percent value in return profile")
     public void selectCocPercent(){
         projectOfInvestmentBankerDirectIntoPage.selectCocPercent();

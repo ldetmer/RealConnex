@@ -68,7 +68,7 @@ public class PrivacySetToPublicSteps {
         privacySetToPublicPage.clickCompanyTab();
     }
 
-    @When("I click on PROJECTS tab")
+    @When("I click on POSTINGS tab")
     public void clickProjectsTab(){
         privacySetToPublicPage.clickProjectsTab();
     }
@@ -108,6 +108,7 @@ public class PrivacySetToPublicSteps {
         privacySetToPublicPage.clickFundOfInvestor_Private();
     }
 
+
     @When("I click on loan of the lender whose privacy is private")
     public void clickLoanOfLender_Private(){
         privacySetToPublicPage.clickLoanOfLender_Private();
@@ -139,6 +140,7 @@ public class PrivacySetToPublicSteps {
     }
 
     @When("I click on funds of the investor in my universe include")
+    @Alias("I click on funds of the investor in my universe exclude")
     public void clickFundOfInvestorInMyUniverseInclude() throws Exception {
         privacySetToPublicPage.clickFundOfDealSponsor(5);
     }

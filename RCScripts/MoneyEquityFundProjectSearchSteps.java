@@ -62,4 +62,8 @@ public class MoneyEquityFundProjectSearchSteps {
         moneyEquityFundProjectSearchPage.clearFundTerm();
     }
 
+    @When("I clear risk profile field in money search")
+    public void clearRiskProfile(){
+        moneyEquityFundProjectSearchPage.clearRiskProfile_Money();
+    }
 }

@@ -10,14 +10,16 @@ Scenario: TC 138398: Verify companies other than deal sponsor subrole is not ret
 When I update TestCaseId 138398
 When I update TestCaseName Perform: "Developer, Deal Sponsor >> Deal Sponsor" search Verify that companies other than "Deal Sponsor" sub role are not retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I click on 'Deal Sponsor' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Developers, Deal Sponsors' in find of search option
 And I should see sub role as 'Deal Sponsors'
 When I set value for average deal size field
@@ -39,15 +41,31 @@ And I set value of deals completed field
 Then I verify 'Sterling' company name is not displayed in deal sponsors developers search
 When I clear value of deals completed field
 Then I should see 'Find Now' image
-When I click on 'Find Now' button
+When I click on edit button to start search
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I click on 'Deal Sponsor' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 When I click on 'Route to Sponsor' drop down field
 And I select direct only option in route to sponsor drop down list
 Then I verify deal sponsor company selected 'Intermediary' option is not displayed
 When I click on 'Route to Sponsor' drop down field
 And I clear route to sponsor drop down
+And I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on Southwest region
+And I click on states field
+And I click on Texas state
+And I click on cities field
+And I enter and select Massa city
+Then I verify 'Camp Co' company name is not displayed in deal sponsors developers search
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Developer,Deal Sponsor' link
+And I click on 'Deal Sponsor' link
+And I click on 'View Search Results' button
 And I click on asset experience
 And I click on asset type field of deal sponsor search
 And I select office in the asset type drop down list
@@ -69,7 +87,6 @@ Then I verify 'Sterling' company name is displayed in deal sponsors developers s
 And I verify 'Camp Co' company name is not displayed in deal sponsors developers search
 When I un check Syndicate check box
 And I select co-invests with partners field
-Then I verify 'Sterling' company name is displayed in deal sponsors developers search
-And I verify 'Camp Co' company name is not displayed in deal sponsors developers search
+Then I verify 'Camp Co' company name is not displayed in deal sponsors developers search
 When I clear co invests with partners field
 And I logout from RealConnex application

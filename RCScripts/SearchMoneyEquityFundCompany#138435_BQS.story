@@ -10,19 +10,38 @@ Scenario: TC 138435 : Verify that companies of user with investor role are retri
 When I update TestCaseId 138435
 When I update TestCaseName Perform: "Money >> Equity" search Verify that companies of users with "Investor" role are retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Money' link
 And I click on 'Equity' link
 And I click on 'Preferred' link
 And I click on 'Fund' of money search
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I should see 'Money' in find of money search
 And I should see 'Preferred Equity' in type of money search
 And I should see 'Fund' in kind of money search
+When I click on geographical coverage field
+And I click on countries field
+And I select United States checkbox in countries field
+And I click on region field
+And I click on West region
+And I click on states field
+And I click on California state
+And I click on cities field
+And I enter and select San Francisco city
+Then I verify 'NEEL' company name in money fund search is displayed
+When I click on edit button to start search
+And I click on search real connex marketplace link
+And I click on 'Money' link
+And I click on 'Equity' link
+And I click on 'Preferred' link
+And I click on 'Fund' of money search
+And I click on 'View Search Results' button
 When I click on fund strategy
 And I click on asset type field
 And I select office in the asset type drop down list
@@ -118,74 +137,74 @@ And I click all option in risk profile type
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
 When I click on 'RiskProfile' drop down field
 And I clear risk profile
-And I click on asset strategy drop down
-And I select acquisition option in asset strategy field
+And I click asset strategy field in money search
+And I select acquisition option in a strategy field of drop down list
 Then I verify 'NEEL' company name in money fund search is displayed
-When I click on asset strategy drop down
-And I clear acquisition option in asset strategy field
-And I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
+And I clear acquisition option in a strategy field of drop down list
+And I click asset strategy field in money search
 And I select acquisition option in a strategy field of drop down list
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I clear acquisition option in a strategy field of drop down list
-And I click on 'Asset Strategy' drop down
+And I click asset strategy field in money search
 And I click on sale leaseback option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on stable income producing option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on quick flip option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on restructuring option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on recapitalization option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on land bank option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on change of use option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on development option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on platform build option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on pursuit option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on lease up option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on work out option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on restructuring corporate option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on public to private option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on rezoning option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on renovation option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on forward commitment option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on others option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I click on all option in strategy
 Then I verify 'LAVEN COMPANY' company name in money fund search is displayed
-When I click on 'Asset Strategy' drop down
+When I click asset strategy field in money search
 And I clear all option in strategy
 And I check the syndicating check field
 Then I verify 'NEEL' company name in money fund search is displayed

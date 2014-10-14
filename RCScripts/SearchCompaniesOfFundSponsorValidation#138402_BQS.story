@@ -10,14 +10,16 @@ Scenario: TC 138402: Verify companies other than fund sponsor are not displayed 
 When I update TestCaseId 138402
 When I update TestCaseName Perform: "Developer, Deal Sponsor >> Fund Sponsor" search Verify that companies other than "Fund Sponsor" sub role are not retrieved.
 When I launch RealConnex application
+And I click on Log In button in RealConnex login page
 And I enter user email ID
 And I enter Password
 And I click on login button
 Then I should see 'Find Now' image
 When I click on 'Find Now' button
+And I click on search real connex marketplace link
 And I click on 'Developer,Deal Sponsor' link
 And I select 'Fund Sponsor' link
-And I click on 'GO' button
+And I click on 'View Search Results' button
 Then I verify the sub role type
 And I verify 'Fund Sponsor' user is displayed
 When I click on the verified fund sponsor name
@@ -79,8 +81,7 @@ Then I verify 'Prestige' company name is displayed in fund sponsor search
 And I verify 'Camp Co' company name is not displayed in deal sponsors developers search
 When I un check Syndicate check box
 And I select co-invests with partners field
-Then I verify 'Prestige' company name is displayed in fund sponsor search
-And I verify 'Camp Co' company name is not displayed in deal sponsors developers search
+Then I verify 'Camp Co' company name is not displayed in deal sponsors developers search
 When I clear co invests with partners field
 And I logout from RealConnex application
 

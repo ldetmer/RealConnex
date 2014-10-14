@@ -42,23 +42,34 @@ public class MoneyEquityFundCompanySearchPage extends FluentWebDriverPage {
     public void clickInvestorCharacteristics(){
         //wait util page load
         WaitUtil.simpleSleep(500);
-        findElement(By.id("ui-accordion-1-header-2")).click();
+        findElement(By.id("ui-accordion-1-header-3")).click();
     }
 
     public void clickInvestorType(){
         //wait util page load
         WaitUtil.simpleSleep(500);
         executeScript("scrollTo(0,500)");
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div/label[contains(text(),'Investor Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div/label[contains(text(),'Investor Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
     public void selectAdvisor(){
         //wait util page load
         WaitUtil.simpleSleep(500);
         findElement(By.id("SubroleId_checkbox_18")).click();
-        findElement(By.xpath("//div[@id='ui-accordion-1-panel-2']/div/label[contains(text(),'Investor Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
         //wait util page load
-        WaitUtil.simpleSleep(10000);
+        WaitUtil.simpleSleep(2000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-3']/div/label[contains(text(),'Investor Type:')]/following-sibling::div/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
+        //wait util page load
+        WaitUtil.simpleSleep(20000);
+    }
+
+    public void enterAndSelectSanFranciscoCity(){
+        //wait until page load
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/div/input")).sendKeys("San Francisco");
+        WaitUtil.simpleSleep(1000);
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/div/div/div/div[@class='col-md-9']/label[contains(text(),'San Francisco (California)')]")).click();
+        findElement(By.xpath("//div[@id='ui-accordion-1-panel-0']/div/div/div/div/strong[contains(text(),'Cities:')]/parent::div/div/multi-selectbox/div/div/span[@class='arrow glyphicon glyphicon-chevron-down']")).click();
     }
 
 }

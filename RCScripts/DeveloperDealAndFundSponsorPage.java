@@ -17,7 +17,7 @@ public class DeveloperDealAndFundSponsorPage extends FluentWebDriverPage{
     public void verifyFindSearch(int RowIndex){
         try{
             String strFindText = ReadData.readDataExcel("DealSponsorDeveloperFund", RowIndex, "VerifyFindSearch");
-            String strText = findElement(By.xpath("//div[@id='searchFilters']/div/span/strong")).getText();
+            String strText = findElement(By.xpath("//div[@id='searchFilters']/div[1]/span[1]/strong")).getText();
             Assert.assertTrue(strFindText,strText.contains(strFindText));
         } catch (Exception e) {
             System.out.println(e);
@@ -27,7 +27,7 @@ public class DeveloperDealAndFundSponsorPage extends FluentWebDriverPage{
     public void verifySubRoleSearch(int RowIndex){
         try{
             String strSubRoleText = ReadData.readDataExcel("DealSponsorDeveloperFund", RowIndex, "VerifySubRoleSearch");
-            String strText = findElement(By.xpath("//div[@id='searchFilters']/div/span/strong[contains(text(),'"+strSubRoleText+"')]")).getText();
+            String strText = findElement(By.xpath("//div[@id='searchFilters']/div[1]/span[2]/strong")).getText();
             Assert.assertTrue(strSubRoleText,strText.contains(strSubRoleText));
         } catch (Exception e) {
             System.out.println(e);
